@@ -84,7 +84,7 @@ You can enter almost any valid C++ expression at the debug console - even functi
 <img src="images/debug_feature_console_2.png" width="800px" />
 
 
-## Diagnosing Crashes
+## Diagnose Crashes
 
 You can use a debugger to assess the cause of a crash or runtime error, including:
 
