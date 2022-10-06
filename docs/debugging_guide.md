@@ -116,6 +116,8 @@ Let's run in a debugger and let it crash there. No need to set any breakpoints.
 
 <img src="images/debug_crash_0.png" width="800px" />
 
+From the above, we can quickly see the line where the segfault occurs. We also observe that `p1->get_name()` crashes because `p1` is a null pointer, as seen in the variables panel. Ah ha - we just mistyped `p1` on this line instead of `p2`.
+
 TODO, maybe another example where you need to look at the calling context via the call stack
 
 **Crash in Library Code**  
