@@ -26,15 +26,40 @@ Use the **variables panel** to inspect the values of variables while your debugg
 **Example, Project 3 - Euchre**  
 There's a lot to keep track of in a game of Euchre. I'd like to check that everything seems in order after I've dealt out the cards and the players have finished making.
 
-TODO screenshot from euchre
+When the debugger pauses at my breakpoint, I can see what's in my local variables:
 
-TODO local variables
+<img src="images/debug_feature_variables_0.png" width="700px" />
 
-TODO member functions - open up this object
+You can see some variables directly. For example, `trump` is currently `"Hearts"`.
 
-TODO note about uninitialized variables - ok if you just haven't gotten there yet
+Variables may contain "memory junk". `i` is currently `-11632`. That's expected in this case, because we just haven't run the line `int i=0;` quite yet. In other cases, bogus values might indicate a bug!
 
-TODO: `-exec set print object on` to view polymorphic objects according to dynamic type
+You can click on more complex variables like pointers, arrays, or classes to inspect their contents. Below, I've expanded the `leader` variable to see the `Player` it is pointing to, then also expanded the `cards` array to take a look at their current hand.
+
+<img src="images/debug_feature_variables_1.png" width="700px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+
+**Heads up!** You may need to configure your debugger to ensure full information is shown for polymorphic objects through pointers. In the example above, the `leader` variable is a `Player*` pointing to a `SimplePlayer` object. By default, the debugger may only show the base class `Player` data.
+
+To fix this in VS Code, run `-exec set print object on` from the debug console, or add the following to the `setupCommands` in your `launch.json` configuration:
+
+```json
+  "setupCommands": [
+      ...
+      {
+        "description": "Print polymorphic objects according to dynamic type",
+        "text": "set print object on"
+      }
+      ...
+  ]
+```
+{: data-variant="legacy" }
+</div>
+
+In **member functions**, you can also open up the `this` pointer. In our Euchre example, we'd see member variables from the current `Game` class instance:
+
+<img src="images/debug_feature_variables_2.png" width="700px" />
 
 ### Evaluate Expressions
 
