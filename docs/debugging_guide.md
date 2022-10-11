@@ -14,10 +14,73 @@ TODO disclaimer that some code is blurred, functions shown are not necessarily i
 
 TODO specific examples from projects are used, but you don't need to be familiar with the project to understand the example
 
+## Diagnose Crashes
 
-# Inspect Program State
+You can use a debugger to assess the cause of a crash or runtime error, including:
 
-## Local Variables
+- Failed debugging assertions
+- Undefined behavior detected by sanitizer tools
+- Segmentation faults
+- Unhandled exceptions
+- And more!
+
+Basically, if your code is doing something bad:
+1. Run through the debugger. No breakpoints needed.
+2. The debugger pauses when the error occurs.
+3. You look at local variables, the call stack, etc. to diagnose the issue
+
+Here's several examples:
+
+### Crash in _My_ Code
+
+I'm working on project 3 and run my own `Player_tests.exe` via the terminal:
+
+```console
+$ ./Player_tests.exe
+Running test: test_get_name
+Segmentation fault
+```
+
+My code crashed with a segmentation fault, but I don't know much else.
+
+Let's run in a debugger and let it crash there. No need to set any breakpoints.
+
+<img src="images/debug_crash_0.png" width="800px" />
+
+From the above, we can quickly see the line where the segfault occurs. We also observe that `p1->get_name()` crashes because `p1` is `0x0` (a null pointer), as seen in the variables panel. Ah ha - we just mistyped `p1` on this line instead of `p2`.
+
+TODO, maybe another example where you need to look at the calling context via the call stack
+
+### Crash in _Library/System_ Code
+TODO make this section a bit more unified. Show examples of
+- crash in implicitly defined functions
+- crash in library code
+- crash in "assembly" (if I can get a screenshot of this)
+
+Then use ONLY one of those as an example of exploring outward in the call stack
+
+**Crash in Implicitly Defined Functions**  
+There are some implicitly-defined functions that compiler provides for you, for example an implicitly-defined constructor or assignment operator for a class.
+
+What happens if a crash occurs in these functions? Because these functions aren't present in your source code, the compiler just highlights the top line of the corresponding class definition:
+
+<img src="images/debug_crash_3.png" width="800px" />
+
+In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
+
+<img src="images/debug_crash_4.png" width="400px" />
+
+Now, click the next stack frame below to see the where that operator was used. It was in our `Pack` constructor. That code doesn't seem right...let's just assume "my partner wrote that".
+
+<img src="images/debug_crash_5.png" width="800px" />
+
+In all seriousness, taking a look at the _calling_ stack frame(s) allows me to see where the problem originated and is generally sufficient to figure out what part of _my_ code was responsible for causing the implicitly-defined function to crash.
+
+
+
+## Inspect Program State
+
+### Local Variables
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 Use the **variables panel** to inspect the values of variables while your debugger is paused.
@@ -62,10 +125,10 @@ In **member functions**, you can also open up the `this` pointer. In our Euchre 
 <img src="images/debug_feature_variables_2.png" width="700px" />
 
 
-## The Call Stack
+### The Call Stack
 TODO
 
-## Evaluate Expressions
+### Evaluate Expressions
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 Use the **debug console** to evaluate expressions while your debugger is paused.
@@ -89,7 +152,7 @@ You can enter almost any valid C++ expression at the debug console - even functi
 
 <img src="images/debug_feature_console_2.png" width="800px" />
 
-## Debug Logging
+### Debug Logging
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 In _some_ situations, **logging additional output via print statements** may be more efficient than manually stepping line-by-line with a debugger. For example, debugging a loop across many iterations or generating verbose output for quick inspection.
@@ -130,11 +193,11 @@ The _Queen of Clubs_ is chosen to beat out the _Ten of Diamonds_, which is wrong
 
 
 
-# Navigating Code
+## Navigating Code
 
-## Breakpoints
+### Breakpoints
 
-### Basic Usage
+#### Basic Usage
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 A **breakpoint** pauses the program whenever it reaches a certain line.
@@ -156,7 +219,7 @@ Now, I can inspect the `summary` variable and see if my `summarize()` function w
 If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code, double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
 </div>
 
-### Conditional Breakpoints
+#### Conditional Breakpoints
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 A **conditional breakpoint** pauses the program at a certain line _only_ if a given condition is true.
@@ -197,7 +260,7 @@ Unfortunately, not all functions will be available to the debugger, including th
 
 
 
-### Breakpoint in Branch
+#### Breakpoint in Branch
 
 TODO: this is about adding an if() to your code and then putting in a no-op line where you can place a breakpoint. This works in a wider set of cases than conditional breakpoints, which can be finicky. Drawback is it requires modifying source and recompiling (but that's generally low effort for our use cases).
 
@@ -205,68 +268,12 @@ Consider a case where I'm debugging my project 3 driver, but I find that the fir
 
 <img src="images/debug_conditional_breakpoint_3.png" width="700px" />
 
-### Watchpoints
+#### Watchpoints
 
 TODO - could probably be left out of a first draft
 
 
 
-
-# Diagnose Crashes
-
-You can use a debugger to assess the cause of a crash or runtime error, including:
-
-- Failed debugging assertions
-- Undefined behavior detected by sanitizer tools
-- Segmentation faults
-- Unhandled exceptions
-- And more!
-
-Basically, if your code is doing something bad:
-1. Run through the debugger. No breakpoints needed.
-2. The debugger pauses when the error occurs.
-3. You look at local variables, the call stack, etc. to diagnose the issue
-
-Here's several examples:
-
-**Basic Example**  
-I'm working on project 3 and run my own `Player_tests.exe` via the terminal:
-
-```console
-$ ./Player_tests.exe
-Running test: test_get_name
-Segmentation fault
-```
-
-My code crashed with a segmentation fault, but I don't know much else.
-
-Let's run in a debugger and let it crash there. No need to set any breakpoints.
-
-<img src="images/debug_crash_0.png" width="800px" />
-
-From the above, we can quickly see the line where the segfault occurs. We also observe that `p1->get_name()` crashes because `p1` is a null pointer, as seen in the variables panel. Ah ha - we just mistyped `p1` on this line instead of `p2`.
-
-TODO, maybe another example where you need to look at the calling context via the call stack
-
-**Crash in Library Code**  
-TODO
-
-**Crash in Implicitly Defined Functions**  
-There are some implicitly-defined functions that compiler provides for you, for example an implicitly-defined constructor or assignment operator for a class.
-
-What happens if a crash occurs in these functions? Because these functions aren't present in your source code, the compiler just highlights the top line of the corresponding class definition:
-
-<img src="images/debug_crash_3.png" width="800px" />
-
-In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
-
-<img src="images/debug_crash_4.png" width="400px" />
-
-Now, click the next stack frame below to see the where that operator was used. It was in our `Pack` constructor. That code doesn't seem right...let's just assume "my partner wrote that".
-
-<img src="images/debug_crash_5.png" width="800px" />
-
-In all seriousness, taking a look at the _calling_ stack frame(s) allows me to see where the problem originated and is generally sufficient to figure out what part of _my_ code was responsible for causing the implicitly-defined function to crash.
 
 
 
