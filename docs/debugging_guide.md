@@ -65,16 +65,34 @@ In **member functions**, you can also open up the `this` pointer. In our Euchre 
 
 ### Basic Usage
 
-TODO note about breakpoints not being respected, remember to recompile, etc.
+<div class="primer-spec-callout info icon-info" markdown="1">
+A **breakpoint** pauses the program whenever it reaches a certain line.
+</div>
 
-TODO Condtional breakpoints
+For example, if you're running the main driver for project 1 and your dataset summary doesn't print out correctly, you might want to pause the program after the summary has been calculated but before printing it out.
+
+To set a breakpoint, click to the left of a line as shown. A red dot appears to indicate the breakpoint on that line. (You can click again to unset it.)
+
+<img src="images/debug_breakpoint_0.png" width="700px" />
+
+Now, when I run the program via my debugger, it pauses just **before** running that line. That is, the highlighted line is up next, but has not run yet.
+
+<img src="images/debug_breakpoint_1.png" width="700px" />
+
+Now, I can inspect the `summary` variable and see if my `summarize()` function was returning the right result.
+
+<div class="primer-spec-callout warning" markdown="1">
+If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code, double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
+</div>
 
 ### Watchpoints
+
+TODO
 
 ### Conditional Breakpoints
 
 <div class="primer-spec-callout info icon-info" markdown="1">
-A **conditional breakpoint** pauses the debugger only when certain criteria are met.
+A **conditional breakpoint** pauses the program at a certain line _only_ if a given condition is true.
 
 It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Conditional](#breakpoint_in_conditional) strategy.)
 </div>
