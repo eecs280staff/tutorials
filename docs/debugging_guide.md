@@ -15,8 +15,9 @@ TODO disclaimer that some code is blurred, functions shown are not necessarily i
 TODO specific examples from projects are used, but you don't need to be familiar with the project to understand the example
 
 
+# Inspect Program State
 
-## Inspect Variables
+## Local Variables
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 Use the **variables panel** to inspect the values of variables while your debugger is paused.
@@ -61,91 +62,8 @@ In **member functions**, you can also open up the `this` pointer. In our Euchre 
 <img src="images/debug_feature_variables_2.png" width="700px" />
 
 
-## Breakpoints
-
-### Basic Usage
-
-<div class="primer-spec-callout info icon-info" markdown="1">
-A **breakpoint** pauses the program whenever it reaches a certain line.
-</div>
-
-For example, if you're running the main driver for project 1 and your dataset summary doesn't print out correctly, you might want to pause the program after the summary has been calculated but before printing it out.
-
-To set a breakpoint, click to the left of a line as shown. A red dot appears to indicate the breakpoint on that line. (You can click again to unset it.)
-
-<img src="images/debug_breakpoint_0.png" width="700px" />
-
-Now, when I run the program via my debugger, it pauses just **before** running that line. That is, the highlighted line is up next, but has not run yet.
-
-<img src="images/debug_breakpoint_1.png" width="700px" />
-
-Now, I can inspect the `summary` variable and see if my `summarize()` function was returning the right result.
-
-<div class="primer-spec-callout warning" markdown="1">
-If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code, double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
-</div>
-
-### Watchpoints
-
+## The Call Stack
 TODO
-
-### Conditional Breakpoints
-
-<div class="primer-spec-callout info icon-info" markdown="1">
-A **conditional breakpoint** pauses the program at a certain line _only_ if a given condition is true.
-
-It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Conditional](#breakpoint_in_conditional) strategy.)
-</div>
-
-Let's say I'm working on my projet 3 Euchre driver and I want to investigate a bug that doesn't show up until hand 7, which is pretty far into the game. It would be a bit tedious to step to this point manually.
-
-Instead, let's set a conditional breakpoint to pause the debugger at the line below, but _only_ if `hand` is `7`.
-
-<img src="images/debug_conditional_breakpoint_0.png" width="700px" />
-
-In VS Code, right click to the left of the line number. Select "Add Conditional Breakpoint..."
-
-<img src="images/debug_conditional_breakpoint_1.png" width="700px" />
-
-We're prompted to enter a condition. In this case, we type `hand == 3` and hit enter:
-
-<img src="images/debug_conditional_breakpoint_2.png" width="700px" />
-
-Now, when I run the program through the debugger, the breakpoint only triggers at the start of hand 3. I could follow up by stepping into the `play_hand()` function to further investigate.
-
-<div class="primer-spec-callout warning" markdown="1">
-
-**Pitfall!** It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Conditional](#breakpoint_in_conditional) strategy.)
-
-For example, let's say we want to break if the player is "Barbara" and use this condition:
-```c++
-player->get_name() == "Barbara"
-```
-{: data-variant="legacy" }
-
-However, in the above example, `gdb` (which underlies the VS Code debugger on Windows+WSL and Linux) can't find the appropriate `std::string::operator==` to compare the two.
-
-Unfortunately, not all functions will be available to the debugger, including those that have been inlined (i.e. optimized out by the compiler) or function templates that weren't instantiated during compilation. Overload resolution is also limited, and the debugger can't insert implicit conversions (e.g. from cstring to c++ `std::string`) everywhere that a compiler can.
-</div>
-
-
-
-### Breakpoint in Conditional
-
-Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
-
-<img src="images/debug_conditional_breakpoint_3.png" width="700px" />
-
-
-Then, add a condition:
-
-TODO: pitfalls
-- functions that have been inlined/optimized out
-- 
-
-Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
-
-<img src="images/debug_conditional_breakpoint_0.png" width="700px" />
 
 ## Evaluate Expressions
 
@@ -171,8 +89,130 @@ You can enter almost any valid C++ expression at the debug console - even functi
 
 <img src="images/debug_feature_console_2.png" width="800px" />
 
+## Debug Logging
 
-## Diagnose Crashes
+<div class="primer-spec-callout info icon-info" markdown="1">
+In _some_ situations, **logging additional output via print statements** may be more efficient than manually stepping line-by-line with a debugger. For example, debugging a loop across many iterations or generating verbose output for quick inspection.
+</div>
+
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+
+**Tip:** When adding print statements to log debug info:  
+- Use a prefix like `"DEBUG: "` to clearly distinguish from other output.
+- Take some time to format them nicely so it's easier to see what's going on.
+- Use `endl` for newlines (don't use `\n`). This guarantees you see the output, even if your code crashes.
+- Comment out your debug outputs once you're done (rather than deleting them). You might use them again later!
+</div>
+
+**Example, Project 3 - Euchre**  
+I'm getting the wrong output in my project 3 Euchre program on a public test.
+
+Let's look at my output vs. the sample correct output in the VS Code diff checker. The players are playing the right cards, but the wrong person takes the trick.
+
+<img src="images/debug_print_0.png" width="800px" />
+
+I've also identified the relevant portion of my code:
+
+<img src="images/debug_print_1.png" width="500px" />
+
+I might be tempted to dive in with my debugger, but it will take a while to step to the right place (especially if the first mismatch was even farther into the game). I could also get a bit lost trying to manually walk through the card comparisons one-at-a-time.
+
+We could get the same information quickly with some debug printouts:
+
+<img src="images/debug_print_2.png" width="800px" />
+
+Then, scan the output for the relevant portion:
+
+<img src="images/debug_print_3.png" width="600px" />
+
+The _Queen of Clubs_ is chosen to beat out the _Ten of Diamonds_, which is wrong. The _Ten of Diamonds_ is better because _diamonds_ is the led suit. Ah ha - we may notice that the wrong version of `Card_less()` is used in the code above, which doesn't consider the led suit.
+
+
+
+# Navigating Code
+
+## Breakpoints
+
+### Basic Usage
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+A **breakpoint** pauses the program whenever it reaches a certain line.
+</div>
+
+For example, if you're running the main driver for project 1 and your dataset summary doesn't print out correctly, you might want to pause the program after the summary has been calculated but before printing it out.
+
+To set a breakpoint, click to the left of a line as shown. A red dot appears to indicate the breakpoint on that line. (You can click again to unset it.)
+
+<img src="images/debug_breakpoint_0.png" width="700px" />
+
+Now, when I run the program via my debugger, it pauses just **before** running that line. That is, the highlighted line is up next, but has not run yet.
+
+<img src="images/debug_breakpoint_1.png" width="700px" />
+
+Now, I can inspect the `summary` variable and see if my `summarize()` function was returning the right result.
+
+<div class="primer-spec-callout warning" markdown="1">
+If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code, double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
+</div>
+
+### Conditional Breakpoints
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+A **conditional breakpoint** pauses the program at a certain line _only_ if a given condition is true.
+
+It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Branch](#breakpoint-in-branch) strategy.)
+</div>
+
+Let's say I'm working on my projet 3 Euchre driver and I want to investigate a bug that doesn't show up until hand 7, which is pretty far into the game. It would be a bit tedious to step to this point manually.
+
+Instead, let's set a conditional breakpoint to pause the debugger at the line below, but _only_ if `hand` is `7`.
+
+<img src="images/debug_conditional_breakpoint_0.png" width="700px" />
+
+In VS Code, right click to the left of the line number. Select "Add Conditional Breakpoint..."
+
+<img src="images/debug_conditional_breakpoint_1.png" width="700px" />
+
+We're prompted to enter a condition. In this case, we type `hand == 3` and hit enter:
+
+<img src="images/debug_conditional_breakpoint_2.png" width="700px" />
+
+Now, when I run the program through the debugger, the breakpoint only triggers at the start of hand 3. I could follow up by stepping into the `play_hand()` function to further investigate.
+
+<div class="primer-spec-callout warning" markdown="1">
+
+**Pitfall!** It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Branch](#breakpoint-in-branch) strategy.)
+
+For example, let's say we want to break if the player is "Barbara" and use this condition:
+```c++
+player->get_name() == "Barbara"
+```
+{: data-variant="legacy" }
+
+However, in the above example, `gdb` (which underlies the VS Code debugger on Windows+WSL and Linux) can't find the appropriate `std::string::operator==` to compare the two.
+
+Unfortunately, not all functions will be available to the debugger, including those that have been inlined (i.e. optimized out by the compiler) or function templates that weren't instantiated during compilation. Overload resolution is also limited, and the debugger can't insert implicit conversions (e.g. from cstring to c++ `std::string`) everywhere that a compiler can.
+</div>
+
+
+
+### Breakpoint in Branch
+
+TODO: this is about adding an if() to your code and then putting in a no-op line where you can place a breakpoint. This works in a wider set of cases than conditional breakpoints, which can be finicky. Drawback is it requires modifying source and recompiling (but that's generally low effort for our use cases).
+
+Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
+
+<img src="images/debug_conditional_breakpoint_3.png" width="700px" />
+
+### Watchpoints
+
+TODO - could probably be left out of a first draft
+
+
+
+
+# Diagnose Crashes
 
 You can use a debugger to assess the cause of a crash or runtime error, including:
 
@@ -231,45 +271,6 @@ In all seriousness, taking a look at the _calling_ stack frame(s) allows me to s
 
 
 
-
-## DEBUG Print Statements
-
-<div class="primer-spec-callout info icon-info" markdown="1">
-In _some_ situations, adding **DEBUG print statements** may be more efficient than manually stepping line-by-line with a debugger. For example, debugging a loop across many iterations or generating verbose output for quick inspection.
-</div>
-
-
-<div class="primer-spec-callout info icon-info" markdown="1">
-
-**Tip:** When adding print statements for debugging:  
-- Use a prefix like `"DEBUG: "` to clearly distinguish from other output.
-- Take some time to format them nicely so it's easier to see what's going on.
-- Use `endl` for newlines (don't use `\n`). This guarantees you see the output, even if your code crashes.
-- Comment out your debug outputs once you're done (rather than deleting them). You might use them again later!
-</div>
-
-**Example, Project 3 - Euchre**  
-I'm getting the wrong output in my project 3 Euchre program on a public test.
-
-Let's look at my output vs. the sample correct output in the VS Code diff checker. The players are playing the right cards, but the wrong person takes the trick.
-
-<img src="images/debug_print_0.png" width="800px" />
-
-I've also identified the relevant portion of my code:
-
-<img src="images/debug_print_1.png" width="500px" />
-
-I might be tempted to dive in with my debugger, but it will take a while to step to the right place (especially if the first mismatch was even farther into the game). I could also get a bit lost trying to manually walk through the card comparisons one-at-a-time.
-
-We could get the same information quickly with some debug printouts:
-
-<img src="images/debug_print_2.png" width="800px" />
-
-Then, scan the output for the relevant portion:
-
-<img src="images/debug_print_3.png" width="600px" />
-
-The _Queen of Clubs_ is chosen to beat out the _Ten of Diamonds_, which is wrong. The _Ten of Diamonds_ is better because _diamonds_ is the led suit. Ah ha - we may notice that the wrong version of `Card_less()` is used in the code above, which doesn't consider the led suit.
 
 
 
