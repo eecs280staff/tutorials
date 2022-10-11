@@ -14,8 +14,9 @@ TODO disclaimer that some code is blurred, functions shown are not necessarily i
 
 TODO specific examples from projects are used, but you don't need to be familiar with the project to understand the example
 
-## Inspect Variables
 
+
+## Inspect Variables
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 Use the **variables panel** to inspect the values of variables while your debugger is paused.
@@ -30,9 +31,9 @@ When the debugger pauses at my breakpoint, I can see what's in my local variable
 
 You can see some variables directly. For example, `trump` is currently `"Hearts"`.
 
-Variables may contain "memory junk". `i` is currently `-11632`. That's expected in this case, because we just haven't run the line `int i=0;` quite yet. In other cases, bogus values might indicate a bug!
+Variables may contain **"memory junk"**. `i` is currently `-11632`. That's expected in this case, because we just haven't run the line `int i=0;` quite yet. In other cases, bogus values might indicate a bug!
 
-You can click on more complex variables like pointers, arrays, or classes to inspect their contents. Below, I've expanded the `leader` variable to see the `Player` it is pointing to, then also expanded the `cards` array to take a look at their current hand.
+You can **click to expand** more complex variables like pointers, arrays, or classes to inspect their contents. Below, I've expanded the `leader` variable to see the `Player` it is pointing to, then also expanded the `cards` array to take a look at their current hand.
 
 <img src="images/debug_feature_variables_1.png" width="700px" />
 
@@ -58,6 +59,75 @@ To fix this in VS Code, run `-exec set print object on` from the debug console, 
 In **member functions**, you can also open up the `this` pointer. In our Euchre example, we'd see member variables from the current `Game` class instance:
 
 <img src="images/debug_feature_variables_2.png" width="700px" />
+
+
+## Breakpoints
+
+### Basic Usage
+
+TODO note about breakpoints not being respected, remember to recompile, etc.
+
+TODO Condtional breakpoints
+
+### Watchpoints
+
+### Conditional Breakpoints
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+A **conditional breakpoint** pauses the debugger only when certain criteria are met.
+
+It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Conditional](#breakpoint_in_conditional) strategy.)
+</div>
+
+Let's say I'm working on my projet 3 Euchre driver and I want to investigate a bug that doesn't show up until hand 7, which is pretty far into the game. It would be a bit tedious to step to this point manually.
+
+Instead, let's set a conditional breakpoint to pause the debugger at the line below, but _only_ if `hand` is `7`.
+
+<img src="images/debug_conditional_breakpoint_0.png" width="700px" />
+
+In VS Code, right click to the left of the line number. Select "Add Conditional Breakpoint..."
+
+<img src="images/debug_conditional_breakpoint_1.png" width="700px" />
+
+We're prompted to enter a condition. In this case, we type `hand == 3` and hit enter:
+
+<img src="images/debug_conditional_breakpoint_2.png" width="700px" />
+
+Now, when I run the program through the debugger, the breakpoint only triggers at the start of hand 3. I could follow up by stepping into the `play_hand()` function to further investigate.
+
+<div class="primer-spec-callout warning" markdown="1">
+
+**Pitfall!** It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Conditional](#breakpoint_in_conditional) strategy.)
+
+For example, let's say we want to break if the player is "Barbara" and use this condition:
+```c++
+player->get_name() == "Barbara"
+```
+{: data-variant="legacy" }
+
+However, in the above example, `gdb` (which underlies the VS Code debugger on Windows+WSL and Linux) can't find the appropriate `std::string::operator==` to compare the two.
+
+Unfortunately, not all functions will be available to the debugger, including those that have been inlined (i.e. optimized out by the compiler) or function templates that weren't instantiated during compilation. Overload resolution is also limited, and the debugger can't insert implicit conversions (e.g. from cstring to c++ `std::string`) everywhere that a compiler can.
+</div>
+
+
+
+### Breakpoint in Conditional
+
+Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
+
+<img src="images/debug_conditional_breakpoint_3.png" width="700px" />
+
+
+Then, add a condition:
+
+TODO: pitfalls
+- functions that have been inlined/optimized out
+- 
+
+Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
+
+<img src="images/debug_conditional_breakpoint_0.png" width="700px" />
 
 ## Evaluate Expressions
 
@@ -132,7 +202,7 @@ What happens if a crash occurs in these functions? Because these functions aren'
 
 In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
 
-<img src="images/debug_crash_4.png" width="800px" />
+<img src="images/debug_crash_4.png" width="400px" />
 
 Now, click the next stack frame below to see the where that operator was used. It was in our `Pack` constructor. That code doesn't seem right...let's just assume "my partner wrote that".
 
