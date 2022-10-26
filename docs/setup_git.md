@@ -94,7 +94,7 @@ main_test.in  p1_library.cpp         stats.h
 
 Next, add a `.gitignore` file.  This will prevent Git from controlling files like compiled binaries.  We have a sample for you to download.  It's a hidden file (starts with a dot `.`), so you'll need to use `ls -A` to see it.  This sample is pre-configured to work with most C++ projects, so use the same sample file for all EECS 280 projects.
 ```console
-$ wget https://eecs280staff.github.io/p1-stats/dot_gitignore_sample -O .gitignore
+$ wget https://eecs280staff.github.io/tutorials/dot_gitignore_sample -O .gitignore
 $ ls -A
 .gitignore     ...
 ```
