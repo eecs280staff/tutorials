@@ -53,8 +53,8 @@ main.cpp     main_test_data.tsv     stats.cpp       stats_tests.cpp
 
 You should have function stubs in `stats.h` and `main.cpp`.  If you simply want to download a copy with the stubs already in place, use these commands.
 ```console
-$ wget --no-clobber https://eecs280staff.github.io/p1-stats/stats.cpp -O stats.cpp
-$ wget --no-clobber https://eecs280staff.github.io/p1-stats/main.cpp -O main.cpp
+$ wget --no-clobber https://eecs280staff.github.io/tutorials/stats.cpp -O stats.cpp
+$ wget --no-clobber https://eecs280staff.github.io/tutorials/main.cpp -O main.cpp
 ```
 
 

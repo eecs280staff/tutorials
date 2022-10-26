@@ -30,7 +30,7 @@ CXXFLAGS = --std=c++11 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=
 
 **Visual Studio:** Address sanitizer is enabled by default.
 
-**Xcode:** Enable the address sanitizer and undefined behavior sanitizer with this ([tutorial](https://eecs280staff.github.io/p1-stats/setup_xcode.html#sanitizers)).
+**Xcode:** Enable the address sanitizer and undefined behavior sanitizer with this ([tutorial](setup_xcode.html#sanitizers)).
 
 
 ## Example without Address Sanitizer

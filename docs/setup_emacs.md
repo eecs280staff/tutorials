@@ -32,7 +32,7 @@ Learn keyboard shortcuts with this [Emacs Cheat Sheet for beginners](http://sach
 Get a copy of our beginner `init.el` file and install third party Emacs packages.
 ```console
 $ mkdir ~/.emacs.d
-$ wget --no-clobber https://eecs280staff.github.io/p1-stats/init.el -O ~/.emacs.d/init.el
+$ wget --no-clobber https://eecs280staff.github.io/tutorials/init.el -O ~/.emacs.d/init.el
 $ emacs --batch -l ~/.emacs.d/init.el
 ```
 
@@ -115,7 +115,7 @@ The out-of-the-box Emacs configuration is terrible.  Some users start with *Spac
 Get a copy of our sample `init.el` and install third party Emacs packages.
 ```console
 $ mkdir -p ~/.emacs.d
-$ wget --no-clobber https://eecs280staff.github.io/p1-stats/init.el -O ~/.emacs.d/init.el
+$ wget --no-clobber https://eecs280staff.github.io/tutorials/init.el -O ~/.emacs.d/init.el
 $ emacs --batch -l ~/.emacs.d/init.el
 ```
 

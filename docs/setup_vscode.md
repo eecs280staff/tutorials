@@ -359,7 +359,7 @@ Find the appropriate configuration below based on your computer and operating sy
 ## Intellisense
 Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  We'll configure the C/C++ Extension's intellisense features to support C++11.
 
-First, you should already have the `C/C++` extension installed ([Instructions](https://eecs280staff.github.io/p1-stats/setup_vscode.html#install-the-cc-extension)).
+First, you should already have the `C/C++` extension installed ([Instructions](setup_vscode.html#install-the-cc-extension)).
 
 Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `ctrl + shift + P` on Windows or `cmd + shift + P` on macOS.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
 
