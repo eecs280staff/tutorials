@@ -4,8 +4,8 @@ title: Setup VSCode
 sitemapOrder: 20
 ---
 
-Setting up VS Code
-==================
+Setting up VS Code for C/C++
+===========================
 {: .primer-spec-toc-ignore }
 
 [Visual Studio Code](https://code.visualstudio.com/) is a lightweight, easy-to-use, source code editor with debugging support.  It run on macOS, Windows, and Linux (including CAEN Linux).  Visual Studio Code is not the same program as Visual Studio.
@@ -18,7 +18,7 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 There are no prerequisites for VS Code.
 
 ## Restart
-If you tried using this tutorial in the past and want to "start clean", here's how to delete all VS Code configuration files.  This will not delete your code.  First, quit VS Code.
+If you tried using this tutorial in the past and want to "start clean", here's how to delete all VS Code configuration files.  This will not delete your code.  First, quit VS Code.  Your project directory might be different.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
@@ -123,7 +123,7 @@ $ code --uninstall-extension vadimcn.vscode-lldb
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders and files that work with VS Code: Finder AKA File Explorer, VS Code graphical user interface, VS Code integrated terminal, and the system terminal.  We'll use the terminal.
 
-Navigate to a directory where you will store your EECS 280 projects, create a directory, then move into the new directory. (`awdeorio` likes to use a directory called `src` in his home directory.)  Your folder location might be different.
+Navigate to the directory where you store your projects, create a new directory, then move into the new directory. (`awdeorio` likes to use a directory called `src` in his home directory.)  Your folder location might be different.
 ```console
 $ cd /Users/awdeorio/src/eecs280
 $ mkdir p1-stats
@@ -144,7 +144,7 @@ $ code .
 ### Add existing files
 If you have starter files, add them to your project directory.  We'll download some files and put them in a subdirectory called `src`.
 
-Download starter files, unpack, and move to `src` subdirectory.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+Download starter files, unpack, and move to `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
@@ -287,7 +287,7 @@ Select the file you would like to run.  Navigate to the debugging pane.
 
 <img src="images/vscode030.png" width="768px" />
 
-Click "Run and Debug".
+Click "create a launch.json file".
 
 <img src="images/vscode031.png" width="768px" />
 
@@ -303,9 +303,22 @@ Select a "Launch" configuration.  This will create a default `launch.json` ([Mic
 
 Edit the `program` field in `launch.json` with the program to run.  Your `launch.json` might be different.
 
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Pitfall:** Remember to include the `src` subdirectory.
+</div>
+
 <img src="images/vscode034.png" width="768px" />
 
 Click the triangle to run.
+
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Pitfall:** Remember to build your executable at the command line first.
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats/src
+$ make stats_tests.exe
+```
+</div>
 
 <img src="images/vscode035.png" width="768px" />
 
