@@ -12,15 +12,7 @@ Setting up VS Code
 
 
 ## Prerequisites
-At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
-README.md     main_test_data.tsv     stats.h
-main_test.in  p1_library.cpp         stats_public_test.cpp
-```
+There are no prerequisites for VS Code.
 
 
 ## Restarting this tutorial
@@ -134,7 +126,24 @@ $ code --uninstall-extension vadimcn.vscode-lldb
 
 
 ## Create a project
-VS Code doesn't require any special setup for a project.  However, we'll add some files to our directory.
+To create a VS Code project, create a folder and add files to it.  There are many ways to create folders and files that work with VS Code.  We'll use the terminal.
+- Finder AKA File Explorer
+- VS Code graphical user interface
+- VS Code integrated terminal
+- System terminal
+
+Decide where to store your EECS 280 projects.  For reference, here are some common locations.  You might want to use your Desktop, Documents or Dropbox.
+
+
+At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats
+$ ls
+Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
+README.md     main_test_data.tsv     stats.h
+main_test.in  p1_library.cpp         stats_public_test.cpp
+```
 
 Start VS Code.
 ```console
