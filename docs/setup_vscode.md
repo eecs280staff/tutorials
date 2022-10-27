@@ -176,6 +176,12 @@ In VS Code, open your project folder by selecting `File` > `Open Folder...` > na
 You should see your files.
 <img src="images/vscode022.png" width="768px" />
 
+#### Rename files
+If you need to rename any files, you can do this from VS Code or from the command line.  In EECS 280, you'll need to rename any files that end in `.starter`.
+
+Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
+
+| <img src="images/vscode023.png" width="300px" /> | <img src="images/vscode024.png" width="192px" /> |
 
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
