@@ -71,13 +71,7 @@ $ code --list-extensions
 ms-vscode-remote.remote-wsl
 ```
 
-After the extension is installed, close VS Code and start it from the WSL terminal.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ code .
-```
+After the extension is installed, quit VS Code and start it again.
 
 You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
 
@@ -128,51 +122,84 @@ $ code --uninstall-extension vadimcn.vscode-lldb
 
 
 ## Create a project
-To create a VS Code project, create a folder and add files to it.  There are many ways to create folders and files that work with VS Code.  We'll use the terminal.
-- Finder AKA File Explorer
-- VS Code graphical user interface
-- VS Code integrated terminal
-- System terminal
+To create a VS Code project, create a folder (directory).  There are many ways to create folders and files that work with VS Code: Finder AKA File Explorer, VS Code graphical user interface, VS Code integrated terminal, and the system terminal.  We'll use the terminal.
 
-Decide where to store your EECS 280 projects.  For reference, here are some common locations.  You might want to use your Desktop, Documents or Dropbox.
-
-
-At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
+Navigate to a directory where you will store your EECS 280 projects, create a directory, then move into the new directory. (`awdeorio` likes to use a directory called `src` in his home directory.)  Your folder location might be different.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
-README.md     main_test_data.tsv     stats.h
-main_test.in  p1_library.cpp         stats_public_test.cpp
+$ cd /Users/awdeorio/src/eecs280
+$ mkdir p1-stats
+$ cd p1-stats
 ```
 
-Start VS Code.
+Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
+
+Here's a quick way to do it from the command line.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
 $ code .
 ```
 
+<img src="images/vscode020.png" width="768px" />
+
+### Add existing files
+If you have starter files, add them to your project directory.  We'll download some files and put them in a subdirectory called `src`.
+
+Download starter files, unpack, and move to `src` subdirectory.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mv starter-files src
+$ rm starter-files.tar.gz
+```
+
+At this point, you should have existing files in a `src` subdirectory.
+```console
+$ tree
+.
+└── src
+    ├── Makefile
+    ├── main_test.in
+    ├── main_test.out.correct
+    ├── main_test_data.tsv
+    ├── p1_library.cpp
+    ├── p1_library.h
+    ├── stats.h
+    ├── stats_public_test.cpp
+    └── stats_tests.cpp.starter
+```
+
+In VS Code, open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder or from the command line.
+
+You should see your files.
+<img src="images/vscode022.png" width="768px" />
+
+
 ### Add new files
-EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
+Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-Open the p1-stats folder by selecting `File` > `Open Folder...` > navigate to the p1-stats folder.
-
-Select the add file icon and name the new file `stats.cpp`.  Do this again to create `main.cpp`.
+Select the add file icon and give it a name, e.g., `main.cpp`.
 
 <img src="images/vscode025.png" width="768px" />
 
-You'll also see the new files at the command line.
-```console
-$ ls
-Makefile      main_test.out.correct  p1_library.h  stats_public_test.cpp
-main.cpp      main_test_data.tsv     stats.cpp     stats_tests.cpp
-main_test.in  p1_library.cpp         stats.h
-```
+Here's a sample main program that works with EECS 280 Project 1.
+```c++
+// main.cpp
+// Project UID 5366c7e2b77742d5b2142097e51561a5
+#include "stats.h"
+#include "p1_library.h"
+#include <iostream>
+using namespace std;
 
-#### Project 1 `stats.cpp`
-Now let's modify the files that you created.  Edit `stats.cpp` and add function stubs.  A function stub contains only `assert(false)`; it's like a placeholder that we'll use to get our application to compile.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.
+int main() {
+  cout << "hello from main!\n";
+}
+```
+{: data-title="main.cpp" }
+
+Do this again to create additional files, e.g., the EECS 280 project 1 library `stats.cpp`.  We'll add function stubs.  A function stub contains only `assert(false)`; it's like a placeholder that we'll use to get our application to compile.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.
 ```c++
 // stats.cpp
 // Project UID 5366c7e2b77742d5b2142097e51561a5
@@ -224,23 +251,6 @@ double percentile(vector<double> v, double p) {
 }
 ```
 {: data-title="stats.cpp" }
-
-#### Project 1 `main.cpp`
-Start your `main.cpp` like this.  All it does so far is "hello world".  We'll include a few libraries that will be useful later.
-```c++
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-#include "stats.h"
-#include "p1_library.h"
-#include <iostream>
-using namespace std;
-
-int main() {
-  cout << "hello from main!\n";
-}
-```
-{: data-title="main.cpp" }
-
 
 ## Compile
 VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
