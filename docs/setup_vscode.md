@@ -133,7 +133,7 @@ $ cd p1-stats
 
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-Here's a quick way to do it from the command line.
+Here's a quick way to open VS Code to a specific project folder from the command line.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
