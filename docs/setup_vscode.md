@@ -77,13 +77,7 @@ $ code --list-extensions
 ms-vscode-remote.remote-wsl
 ```
 
-After the extension is installed, close VS Code and start it from the WSL terminal.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ code .
-```
+After the extension is installed, quit VS Code and start it again.
 
 You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
 
@@ -230,32 +224,21 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-
-## Compile
-VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
-
-| Project 1 Target | File with `main()` | Other `.cpp` Build Sources |
-| ------ | --------------- |
-| `stats_tests.exe` | `stats_tests.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_public_test.exe` | `stats_public_test.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_tests.exe` | `main.cpp` | `stats.cpp`, `p1_library.cpp` |
-
+## Compile and Run
+VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.
 
 Compile the executable you plan to run.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
 $ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-**PITFALL:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
 </div>
 
-## Run
 Make sure you can run your executable at the command line.
 ```console
 $ pwd
@@ -265,11 +248,11 @@ test_small_data_set
 PASS!
 ```
 
-Select the file you would like to debug.  Navigate to the debugging pane.
+Select the file you would like to run.  Navigate to the debugging pane.
 
 <img src="images/vscode030.png" width="768px" />
 
-Click "Run and Debug".
+Click "create a launch.json file".
 
 <img src="images/vscode031.png" width="768px" />
 
@@ -288,6 +271,15 @@ Edit the `program` field in `launch.json` with the program to run.  Your `launch
 <img src="images/vscode034.png" width="768px" />
 
 Click the triangle to run.
+
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Pitfall:** Remember to build your executable at the command line first.
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats/src
+$ make stats_tests.exe
+```
+</div>
 
 <img src="images/vscode035.png" width="768px" />
 
