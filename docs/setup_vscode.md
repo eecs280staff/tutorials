@@ -10,6 +10,10 @@ Setting up VS Code
 
 [Visual Studio Code](https://code.visualstudio.com/) is a lightweight, easy-to-use, source code editor with debugging support.  It run on macOS, Windows, and Linux (including CAEN Linux).  Visual Studio Code is not the same program as Visual Studio.
 
+<div class="primer-spec-callout info" markdown="1">
+If you already have VS Code installed with the C/C++ extensions, skip to the [Create a project](#create-a-project) section.
+</div>
+
 ## Prerequisites
 There are no prerequisites for VS Code.
 
@@ -26,11 +30,6 @@ rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 
 ## Install
 Choose your platform below.
-
-<div class="primer-spec-callout info" markdown="1">
-If you already have VS Code installed with C/C++ extensions, skip to the [Create a project](#create-a-project) section.
-</div>
-
 
 ### macOS
 Make sure you have macOS 11.1 or later.
