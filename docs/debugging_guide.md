@@ -191,13 +191,11 @@ Then, scan the output for the relevant portion:
 
 The _Queen of Clubs_ is chosen to beat out the _Ten of Diamonds_, which is wrong. The _Ten of Diamonds_ is better because _diamonds_ is the led suit. Ah ha - we may notice that the wrong version of `Card_less()` is used in the code above, which doesn't consider the led suit.
 
+TODO: is it worth discussing logpoints?
 
+## Breakpoints
 
-## Navigating Code
-
-### Breakpoints
-
-#### Basic Usage
+### Basic Usage
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 A **breakpoint** pauses the program whenever it reaches a certain line.
@@ -219,7 +217,7 @@ Now, I can inspect the `summary` variable and see if my `summarize()` function w
 If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code, double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
 </div>
 
-#### Conditional Breakpoints
+### Conditional Breakpoints
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 A **conditional breakpoint** pauses the program at a certain line _only_ if a given condition is true.
@@ -260,7 +258,7 @@ Unfortunately, not all functions will be available to the debugger, including th
 
 
 
-#### Breakpoint in Branch
+### Breakpoint in Branch
 
 TODO: this is about adding an if() to your code and then putting in a no-op line where you can place a breakpoint. This works in a wider set of cases than conditional breakpoints, which can be finicky. Drawback is it requires modifying source and recompiling (but that's generally low effort for our use cases).
 
@@ -268,14 +266,23 @@ Consider a case where I'm debugging my project 3 driver, but I find that the fir
 
 <img src="images/debug_conditional_breakpoint_3.png" width="700px" />
 
-#### Watchpoints
+### Watchpoints
 
 TODO - could probably be left out of a first draft
 
 
+## Navigating Code
 
+TODO
+- Continue (underappreciated!!)
+- Pause
+- Step Over (underappreciated!!)
+- Step Into
+- Step Out
+- Restart
+- Stop
 
-
+Have one example that shows all of these with a big of dialog on why they're useful and when to use them (and when not to!)
 
 
 
