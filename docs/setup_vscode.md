@@ -429,38 +429,79 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
 {: data-title="launch.json" data-highlight="6" }
 
 ## Debug
-In order to debug, we want our application to stop when we run it.  Set a breakpoint by clicking to the left of a line number.
+Copy this example `main.cpp` into your editor.
+```c++
+#include <iostream>
+#include <vector>
+using namespace std;
+
+double sum (vector<double> data) {
+  double total = 0;
+  for (auto i:data) {
+    total += i;
+  }
+  return total;
+}
+
+int main() {
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << "\n";
+}
+```
+
+Compile and run at the command line.
+```console
+$ make main.exe
+$ ./main.exe
+sum(data) = 60
+```
+
+### Breakpoint
+Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/vscode080.png" width="768px" />
 
-
-Run the debugger.  The yellow indicator highlights the next line of code to be run (in this case, the first line of the program).
+### Run
+Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
 <img src="images/vscode090.png" width="768px" />
 
-Click "Step Over" to run the highlighted line of code all at once.  Our test fails immediately because we haven't implemented `sum()` yet.
+### Step over
+Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/vscode100.png" width="768px" />
 
-Restart the program.
+### Inspect
+Hover over a variable to inspect its value.
 
 <img src="images/vscode110.png" width="768px" />
 
-Click "step into".  You'll see that the cursor enters the function.
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+If you have trouble viewing the contents of a container like this screenshot, see the [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
+<img src="images/vscode140.png" width="480px" />
+</div>
+
+### Step into
+Click "Step Into".  The cursor enters the `sum()` function.
+
+<img src="images/vscode115.png" width="768px" />
 
 <img src="images/vscode120.png" width="768px" />
 
-Click "step over" a few times until you're on this line of code.  Hover over a variable to see its value.
+### Step out
+Click "Step Out".  The `sum()` function completes, and the program pauses again.
+
+<img src="images/vscode125.png" width="768px" />
 
 <img src="images/vscode130.png" width="768px" />
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-If you have trouble viewing the contents of a container like this screenshot, see the [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
+### Continue
+Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-<img src="images/vscode140.png" width="480px" />
-
-</div>
-
+<img src="images/vscode135.png" width="768px" />
 
 ## Troubleshooting
 This section is for common problems and solutions.
