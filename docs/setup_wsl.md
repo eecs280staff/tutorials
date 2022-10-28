@@ -1,11 +1,11 @@
 ---
 layout: spec
-title: Setup WSL (Windows)
+title: Windows command line tools (WSL)
 sitemapOrder: 15
 ---
 
-Installing the Windows Subsystem for Linux (WSL)
-================================================
+Windows Command line tools (WSL)
+================================
 {: .primer-spec-toc-ignore }
 
 The Windows Subsytem for Linux runs native Linux command-line tools directly on Windows.  It includes everything in a regular Ubuntu Linux install.
@@ -76,10 +76,6 @@ Simulate a double-click from the command line in the WSL Bash shell.
 $ cmd.exe /c start babychickens.jpg
 ```
 {: data-variant="no-line-numbers" }
-
-
-## Next steps
-[Return to the main set up tutorial.](setup.html#windows)
 
 
 ## Acknowledgments
