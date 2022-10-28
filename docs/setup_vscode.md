@@ -165,11 +165,11 @@ Open your project folder by selecting `File` > `Open Folder...` > navigate to th
 
 We recommend putting source code in a subdirectory called `src`.  Create the `src` subdirectory if needed.
 
-<img src="images/vscode024.png" width="768px" />
+<img src="images/vscode022.png" width="768px" />
 
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
-<img src="images/vscode025.png" width="768px" />
+<img src="images/vscode023.png" width="768px" />
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
 **Pitfall:** Make sure your new file is in the `src` subdirectory.
@@ -185,6 +185,10 @@ int main() {
 }
 ```
 {: data-title="main.cpp" }
+
+You can create more files if you need to.  EECS 280 students here for project 1 should create a new empty file called `stats.cpp`.
+
+<img src="images/vscode024.png" width="768px" />
 
 ### Add existing files
 If you have starter files, add them to your project `src` subdirectory.
@@ -230,7 +234,7 @@ Right click a file and select "rename".  Change the file name.  In EECS 280, you
 | <img src="images/vscode027.png" width="300px" /> | <img src="images/vscode028.png" width="192px" /> |
 
 ## Compile and Run
-VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.
+VS Code uses an executable you build at the command line.
 
 Compile the executable you plan to run.
 ```console
@@ -238,6 +242,12 @@ $ pwd
 /Users/awdeorio/src/eecs280/p1-stats/src
 $ make clean
 $ make main.exe
+```
+
+Make sure you can run your executable at the command line.
+```console
+$ ./main.exe
+Hello World!
 ```
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
@@ -256,13 +266,6 @@ $ make main.exe
 g++ ... -g main.cpp ...
 ```
 </div>
-
-Make sure you can run your executable at the command line.
-```console
-$ ./stats_tests.exe
-test_small_data_set
-PASS!
-```
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
