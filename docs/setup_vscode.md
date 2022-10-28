@@ -163,7 +163,7 @@ $ code .
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-We recommend putting source code in a subdirectory called `src`.  Create a subdirectory if needed.
+We recommend putting source code in a subdirectory called `src`.  Create the `src` subdirectory if needed.
 
 <img src="images/vscode024.png" width="768px" />
 
@@ -237,7 +237,7 @@ Compile the executable you plan to run.
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats/src
 $ make clean
-$ make stats_tests.exe
+$ make main.exe
 ```
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
@@ -250,6 +250,11 @@ $ pwd
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
 **Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+```console
+$ make clean
+$ make main.exe
+g++ ... -g main.cpp ...
+```
 </div>
 
 Make sure you can run your executable at the command line.
