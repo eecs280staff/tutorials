@@ -237,16 +237,9 @@ Right click a file and select "rename".  Change the file name.  In EECS 280, you
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
-Compile the executable you plan to run.
+Compile and run your executable at the command line.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats/src
-$ make clean
 $ make main.exe
-```
-
-Make sure you can run your executable at the command line.
-```console
 $ ./main.exe
 Hello World!
 ```
@@ -294,7 +287,7 @@ Edit the `program` field in `launch.json` with the program to run.  Your `launch
 
 <img src="images/vscode034.png" width="768px" />
 
-Click the triangle to run.
+Click the triangle to run.  You'll see your program's output in the debug console.
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
 **Pitfall:** Remember to build your executable at the command line first.
