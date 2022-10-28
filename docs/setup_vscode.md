@@ -186,7 +186,7 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-You can create more files if you need to.  EECS 280 students here for project 1 should create a new empty file called `stats.cpp`.
+Create more new files if you need to.  EECS 280 students here for project 1 should create a new empty file called `stats.cpp`.
 
 <img src="images/vscode024.png" width="768px" />
 
