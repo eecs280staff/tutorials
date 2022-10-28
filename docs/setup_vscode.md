@@ -160,6 +160,24 @@ $ code .
 
 <img src="images/vscode020.png" width="768px" />
 
+### Add new files
+Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
+
+Select the add file icon and give it a name, e.g., `main.cpp`.
+
+<img src="images/vscode025.png" width="768px" />
+
+Copy-paste this Hello World program into your `main.cpp`.
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Hello World!\n";
+}
+```
+{: data-title="main.cpp" }
+
 ### Add existing files
 If you have starter files, add them to your project directory.  We'll download some files and put them in a subdirectory called `src`.
 
@@ -201,81 +219,6 @@ Right click a file and select "rename".  Change the file name.  In EECS 280, you
 
 | <img src="images/vscode023.png" width="300px" /> | <img src="images/vscode024.png" width="192px" /> |
 
-### Add new files
-Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
-
-Select the add file icon and give it a name, e.g., `main.cpp`.
-
-<img src="images/vscode025.png" width="768px" />
-
-Here's a sample main program that works with EECS 280 Project 1.
-```c++
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-#include "stats.h"
-#include "p1_library.h"
-#include <iostream>
-using namespace std;
-
-int main() {
-  cout << "hello from main!\n";
-}
-```
-{: data-title="main.cpp" }
-
-Do this again to create additional files, e.g., the EECS 280 project 1 library `stats.cpp`.  We'll add function stubs.  A function stub contains only `assert(false)`; it's like a placeholder that we'll use to get our application to compile.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.
-```c++
-// stats.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-
-#include "stats.h"
-#include <cassert>
-#include <vector>
-#include <cmath>
-using namespace std;
-
-vector<vector<double> > summarize(vector<double> v) {
-  assert(false);
-}
-
-int count(vector<double> v) {
-  assert(false);
-}
-
-double sum(vector<double> v) {
-  assert(false);
-}
-
-double mean(vector<double> v) {
-  assert(false);
-}
-
-double median(vector<double> v) {
-  assert(false);
-}
-
-double mode(vector<double> v) {
-  assert(false);
-}
-
-double min(vector<double> v) {
-  assert(false);
-}
-
-double max(vector<double> v) {
-  assert(false);
-}
-
-double stdev(vector<double> v) {
-  assert(false);
-}
-
-double percentile(vector<double> v, double p) {
-  assert(false);
-}
-```
-{: data-title="stats.cpp" }
-
 ## Compile and Run
 VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.
 
@@ -289,6 +232,10 @@ $ make stats_tests.exe
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
 **Pitfall:** Make sure you're in the `src` subdirectory.
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats/src
+```
 </div>
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
