@@ -47,9 +47,14 @@ $ eval "$(/opt/homebrew/bin/brew shellenv)"
 {: data-variant="no-line-numbers" }
 </div>
 
-## CLI tools
+## Install CLI tools
 Use Homebrew to install a few command line programs that we'll use later.  Your versions might be different.
 ```console
 $ brew install wget git tree
 ```
 {: data-variant="no-line-numbers" }
+
+## Acknowledgments
+Original document written by Andrew DeOrio awdeorio@umich.edu.
+
+This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
