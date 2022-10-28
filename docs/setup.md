@@ -13,7 +13,7 @@ This how-to will walk you through setting up your computer for EECS 280.  At the
 ## Command line tools
 The command line interface (CLI) lets us interact with the computer using the keyboard instead of the mouse.  Select your operating system to install CLI tools.
 
-| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-linux-packages)
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
 After you've installed CLI tools, you should have all these command line programs installed.  Your versions might be different.
 ```console

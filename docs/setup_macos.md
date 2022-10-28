@@ -7,20 +7,23 @@ macOS command line tools
 ========================
 {: .primer-spec-toc-ignore }
 
-The command line interface (CLI) lets us interact with the computer using the keyboard instead of the mouse.  Once you get used to it, it's very powerful and very fast.
+macOS comes with a Terminal and can run UNIX command-line tools directly.
 
 When you see `$` in this tutorial, you should type into your shell the command that comes after the `$`.
 
-macOS has a built-in shell.  Open the "Terminal" application.
+## Open terminal
+macOS has a built-in shell.  Open the Terminal application.
 
-## Compiler
+<img src="images/macos010.png" width="480px" />
+
+## Install compiler
 Install a compiler.
 ```console
 $ xcode-select --install
 ```
 {: data-variant="no-line-numbers" }
 
-Notice that this compiler is really Apple LLVM pretending to be `g++`.
+Notice that this compiler is really Apple LLVM pretending to be `g++`.  Your version might be different.
 ```console
 $ g++ --version
 Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
@@ -30,7 +33,7 @@ Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
-## Homebrew package manager
+## Install package manager
 Install the [Homebrew package manager](https://brew.sh/).
 ```console
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -48,7 +51,7 @@ $ eval "$(/opt/homebrew/bin/brew shellenv)"
 </div>
 
 ## Install CLI tools
-Use Homebrew to install a few command line programs that we'll use later.  Your versions might be different.
+Use the Homebrew package manager to install a few command line programs.
 ```console
 $ brew install wget git tree
 ```

@@ -8,8 +8,9 @@ Windows Command line tools (WSL)
 ================================
 {: .primer-spec-toc-ignore }
 
-The Windows Subsytem for Linux runs native Linux command-line tools directly on Windows.  It includes everything in a regular Ubuntu Linux install.
+The Windows Subsystem for Linux (WSL) runs an Ubuntu Linux guest virtual machine on your Windows host machine.
 
+When you see `$` in this tutorial, you should type into your shell the command that comes after the `$`.
 
 ## Upgrade Windows
 We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will also work.  Here's how to [check your Windows version](https://support.microsoft.com/en-us/help/4027391/windows-10-see-which-version-you-have).
@@ -24,7 +25,7 @@ Start PowerShell and run it as administrator.  Search for PowerShell in the star
 
 Next, follow the instructions from Microsoft: [https://docs.microsoft.com/en-us/windows/wsl/install](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10).  Be sure to select "Ubuntu Linux".
 
-## Install Linux packages
+### Open terminal
 Start an Ubuntu Bash shell (not a Windows PowerShell).
 
 <img src="images/wsl020.png" width="240px" />
@@ -33,18 +34,12 @@ An Ubuntu Bash shell is a terminal that looks like this.
 
 <img src="images/wsl030.png" width="480px" />
 
-You can now use Ubuntu Linux command line tools, including the `apt-get` package manager.
-```console
-$ sudo apt-get update
-```
-{: data-variant="no-line-numbers" }
-
-Install the packages that we will use in EECS 280.
+## Install CLI tools
+Use the `apt-get` package manager to install a few command line programs.
 ```console
 $ sudo apt-get install g++ make rsync wget git ssh gdb python3 tree
 ```
 {: data-variant="no-line-numbers" }
-
 
 ## Pro-tips
 
