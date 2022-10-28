@@ -48,29 +48,21 @@ $ sudo apt-get install g++ make rsync wget git ssh gdb python3 tree
 
 ## Pro-tips
 
-### How do I copy and paste?
-{: .primer-spec-toc-ignore }
+### Copy paste
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page ([Source: Microsoft blog](https://devblogs.microsoft.com/commandline/copy-and-paste-arrives-for-linuxwsl-consoles/)).
 - Copy: <kbd>Control + Shift + C</kbd>
 - Paste: <kbd>Control + Shift + V</kbd>
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
 
-
-### Where are my Windows files?
-{: .primer-spec-toc-ignore }
-They're in your Windows home directory `/mnt/c/Users/awdeorio/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`.
+### Accessing Windows files
+Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`.
 ```console
-$ cd ~                        # Tilde means "my Ubuntu home"
-$ pwd
-/home/awdeorio
-$ cd /mnt/c/Users/awdeorio/   # Windows home
-$ pwd
-/mnt/c/Users/awdeorio/
+$ cd /mnt/c/Users/awdeorio/Desktop    # Windows Desktop
+$ cd /mnt/c/Users/awdeorio/Documents  # Windows Documents
 ```
 
-### How do I open files?
-{: .primer-spec-toc-ignore }
+### CLI open file
 Simulate a double-click from the command line in the WSL Bash shell.
 ```console
 $ cmd.exe /c start babychickens.jpg

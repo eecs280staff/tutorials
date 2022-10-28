@@ -54,6 +54,16 @@ $ brew install wget git tree
 ```
 {: data-variant="no-line-numbers" }
 
+## Pro-tips
+
+### CLI open file
+Simulate a double-click from the command line in the Terminal.
+```console
+$ open babychickens.jpg
+```
+{: data-variant="no-line-numbers" }
+
+
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
