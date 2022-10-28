@@ -165,9 +165,15 @@ Open your project folder by selecting `File` > `Open Folder...` > navigate to th
 
 We recommend putting source code in a subdirectory called `src`.  Create a subdirectory if needed.
 
+<img src="images/vscode024.png" width="768px" />
+
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
 <img src="images/vscode025.png" width="768px" />
+
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Pitfall:** Make sure your new file is in the `src` subdirectory.
+</div>
 
 Copy-paste this Hello World program into your `main.cpp`.
 ```c++
@@ -181,7 +187,7 @@ int main() {
 {: data-title="main.cpp" }
 
 ### Add existing files
-If you have starter files, add them to your project directory.  We'll download some files and put them in a subdirectory called `src`.
+If you have starter files, add them to your project `src` subdirectory.
 
 Download starter files, unpack, and move to `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 ```console
@@ -193,12 +199,13 @@ $ mv starter-files src
 $ rm starter-files.tar.gz
 ```
 
-At this point, you should have existing files in a `src` subdirectory.
+At this point, you should see your new files in the `src` subdirectory.
 ```console
 $ tree
 .
 └── src
     ├── Makefile
+    ├── main.cpp
     ├── main_test.in
     ├── main_test.out.correct
     ├── main_test_data.tsv
@@ -212,6 +219,7 @@ $ tree
 In VS Code, open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder or from the command line.
 
 You should see your files.
+
 <img src="images/vscode026.png" width="768px" />
 
 #### Rename files
