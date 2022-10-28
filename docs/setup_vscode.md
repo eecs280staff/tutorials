@@ -322,6 +322,7 @@ Then, edit the `"environment"` property in your `launch.json`.  If there's alrea
     }
   ]
 ```
+{: data-highlight="3-4" }
 
 When ASan detects an error, VSCode will stop so that you can see the stack trace and inspect the current state of the program.  This configuration also turns off leak-checking (LSan), which can't run simultaneously with the visual debugger. If you do want to check for leaks, just run from the terminal with sanitizers enabled.
 
@@ -332,14 +333,11 @@ If you're debugging something else in your program and don't want it to terminat
 Skip this subsection your first through the tutorial.  You can come back to it.
 </div>
 
-You can use input redirection to avoid typing program input each time you run (for debugging) a program.
+You can use input redirection to avoid typing program input each time you run a program.
 
-Without input redirection, here's how you type input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
+Without input redirection, the user types input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
 ```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 $ ./main.exe
 enter a filename
 main_test_data.tsv
@@ -347,22 +345,25 @@ enter a column name
 B
 ...
 ```
+{: data-highlight="4,6" }
 
-If we put the user input in a file we can automate the user input.  We'll put it in a file called `main_test.in`.
-```console
-$ cat main_test.in   # Peek at the contents of a file
+Automate user input by putting it in a file.
+
+```
 main_test_data.tsv
 B
-$ ./main.exe < main_test.in  # Redirect file content to main's stdin (cin)
+```
+{: data-title="main_test.in" data-highlight="1,2" }
+
+Redirect file `main_test.in` to stdin of `main.exe`.
+```console
+$ ./main.exe < main_test.in
 enter a filename
 enter a column name
 reading column B from main_test_data.tsv
 ...
 ```
-
-Without input redirection, here's how to type input in the Visual Studio Code command line.  In some configurations, a window will pop up, in others, you'll type into a pane on the VS Code interface.
-
-<img src="images/vscode075.png" width="768px" />
+{: data-highlight="1" }
 
 #### Windows `launch.json` changes
 
@@ -372,13 +373,15 @@ To configure input redirection, edit `launch.json`.
     "configurations": [
         {
             ...
-            "program": "${workspaceFolder}/main.exe",
+            "program": "${workspaceFolder}/src/main.exe",
             "args": ["<", "main_test.in"],
             ...
         }
     ]
 }
 ```
+{: data-title="launch.json" data-highlight="6" }
+
 #### macOS `launch.json` changes
 
 To configure input redirection, edit `launch.json`.
@@ -386,6 +389,8 @@ To configure input redirection, edit `launch.json`.
 {
     "configurations": [
         {
+            ...
+            "program": "${workspaceFolder}/src/main.exe",
             ...
             "MIMode": "lldb",
             "setupCommands": [
@@ -398,10 +403,11 @@ To configure input redirection, edit `launch.json`.
     ]
 }
 ```
+{: data-title="launch.json" data-highlight="10" }
 
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
+Skip this subsection for EECS 280 project 1.
 </div>
 
 *Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
