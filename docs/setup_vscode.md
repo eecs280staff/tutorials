@@ -121,7 +121,7 @@ $ code --uninstall-extension vadimcn.vscode-lldb
 
 
 ## Create a project
-To create a VS Code project, create a folder (directory).  There are many ways to create folders and files: Finder AKA File Explorer, VS Code graphical user interface, VS Code integrated terminal, and the system terminal.  We'll use the terminal.
+To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal.
 
 **macOS:** Open the Terminal application.
 
@@ -133,6 +133,21 @@ $ cd /Users/awdeorio/src/eecs280
 $ mkdir p1-stats
 $ cd p1-stats
 ```
+
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `.../EECS 280` | `.../eecs280`  |
+
+</div>
+
+<div class="primer-spec-callout info" markdown="1">
+**WSL Pro-tip:** WSL uses a network file share between the Linux and Windows file systems.  Use a folder that's shared for easier access.
+- `/mnt/c/Users/awdeorio/Desktop`
+- `/mnt/c/Users/awdeorio/Documents`
+</div>
 
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
