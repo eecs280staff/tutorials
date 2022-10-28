@@ -25,7 +25,7 @@ Start PowerShell and run it as administrator.  Search for PowerShell in the star
 
 Next, follow the instructions from Microsoft: [https://docs.microsoft.com/en-us/windows/wsl/install](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10).  Be sure to select "Ubuntu Linux".
 
-### Open terminal
+## Open terminal
 Start an Ubuntu Bash shell (not a Windows PowerShell).
 
 <img src="images/wsl020.png" width="240px" />
