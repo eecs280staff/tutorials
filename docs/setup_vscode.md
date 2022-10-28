@@ -410,22 +410,30 @@ To configure input redirection, edit `launch.json`.
 Skip this subsection for EECS 280 project 1.
 </div>
 
-*Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
-
-**Arguments example** from project 2:  `resize.exe` is the name of the program, and the arguments are `horses.ppm`,  `horses_400x250.ppm`, `400`, and `250`.
-```console
-$ ./resize.exe horses.ppm horses_400x250.ppm 400 250
-```
-
-**Options example** from project 5:  `main.exe` is the name of the program.  `train_small.csv` and  `test_small.csv` are arguments.  `--debug` is an option.
+Arguments and options are inputs to a program typed at the command line.  For example:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
+{: data-variant="no-line-numbers" data-highlight="1" }
 
-To run a program with options or arguments in VS Code, edit `launch.json`.  Be sure to put each option or argument as a separate comma-separated string.
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
+
+To run a program with options or arguments in VS Code, edit `launch.json`.  Each option or argument should goes in a separate comma-separated string.
 ```json
-"args": ["train_small.csv", "test_small.csv", "--debug"],
+{
+    "configurations": [
+        {
+            ...
+            "program": "${workspaceFolder}/src/main.exe",
+            "args": ["train_small.csv", "test_small.csv", "--debug"],
+            ...
+        }
+    ]
+}
 ```
+{: data-title="launch.json" data-highlight="6" }
 
 ## Debug
 In order to debug, we want our application to stop when we run it.  Set a breakpoint by clicking to the left of a line number.
@@ -487,6 +495,8 @@ Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  D
     ...
 }
 ```
+{: data-title="c_cpp_properties.json" data-highlight="5-6" }
+
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
