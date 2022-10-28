@@ -193,7 +193,7 @@ You can create more files if you need to.  EECS 280 students here for project 1 
 ### Add existing files
 If you have starter files, add them to your project `src` subdirectory.
 
-Download starter files, unpack, and move to `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+We'll use the terminal to download, unpack, and move starter files to the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
@@ -215,6 +215,7 @@ $ tree
     ├── main_test_data.tsv
     ├── p1_library.cpp
     ├── p1_library.h
+    ├── stats.cpp
     ├── stats.h
     ├── stats_public_test.cpp
     └── stats_tests.cpp.starter
