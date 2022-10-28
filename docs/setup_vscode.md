@@ -127,7 +127,7 @@ To create a VS Code project, create a folder (directory).  There are many ways t
 
 **Windows/WSL:** Open the Ubuntu application.
 
-Navigate to the directory where you store your projects, create a new directory, then move into the new directory. (`awdeorio` likes to use a directory called `src` in his home directory.)  Your folder location might be different.
+Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.
 ```console
 $ cd /Users/awdeorio/src/eecs280
 $ mkdir p1-stats
@@ -162,6 +162,8 @@ $ code .
 
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
+
+We recommend putting source code in a subdirectory called `src`.  Create a subdirectory if needed.
 
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
@@ -210,14 +212,14 @@ $ tree
 In VS Code, open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder or from the command line.
 
 You should see your files.
-<img src="images/vscode022.png" width="768px" />
+<img src="images/vscode026.png" width="768px" />
 
 #### Rename files
 If you need to rename any files, you can do this from VS Code or from the command line.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
 Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
-| <img src="images/vscode023.png" width="300px" /> | <img src="images/vscode024.png" width="192px" /> |
+| <img src="images/vscode027.png" width="300px" /> | <img src="images/vscode028.png" width="192px" /> |
 
 ## Compile and Run
 VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.
