@@ -93,7 +93,7 @@ $ code --install-extension ms-vscode.cpptools
 $ code --install-extension ms-vscode.cpptools-extension-pack
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 Verify that the cpptools extensions installed.  It's OK if you have other extensions installed.
 ```consle
 $ code --list-extensions
@@ -102,7 +102,7 @@ ms-vscode.cpptools-extension-pack
 ```
 </div>
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 Verify that the clangd or CodeLLDB extensions are *not* installed.  The clangd extension provided C/C++ intellisense which conflicts with the Microsoft C/C++ extension.  The CodeLLDB extension provides C/C++ debugging support which causes confusion with the Microsoft C/C++ extension.
 ```consle
 $ code --list-extensions
@@ -132,7 +132,7 @@ $ mkdir p1-stats
 $ cd p1-stats
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
 
 | Bad Example     | Good Example   |
@@ -169,7 +169,7 @@ Select the add file icon and give it a name, e.g., `main.cpp`.
 
 <img src="images/vscode023.png" width="768px" />
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure your new file is in the `src` subdirectory.
 </div>
 
@@ -193,7 +193,7 @@ If you have starter files, add them to the `src` subdirectory inside your projec
 
 We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the `src` subdirectory.
 ```console
 $ pwd
@@ -295,7 +295,7 @@ Select a "Launch" configuration.  This will create a default `launch.json` ([Mic
 
 Edit the `program` field in `launch.json` with the program to run.  Your `launch.json` might be different.
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to include the `src` subdirectory.
 </div>
 
@@ -303,7 +303,7 @@ Edit the `program` field in `launch.json` with the program to run.  Your `launch
 
 Click the triangle to run.  You'll see your program's output in the debug console.
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to build your executable at the command line first.
 ```console
 $ pwd
@@ -493,7 +493,7 @@ Hover over a variable to inspect its value.
 
 <img src="images/vscode110.png" width="768px" />
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 If you have trouble viewing the contents of a container like this screenshot, see the [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
 <img src="images/vscode140.png" width="480px" />
 </div>
