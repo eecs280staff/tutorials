@@ -24,8 +24,6 @@ $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
 $ rm -rf .vscode
 $ rm -rf ~/.vscode
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 ```
 
 ## Install
@@ -250,7 +248,7 @@ $ ./main.exe
 Hello World!
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the `src` subdirectory.
 ```console
 $ pwd
@@ -258,12 +256,22 @@ $ pwd
 ```
 </div>
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
 ```console
-$ make clean
 $ make main.exe
 g++ ... -g main.cpp ...
+```
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+If you don't have a `Makefile`, you can compile manually.  We don't recommend this for EECS 280 students.
+```console
+$ make main.exe
+make: *** No rule to make target `main.exe'.  Stop.
+$ g++ -g main.cpp -o main.exe
+$ ./main.exe
+Hello World!
 ```
 </div>
 
