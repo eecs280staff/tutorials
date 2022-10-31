@@ -494,7 +494,8 @@ Hover over a variable to inspect its value.
 <img src="images/vscode110.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
-If you have trouble viewing the contents of a container like this screenshot, see the [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
+If you have trouble viewing the contents of a container like this screenshot, see [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
+
 <img src="images/vscode140.png" width="480px" />
 </div>
 
