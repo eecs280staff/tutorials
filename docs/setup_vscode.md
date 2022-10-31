@@ -191,19 +191,27 @@ Create more new files if you need to.  EECS 280 students here for project 1 shou
 <img src="images/vscode024.png" width="768px" />
 
 ### Add existing files
-If you have starter files, add them to your project `src` subdirectory.
+If you have starter files, add them to the `src` subdirectory inside your project directory.
 
-We'll use the terminal to download, unpack, and move starter files to the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Pitfall:** Make sure you're in the `src` subdirectory.
 ```console
 $ pwd
-/Users/awdeorio/src/eecs280/p1-stats
+/Users/awdeorio/src/eecs280/p1-stats/src
+```
+</div>
+
+```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
-$ mv starter-files src
-$ rm starter-files.tar.gz
+$ mkdir -p src
+$ mv starter-files/* src/
+$ rm -rf starter-files starter-files.tar.gz
 ```
 
-At this point, you should see your new files in the `src` subdirectory.
+You should see your new files in the `src` subdirectory.
 ```console
 $ tree
 .
@@ -221,9 +229,7 @@ $ tree
     └── stats_tests.cpp.starter
 ```
 
-In VS Code, open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder or from the command line.
-
-You should see your files.
+In VS Code, open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder or from the command line.  You should see your files.
 
 <img src="images/vscode026.png" width="768px" />
 
