@@ -121,7 +121,7 @@ $ code --uninstall-extension vadimcn.vscode-lldb
 
 
 ## Create a project
-To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal.
+To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
 **macOS:** Open the Terminal application.
 
