@@ -194,10 +194,10 @@ If you have starter files, add them to the `src` subdirectory inside your projec
 We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the `src` subdirectory.
+**Pitfall:** Make sure you're in the subdirectory containing your source code.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats/src
+$ ls
+main.cpp ...
 ```
 </div>
 
@@ -241,6 +241,10 @@ Right click a file and select "rename".  Change the file name.  In EECS 280, you
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
+Many VS Code users prefer the integrated terminal.  Don't forget to `cd` into the subdirectory containing your source code (`src` in this example).
+
+<img src="images/vscode029.png" width="768px" />
+
 Compile and run your executable at the command line.
 ```console
 $ make main.exe
@@ -249,10 +253,10 @@ Hello World!
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the `src` subdirectory.
+**Pitfall:** Make sure you're in the subdirectory containing your source code.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats/src
+$ ls
+main.cpp ...
 ```
 </div>
 
