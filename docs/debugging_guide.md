@@ -228,14 +228,14 @@ If your debugger isn't respecting your breakpoints or the lines where it pauses 
 ### Conditional Breakpoints
 
 <div class="primer-spec-callout info icon-info" markdown="1">
-A **conditional breakpoint** pauses the program at a certain line _only_ if a given condition is true.
-
-It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Branch](#breakpoint-in-branch) strategy.)
+Use a **conditional breakpoint** to pause the program _only_ if a given condition is true.
 </div>
 
-Let's say I'm working on my projet 3 Euchre driver and I want to investigate a bug that doesn't show up until hand 7, which is pretty far into the game. It would be a bit tedious to step to this point manually.
+Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
 
-Instead, let's set a conditional breakpoint to pause the debugger at the line below, but _only_ if `hand` is `7`.
+<img src="images/debug_conditional_breakpoint_3.png" width="700px" />
+
+It would be a bit tedious to step to this point manually. Instead, let's modify the source code so that set a conditional breakpoint to pause the debugger at the line below, but _only_ if `hand` is `7`.
 
 <img src="images/debug_conditional_breakpoint_0.png" width="700px" />
 
@@ -270,9 +270,6 @@ Unfortunately, not all functions will be available to the debugger, including th
 
 TODO: this is about adding an if() to your code and then putting in a no-op line where you can place a breakpoint. This works in a wider set of cases than conditional breakpoints, which can be finicky. Drawback is it requires modifying source and recompiling (but that's generally low effort for our use cases).
 
-Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
-
-<img src="images/debug_conditional_breakpoint_3.png" width="700px" />
 
 ### Watchpoints
 
