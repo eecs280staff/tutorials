@@ -52,19 +52,27 @@ From the above, we can quickly see the line where the segfault occurs. We also o
 TODO, maybe another example where you need to look at the calling context via the call stack
 
 ### Crash in _Library/System_ Code
-TODO make this section a bit more unified. Show examples of
-- crash in implicitly defined functions
-- crash in library code
-- crash in "assembly" (if I can get a screenshot of this)
 
-Then use ONLY one of those as an example of exploring outward in the call stack
+Sometimes a crash occurs in library code that your program uses, but that you didn't write.
 
-**Crash in Implicitly Defined Functions**  
-There are some implicitly-defined functions that compiler provides for you, for example an implicitly-defined constructor or assignment operator for a class.
+For example, the debugger might show you a crash in code from the standard library, which is often very difficult to read:
 
-What happens if a crash occurs in these functions? Because these functions aren't present in your source code, the compiler just highlights the top line of the corresponding class definition:
+<img src="images/debug_crash_stl.png" width="600px" />
 
-<img src="images/debug_crash_3.png" width="800px" />
+Or, the debugger might choose to show you the compiled assembly code where the crash occurred:
+
+<img src="images/debug_crash_asm.png" width="600px" />
+
+There are also some implicitly defined functions that don't literally appear in your source code (e.g. a built-in copy constructor or assignment operator). For a crash in any of these functions, the debugger may just show you the first line of the class:
+
+<img src="images/debug_crash_implicit.png" width="600px" />
+
+**Tracing Back to _Your_ Code**  
+To diagnose crashes where the debugger initially shows you library code, you need to find the nearest part of _your_ code that ultimately called the library functions.
+
+Let's consider again the case of a crash in an implicitly-defined function. The debugger first just shows us the top line of the class definition, since there's no code to show for implicitly-defined functions.
+
+<img src="images/debug_crash_implicit_full.png" width="800px" />
 
 In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
 
