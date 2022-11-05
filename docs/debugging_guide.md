@@ -231,50 +231,25 @@ If your debugger isn't respecting your breakpoints or the lines where it pauses 
 Use a **conditional breakpoint** to pause the program _only_ if a given condition is true.
 </div>
 
-Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in hand 3, Edsger passes but should have ordered up Spades.
+Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in the making trump phase of hand 3, Edsger passes but should have ordered up Spades.
 
 <img src="images/debug_conditional_breakpoint_3.png" width="700px" />
 
-It would be a bit tedious to step to this point manually. Instead, let's modify the source code so that set a conditional breakpoint to pause the debugger at the line below, but _only_ if `hand` is `7`.
+It would be quite tedious to use the debugger navigation controls to step to this point manually. Instead, let's modify our code for making trump so that it will trigger a breakpoint only when it's Edsger's turn to order up in hand 3:
 
-<img src="images/debug_conditional_breakpoint_0.png" width="700px" />
+<img src="images/debug_conditional_breakpoint_modify_source.png" width="700px" />
 
-In VS Code, right click to the left of the line number. Select "Add Conditional Breakpoint..."
+In the code above, we've done three things:
+1. Add an `if` branch to our code that checks for the condition where we'd like to pause.
+2. Put an `asm("nop");` line inside the `if`. This is an assembly code instruction for "no operation", which does nothing at runtime. It's just a placeholder so that we can...
+3. Set a breakpoint on the line inside the `if`. Now the debugger will pause exactly when we want it to!
 
-<img src="images/debug_conditional_breakpoint_1.png" width="700px" />
-
-We're prompted to enter a condition. In this case, we type `hand == 3` and hit enter:
-
-<img src="images/debug_conditional_breakpoint_2.png" width="700px" />
-
-Now, when I run the program through the debugger, the breakpoint only triggers at the start of hand 3. I could follow up by stepping into the `play_hand()` function to further investigate.
+Of course, make sure to eventually remove or comment out the extra code once you're finished debugging.
 
 <div class="primer-spec-callout warning" markdown="1">
 
-**Pitfall!** It's best to keep conditional breakpoints simple, checking expressions only on primitive datatypes only. Avoid checks with standard library types like `std::string`. (Alternately, consider the [Breakpoint in Branch](#breakpoint-in-branch) strategy.)
-
-For example, let's say we want to break if the player is "Barbara" and use this condition:
-```c++
-player->get_name() == "Barbara"
-```
-{: data-variant="legacy" }
-
-However, in the above example, `gdb` (which underlies the VS Code debugger on Windows+WSL and Linux) can't find the appropriate `std::string::operator==` to compare the two.
-
-Unfortunately, not all functions will be available to the debugger, including those that have been inlined (i.e. optimized out by the compiler) or function templates that weren't instantiated during compilation. Overload resolution is also limited, and the debugger can't insert implicit conversions (e.g. from cstring to c++ `std::string`) everywhere that a compiler can.
+Your debugger may also support "conditional breakpoints" by allowing you to attach a condition when you create a breakpoint (i.e. without changing the code itself). However, the conditions you may specify this way are generally quite limited and will not always work as you expect. For this reason, we recommend the approach above.
 </div>
-
-
-
-### Breakpoint in Branch
-
-TODO: this is about adding an if() to your code and then putting in a no-op line where you can place a breakpoint. This works in a wider set of cases than conditional breakpoints, which can be finicky. Drawback is it requires modifying source and recompiling (but that's generally low effort for our use cases).
-
-
-### Watchpoints
-
-TODO - could probably be left out of a first draft
-
 
 ## Navigating Code
 
