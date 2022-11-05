@@ -253,6 +253,31 @@ Your debugger may also support "conditional breakpoints" by allowing you to atta
 
 ## Navigating Code
 
+### Basic Controls
+
+Most debuggers support the following controls for navigating through your program's execution:
+
+<img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> Step Over  
+TODO put a definition
+
+<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> Step In  
+TODO put a definition
+
+<img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> Step Out  
+TODO put a definition
+
+<img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> Continue  
+TODO put a definition
+
+<img src="images/debug_icon_restart.png" style="vertical-align: text-top; height: 1.25em;" /> Restart  
+TODO put a definition
+
+<img src="images/debug_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> Stop  
+TODO put a definition
+
+Second Term
+: This is one d
+
 TODO
 - Continue (underappreciated!!)
 - Pause
@@ -264,7 +289,10 @@ TODO
 
 Have one example that shows all of these with a big of dialog on why they're useful and when to use them (and when not to!)
 
-
+TODO:
+- prefer continue
+- prefer step over
+- step in/step out (i.e. if you have a function as an argument)
 
 
 
