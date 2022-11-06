@@ -94,7 +94,7 @@ In all seriousness, taking a look at the _calling_ stack frame(s) allows me to s
 Use the **variables panel** to inspect the values of variables while your debugger is paused.
 </div>
 
-**Example, Project 3 - Euchre**  
+**Example, Euchre Project**  
 There's a lot to keep track of in a game of Euchre. I'd like to check that everything seems in order after I've dealt out the cards and the players have finished making.
 
 When the debugger pauses at my breakpoint, I can see what's in my local variables:
@@ -176,7 +176,7 @@ In _some_ situations, **logging additional output via print statements** may be 
 - Comment out your debug outputs once you're done (rather than deleting them). You might use them again later!
 </div>
 
-**Example, Project 3 - Euchre**  
+**Example, Euchre Project**  
 I'm getting the wrong output in my project 3 Euchre program on a public test.
 
 Let's look at my output vs. the sample correct output in the VS Code diff checker. The players are playing the right cards, but the wrong person takes the trick.
@@ -277,9 +277,23 @@ Restart the currently running program in the debugger.
 <img src="images/debug_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> Stop  
 Exit the debugger.
 
-### Step Into vs. Step Over
+### Step Over and Check
 
-TODO step over is underrated, sometimes you just want to know overall if the function works before diving in
+<div class="primer-spec-callout info icon-info" markdown="1">
+If you're not sure whether a function is correct, use **step over** to run it and then check whether its results are correct. (You can restart and come back to _step into_ if it wasn't correct.)
+</div>
+
+When the next line of code contains a function call, you need to decide whether to _step into_ the function or go ahead and _step over_ the whole thing. It's tempting to _step in_ so you can see all the details, but that may be a waste of time if the function isn't actually broken!
+
+
+**Example, Euchre Project**  
+Assume we're debugging a Euchre program and we've discovered that players are not making the right decision during the making phase. The players choose whether to order up based on the cards they have, which also depends on how the pack of cards was shuffled and how cards were dealt to each player.
+
+Let's say you've got your debugger paused before the relevant helper functions for each of those steps:
+
+<img src="images/debug_step_in_vs_step_over.png" width="400px" />
+
+Should we step into `shuffle_pack()`? Or should we step over that and then step into `deal()`? Probably not... yet. Instead, it would be better to step over both of these and use the debugger to check what cards the players now have in their hands. If those cards are correct, the bug must be in `make_trump()` and we've saved ourselves a lot of time that would have been wasted stepping through the first two functions. Or, if the cards are incorrect, we can restart the debugger and investigate more closely.
 
 ### Continue-To-Breakpoint
 
@@ -289,7 +303,16 @@ TODO this is more efficient to nagivate than clicking step a bazillion times
 
 TODO step in/step out (i.e. if you have a function as an argument)
 
+### Just My Code (Visual Studio)
 
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+Enable [_Just My Code_](https://learn.microsoft.com/en-us/visualstudio/debugger/just-my-code?view=vs-2022#BKMK_Enable_or_disable_Just_My_Code) in Visual Studio so that the debugger will skip over standard library code.
+</div>
+
+In general, it's not very useful for the debugger to step line-by-line through functions from the standard library. You can presume these functions are correct, so there's no need to go bug hunting in there. The code is also terribly hard to read.
+
+Unfortunately, this feature is not supported in XCode or [VS Code](https://github.com/microsoft/vscode-cpptools/issues/5763).
 
 
 
