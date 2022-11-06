@@ -255,45 +255,39 @@ Your debugger may also support "conditional breakpoints" by allowing you to atta
 
 ### Basic Controls
 
-Most debuggers support the following controls for navigating through your program's execution:
+While the debugger is paused, it highlights the line of code that is up next, but has not run yet. At this point, you have a number of options to continue the execution of your program.
+
+Most debuggers support the following navigation controls:
 
 <img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> Step Over  
-TODO put a definition
+Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
-<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> Step In  
-TODO put a definition
+<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> Step Into  
+Run one line of code, stepping _into_ any function calls to execute them line-by-line.
 
 <img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> Step Out  
-TODO put a definition
+Run the program until it returns from the current function (or until the next breakpoint).
 
 <img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> Continue  
-TODO put a definition
+Run the program until the next breakpoint.
 
 <img src="images/debug_icon_restart.png" style="vertical-align: text-top; height: 1.25em;" /> Restart  
-TODO put a definition
+Restart the currently running program in the debugger.
 
 <img src="images/debug_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> Stop  
-TODO put a definition
+Exit the debugger.
 
-Second Term
-: This is one d
+### Step Into vs. Step Over
 
-TODO
-- Continue (underappreciated!!)
-- Pause
-- Step Over (underappreciated!!)
-- Step Into
-- Step Out
-- Restart
-- Stop
+TODO step over is underrated, sometimes you just want to know overall if the function works before diving in
 
-Have one example that shows all of these with a big of dialog on why they're useful and when to use them (and when not to!)
+### Continue-To-Breakpoint
 
-TODO:
-- prefer continue
-- prefer step over
-- step in/step out (i.e. if you have a function as an argument)
+TODO this is more efficient to nagivate than clicking step a bazillion times
 
+### Step In + Step Out
+
+TODO step in/step out (i.e. if you have a function as an argument)
 
 
 
