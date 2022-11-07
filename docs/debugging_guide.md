@@ -259,28 +259,32 @@ While the debugger is paused, it highlights the line of code that is up next, bu
 
 Most debuggers support the following navigation controls:
 
-<img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> Step Over  
+<img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**  
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
-<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> Step Into  
+<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**  
 Run one line of code, stepping _into_ any function calls to execute them line-by-line.
 
-<img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> Step Out  
+<img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**  
 Run the program until it returns from the current function (or until the next breakpoint).
 
-<img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> Continue  
+<img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**  
 Run the program until the next breakpoint.
 
-<img src="images/debug_icon_restart.png" style="vertical-align: text-top; height: 1.25em;" /> Restart  
+<img src="images/debug_icon_restart.png" style="vertical-align: text-top; height: 1.25em;" /> **Restart**  
 Restart the currently running program in the debugger.
 
-<img src="images/debug_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> Stop  
+<img src="images/debug_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> **Stop**  
 Exit the debugger.
 
-### Step Over and Check
+### Strategies
+
+Here's a few high-level strategies for navigating effectively when debugging your code.
+
+#### Step Over and Check
 
 <div class="primer-spec-callout info icon-info" markdown="1">
-If you're not sure whether a function is correct, use **step over** to run it and then check whether its results are correct. (You can restart and come back to _step into_ if it wasn't correct.)
+If you're not sure whether a function is correct, use **step over** to run it and then inspect its results in the debugger to see if it worked. (You can restart and come back to _step into_ the function if it wasn't correct.)
 </div>
 
 When the next line of code contains a function call, you need to decide whether to _step into_ the function or go ahead and _step over_ the whole thing. It's tempting to _step in_ so you can see all the details, but that may be a waste of time if the function isn't actually broken!
@@ -295,15 +299,37 @@ Let's say you've got your debugger paused before the relevant helper functions f
 
 Should we step into `shuffle_pack()`? Or should we step over that and then step into `deal()`? Probably not... yet. Instead, it would be better to step over both of these and use the debugger to check what cards the players now have in their hands. If those cards are correct, the bug must be in `make_trump()` and we've saved ourselves a lot of time that would have been wasted stepping through the first two functions. Or, if the cards are incorrect, we can restart the debugger and investigate more closely.
 
-### Continue-To-Breakpoint
+#### Continue-To-Breakpoint
 
-TODO this is more efficient to nagivate than clicking step a bazillion times
+<div class="primer-spec-callout info icon-info" markdown="1">
+To move quickly through a large portion of code, set a **breakpoint** at your next destination and then use the **continue** command.
+</div>
 
-### Step In + Step Out
+Breakpoints are not only used to tell the debugger where to stop initially. You can add/remove them while the debugger is running. This is particularly useful for quick navigation over several lines or looping constructs that would otherwise take a long time to step through line-by-line.
 
-TODO step in/step out (i.e. if you have a function as an argument)
+**Example, Euchre Project**  
+In the code below, let's say my debugger is paused on line 302. Looking ahead, I'd like to investigate what happens when my Euchre players either lead or play cards. Instead of stepping through the intervening lines one-at-a-time with _step into_ or _step over_, I'll set breakpoints on the lines that interest me (310 and 319) and use _continue_ to hop from one breakpoint to another.
 
-### Just My Code (Visual Studio)
+<img src="images/debug_continue_to_breakpoint.png" width="400px" />
+
+#### Step In + Step Out
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+If _step into_ takes you into a function you didn't intend to explore, you can immediately _step out_ and move on.
+</div>
+
+When you have multiple function calls on one line, _step into_ will take you to the first one that is executed. Sometimes that's not what you want. For example, consider this line of code:
+
+```cpp
+player->add_card(pack.deal_one());
+```
+{: data-variant="legacy" }
+
+_Step into_ will take us into the `deal_one()` implementation. If we instead wanted to investigate `add_card()`, we can just _step out_ of `deal_one()` and then run _step into_ again.
+
+Sometimes _step into_ may also take you into a function that you didn't necessarily expect but that is technically present. For example, a copy constructor used implicitly to pass a parameter. In these cases, again, you can just _step out_ and then try _step in_ again.
+
+#### Just My Code (Visual Studio)
 
 
 <div class="primer-spec-callout info icon-info" markdown="1">
