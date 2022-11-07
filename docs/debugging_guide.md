@@ -134,7 +134,33 @@ In **member functions**, you can also open up the `this` pointer. In our Euchre 
 
 
 ### The Call Stack
-TODO
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+The debugger allows you to inspect any function currently on the call stack, starting from your current function all the way back to `main()`.
+</div>
+
+When the debugger is paused, it shows stack frames for all functions currently executing on the call stack. You can click on each to inspect its local variables just as you can with the current function.
+
+It's often necessary to take a look at the _calling context_ for your current function, for example to understand why a function was originally called in the first place, or why the inputs passed in to it may be invalid.
+
+**Example, Euchre Project**  
+Consider this crash within the `Card::is_right_bower()` function:
+
+<img src="images/debug_call_stack_2.png" width="700px" />
+
+Evidently, something is very wrong with the current `Card` object. The debugger is not even able to access its `rank` or `suit` member variables to show us their values: 
+
+<img src="images/debug_call_stack_3.png" width="400px" />
+
+We don't have enough information here to determine the problem, so let's click on the stack frame for `Card_less()`, which is the function that called `Card::is_right_bower()`. Now we can see the code and local variables for `Card_less()`, including the fact that the specific call that crashed was `b.is_right_bower(trump)`:
+
+<img src="images/debug_call_stack_4.png" width="700px" />
+
+That's not quite enough information, though. Evidently the card `b` is invalid, but that was a parameter to `Card_less()`. Let's keep looking for more context by again clicking the stack frame for `Simple::play_card()`:
+
+<img src="images/debug_call_stack_5.png" width="700px" />
+
+Here we finally have the information we need. We see that the parameter for `b` in this call to `Card_less()` was `hand[lowest_card_index]`, and we can also take a look at the variables window to see that `lowest_card_index` has a value of `1431823952`. This is where the bad card came from originally, which ultimately resulted in the crash deeper in `Card::is_right_bower()`.
 
 ### Evaluate Expressions
 
