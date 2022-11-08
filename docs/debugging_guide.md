@@ -14,7 +14,7 @@ There are two fundamental components to debugging:
 
 This guide focuses on effective strategies for point 2 above, in particular through the use of a **debugger**, which allows you to pause your program's execution at key points and inspect the state of objects in memory.
 
-Throughout this guide, we describe several key strategies for using a debugger, illuminated by real examples drawn from course projects in EECS 280. In some of the cases, we've blurred out parts of screenshots where we ran the debugger on our instructor solution.
+We also show several real examples drawn from course projects in EECS 280. In some of the cases, we've blurred out parts of screenshots where we ran the debugger on our instructor solution.
 
 ## Inspect Program State
 
