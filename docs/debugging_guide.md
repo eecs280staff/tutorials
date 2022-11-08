@@ -1,7 +1,7 @@
 ---
 layout: spec
 title: Debugging Guide
-sitemapOrder: 30
+excludeFromSitemap: true
 ---
 
 Debugging Guide
