@@ -8,83 +8,15 @@ Debugging Guide
 ==========================
 {: .primer-spec-toc-ignore }
 
-TODO intro
+There are two fundamental components to debugging:
+1. Form hypotheses about the specific cause of a bug
+2. Use debugging tools and strategies to investigate those hypotheses
 
-TODO disclaimer that some code is blurred, functions shown are not necessarily implemented well
+This guide focuses on effective strategies for point 2 above, in particular through the use of a **debugger**, which allows you to pause your program's execution at key points and inspect the state of objects in memory.
+
+Throughout this guide, we describe several effective TODO disclaimer that some code is blurred, functions shown are not necessarily implemented well
 
 TODO specific examples from projects are used, but you don't need to be familiar with the project to understand the example
-
-## Diagnose Crashes
-
-You can use a debugger to assess the cause of a crash or runtime error, including:
-
-- Failed debugging assertions
-- Undefined behavior detected by sanitizer tools
-- Segmentation faults
-- Unhandled exceptions
-- And more!
-
-Basically, if your code is doing something bad:
-1. Run through the debugger. No breakpoints needed.
-2. The debugger pauses when the error occurs.
-3. You look at local variables, the call stack, etc. to diagnose the issue
-
-Here's several examples:
-
-### Crash in _My_ Code
-
-I'm working on project 3 and run my own `Player_tests.exe` via the terminal:
-
-```console
-$ ./Player_tests.exe
-Running test: test_get_name
-Segmentation fault
-```
-
-My code crashed with a segmentation fault, but I don't know much else.
-
-Let's run in a debugger and let it crash there. No need to set any breakpoints.
-
-<img src="images/debug_crash_0.png" width="800px" />
-
-From the above, we can quickly see the line where the segfault occurs. We also observe that `p1->get_name()` crashes because `p1` is `0x0` (a null pointer), as seen in the variables panel. Ah ha - we just mistyped `p1` on this line instead of `p2`.
-
-TODO, maybe another example where you need to look at the calling context via the call stack
-
-### Crash in _Library/System_ Code
-
-Sometimes a crash occurs in library code that your program uses, but that you didn't write.
-
-For example, the debugger might show you a crash in code from the standard library, which is often very difficult to read:
-
-<img src="images/debug_crash_stl.png" width="600px" />
-
-Or, the debugger might choose to show you the compiled assembly code where the crash occurred:
-
-<img src="images/debug_crash_asm.png" width="600px" />
-
-There are also some implicitly defined functions that don't literally appear in your source code (e.g. a built-in copy constructor or assignment operator). For a crash in any of these functions, the debugger may just show you the first line of the class:
-
-<img src="images/debug_crash_implicit.png" width="600px" />
-
-**Tracing Back to _Your_ Code**  
-To diagnose crashes where the debugger initially shows you library code, you need to find the nearest part of _your_ code that ultimately called the library functions.
-
-Let's consider again the case of a crash in an implicitly-defined function. The debugger first just shows us the top line of the class definition, since there's no code to show for implicitly-defined functions.
-
-<img src="images/debug_crash_implicit_full.png" width="800px" />
-
-In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
-
-<img src="images/debug_crash_4.png" width="400px" />
-
-Now, click the next stack frame below to see the where that operator was used. It was in our `Pack` constructor. That code doesn't seem right...let's just assume "my partner wrote that".
-
-<img src="images/debug_crash_5.png" width="800px" />
-
-In all seriousness, taking a look at the _calling_ stack frame(s) allows me to see where the problem originated and is generally sufficient to figure out what part of _my_ code was responsible for causing the implicitly-defined function to crash.
-
-
 
 ## Inspect Program State
 
@@ -144,11 +76,11 @@ When the debugger is paused, it shows stack frames for all functions currently e
 It's often necessary to take a look at the _calling context_ for your current function, for example to understand why a function was originally called in the first place, or why the inputs passed in to it may be invalid.
 
 **Example, Euchre Project**  
-Consider this crash within the `Card::is_right_bower()` function:
+Consider this crash within the `Card::is_right_bower()` function.
 
 <img src="images/debug_call_stack_2.png" width="700px" />
 
-Evidently, something is very wrong with the current `Card` object. The debugger is not even able to access its `rank` or `suit` member variables to show us their values: 
+Evidently, something is very wrong with the current `Card` object. The debugger is not even able to access its `rank` or `suit` member variables to show us their values.
 
 <img src="images/debug_call_stack_3.png" width="400px" />
 
@@ -156,7 +88,7 @@ We don't have enough information here to determine the problem, so let's click o
 
 <img src="images/debug_call_stack_4.png" width="700px" />
 
-That's not quite enough information, though. Evidently the card `b` is invalid, but that was a parameter to `Card_less()`. Let's keep looking for more context by again clicking the stack frame for `Simple::play_card()`:
+That's not quite enough information, though. Evidently the card `b` is invalid, but that was a parameter to `Card_less()`. Let's keep looking for more context by again clicking the stack frame for `Simple::play_card()`.
 
 <img src="images/debug_call_stack_5.png" width="700px" />
 
@@ -225,7 +157,73 @@ Then, scan the output for the relevant portion:
 
 The _Queen of Clubs_ is chosen to beat out the _Ten of Diamonds_, which is wrong. The _Ten of Diamonds_ is better because _diamonds_ is the led suit. Ah ha - we may notice that the wrong version of `Card_less()` is used in the code above, which doesn't consider the led suit.
 
-TODO: is it worth discussing logpoints?
+## Diagnose Crashes
+
+You can use a debugger to assess the cause of a crash or runtime error, including:
+
+- Failed debugging assertions
+- Undefined behavior detected by sanitizer tools
+- Segmentation faults
+- Unhandled exceptions
+- And more!
+
+Basically, if your code is doing something bad:
+1. Run through the debugger. No breakpoints needed.
+2. The debugger pauses when the error occurs.
+3. You look at local variables, the call stack, etc. to diagnose the issue
+
+Here's several examples:
+
+### Crash in _My_ Code
+
+I'm working on project 3 and run my own `Player_tests.exe` via the terminal:
+
+```console
+$ ./Player_tests.exe
+Running test: test_get_name
+Segmentation fault
+```
+
+My code crashed with a segmentation fault, but I don't know much else.
+
+Let's run in a debugger and let it crash there. No need to set any breakpoints.
+
+<img src="images/debug_crash_0.png" width="800px" />
+
+From the above, we can quickly see the line where the segfault occurs. We also observe that `p1->get_name()` crashes because `p1` is `0x0` (a null pointer), as seen in the variables panel. Ah ha - we just mistyped `p1` on this line instead of `p2`.
+
+Sometimes you might also need to explore [the call stack](#the-call-stack) to determine the cause of the crash. 
+
+### Crash in _Library/System_ Code
+
+Sometimes a crash occurs in library code that your program uses, but that you didn't write.
+
+For example, the debugger might show you a crash in code from the standard library, which is often very difficult to read:
+
+<img src="images/debug_crash_stl.png" width="600px" />
+
+Or, the debugger might choose to show you the compiled assembly code where the crash occurred:
+
+<img src="images/debug_crash_asm.png" width="600px" />
+
+There are also some implicitly defined functions that don't literally appear in your source code (e.g. a built-in copy constructor or assignment operator). For a crash in any of these functions, the debugger may just show you the first line of the class:
+
+<img src="images/debug_crash_implicit.png" width="600px" />
+
+**Tracing Back to _Your_ Code**  
+To diagnose crashes where the debugger initially shows you library code, you need to find the nearest part of _your_ code that ultimately called the library functions.
+
+Let's consider again the case of a crash in an implicitly-defined function. The debugger first just shows us the top line of the class definition, since there's no code to show for implicitly-defined functions.
+
+<img src="images/debug_crash_implicit_full.png" width="800px" />
+
+In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
+
+<img src="images/debug_crash_4.png" width="400px" />
+
+Now, click the next stack frame below to see the where that operator was used. It was in our `Pack` constructor. Taking a look at the _calling_ stack frame(s) allows me to see where the problem originated and is generally sufficient to figure out what part of _my code_ was responsible for causing the implicitly-defined function to crash. In the picture below, we can see that an (obviously) incorrect loop is attempting to copy `Card`s to out-of-bounds array elements.
+
+<img src="images/debug_crash_5.png" width="800px" />
 
 ## Breakpoints
 
