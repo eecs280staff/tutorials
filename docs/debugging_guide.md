@@ -16,7 +16,11 @@ This guide focuses on effective strategies for point 2 above, in particular thro
 
 We also show several real examples drawn from course projects in EECS 280. In some of the cases, we've blurred out parts of screenshots where we ran the debugger on our instructor solution.
 
+TODO: link back to relevant parts of IDE or setup tutorials for debuggers
+
 ## Inspect Program State
+
+A fundamental part of debugging is simply getting more information about what exactly your program is doing.
 
 ### Local Variables
 
