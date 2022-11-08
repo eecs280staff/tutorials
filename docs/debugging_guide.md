@@ -14,9 +14,7 @@ There are two fundamental components to debugging:
 
 This guide focuses on effective strategies for point 2 above, in particular through the use of a **debugger**, which allows you to pause your program's execution at key points and inspect the state of objects in memory.
 
-Throughout this guide, we describe several effective TODO disclaimer that some code is blurred, functions shown are not necessarily implemented well
-
-TODO specific examples from projects are used, but you don't need to be familiar with the project to understand the example
+Throughout this guide, we describe several key strategies for using a debugger, illuminated by real examples drawn from course projects in EECS 280. In some of the cases, we've blurred out parts of screenshots where we ran the debugger on our instructor solution.
 
 ## Inspect Program State
 
@@ -26,10 +24,9 @@ TODO specific examples from projects are used, but you don't need to be familiar
 Use the **variables panel** to inspect the values of variables while your debugger is paused.
 </div>
 
-**Example, Euchre Project**  
-There's a lot to keep track of in a game of Euchre. I'd like to check that everything seems in order after I've dealt out the cards and the players have finished making.
+Let's say I'm working on the Euchre project - there's a lot of information to keep track of during the card game. I'd like to check that everything seems in order after the cards are dealt and the players have finished making.
 
-When the debugger pauses at my breakpoint, I can see what's in my local variables:
+When the debugger pauses at my breakpoint, we can see the value of local variables:
 
 <img src="images/debug_feature_variables_0.png" width="700px" />
 
@@ -75,8 +72,7 @@ When the debugger is paused, it shows stack frames for all functions currently e
 
 It's often necessary to take a look at the _calling context_ for your current function, for example to understand why a function was originally called in the first place, or why the inputs passed in to it may be invalid.
 
-**Example, Euchre Project**  
-Consider this crash within the `Card::is_right_bower()` function.
+For example, consider this crash within the `Card::is_right_bower()` function from our Euchre project.
 
 <img src="images/debug_call_stack_2.png" width="700px" />
 
@@ -100,7 +96,7 @@ Here we finally have the information we need. We see that the parameter for `b` 
 Use the **debug console** to evaluate expressions while your debugger is paused.
 </div>
 
-Let's say I'm working on project 2 and I get a segfault from dereferencing `ptr` in my `Matrix_max()` function below. My debugger pauses when the sefault occurs.
+Let's say I'm working on a project involving matrices and I get a segfault from dereferencing `ptr` in my `Matrix_max()` function below. My debugger pauses when the segfault occurs.
 
 I can see `ptr` holds the address `0x55555586e000` and `size` is `25` in the variables window.
 
@@ -134,10 +130,7 @@ In _some_ situations, **logging additional output via print statements** may be 
 - Comment out your debug outputs once you're done (rather than deleting them). You might use them again later!
 </div>
 
-**Example, Euchre Project**  
-I'm getting the wrong output in my project 3 Euchre program on a public test.
-
-Let's look at my output vs. the sample correct output in the VS Code diff checker. The players are playing the right cards, but the wrong person takes the trick.
+Let's say I'm getting the wrong output in my Euchre program, evidenced by the diff check below. The players are playing the right cards, but the wrong person takes the trick.
 
 <img src="images/debug_print_0.png" width="800px" />
 
@@ -176,7 +169,7 @@ Here's several examples:
 
 ### Crash in _My_ Code
 
-I'm working on project 3 and run my own `Player_tests.exe` via the terminal:
+I've just finished part of the Euchre project and want to run my own `Player_tests.exe` via the terminal:
 
 ```console
 $ ./Player_tests.exe
@@ -233,7 +226,7 @@ Now, click the next stack frame below to see the where that operator was used. I
 A **breakpoint** pauses the program whenever it reaches a certain line.
 </div>
 
-For example, if you're running the main driver for project 1 and your dataset summary doesn't print out correctly, you might want to pause the program after the summary has been calculated but before printing it out.
+For example, if you're running the main driver for a statistics project and your dataset summary doesn't print out correctly, you might want to pause the program after the summary has been calculated but before printing it out.
 
 To set a breakpoint, click to the left of a line as shown. A red dot appears to indicate the breakpoint on that line. (You can click again to unset it.)
 
@@ -255,7 +248,7 @@ If your debugger isn't respecting your breakpoints or the lines where it pauses 
 Use a **conditional breakpoint** to pause the program _only_ if a given condition is true.
 </div>
 
-Consider a case where I'm debugging my project 3 driver, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in the making trump phase of hand 3, Edsger passes but should have ordered up Spades.
+Consider a case where I'm debugging my Euchre program, but I find that the first mismatch in output (see the diff below) occurs pretty far into the game - in the making trump phase of hand 3, Edsger passes but should have ordered up Spades.
 
 <img src="images/debug_conditional_breakpoint_3.png" width="700px" />
 
@@ -313,9 +306,7 @@ If you're not sure whether a function is correct, use **step over** to run it an
 
 When the next line of code contains a function call, you need to decide whether to _step into_ the function or go ahead and _step over_ the whole thing. It's tempting to _step in_ so you can see all the details, but that may be a waste of time if the function isn't actually broken!
 
-
-**Example, Euchre Project**  
-Assume we're debugging a Euchre program and we've discovered that players are not making the right decision during the making phase. The players choose whether to order up based on the cards they have, which also depends on how the pack of cards was shuffled and how cards were dealt to each player.
+For example, consider the Euchre program. Assume we've discovered that players are not making the right decision during the making phase. The players choose whether to order up based on the cards they have, which also depends on how the pack of cards was shuffled and how cards were dealt to each player.
 
 Let's say you've got your debugger paused before the relevant helper functions for each of those steps:
 
@@ -331,8 +322,7 @@ To move quickly through a large portion of code, set a **breakpoint** at your ne
 
 Breakpoints are not only used to tell the debugger where to stop initially. You can add/remove them while the debugger is running. This is particularly useful for quick navigation over several lines or looping constructs that would otherwise take a long time to step through line-by-line.
 
-**Example, Euchre Project**  
-In the code below, let's say my debugger is paused on line 302. Looking ahead, I'd like to investigate what happens when my Euchre players either lead or play cards. Instead of stepping through the intervening lines one-at-a-time with _step into_ or _step over_, I'll set breakpoints on the lines that interest me (310 and 319) and use _continue_ to hop from one breakpoint to another.
+Here's an example. In the code below, let's say my debugger is paused on line 302. Looking ahead, I'd like to investigate what happens when my Euchre players either lead or play cards. Instead of stepping through the intervening lines one-at-a-time with _step into_ or _step over_, I'll set breakpoints on the lines that interest me (310 and 319) and use _continue_ to hop from one breakpoint to another.
 
 <img src="images/debug_continue_to_breakpoint.png" width="400px" />
 
