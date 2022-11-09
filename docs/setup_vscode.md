@@ -169,6 +169,14 @@ Select the add file icon and give it a name, e.g., `main.cpp`.
 **Pitfall:** Make sure your new file is in the `src` subdirectory.
 </div>
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** You can also create files and folders from the command line, for example:
+```console
+$ mkdir src
+$ touch src/main.cpp
+```
+</div>
+
 Copy-paste this Hello World program into your `main.cpp`.
 ```c++
 #include <iostream>
