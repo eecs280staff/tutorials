@@ -242,6 +242,13 @@ Right click a file and select "rename".  Change the file name.  In EECS 280, you
 
 | <img src="images/vscode027.png" width="300px" /> | <img src="images/vscode028.png" width="192px" /> |
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** You can also rename files the command line, for example:
+```console
+$ mv stats_tests.cpp.starter stats_tests.cpp
+```
+</div>
+
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
