@@ -364,7 +364,7 @@ If you're debugging something else in your program and don't want it to terminat
 
 ### Input redirection
 <div class="primer-spec-callout info" markdown="1">
-Skip this subsection your first through the tutorial.  You can come back to it.
+Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
 You can use input redirection to avoid typing program input each time you run a program.
@@ -557,7 +557,7 @@ Next, open VS Code's Command Palette with `View > Command Palette` or with the k
 
 <img src="images/vscode150.png" width="480px" />
 
-Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  Don't change other settings.  Save the file.
+Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  Don't change any other settings.  Save the file.
 ```json
 {
     "configurations": [
