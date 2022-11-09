@@ -37,7 +37,7 @@ ProductName:	macOS
 ProductVersion:	11.7
 ```
 
-Use the homebrew package manager to install VS Code.
+Use the homebrew package manager to install VS Code.  You can run this command from any directory.
 ```console
 $ brew install --cask visual-studio-code
 ```
