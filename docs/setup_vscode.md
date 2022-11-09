@@ -335,7 +335,7 @@ Click the triangle to run.  You'll see your program's output in the debug consol
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats/src
-$ make stats_tests.exe
+$ make main.exe
 ```
 </div>
 
