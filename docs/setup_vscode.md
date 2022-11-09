@@ -231,7 +231,7 @@ $ tree
     └── stats_tests.cpp.starter
 ```
 
-In VS Code, open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder or from the command line.  You should see your files.
+In VS Code, open your project folder by selecting `File` > `Open Folder...` > to navigate to the `p1-stats` folder or from the command line.  You should see your files.
 
 <img src="images/vscode026.png" width="768px" />
 
