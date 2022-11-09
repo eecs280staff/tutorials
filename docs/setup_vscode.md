@@ -141,20 +141,16 @@ $ cd p1-stats
 
 </div>
 
-<div class="primer-spec-callout info" markdown="1">
-**WSL Pro-tip:** WSL uses a network file share between the Linux and Windows file systems.  Use a folder that's shared for easier access.
-- `/mnt/c/Users/awdeorio/Desktop`
-- `/mnt/c/Users/awdeorio/Documents`
-</div>
-
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-Here's a quick way to open VS Code to a specific project folder from the command line.
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
 $ code .
 ```
+</div>
 
 <img src="images/vscode020.png" width="768px" />
 
