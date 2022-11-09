@@ -12,7 +12,7 @@ macOS comes with a Terminal and can run UNIX command-line tools directly.
 When you see `$` in this tutorial, you should type into your shell the command that comes after the `$`.
 
 ## Open terminal
-macOS has a built-in shell.  Open the Terminal application.
+Open the Terminal application which comes with macOS.
 
 <img src="images/macos010.png" width="480px" />
 
@@ -49,6 +49,12 @@ $ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 {: data-variant="no-line-numbers" }
 </div>
+
+Check your install.  Your version might be different.
+```console
+$ brew --version
+Homebrew 3.6.7
+```
 
 ## Install CLI tools
 Use the Homebrew package manager to install a few command line programs.
