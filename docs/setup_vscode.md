@@ -188,10 +188,6 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-Create more new files if you need to.  EECS 280 students here for project 1 should create a new empty file called `stats.cpp`.
-
-<img src="images/vscode024.png" width="768px" />
-
 ### Add existing files
 If you have starter files, add them to the `src` subdirectory inside your project directory.
 
@@ -272,6 +268,14 @@ main.cpp ...
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you're in EECS 280 and get an error like this, [add a new file](#add-new-files) `stats.cpp`.  It's OK if the file is empty for now.
+```console
+$ make main.exe
+make: *** No rule to make target `stats.cpp', needed by `main.exe'.  Stop.
+```
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
 ```console
 $ make main.exe
@@ -282,8 +286,6 @@ g++ ... -g main.cpp ...
 <div class="primer-spec-callout warning" markdown="1">
 If you don't have a `Makefile`, you can compile manually.  We don't recommend this for EECS 280 students.
 ```console
-$ make main.exe
-make: *** No rule to make target `main.exe'.  Stop.
 $ g++ -g main.cpp -o main.exe
 $ ./main.exe
 Hello World!
