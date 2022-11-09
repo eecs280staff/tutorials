@@ -310,7 +310,7 @@ Select a "Launch" configuration.  This will create a default `launch.json` ([Mic
 
 <img src="images/vscode033.png" width="768px" />
 
-Edit the `program` field in `launch.json` with the program to run.  Your `launch.json` might be different.
+Edit the `program` field in `launch.json` with the program to run.  Save the updated file.  Your `launch.json` might be different.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to include the `src` subdirectory.
