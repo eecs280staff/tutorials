@@ -316,6 +316,16 @@ Edit the `program` field in `launch.json` with the program to run.  Save the upd
 **Pitfall:** Remember to include the `src` subdirectory.
 </div>
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** VS Code puts its configuration files in a hidden directory called `.vscode`.  You can see hidden files with `ls -A`.
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats
+$ ls -A
+.vscode  src
+```
+</div>
+
 <img src="images/vscode034.png" width="768px" />
 
 Click the triangle to run.  You'll see your program's output in the debug console.
