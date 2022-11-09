@@ -252,7 +252,7 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
-Many VS Code users prefer the integrated terminal.  Don't forget to `cd` into the subdirectory containing your source code (`src` in this example).
+VS Code has an integrated terminal; it's up to you if like the integrated terminal or your system terminal.  Don't forget to `cd` into the subdirectory containing your source code (`src` in this example).
 
 <img src="images/vscode029.png" width="768px" />
 
