@@ -1,6 +1,6 @@
 ---
 layout: spec
-title: Setup Xcode (MacOS)
+title: Setup Xcode
 excludeFromSitemap: true
 ---
 
@@ -47,17 +47,7 @@ For reference, this is the version of Xcode we're using in this example.  Yours 
 ## Create a project
 An Xcode project contains the files and information to build your software.  In EECS 280, you'll eventually create one Xcode project for each EECS 280 project.
 
-Start Xcode.
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.
-```console
-$ open p1-stats.xcodeproj
-```
-{: data-variant="no-line-numbers" }
-</div>
-
-Create a new Xcode project.
+Start Xcode.  Create a new Xcode project.
 
 <img src="images/xcode040.png" width="512px" />
 
@@ -87,11 +77,35 @@ Click the `p1-stats` folder and rename it to `src`.  We recommend this in EECS 2
 
 <img src="images/xcode075.png" width="768px" />
 
+You can see the files created by Xcode from the command line.  Notice that Xcode created a for project metadata: `p1-stats.xcodeproj`.
+```console
+$ pwd
+/Users/awdeorio/src/eecs280/p1-stats
+$ tree
+.
+├── p1-stats.xcodeproj
+│   ├── project.pbxproj
+        ...
+└── src
+    └── main.cpp
+```
+
 ### Add new files
+<div class="primer-spec-callout info" markdown="1">
+Xcode created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
 
-EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
+Open your project folder by selecting `File` > `Open` > navigate to the `p1-stats` folder and open `p1-stats.xcodeproj`.
 
-Right-click "p1-stats" in the left side bar.  Select "New File".
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.
+```console
+$ open p1-stats.xcodeproj
+```
+{: data-variant="no-line-numbers" }
+</div>
+
+Right-click the `src` folder in the left side bar.  Select "New File".
 
 <img src="images/xcode115.png" width="768px" />
 
@@ -99,7 +113,7 @@ Select "macOS", "C++ File", and click "Next".
 
 <img src="images/xcode116.png" width="512px" />
 
-Name your file.  Uncheck "Also create a header file".  The first file we'll create for project 1 is `stats.cpp`.
+Name your file, we'll use `stats.cpp` for this example.  Uncheck "Also create a header file".
 
 <img src="images/xcode117.png" width="512px" />
 
@@ -107,41 +121,9 @@ Don't select any targets.  Click "Create".
 
 <img src="images/xcode118.png" width="512px" />
 
-Repeat the previous steps to create another new file, `main.cpp`.
-
-Now you'll see the two new files in the side bar.
+You should see your new file in the `src` directory.
 
 <img src="images/xcode119.png" width="768px" />
-
-You'll also see the new files at the command line.
-```console
-$ ls stats.cpp main.cpp
-main.cpp  stats.cpp
-$ tree
-.
-├── Makefile
-├── main.cpp
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
-├── p1-stats.xcodeproj
-│   ├── project.pbxproj
-│   ├── project.xcworkspace
-│   │   ├── contents.xcworkspacedata
-│   │   └── xcuserdata
-│   │       └── awdeorio.xcuserdatad
-│   │           └── UserInterfaceState.xcuserstate
-│   └── xcuserdata
-│       └── awdeorio.xcuserdatad
-│           └── xcschemes
-│               └── xcschememanagement.plist
-├── p1_library.cpp
-├── p1_library.h
-├── stats.cpp
-├── stats.h
-├── stats_public_test.cpp
-└── stats_tests.cpp
-```
 
 ### Add existing files
 Next, we'll add our existing source code files to the project.
