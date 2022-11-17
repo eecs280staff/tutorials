@@ -18,12 +18,12 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 There are no prerequisites for VS Code.
 
 ## Restart
-If you tried using this tutorial in the past and want to "start clean", here's how to delete all VS Code configuration files.  This will not delete your code.  First, quit VS Code.  Your project directory might be different.
+To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
 ```console
 $ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ rm -rf .vscode
-$ rm -rf ~/.vscode
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
 ```
 
 ## Install
