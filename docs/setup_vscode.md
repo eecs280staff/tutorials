@@ -476,10 +476,10 @@ Copy this example `main.cpp` into your editor.
 #include <vector>
 using namespace std;
 
-double sum (vector<double> data) {
+double sum (const vector<double> &data) {
   double total = 0;
-  for (auto i:data) {
-    total += i;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
   }
   return total;
 }
@@ -489,16 +489,10 @@ int main() {
   data.push_back(10);
   data.push_back(20);
   data.push_back(30);
-  cout << "sum(data) = " << sum(data) << "\n";
+  cout << "sum(data) = " << sum(data) << endl;
 }
 ```
-
-Compile and run at the command line.
-```console
-$ make main.exe
-$ ./main.exe
-sum(data) = 60
-```
+{: data-title="main.cpp" }
 
 ### Breakpoint
 Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
@@ -510,13 +504,21 @@ Select the debugging pane, then run the debugger.  The program pauses at the bre
 
 <img src="images/vscode090.png" width="768px" />
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Don't forget to compile!
+```console
+$ make main.exe                # With a Makefile
+$ g++ -g main.cpp -o main.exe  # Without a Makefile
+```
+</div>
+
 ### Step over
 Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/vscode100.png" width="768px" />
 
 ### Inspect
-Hover over a variable to inspect its value.
+Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
 <img src="images/vscode110.png" width="768px" />
 
