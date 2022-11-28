@@ -77,7 +77,7 @@ Click the `p1-stats` folder and rename it to `src`.  We recommend this in EECS 2
 
 <img src="images/xcode075.png" width="768px" />
 
-You can see the files created by Xcode from the command line.  Notice that Xcode created a for project metadata: `p1-stats.xcodeproj`.
+You can see the files created by Xcode from the command line.  Notice that Xcode created a folder project metadata: `p1-stats.xcodeproj`.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
@@ -113,7 +113,7 @@ Select "macOS", "C++ File", and click "Next".
 
 <img src="images/xcode116.png" width="512px" />
 
-Name your file, we'll use `stats.cpp` for this example.  Uncheck "Also create a header file".
+Name your file, we'll use `stats.cpp` for this example.  Uncheck "Also create a header file".  There's nothing wrong with using "create a header file" if your project needs it.
 
 <img src="images/xcode117.png" width="512px" />
 
@@ -126,19 +126,53 @@ You should see your new file in the `src` directory.
 <img src="images/xcode119.png" width="768px" />
 
 ### Add existing files
-Next, we'll add our existing source code files to the project.
+If you have starter files, add them to the `src` subdirectory inside your project directory.
 
-Start Xcode and open your project.  Here's how to do that all at once, from the command line:
+We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the subdirectory containing your source code.
 ```console
-$ open p1-stats.xcodeproj
+$ ls
+main.cpp ...
 ```
-{: data-variant="no-line-numbers" }
+</div>
 
-Right-click "p1-stats" in the left side bar.  Select "Add Files to 'p1-stats'".
+```console
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mkdir -p src
+$ mv starter-files/* src/
+$ rm -rf starter-files starter-files.tar.gz
+```
+
+You should see your new files in the `src` subdirectory.
+```console
+$ tree
+.
+├── p1-stats.xcodeproj
+    ...
+└── src
+    ├── Makefile
+    ├── main.cpp
+    ├── main_test.in
+    ├── main_test.out.correct
+    ├── main_test_data.tsv
+    ├── p1_library.cpp
+    ├── p1_library.h
+    ├── stats.cpp
+    ├── stats.h
+    ├── stats_public_test.cpp
+    └── stats_tests.cpp.starter
+```
+
+Start Xcode and open your project.
+
+Right-click "src" in the left side bar.  Select "Add Files".  Do *not* select "Copy items if needed".
 
 <img src="images/xcode080.png" width="768px" />
 
-Select all the starter files (press Command-A) and click "Add".
+Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>) and click "Add".
 
 <img src="images/xcode100.png" width="768px" />
 
