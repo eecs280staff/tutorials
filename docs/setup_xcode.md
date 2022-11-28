@@ -208,9 +208,9 @@ g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o 
 
 Configure Xcode to run the executable in the directory containing the input files, which is `src/` in this example.
 
-Click "p1-stats" , then "Edit Scheme".
+Select your scheme, then "Edit Scheme".
 
-<img src="images/xcode150.png" width="768px" />
+<img src="images/xcode150.png" width="384px" />
 
 Select "Run", then "Options", then "Use custom working directory".  Set the directory to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
@@ -227,9 +227,9 @@ Compile and run.
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
 
-Click "p1-stats" , then "Edit Scheme".
+Select your scheme, then "Edit Scheme".
 
-<img src="images/xcode150.png" width="768px" />
+<img src="images/xcode150.png" width="384px" />
 
 <img src="images/xcode170.png" width="768px" />
 
@@ -276,33 +276,28 @@ Without input redirection, here's how to type input in the Xcode command line.
 
 Xcode no longer directly supports command-line style redirection.  One option is to simply type the input each time.  Another option is to use a work-around described in [https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)
 
-
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
+Skip this subsection for EECS 280 project 1.
 </div>
 
-*Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
-
-**Arguments example** from project 2:  `resize.exe` is the name of the program, and the arguments are `horses.ppm`,  `horses_400x250.ppm`, `400`, and `250`.
-```console
-$ ./resize.exe horses.ppm horses_400x250.ppm 400 250
-```
-{: data-variant="no-line-numbers" }
-
-**Options example** from project 5:  `main.exe` is the name of the program.  `train_small.csv` and  `test_small.csv` are arguments.  `--debug` is an option.
+Arguments and options are inputs to a program typed at the command line.  For example:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
-{: data-variant="no-line-numbers" }
+{: data-variant="no-line-numbers" data-highlight="1" }
 
-To run a program with options or arguments in Xcode, select your scheme and then "Edit Scheme".
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
 
-<img src="images/xcode258.png" width="320px" />
+Select your scheme, then "Edit Scheme".
+
+<img src="images/xcode150.png" width="384px" />
 
 Add each option or argument separately.
 
-<img src="images/xcode259.png" width="768px" />
+<img src="images/xcode259.png" width="576px" />
 
 
 ## Debug
