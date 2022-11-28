@@ -14,6 +14,7 @@ List of tutorials:
   - [setup.html](setup.html)
   - [setup_asan.html](setup_asan.html)
   - [setup_caen.html](setup_caen.html)
+  - [setup_eecs281.html](setup_eecs281.html)
   - [setup_emacs.html](setup_emacs.html)
   - [setup_gdb.html](setup_gdb.html)
   - [setup_git.html](setup_git.html)
