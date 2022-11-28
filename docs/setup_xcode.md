@@ -325,39 +325,45 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-
 ### Breakpoint
-Make sure your application is stopped and you can see the Project Navigator.  Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
+Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/xcode260.png" width="768px" />
 
 ### Run
-Build and run.  Notice that the application is paused on entry to `main()`.
+Run the debugger.  The program pauses at the breakpoint.  The green indicator highlights the next line of code to be run.
 
 <img src="images/xcode270.png" width="768px" />
 
 ### Step over
-Click "Step Over" to go to the next line of code. Our test fails immediately because we haven't implemented `sum()` yet.
+Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/xcode280.png" width="768px" />
 
 ### Inspect
-Restart the program.
+Hover over a variable to inspect its value.  You can also see values in the variables pane.
 
 <img src="images/xcode290.png" width="768px" />
 
 ### Step into
-Click "step into".  You'll see that the cursor enters the `test_sum_small_data_set()` function.
+Click "Step Into".  The cursor enters the `sum()` function.
+
+<img src="images/xcode295.png" width="768px" />
 
 <img src="images/xcode300.png" width="768px" />
 
 ### Step out
-Click "step over" a few times until you're on this line of code. Hover over a variable to see its value.
+Click "Step Out".  The `sum()` function completes, and the program pauses again.
+
+<img src="images/xcode305.png" width="768px" />
 
 <img src="images/xcode310.png" width="768px" />
 
 ### Continue
-FIXME
+Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
+
+<img src="images/xcode320.png" width="768px" />
+
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
