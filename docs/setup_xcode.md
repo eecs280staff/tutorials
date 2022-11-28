@@ -188,40 +188,41 @@ Right click a file and select "rename".  Change the file name.  In EECS 280, you
 | <img src="images/xcode120.png" width="192px" /> | <img src="images/xcode125.png" width="192px" /> |
 
 ## Compile and Run
-An Xcode target compiles (builds) one executable.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
+An Xcode target compiles (builds) one executable.  One executable should have exactly one `main()` function.
 
-Now, we'll have Xcode do the build.  We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the `stats_tests.exe` executable.  Remove the other files by selecting them and clicking on the "–" button.
+Now, we'll have Xcode do the build.  We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the `main.exe` executable.  Remove any other files by selecting them and clicking on the "–" button.
 
 <img src="images/xcode130.png" width="768px" />
 
-Build.
-
-<img src="images/xcode140.png" width="768px" />
-
-The code will then run and crash at the assert in the `sum()` function.  You can press the stop button next to the play button at the top to stop the program.
-
-To compile a different target, change the list of files under "Compile Sources".
-
-### Compile future projects
-In future projects, you'll have to figure out which files to include in a build.  Generally, each time you see `#include "myfile.h"`, you will include a corresponding `myfile.cpp` file in the build.  Be sure that you include only one `main()` function.
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** In future projects, you'll have to figure out which files to include in a build.  Generally, each time you see `#include "myfile.h"`, you will include a corresponding `myfile.cpp` file in the build.  Be sure that you include only one `main()` function.
 
 An alternative is to mimic the `Makefile`.  Compile one target and include any `.cpp` files in the `g++` command.  Notice that `main.cpp`, `stats.cpp`, and `p1_library.cpp` were included in the `g++` compile command.  These are the files you should include in the Xcode build.  Note that the files will be different for building a unit test, but you can use the same trick again.
 ```console
 $ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
 g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 ```
+{: data-highlight="3" }
+</div>
 
-An Xcode scheme builds a target and then automatically executes it.  We will configure Xcode to run your executable in the same directory that contains your input files.
+Configure Xcode to run the executable in the directory containing the input files, which is `src/` in this example.
 
 Click "p1-stats" , then "Edit Scheme".
 
 <img src="images/xcode150.png" width="768px" />
 
-Select "Run", then "Options", then "Use custom working directory".  Set the directory to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats`.  Click "Close".
+Select "Run", then "Options", then "Use custom working directory".  Set the directory to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
 <img src="images/xcode160.png" width="768px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Remember to include the `src` subdirectory.
+</div>
+
+Compile and run.
+
+<img src="images/xcode165.png" width="768px" />
 
 ### Sanitizers
 While editing the scheme ([instructions](#run)), we recommend enabling the address sanitizer and undefined behavior sanitizer.  These will help you find memory errors like going off the end of an array or vector. Find more detail in the [Apple Article](https://developer.apple.com/documentation/xcode/diagnosing_memory_thread_and_crash_issues_early).
