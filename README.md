@@ -18,21 +18,21 @@ $ ruby --version  # Need version 2.4.0 or later
 ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18]
 $ gem install bundler
 $ pwd
-/Users/awdeorio/src/eecs280/tutorials
+/Users/awdeorio/src/eecs280/eecs281-setup
 $ bundle install
 ```
 
 Every day usage:
 ```console
 $ pwd
-/Users/awdeorio/src/eecs280/tutorials/docs
+/Users/awdeorio/src/eecs280/eecs281-setup/docs
 $ bundle exec jekyll serve
 ```
 
 If you run into Jekyll errors, run `bundle update`:
 ```console
 $ pwd
-/Users/awdeorio/src/eecs280/tutorials
+/Users/awdeorio/src/eecs280/eecs281-setup
 $ bundle update --all
 ```
 
