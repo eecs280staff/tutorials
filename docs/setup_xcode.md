@@ -234,14 +234,15 @@ Click "p1-stats" , then "Edit Scheme".
 <img src="images/xcode170.png" width="768px" />
 
 ### Input redirection
-Skip this subsection on your first time through the tutorial.  You can use input redirection to avoid typing program input each time you run (for debugging) a program.
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
 
-Without input redirection, here's how you type input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
+You can use input redirection to avoid typing program input each time you run a program.
+
+Without input redirection, the user types input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
 ```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 $ ./main.exe
 enter a filename
 main_test_data.tsv
@@ -249,18 +250,25 @@ enter a column name
 B
 ...
 ```
+{: data-highlight="4,6" }
 
-If we put the user input in a file we can automate the user input.  We'll put it in a file called `main_test.in`.
-```console
-$ cat main_test.in   # Peek at the contents of a file
+Automate user input by putting it in a file.
+
+```
 main_test_data.tsv
 B
-$ ./main.exe < main_test.in  # Redirect file content to main's stdin (cin)
+```
+{: data-title="main_test.in" data-highlight="1,2" }
+
+Redirect file `main_test.in` to stdin of `main.exe`.
+```console
+$ ./main.exe < main_test.in
 enter a filename
 enter a column name
 reading column B from main_test_data.tsv
 ...
 ```
+{: data-highlight="1" }
 
 Without input redirection, here's how to type input in the Xcode command line.
 
