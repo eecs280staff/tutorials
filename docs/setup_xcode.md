@@ -225,7 +225,11 @@ Compile and run.
 <img src="images/xcode165.png" width="768px" />
 
 ### Sanitizers
-While editing the scheme ([instructions](#run)), we recommend enabling the address sanitizer and undefined behavior sanitizer.  These will help you find memory errors like going off the end of an array or vector. Find more detail in the [Apple Article](https://developer.apple.com/documentation/xcode/diagnosing_memory_thread_and_crash_issues_early).
+We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
+
+Click "p1-stats" , then "Edit Scheme".
+
+<img src="images/xcode150.png" width="768px" />
 
 <img src="images/xcode170.png" width="768px" />
 
