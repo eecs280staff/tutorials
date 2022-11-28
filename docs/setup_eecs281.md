@@ -90,29 +90,32 @@ The `getopt.c` file is simple to use: merely put a copy of `getopt.c` in each pr
 
 Next, we will need to make sure that `getopt.h` is accessible to Visual Studio. There are two ways to do this:
 
-1. Place `getopt.h` in Visual Studio include folder (**Preferred**)
-Put the `getopt.h` file inside one of the standard Visual Studio include folders. For Visual Studio 2022 Community, this folder is usually located in:
-```
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
-```
+1. Place `getopt.h` in Visual Studio include folder (**Preferred**)\
+    Put the `getopt.h` file inside one of the standard Visual Studio include folders. For Visual Studio 2022 Community, this folder is usually located in:
+    ``
+    C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
+    ``
 
-If you’re using a different version of VS (such as Community 2019), the location might be slightly different:
-```
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include
-```
+    If you’re using a different version of VS (such as Community 2019), the location might be slightly different:
+    ``
+    C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include
+    ``
 
-This location is usually locked and can only be accessed if you are “Administrator”.
+    This location is usually locked and can only be accessed if you are “Administrator”.
 
-Open your file explorer and find the appropriate location shown above by starting at “This PC” (in the bottom left), and paste the file.
+    Open your file explorer and find the appropriate location shown above by starting at “This PC” (in the bottom left), and paste the file.
 
-You have successfully included `getopt.h` into the Visual Studio include folder, and you will simply need to `#include <getopt.h>` in every project that you do.
+    You have successfully included `getopt.h` into the Visual Studio include folder, and you will simply need to `#include <getopt.h>` in every project that you do.
 
-2. Place `getopt.h` inside Project Directory
-Put `getopt.h` inside your project folder, and `#include "getopt.h"` in every file where you use `getopt`.
+2. Place `getopt.h` inside Project Directory\
+   Put `getopt.h` inside your project folder, and `#include "getopt.h"` in every file where you use `getopt`.
 
-When you pack up your project to test on CAEN or submit, you have to change your include statement to <getopt.h>, as the Autograder/CAEN will be using the built in library, and not the files provided in the project directory. You should also NOT include getopt.h as part of your submission tarball.
+   When you pack up your project to test on CAEN or submit, you have to change your include statement to <getopt.h>, as the Autograder/CAEN will be using the built in library, and not the files provided in the project directory. You should also NOT include getopt.h as part of your submission tarball.
 
-``Note:`` The big problem with this solution is that if you forget to change from double quotes to angle quotes, your project will fail to compile when you submit, and waste time (and possibly a submit for the day).
+    <div class="primer-spec-callout warning" markdown="1">
+    **Note:** The big problem with this solution is that if you forget to change from double quotes to angle quotes, your project will fail to compile when you submit, and waste time (and possibly a submit for the day).
+    </div>
+
 
 ### Xcode
 If you've used Xcode on your computer before, start the tutorial at the [Create a project](https://eecs280staff.github.io/p1-stats/setup_xcode.html#create-a-project) section.
@@ -164,9 +167,9 @@ hello world!
 ## Parsing command line arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them. 
 
-``Note:`` If you are using Visual Studio, please make sure that you have setup `getopt` [here](#getopt-setup)
+``Note: If you are using Visual Studio, please make sure that you have setup `getopt` [here](#getopt-setup)``
 
-
+A sample copy of the code required for `getopt` to work can be found below:
 ```c++
 // TODO: Finish this function, look for the individual TODO comments internally.
 // Process the command line; the only thing we need to return is the mode
@@ -212,7 +215,7 @@ return mode;
 ```
 {: data-title="main.cpp" }
 
-Compile and run.  You should see the sample command line arguments.  This might be a good time to change them to match your project spec.
+After adding the code to you file, you can now compile and run the program.  You should see the sample command line arguments.  This might be a good time to change them to match your project spec.
 ```console
 $ make main
 $ ./main FIXME
