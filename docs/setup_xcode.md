@@ -181,8 +181,11 @@ You will now see your files in the sidebar on the left.
 <img src="images/xcode110.png" width="768px" />
 
 #### Rename files
+If you need to rename any files, use Xcode, not the command line or Finder.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
-FIXME
+Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
+
+| <img src="images/xcode120.png" width="192px" /> | <img src="images/xcode125.png" width="192px" /> |
 
 ## Compile and Run
 An Xcode target compiles (builds) one executable.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
