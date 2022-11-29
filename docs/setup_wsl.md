@@ -23,7 +23,21 @@ Start PowerShell and run it as administrator.  Search for PowerShell in the star
 
 <img src="images/wsl010.png" width="240px" />
 
-Next, follow the instructions from Microsoft: [https://docs.microsoft.com/en-us/windows/wsl/install](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10).  Be sure to select "Ubuntu Linux".
+Check if WSL was already installed.
+```console
+C:\WINDOWS\system32> wsl -l -v
+  NAME      STATE       VERSION
+* Ubuntu    Stopped     2
+```
+{: data-highlight="3"}
+
+If WSL is not installed, then install it.
+```console
+C:\WINDOWS\system32> wsl --install
+```
+
+Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).
+
 
 ## Open terminal
 Start an Ubuntu Bash shell (not a Windows PowerShell).
