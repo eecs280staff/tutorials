@@ -470,7 +470,24 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
 {: data-title="launch.json" data-highlight="6" }
 
 ## Debug
-Copy this example `main.cpp` into your editor.
+In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
+
+<img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
+Run one line of code, stepping _over_ any function calls by running the whole function in one step.
+
+<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**
+Run one line of code, stepping _into_ any function calls to execute them line-by-line.
+
+<img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**
+Run the program until it returns from the current function (or until the next breakpoint).
+
+<img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
+Run the program until the next breakpoint.
+
+### Example code
+{: .primer-spec-toc-ignore }
+
+To get started, copy this example `main.cpp` into your editor.
 ```c++
 #include <iostream>
 #include <vector>
