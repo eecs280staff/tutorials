@@ -367,35 +367,41 @@ If you're debugging something else in your program and don't want it to terminat
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-You can use input redirection to avoid typing program input each time you run a program.
+You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
 
-Without input redirection, the user types input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
+int main() {
+  cout << "What's your name?" << endl;
+  string name;
+  cin >> name;
+  cout << "Hello " << name << "!\n";
+}
+```
+
+Without input redirection, the user types input at the command line (highlighted).
 ```console
 $ make main.exe
 $ ./main.exe
-enter a filename
-main_test_data.tsv
-enter a column name
-B
-...
+What's your name?
+Drew
+Hello Drew!
 ```
-{: data-highlight="4,6" }
+{: data-highlight="4" }
 
 Automate user input by putting it in a file.
-
 ```
-main_test_data.tsv
-B
+Drew
 ```
-{: data-title="main_test.in" data-highlight="1,2" }
+{: data-title="main_test.in" data-highlight="1" }
 
 Redirect file `main_test.in` to stdin of `main.exe`.
 ```console
 $ ./main.exe < main_test.in
-enter a filename
-enter a column name
-reading column B from main_test_data.tsv
-...
+What's your name?
+Hello Drew!
 ```
 {: data-highlight="1" }
 
