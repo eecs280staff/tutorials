@@ -56,10 +56,10 @@ For reference, this is the version of Visual Studio we're using in this example.
 
 ### Getopt setup
 <div class="primer-spec-callout warning" markdown="1">
-This sections is only required for EECS 281 students. If you are a EECS 280 student, please skip this section.
+This section is only required for EECS 281 students. If you are a EECS 280 student, please skip this section.
 </div>
 
-Please follow the guide [here](/setup_eecs281.md#getopt-setup) to setup
+Please follow the guide [here](/setup_eecs281.md#getopt-setup) to setup Visual Studio for `getopt`.
 
 # Create a project
 A Visual Studio project contains the files and information to build your software.  In EECS 280, you'll eventually create one Visual Studio project for each EECS 280 project.
