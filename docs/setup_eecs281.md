@@ -14,8 +14,6 @@ This tutorial will help you set up an EECS 281 project using the EECS 280 tutori
       ```
       p0-hello/p0-hello/main.cpp
       ```
-- [ ] get opt starter code
-- [ ] get opt work around on Visual Studio
 - [ ] Configure visual debugger for CLI args and opts
 
 ## OS and tool installs
@@ -82,6 +80,42 @@ If you've used Visual Studio on your computer before, start the tutorial at the 
 
 If Visual Studio is new to you or new to your computer, start at the [beginning](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html).  Stop after you've completed the [Add existing files](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#add-existing-files) section.
 
+#### Getopt Setup
+
+Next, we will make sure to add the `getopt` library to Visual Studio. `getopt` is a C/C++ library used to process command line arguments, and its the library that we will be using in EECS 281. While the other IDEs contain of version of `getopt` in their compiler, Visual Studio does not.
+
+First, please download the `getopt.c` file <a href="/getopt.c" download>here</a> and the `getopt.h` file  <a href="/getopt.h" download>here</a>.
+
+The `getopt.c` file is simple to use: merely put a copy of `getopt.c` in each project that needs it. When you turn in your project, do NOT make `getopt.c` part of your tarball (the Makefile that we give you will not include `getopt.c` in the tarballs).
+
+Next, we will need to make sure that `getopt.h` is accessible to Visual Studio. There are two ways to do this:
+
+1. Place `getopt.h` in Visual Studio include folder (**Preferred**)
+    Put the `getopt.h` file inside one of the standard Visual Studio include folders. For Visual Studio 2022 Community, this folder is usually located in:
+    ```
+    C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
+    ```
+
+    If you’re using a different version of VS (such as Community 2019), the location might be slightly different:
+    ```
+    C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include
+    ```
+
+    This location is usually locked and can only be accessed if you are “Administrator”.
+
+    Open your file explorer and find the appropriate location shown above by starting at “This PC” (in the bottom left), and paste the file.
+
+    You have successfully included `getopt.h` into the Visual Studio include folder, and you will simply need to `#include <getopt.h>` in every project that you do.
+
+2. Place `getopt.h` inside Project Directory
+    Put `getopt.h` inside your project folder, and `#include "getopt.h"` in every file where you use `getopt`.
+
+    When you pack up your project to test on CAEN or submit, you have to change your include statement to <getopt.h>, as the Autograder/CAEN will be using the built in library, and not the files provided in the project directory. You should also NOT include getopt.h as part of your submission tarball.
+
+    <div class="primer-spec-callout info" markdown="1">
+    Note: The big problem with this solution is that if you forget to change from double quotes to angle quotes, your project will fail to compile when you submit, and waste time (and possibly a submit for the day).
+    </div>
+
 ### Xcode
 If you've used Xcode on your computer before, start the tutorial at the [Create a project](https://eecs280staff.github.io/p1-stats/setup_xcode.html#create-a-project) section.
 
@@ -132,12 +166,51 @@ hello world!
 ## Parsing command line arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them.
 
+``Note: If you are using Visual Studio, please make sure that you have setup `getopt` [here](#getopt-setup)``
+
+A sample copy of the code required for `getopt` to work can be found below:
+
 ```c++
-// FIXME getopt boiler plate goes here
+// TODO: Finish this function, look for the individual TODO comments internally.
+// Process the command line; the only thing we need to return is the mode
+// when the user specifies the -m/--mode option.
+string getMode(int argc, char * argv[]) {
+  bool modeSpecified = false;
+  string mode;
+  // These are used with getopt_long()
+  opterr = false; // Let us handle all error output for command line options
+  int choice;
+  int option_index = 0;
+  option long_options[] = {
+      {"required", required_argument, nullptr, 'r'},
+      {"no_arg", no_argument, nullptr, 'n'},
+      { nullptr, 0, nullptr, '\0' }
+  };
+  // TODO: Fill in the double quotes, to match the mode and help options.
+  while ((choice = getopt_long(argc, argv, "r:n", long_options, &option_index)) != -1) {
+    switch (choice) {
+      case 'r':
+        cout << "The required argument flag was passed in with argument: " << optarg;
+        break;
+      case 'o':
+        cout << "The no argument flag was passed in.";
+        break;
+      default:
+        cerr << "Error: invalid option" << endl;
+        exit(1);
+  } // switch
+} // while
+if (!modeSpecified) {
+cerr << "Error: no mode specified" << endl;
+exit(1);
+} // if
+return mode;
+} // getMode()
 ```
 {: data-title="main.cpp" }
 
-Compile and run.  You should see the sample command line arguments.  This might be a good time to change them to match your project spec.
+After adding the code to you file, you can now compile and run the program. You should see the sample command line arguments. This might be a good time to change them to match your project spec.
+
 ```console
 $ make main
 $ ./main FIXME
