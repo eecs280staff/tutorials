@@ -472,16 +472,16 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
-<img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
+<img src="images/vscode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
-<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**
+<img src="images/vscode_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**
 Run one line of code, stepping _into_ any function calls to execute them line-by-line.
 
-<img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**
+<img src="images/vscode_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**
 Run the program until it returns from the current function (or until the next breakpoint).
 
-<img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
+<img src="images/vscode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
 Run the program until the next breakpoint.
 
 ### Example code
