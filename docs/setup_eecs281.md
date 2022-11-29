@@ -149,12 +149,31 @@ EECS281 Advanced Makefile Help
 Edit these three lines in the Makefile.  Your values might be different, check the project spec for required file names.
 ```make
 UNIQNAME = not_awdeorio
+# .. 
+IDENTIFIER  = not_a_valid_identifier
 # ...
 EXECUTABLE = main
 # ...
-PROJECTFILE = main.cpp
 ```
 {: data-title="Makefile" }
+
+If your main file is not one of the following forms, where EXECUTABLE is the name of the executable specified in the Makefile:
+  - `main.cpp`
+  - `project0.cpp`
+  - `project1.cpp`
+  - `project2.cpp`
+  - `project3.cpp`
+  - `project4.cpp`
+  - `EXECUTEABLE.cpp`
+
+
+You will need to update the following line as well:
+```make
+PROJECTFILE = main_file_name.cpp
+```
+
+If your project has additional dependencies, please update the dependencies section at the bottom of the Makefile, as well.
+
 
 You should be able to compile and run your main function.
 ```console
