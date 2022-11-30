@@ -181,12 +181,18 @@ any operations on it. And we'll also rely on assuming they are true when
 we write code to work with the object. We can add assertions to verify
 those assumptions and fail fast if they're ever broken.
 
-#### Project 2 Example: `Matrix` ADT
+#### Example: `Matrix` ADT
 {: .primer-spec-toc-ignore }
 
-In a C-style ADT implemented with a `struct`, you can create a general helper to check invariants. For example, given our project 2 `Matrix` ADT:
+In a C-style ADT implemented with a `struct`, you can create a general helper to check invariants. For example, consider a `Matrix` ADT and a corresponding function to check its invariants:
 
 ```c++
+struct Matrix {
+  int width;
+  int height;
+  int data[MAX_MATRIX_WIDTH * MAX_MATRIX_HEIGHT];
+};
+
 // EFFECTS: Uses assertions to verify the representation invariants
 //          for the given Matrix.
 void Matrix_check_invariants(const Matrix* mat) {
