@@ -4,7 +4,7 @@ title: Assertions Guide
 excludeFromSitemap: true
 ---
 
-Debugging With Assertions
+Assertions Guide
 ==========================
 {: .primer-spec-toc-ignore }
 

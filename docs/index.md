@@ -25,3 +25,4 @@ List of tutorials:
   - [setup_wsl.html](setup_wsl.html)
   - [setup_xcode.html](setup_xcode.html)
   - [style_guide.html](style_guide.html)
+  - [assertions_guide.html](assertions_guide.html)
