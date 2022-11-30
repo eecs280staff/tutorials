@@ -87,10 +87,11 @@ to verify the code has actually achieved that. Consider this example code:
 int get_order_quantity() {
   cout << "How many items would you like to order?" << endl;
 
+  // Get user input
   int quantity;
   cin >> quantity;
 
-  // Prompt them again
+  // Prompt them again if the input was invalid
   if (quantity < 0) {
     cout << "Invalid input. Please enter a non-negative number." << endl;
     cin >> quantity;
