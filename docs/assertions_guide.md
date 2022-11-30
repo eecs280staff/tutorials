@@ -280,7 +280,7 @@ public:
   }
 };
 ```
-{: data-highlight="16,39,49" }
+{: data-highlight="15-33,39,49" }
 
 ## How to debug when an `assert()` fails
 
