@@ -118,7 +118,7 @@ for the function to have a chance of working correctly, so verifying them
 up front is a good idea.
 
 
-#### Project 2 Example: `Matrix_at()` Preconditions
+#### Example: `Matrix_at()` Preconditions
 {: .primer-spec-toc-ignore }
 
 Here's an example of assertions you could use in function that
@@ -141,7 +141,9 @@ int* Matrix_at(Matrix* mat, int row, int column) {
 
 If we were to call `Matrix_at` with parameters that are outside the
 bounds of the `Matrix`, we get a failed `assert` right away and can debug
-the issue. **Put these assertions in your project 2 code** to protect against going out-of-bounds!
+the issue. These assertions are also invaluable while debugging other code
+that uses `Matrix_at` - if the assertions aren't failing, you can safely
+rule out any out-of-bounds bugs and focus your attention elsewhere.
 
 Of course, you can't assert every single thing in every `REQUIRES` clause.
 Some of them can't possibly be checked. Here's another example:
