@@ -220,13 +220,12 @@ clause that specifies `mat` must point to a _valid_ `Matrix`. This keeps
 us from wasting time if, for example, `Matrix_last()` appears to be broken
 but the problem was really that we forgot to call `Matrix_init()` previously.
 
-#### Project 4 Example: `List` ADT
+#### Example: `List` ADT
 {: .primer-spec-toc-ignore }
 
 In a C++ style class, implement `check_invariants()` as a private member function. Call it after initializing member variables in the constructor and any time you make changes to your data representation (i.e. the member variables).
 
-
-Here's an example for a complex data structure called a linked list, similar to one you implement on project 4:
+Here's an example for a complex data structure called a linked list, in which individual nodes store data and connect to their neighbors via pointers:
 
 ```c++
 class List {
