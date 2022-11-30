@@ -295,7 +295,7 @@ Aborted
 ```
 {: data-highlight="16,39,49" data-variant="legacy" }
 
-That's nice, but just a line number doesn't really give us much to go on:
+That's nice, but just a line number (i.e. `Matrix.cpp:72`) doesn't really give us much to go on:
 
 <img src="images/assertions010.png" width="480px" />
 
