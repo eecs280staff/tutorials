@@ -10,7 +10,7 @@ Assertions Guide
 
 Assertions are a preemptive debugging tool. Add them to your code to detect bugs before they cause difficult-to-debug problems later in your code. (Note that this is distinct from using assertions for unit testing.)
 
-## Use `assert()` in your code
+## Using Assertions
 
 The `<cassert>` header defines an `assert()` macro that checks a boolean condition:
 - If the condition is true, nothing happens.
@@ -282,7 +282,7 @@ public:
 ```
 {: data-highlight="15-33,39,49" }
 
-## How to debug when an `assert()` fails
+## Debug Failed Assertions
 
 Let's say you're running `Image_public_test.exe` on project 2 and
 one of your `Matrix_at()` assertions fails:
