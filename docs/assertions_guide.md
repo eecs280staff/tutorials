@@ -8,7 +8,7 @@ Assertions Guide
 ==========================
 {: .primer-spec-toc-ignore }
 
-Assertions are a preemptive debugging tool.  Assertions can detect a bug before it causes difficult-to-debug effects later in your code.
+Assertions are a preemptive debugging tool. Add them to your code to detect bugs before they cause difficult-to-debug problems later in your code. (Note that this is distinct from using assertions for unit testing.)
 
 ## Use `assert()` in your code
 
