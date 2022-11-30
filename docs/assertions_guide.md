@@ -75,9 +75,9 @@ Player * Player_factory(const std::string &name,
 {: data-highlight="13-16" }
 
 The `assert(false)` here is also helpful to suppress a warning the
-compiler might otherwise give that it's worried our code could reach
-the end of the function without returning anything. (Because now the
-end of the function can literally never be reached.)
+compiler might otherwise give because it's worried our code could reach
+the end of the function without returning anything. (But, with the assertion,
+the end of the function can literally never be reached.)
 
 Or, you might write code to ensure some property, like forcing a
 user to enter a non-negative number. You could add an assertion
