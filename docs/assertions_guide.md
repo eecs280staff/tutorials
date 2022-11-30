@@ -139,10 +139,10 @@ int* Matrix_at(Matrix* mat, int row, int column) {
 ```
 {: data-highlight="1-3,7-8" }
 
-If we were to call `Matrix_at` with parameters that are outside the
+If we were to call `Matrix_at()` with parameters that are outside the
 bounds of the `Matrix`, we get a failed `assert` right away and can debug
 the issue. These assertions are also invaluable while debugging other code
-that uses `Matrix_at` - if the assertions aren't failing, you can safely
+that uses `Matrix_at()` - if the assertions aren't failing, you can safely
 rule out any out-of-bounds bugs and focus your attention elsewhere.
 
 Of course, you can't assert every single thing in every `REQUIRES` clause.
