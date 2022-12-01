@@ -249,7 +249,10 @@ Now, when I run the program via my debugger, it pauses just **before** running t
 Now, I can inspect the `summary` variable and see if my `summarize()` function was returning the right result.
 
 <div class="primer-spec-callout warning" markdown="1">
-If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code, double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
+If your debugger isn't respecting your breakpoints or the lines where it pauses don't seem to match your source code:
+- Double check that you've **saved** and **re-compiled** any source files you were editing. (Some IDEs may auto-save or auto-build when you launch the debugger, but not all.)
+- Verify compilation was successful. (Otherwise, your debugger may launch on the last succesfully compiled program.)
+- Make sure you're compiling with appropriate flags for debugging (e.g. `-g` and no `-OX` optimization flags).
 </div>
 
 ### Conditional Breakpoints
