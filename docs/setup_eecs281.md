@@ -201,50 +201,64 @@ If you are using Visual Studio, follow the  [`getopt` library](#getopt-library) 
 Copy this sample code into your main program.
 
 ```c++
-// TODO: Finish this function, look for the individual TODO comments internally.
-// Process the command line; the only thing we need to return is the mode
-// when the user specifies the -m/--mode option.
-string getMode(int argc, char * argv[]) {
-  bool modeSpecified = false;
-  string mode;
-  // These are used with getopt_long()
-  opterr = false; // Let us handle all error output for command line options
-  int choice;
-  int option_index = 0;
+#include <iostream>
+#include <string>
+#include <getopt.h>
+using namespace std;
+
+
+int main(int argc, char * argv[]) {
+  // TODO: Create a variable to store each option
+  int verbose = 0;
+  string input;
+
+  // TODO: Update these options
   option long_options[] = {
-      {"required", required_argument, nullptr, 'r'},
-      {"no_arg", no_argument, nullptr, 'n'},
-      { nullptr, 0, nullptr, '\0' }
+    {"input", required_argument, nullptr, 'i'},
+    {"verbose", no_argument, nullptr, 'v'},
+    { nullptr, 0, nullptr, '\0' }
   };
-  // TODO: Fill in the double quotes, to match the mode and help options.
-  while ((choice = getopt_long(argc, argv, "r:n", long_options, &option_index)) != -1) {
-    switch (choice) {
-      case 'r':
-        cout << "The required argument flag was passed in with argument: " << optarg;
-        break;
-      case 'o':
-        cout << "The no argument flag was passed in.";
-        break;
-      default:
-        cerr << "Error: invalid option" << endl;
-        exit(1);
-  } // switch
-} // while
-if (!modeSpecified) {
-cerr << "Error: no mode specified" << endl;
-exit(1);
-} // if
-return mode;
-} // getMode()
+
+  // Parse options (starts with '-')
+  while (1) {
+    // getopt_long stores the option index here
+    int option_index = 0;
+
+    // TODO: Modify "i:v" to include each of the chars from long_options above.
+    // An option with a required argument is followed by ":".
+    int c = getopt_long (argc, argv, "i:v", long_options, &option_index);
+
+    // End of options
+    if (c == -1) break;
+
+    // TODO: Add a case for each option
+    switch (c) {
+    case 'i':
+      input = optarg;
+      cout << "Found option: --input " << input << endl;
+      break;
+    case 'v':
+      verbose++;
+      cout << "Found option: --verbose " << endl;
+      break;
+    default:
+      cerr << "Error: TODO: Update this help string" << endl;
+      return 1;
+    }
+  }
+}
 ```
 {: data-title="main.cpp" }
 
-Compile and run the program. You should see the sample command line arguments. This might be a good time to change them to match your project spec.
+Compile and run.
 
 ```console
 $ make main
-$ ./main FIXME
+$ ./main -v --input file.txt
+Found option: --verbose 
+Found option: --input file.txt
 ```
+
 
 ## Debug
 Configure your visual debugger to compile and run your main program.
