@@ -81,50 +81,26 @@ If you've used Visual Studio on your computer before, start the tutorial at the 
 If Visual Studio is new to you or new to your computer, start at the [beginning](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html).  Stop after you've completed the [Add existing files](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#add-existing-files) section.
 
 #### `getopt` library
-Visual Studio does not ship with a `getopt` library, which processes command line arguments.  We'll install a copy.
+Visual Studio does not ship with a `getopt` library, which processes command line arguments.  We'll put a copy in our project directory.
 
-First, download [`getopt.c`](getopt.c) and [`getopt.h`](getopt.h).
+Download [`wingetopt.h`](wingetopt.h) and place it in your project source code directory.
 
-##### Option 1 (Recommended)
-Copy `getopt.c` into your project source code directory (e.g., `/Users/awdeorio/src/eecs281/p0-hello/src`).  You'll need to do this for every project.
-
-Copy `getopt.h` into one of the standard Visual Studio include folders. For Visual Studio 2022 Community, this folder is usually located in:
-```
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include
-```
-
-If you’re using a different version of VS (such as Community 2019), the location might be slightly different:
-```
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\VS\include
-```
-
-Open your file explorer and find the appropriate location shown above by starting at “This PC” (in the bottom left), and paste the file. This location is usually locked and can only be accessed if you are Administrator.
-
-Include the library in your program using brackets `<>`.
+Include the library in your program.  Notice that we use the local copy only on windows.  The Autograder will use its preinstalled version of `getopt`.
 ```c++
-#include <getopt.h>
-```
-{: data-title="main.cpp" }
-
-##### Option 2
-Copy `getopt.c` and `getopt.h` into your project source code directory (e.g., `/Users/awdeorio/src/eecs281/p0-hello/src`).  You'll need to do this for every project.
-
-Include the library in your program using quotes `""`.
-```c++
-#include "getopt.h"
+#ifdef _WIN32
+#include "wingetopt.h"  // Visual Studio/Windows
+#else
+#include <getopt.h>  // GNU/Linux
+#endif
 ```
 {: data-title="main.cpp" }
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Change quotes to brackets before submitting to the autograder.  The autograder's compiler (GNU g++) provides the library.
-```c++
-#include <getopt.h>
+**Pitfall:** Make sure you put `wingetopt.h` in the same folder as your source code.
+```console
+$ ls
+Makefile  main.cpp  wingetopt.h
 ```
-{: data-title="main.cpp" }
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Do not submit `getopt.h` nor `getopt.c` to the autograder.
 </div>
 
 ### Xcode
