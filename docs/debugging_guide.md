@@ -289,22 +289,22 @@ While the debugger is paused, it highlights the line of code that is up next, bu
 
 Most debuggers support the following navigation controls:
 
-<img src="images/debug_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**  
+<img src="images/vscode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**  
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
-<img src="images/debug_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**  
+<img src="images/vscode_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**  
 Run one line of code, stepping _into_ any function calls to execute them line-by-line.
 
-<img src="images/debug_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**  
+<img src="images/vscode_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**  
 Run the program until it returns from the current function (or until the next breakpoint).
 
-<img src="images/debug_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**  
+<img src="images/vscode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**  
 Run the program until the next breakpoint.
 
-<img src="images/debug_icon_restart.png" style="vertical-align: text-top; height: 1.25em;" /> **Restart**  
+<img src="images/vscode_icon_restart.png" style="vertical-align: text-top; height: 1.25em;" /> **Restart**  
 Restart the currently running program in the debugger.
 
-<img src="images/debug_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> **Stop**  
+<img src="images/vscode_icon_stop.png" style="vertical-align: text-top; height: 1.25em;" /> **Stop**  
 Exit the debugger.
 
 ### Strategies
