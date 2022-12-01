@@ -196,9 +196,9 @@ hello world!
 ## Parsing command line arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them.
 
-``Note: If you are using Visual Studio, please make sure that you have setup `getopt` [here](#getopt-setup)``
+If you are using Visual Studio, follow the  [`getopt` library](#getopt-library) instructions.
 
-A sample copy of the code required for `getopt` to work can be found below:
+Copy this sample code into your main program.
 
 ```c++
 // TODO: Finish this function, look for the individual TODO comments internally.
@@ -239,7 +239,7 @@ return mode;
 ```
 {: data-title="main.cpp" }
 
-After adding the code to you file, you can now compile and run the program. You should see the sample command line arguments. This might be a good time to change them to match your project spec.
+Compile and run the program. You should see the sample command line arguments. This might be a good time to change them to match your project spec.
 
 ```console
 $ make main
