@@ -25,7 +25,7 @@ A fundamental part of debugging is simply getting more information about what ex
 ### Local Variables
 
 <div class="primer-spec-callout info icon-info" markdown="1">
-Use the **variables panel** to inspect the values of variables while your debugger is paused.
+Use the **variables panel** to inspect the values of variables while your debugger is paused. In many debuggers, you can also **hover your mouse over a variable** in the source code to see its current value.
 </div>
 
 Let's say I'm working on the Euchre project - there's a lot of information to keep track of during the card game. I'd like to check that everything seems in order after the cards are dealt and the players have finished making.
