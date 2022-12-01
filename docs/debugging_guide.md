@@ -38,6 +38,9 @@ You can see some variables directly. For example, `trump` is currently `"Hearts"
 
 Variables may contain **"memory junk"**. `i` is currently `-11632`. That's expected in this case, because we just haven't run the line `int i=0;` quite yet. In other cases, bogus values might indicate a bug!
 
+#### Expand Complex Variables
+{: .primer-spec-toc-ignore }
+
 You can **click to expand** more complex variables like pointers, arrays, or classes to inspect their contents. Below, I've expanded the `leader` variable to see the `Player` it is pointing to, then also expanded the `cards` array to take a look at their current hand.
 
 <img src="images/debug_feature_variables_1.png" width="700px" />
@@ -60,6 +63,9 @@ To fix this in VS Code, run `-exec set print object on` from the debug console, 
 ```
 {: data-variant="legacy" }
 </div>
+
+#### Member Functions and `this`
+{: .primer-spec-toc-ignore }
 
 In **member functions**, you can also open up the `this` pointer. In our Euchre example, we'd see member variables from the current `Game` class instance:
 
