@@ -160,7 +160,7 @@ EECS281 Advanced Makefile Help
 Edit these three lines in the Makefile.  Your values might be different, check the project spec for required file names.
 ```make
 UNIQNAME = not_awdeorio
-# .. 
+# ...
 IDENTIFIER  = not_a_valid_identifier
 # ...
 EXECUTABLE = main
