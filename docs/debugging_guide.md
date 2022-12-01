@@ -220,7 +220,7 @@ Let's consider again the case of a crash in an implicitly-defined function. The 
 
 <img src="images/debug_crash_implicit_full.png" width="800px" />
 
-In this case, check the call stack. First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
+In this case, check [the call stack](#the-call-stack). First, observe that the segfault did occur in an implicitly-defined function, the built-in `Card::operator=` assignment operator for copying a `Card`.
 
 <img src="images/debug_crash_4.png" width="400px" />
 
