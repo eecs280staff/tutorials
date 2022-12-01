@@ -210,12 +210,12 @@ using namespace std;
 int main(int argc, char * argv[]) {
   // TODO: Create a variable to store each option
   int verbose = 0;
-  string input;
+  string output;
 
   // TODO: Update these options
   option long_options[] = {
     {"verbose", no_argument, nullptr, 'v'},
-    {"input", required_argument, nullptr, 'i'},
+    {"output", required_argument, nullptr, 'i'},
     { nullptr, 0, nullptr, '\0' }
   };
 
@@ -234,7 +234,7 @@ int main(int argc, char * argv[]) {
     // TODO: Add a case for each option
     switch (c) {
     case 'i':
-      input = optarg;
+      output = optarg;
       break;
     case 'v':
       verbose++;
@@ -247,7 +247,7 @@ int main(int argc, char * argv[]) {
 
   // TODO: Use the options
   cout << "verbose = " << verbose << endl;
-  cout << "input = " << input << endl;
+  cout << "output = " << output << endl;
 }
 ```
 {: data-title="main.cpp" }
@@ -256,9 +256,9 @@ Compile and run.
 
 ```console
 $ make main
-$ ./main -v --input file.txt
+$ ./main -v --output output.txt
 verbose = 1
-input = file.txt
+output = output.txt
 ```
 
 
