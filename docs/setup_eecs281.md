@@ -214,8 +214,8 @@ int main(int argc, char * argv[]) {
 
   // TODO: Update these options
   option long_options[] = {
-    {"input", required_argument, nullptr, 'i'},
     {"verbose", no_argument, nullptr, 'v'},
+    {"input", required_argument, nullptr, 'i'},
     { nullptr, 0, nullptr, '\0' }
   };
 
@@ -235,17 +235,19 @@ int main(int argc, char * argv[]) {
     switch (c) {
     case 'i':
       input = optarg;
-      cout << "Found option: --input " << input << endl;
       break;
     case 'v':
       verbose++;
-      cout << "Found option: --verbose " << endl;
       break;
     default:
       cerr << "Error: TODO: Update this help string" << endl;
       return 1;
     }
   }
+
+  // TODO: Use the options
+  cout << "verbose = " << verbose << endl;
+  cout << "input = " << input << endl;
 }
 ```
 {: data-title="main.cpp" }
@@ -255,8 +257,8 @@ Compile and run.
 ```console
 $ make main
 $ ./main -v --input file.txt
-Found option: --verbose 
-Found option: --input file.txt
+verbose = 1
+input = file.txt
 ```
 
 
