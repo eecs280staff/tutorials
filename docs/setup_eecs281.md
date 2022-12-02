@@ -151,7 +151,7 @@ int main(int argc, char * argv[]) {
   // TODO: Update these options
   option long_options[] = {
     {"verbose", no_argument, nullptr, 'v'},
-    {"output", required_argument, nullptr, 'i'},
+    {"output", required_argument, nullptr, 'o'},
     { nullptr, 0, nullptr, '\0' }
   };
 
@@ -160,16 +160,16 @@ int main(int argc, char * argv[]) {
     // getopt_long stores the option index here
     int option_index = 0;
 
-    // TODO: Modify "i:v" to include each of the chars from long_options above.
+    // TODO: Modify "o:v" to include each of the chars from long_options above.
     // An option with a required argument is followed by ":".
-    int c = getopt_long (argc, argv, "i:v", long_options, &option_index);
+    int c = getopt_long (argc, argv, "o:v", long_options, &option_index);
 
     // End of options
     if (c == -1) break;
 
     // TODO: Add a case for each option
     switch (c) {
-    case 'i':
+    case 'o':
       output = optarg;
       break;
     case 'v':
@@ -191,11 +191,16 @@ int main(int argc, char * argv[]) {
 Compile and run.
 ```console
 $ make main
-$ ./main -v --output output.txt
+$ ./main --verbose --output output.txt
 verbose = 1
 output = output.txt
+$ ./main -v -o output.txt
+verbose = 1
+output = output.txt
+$ ./main
+verbose = 0
+output = 
 ```
-
 
 <div class="primer-spec-callout warning" markdown="1">
 **Visual Studio** does not ship with a `getopt` library, which processes command line arguments.
