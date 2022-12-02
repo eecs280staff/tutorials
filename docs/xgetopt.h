@@ -1,3 +1,21 @@
+#ifndef __XGETOPT_H__
+#define __XGETOPT_H__
+/*
+* A header-only, cross-platform getopt library.
+*
+* On Windows, provide the mingw getopt implementation.  Otherwise, use the
+* system-installed getopt implementation.
+*
+* Andrew DeOrio <awdeorio@umich.edu>
+*
+* This file is adapted from from w64 mingw-runtime package's getopt.{h,c}.
+*/
+
+#ifndef _WIN32
+#include <getopt.h>  // Linux et al.
+#else
+
+
 #ifndef __GETOPT_H__
 /**
 * DISCLAIMER
@@ -8,9 +26,6 @@
 * will be useful but WITHOUT ANY WARRANTY.  ALL WARRANTIES, EXPRESSED OR
 * IMPLIED ARE HEREBY DISCLAIMED.  This includes but is not limited to
 * warranties of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-*
-* NOTE
-* This is a header-only copy that contains a copy of getopt.c at the end.
 *
 */
 
@@ -669,3 +684,5 @@ const struct option *long_options, int *idx)
 }
 
 #endif /* !defined(__UNISTD_H_SOURCED__) && !defined(__GETOPT_LONG_H__) */
+#endif /* ifndef __XGETOPT_H__ */
+#endif /* ifndef _WIN32 */

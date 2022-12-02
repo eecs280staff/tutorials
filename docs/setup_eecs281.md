@@ -83,23 +83,19 @@ If Visual Studio is new to you or new to your computer, start at the [beginning]
 #### `getopt` library
 Visual Studio does not ship with a `getopt` library, which processes command line arguments.  We'll put a copy in our project directory.
 
-Download [`wingetopt.h`](wingetopt.h) and place it in your project source code directory.
+Download [`xgetopt.h`](xgetopt.h) and place it in your project source code directory.  It's cross-platform and will work on both Windows and Linux.
 
-Include the library in your program.  Notice that we use the local copy only on windows.  The Autograder will use its preinstalled version of `getopt`.
+Include the library in your program.
 ```c++
-#ifdef _WIN32
-#include "wingetopt.h"  // Visual Studio/Windows
-#else
-#include <getopt.h>  // GNU/Linux
-#endif
+#include "xgetopt.h"
 ```
 {: data-title="main.cpp" }
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you put `wingetopt.h` in the same folder as your source code.
+**Pitfall:** Make sure you put `xgetopt.h` in the same folder as your source code.
 ```console
 $ ls
-Makefile  main.cpp  wingetopt.h
+Makefile  main.cpp  xgetopt.h
 ```
 </div>
 
@@ -159,14 +155,14 @@ hello world!
 ## Parsing command line arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them.
 
-If you are using Visual Studio, follow the  [`getopt` library](#getopt-library) instructions.
+If you are using Visual Studio, follow the  [`getopt` library](#getopt-library) instructions.  Don't forget to change the sample code from `#include <getopt.h>` to `#include "xgetopt.h"` below.
 
 Copy this sample code into your main program.
 
 ```c++
 #include <iostream>
 #include <string>
-#include <getopt.h>
+#include <getopt.h> // TODO: Visual Studio users change to "xgetopt.h"
 using namespace std;
 
 
