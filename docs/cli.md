@@ -35,7 +35,21 @@ Note that directory and folder mean the same thing. We will use the word directo
 
 CLI Example:
 
-<img src="images/cli003.png" width="768px" alt="ls cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ ls
+  example.txt main.cpp stuff
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli003.png" width="400px" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 ### pwd
 `pwd` stands for "print working directory". It prints out the path to the current directory.
