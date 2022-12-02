@@ -153,7 +153,7 @@ extern "C" {
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
-//#include <getopt.h> We are no long using getopt.h, so it must be commented out
+#include <getopt.h>
 #include <stdarg.h>
 #include <stdio.h>
 //#include <windows.h>
