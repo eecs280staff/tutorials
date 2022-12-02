@@ -139,28 +139,15 @@ UNIQNAME = not_awdeorio
 # ...
 IDENTIFIER  = not_a_valid_identifier
 # ...
-EXECUTABLE = main
+PROJECTFILE = main.cpp
 # ...
+EXECUTABLE = main
 ```
 {: data-title="Makefile" }
 
-If your main file is not one of the following forms, where EXECUTABLE is the name of the executable specified in the Makefile:
-  - `main.cpp`
-  - `project0.cpp`
-  - `project1.cpp`
-  - `project2.cpp`
-  - `project3.cpp`
-  - `project4.cpp`
-  - `EXECUTEABLE.cpp`
+**Shortcut:** You can skip updating `PROJECTFILE` if your `main()` function is in one of these filenames: `main.cpp`, `project0.cpp`, `project1.cpp`, `project2.cpp`, `project3.cpp`, `project4.cpp`, `EXECUTABLE.cpp`.
 
-
-You will need to update the following line as well:
-```make
-PROJECTFILE = main_file_name.cpp
-```
-
-If your project has additional dependencies, please update the dependencies section at the bottom of the Makefile, as well.
-
+If your project has additional dependencies, update the dependencies section at the bottom of the `Makefile`.
 
 You should be able to compile and run your main function.
 ```console
