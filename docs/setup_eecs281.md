@@ -80,25 +80,6 @@ If you've used Visual Studio on your computer before, start the tutorial at the 
 
 If Visual Studio is new to you or new to your computer, start at the [beginning](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html).  Stop after you've completed the [Add existing files](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#add-existing-files) section.
 
-#### `getopt` library
-Visual Studio does not ship with a `getopt` library, which processes command line arguments.  We'll put a copy in our project directory.
-
-Download [`xgetopt.h`](xgetopt.h) and place it in your project source code directory.  It's cross-platform and will work on both Windows and Linux.
-
-Include the library in your program.
-```c++
-#include "xgetopt.h"
-```
-{: data-title="main.cpp" }
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you put `xgetopt.h` in the same folder as your source code.
-```console
-$ ls
-Makefile  main.cpp  xgetopt.h
-```
-</div>
-
 ### Xcode
 If you've used Xcode on your computer before, start the tutorial at the [Create a project](https://eecs280staff.github.io/p1-stats/setup_xcode.html#create-a-project) section.
 
@@ -153,11 +134,7 @@ hello world!
 ```
 
 ## Parsing command line arguments and options
-Edit your main program (e.g., `main.cpp`) to parse command line options and print them.
-
-If you are using Visual Studio, follow the  [`getopt` library](#getopt-library) instructions.  Don't forget to change the sample code from `#include <getopt.h>` to `#include "xgetopt.h"` below.
-
-Copy this sample code into your main program.
+Edit your main program (e.g., `main.cpp`) to parse command line options and print them.  Copy this sample code.
 
 ```c++
 #include <iostream>
@@ -212,13 +189,32 @@ int main(int argc, char * argv[]) {
 {: data-title="main.cpp" }
 
 Compile and run.
-
 ```console
 $ make main
 $ ./main -v --output output.txt
 verbose = 1
 output = output.txt
 ```
+
+
+<div class="primer-spec-callout warning" markdown="1">
+**Visual Studio** does not ship with a `getopt` library, which processes command line arguments.
+
+Download [`xgetopt.h`](xgetopt.h) and place it in your project source code directory.  It's cross-platform and will work on both Windows and Linux.
+
+Remove the `<getopt.h>` include.  Add the `"xgetopt.h"` include.
+```c++
+#include <getopt.h> // REMOVE
+#include "xgetopt.h"
+```
+{: data-title="main.cpp" }
+
+**Pitfall:** Make sure `xgetopt.h` is in the same folder as your source code.
+```console
+$ ls
+Makefile  main.cpp  xgetopt.h
+```
+</div>
 
 
 ## Debug
