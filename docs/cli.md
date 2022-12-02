@@ -12,9 +12,9 @@ Command Line Interface (CLI)
 
 <b>CLI</b> (Command Line Interface) is an alternative way that can be faster and more flexible.
 
-You can use the CLI by opening a <b>terminal</b> (Ubuntu with WSL on Windows, Terminal on Mac).
+You can use the CLI by opening a <b>terminal</b> (WSL on Windows, Terminal on Mac).
 
-<img src="images/cli001.png" width="768px" alt="gui vs cli"/>
+<img src="images/cli001.png" width=600px alt="gui vs cli"/>
 
 ## Keywords
 
@@ -26,20 +26,19 @@ You can use the CLI by opening a <b>terminal</b> (Ubuntu with WSL on Windows, Te
 
 Note that directory and folder mean the same thing. We will use the word directory in this tutorial.
 
-<img src="images/cli002.png" width="768px" alt="keywords example"/>
+<img src="images/cli002.png" width="600px" alt="keywords example"/>
 
-# Basic Commands
+## Basic Commands
 
-## ls
-`ls` is short for "<b>l</b>i<b>s</b>t directory". It prints out the names of files and directories at the current or specified directory. [More info](https://man7.org/linux/man-pages/man1/ls.1.html).
+### ls
+`ls` is short for "list directory". It prints out the names of files and directories at the current or specified directory. [More info](https://man7.org/linux/man-pages/man1/ls.1.html).
 
 CLI Example:
 
 <img src="images/cli003.png" width="768px" alt="ls cli example"/>
 
-
-## pwd
-`pwd` stands for "<b>p</b>rint <b>w</b>orking <b>d</b>irectory". It prints out the path to the current directory.
+### pwd
+`pwd` stands for "print working directory". It prints out the path to the current directory.
 [More info](https://man7.org/linux/man-pages/man1/pwd.1.html).
 
 CLI Example:
@@ -47,8 +46,8 @@ CLI Example:
 <img src="images/cli004.png" width="768px" alt="pwd cli example"/>
 
 
-## mkdir
-`mkdir` is short for "<b>m</b>a<b>k</b>e <b>dir</b>ectory". It creates a directory with the specified name.
+### mkdir
+`mkdir` is short for "make directory". It creates a directory with the specified name.
 [More info](https://man7.org/linux/man-pages/man1/mkdir.1.html).
 
 CLI Example:
@@ -59,7 +58,7 @@ GUI Equivalent:
 
 <img src="images/cli012.png" width="768px" alt="mkdir gui example"/>
 
-## touch 
+### touch
 `touch` creates a file with the specified name.
 [More info](https://man7.org/linux/man-pages/man1/touch.1.html).
 
@@ -68,8 +67,8 @@ CLI Example:
 <img src="images/cli006.png" width="768px" alt="touch cli example"/>
 
 
-## rm
-`rm` is short for "<b>r</b>e<b>m</b>ove". It deletes the file or directory at the specified path.
+### rm
+`rm` is short for "remove". It deletes the file or directory at the specified path.
 
 You must include the `-r` (recursive) <b>option</b> to delete a directory.
 [More info](https://man7.org/linux/man-pages/man1/rm.1.html).
@@ -83,8 +82,8 @@ GUI Equivalent:
 <img src="images/cli013.png" width="768px" alt="rm gui example"/>
 
 
-## cd
-`cd` stands for "<b>c</b>hange <b>d</b>irectory". It switches you to the specified directory. [More info](https://man7.org/linux/man-pages/man1/cd.1p.html).
+### cd
+`cd` stands for "change directory". It switches you to the specified directory. [More info](https://man7.org/linux/man-pages/man1/cd.1p.html).
 
 CLI Example:
 
@@ -95,8 +94,8 @@ GUI Equivalent:
 <img src="images/cli014.png" width="768px" alt="cd gui example"/>
 
 
-## mv 
-`mv` is short for "<b>m</b>o<b>v</b>e". It moves the specified file or directory to the specified path.
+### mv
+`mv` is short for "move". It moves the specified file or directory to the specified path.
 
 `mv` is also commonly used to rename a file or directory. [More info](https://man7.org/linux/man-pages/man1/mv.1.html).
 
@@ -120,8 +119,8 @@ GUI Equivalent (renaming):
 
 <img src="images/cli015.png" width="768px" alt="mv gui example"/>
 
-## cp 
-`cp` is short for "<b>c</b>o<b>p</b>y". It copies the specified file or directory to the specified path.
+### cp
+`cp` is short for "copy". It copies the specified file or directory to the specified path.
 [More info](https://man7.org/linux/man-pages/man1/cp.1.html).
 
 CLI Example:
@@ -133,7 +132,7 @@ GUI Equivalent:
 <img src="images/cli016.png" width="768px" alt="cp gui example"/>
 
 
-## open / wslview
+### open / wslview
 On MacOS, `open` opens a file or directory with the default application.
 [More Info](https://ss64.com/osx/open.html).
 
@@ -163,22 +162,22 @@ You can choose the type of path depending on the situation, but relative pathing
 
 Below are some common, useful, special paths:
 
-### .
+### Current directory: `.`
 `.` refers to the current directory. Check the [open/wslview](#open--wslview) section for an example.
 
-### ..
+### Parent directory: `..`
 `..` refers to the parent directory (of the current directory).
 
 <img src="images/cli018.png" width="768px" alt=".. example"/>
 
 
-### ~
+### Home directory: `~`
 `~` refers to the home directory. [More info](https://stackoverflow.com/questions/998626/meaning-of-tilde-in-linux-bash-not-home-directory).
 
 <img src="images/cli019.png" width="768px" alt="~ example"/>
 
 
-### /
+### Root directory: `/`
 `/` refers to the root directory. This is the top-most directory in your file system, and has no parent.
 
 <img src="images/cli020.png" width="768px" alt="/ example"/>
@@ -233,6 +232,7 @@ $ touch ~/.zshrc
 ```
 
 Now, open the file.
+
 On `bash`:
 ```console
 $ open ~/.bash_profile
@@ -243,9 +243,13 @@ On `zsh`:
 $ open ~/.zshrc
 ```
 
+<div class="primer-spec-callout warning icon-warning" markdown="1">
+**Note:** `open` is the command on MacOS. Use `wslview` if you are using WSL on Windows.
+</div>
+
 In this file, you can specify the exact interface you want by setting the right environment variables. But this can get very tedious and confusing. If you would like to learn how, start with [this guide](https://medium.com/@adamtowers/how-to-customize-your-terminal-and-bash-profile-from-scratch-9ab079256380) for `bash` or [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12) for `zsh`.
 
-If you just want a pretty terminal without going into all the details, you can find premade configurations online that you can simply copy and paste into `.bash_profile` or `.zshrc`. Below is the contents of a `.bash_profile` of the styled terminal in the screenshot above.
+If you just want a pretty terminal without going into all the details, you can find premade configurations online that you can simply copy and paste into `.bash_profile` or `.zshrc`. Below is the contents of the `.bash_profile` of the styled terminal in the screenshot above.
 
 ```
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
