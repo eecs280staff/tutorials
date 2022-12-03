@@ -14,7 +14,7 @@ Command Line Interface (CLI)
 
 You can use the CLI by opening a <b>terminal</b> (WSL on Windows, Terminal on Mac).
 
-<img src="images/cli001.png" width=600px alt="gui vs cli"/>
+<img src="images/cli001.png" class="invert-colors-in-dark-mode" width=600px alt="gui vs cli"/>
 
 ## Keywords
 
@@ -26,7 +26,7 @@ You can use the CLI by opening a <b>terminal</b> (WSL on Windows, Terminal on Ma
 
 Note that directory and folder mean the same thing. We will use the word directory in this tutorial.
 
-<img src="images/cli002.png" width="600px" alt="keywords example"/>
+<img src="images/cli002.png" class="invert-colors-in-dark-mode" width="600px" alt="keywords example"/>
 
 ## Basic Commands
 
@@ -316,7 +316,7 @@ A path is the location of a given file or directory in your computer. There are 
 
 <b>Relative path</b>: a path that starts from the current directory.
 
-You can choose the type of path depending on the situation, but relative pathing work in most cases and requires less typing.
+You can choose the type of path depending on the situation, but relative pathing works in most cases and requires less typing.
 
 Below are some common, useful, special paths:
 
@@ -439,7 +439,59 @@ Below are some more advanced commands that are cool to know, but not necessary.
 `cat` is short for "con<b>cat</b>enate". It takes in a list of filenames, concatenates the contents, and prints it out.
 [More info](https://man7.org/linux/man-pages/man1/cat.1.html).
 
-<img src="images/cli022.png" width="768px" alt="cat example"/>
+Example:
+
+Consider the files `main.cpp` and `text.txt`:
+<table>
+  <tr>
+      <th>main.cpp</th>
+      <th>text.txt</th>
+  </tr>
+  <tr>
+  <td markdown="1">
+
+  ```cpp
+  #include <iostream>
+
+  int main(void) {
+    std::cout << "Hello World\n";
+  }
+
+  ```
+
+  </td>
+  <td markdown="1">
+
+  ```txt
+  random text
+  more random text
+  ```
+
+  </td>
+  </tr>
+</table>
+
+Then:
+
+```console
+$ cat main.cpp
+#include <iostream>
+
+int main(void) {
+  std::cout << "Hello World\n";
+}
+$ cat text.txt
+random text
+more random text
+$ cat main.cpp text.txt
+#include <iostream>
+
+int main(void) {
+  std::cout << "Hello World\n";
+}
+random text
+more random text
+```
 
 ## grep
 `grep` is short for "<b>g</b>lobally search for a <b>re</b>gular expression and <b>p</b>rint matching lines". It takes in a regular expression (commonly called "regex") and a path. It finds all lines in the specified path that match the regex pattern.
@@ -447,7 +499,53 @@ Below are some more advanced commands that are cool to know, but not necessary.
 
 Regular expressions are out of the scope of this tutorial, but you can learn how they work using [this guide](https://regexr.com/). The example below uses the most basic regular expression, a keyword.
 
-<img src="images/cli023.png" width="768px" alt="grep example"/>
+Example:
+
+Consider the files `main.cpp` and `text.txt`:
+<table>
+  <tr>
+      <th>main.cpp</th>
+      <th>text.txt</th>
+  </tr>
+  <tr>
+  <td markdown="1">
+
+  ```cpp
+  #include <iostream>
+
+  int main(void) {
+    std::cout << "Hello World\n";
+  }
+
+  ```
+
+  </td>
+  <td markdown="1">
+
+  ```txt
+  random text
+  more random text
+  text text text text
+  hello world
+  this is a pointless text file
+  ```
+
+  </td>
+  </tr>
+</table>
+
+Then:
+
+```console
+$ grep 'random' text.txt
+random text
+more random text
+$ grep -r 'hello' .
+./text.txt:hello world
+$ grep -ri 'hello' .
+./test.txt:hello world
+./main.cpp:  std:cout << "hello World\n";
+```
 
 Note that the `-r` option must be specified when searching for all files in a directory, and the `-i` option performs a case insensitive search.
 
@@ -456,13 +554,92 @@ Note that the `-r` option must be specified when searching for all files in a di
 `|` is an operator, not a command. It can be placed between commands to feed the output of the "left" command as input to the "right" command.
 [More info](https://www.redhat.com/sysadmin/pipes-command-line-linux).
 
-<img src="images/cli024.png" width="768px" alt="pipe redirection example"/>
+Example:
+
+Consider a directory containing some files `Makefile`, `main.cpp`, and `text.txt`.
+
+Then:
+
+```console
+$ ls
+Makefile main.cpp text.txt
+$ ls | grep '.txt'
+text.txt
+```
 
 ## curl
 `curl` is short for "<b>c</b>lient <b>URL</b>". It takes in a URL with a specified protocol, sends a request to the URL, and prints out the received data.
 [More info](https://man7.org/linux/man-pages/man1/curl.1.html).
 
-<img src="images/cli025.png" width="768px" alt="curl example"/>
+Examples:
+
+```console
+$ curl https://www.example.com/
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
+</head>
+
+<body>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+</div>
+</body>
+</html>
+```
+
+```console
+$ curl dict://dict.org/m:hello
+220 dict.dict.org dictd 1.12.1/rf on Linux 4.19.0-10-amd64 <auth.mime> <155236214.10349.1670110969@dict.dict.org>
+250 ok
+152 8 matches found
+gcide "Hell"
+gcide "Hello"
+gcide "Cello"
+gcide "Jell-O"
+gcide "Hollo"
+gcide "Hullo"
+gcide "Helio-"
+gcide "Helly"
+.
+250 ok [d/m/c = 0/8/12569; 0.000r 0.000u 0.000s]
+221 bye [d/m/c = 0/0/0; 0.000r 0.000u 0.000s]
+```
 
 
 ## Input redirection (<)
