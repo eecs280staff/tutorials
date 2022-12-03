@@ -46,7 +46,7 @@ CLI Example:
 
   </td>
   <td>
-    <img src="images/cli003.png" width="400px" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli003.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
   </td>
   </tr>
 </table>
@@ -57,7 +57,21 @@ CLI Example:
 
 CLI Example:
 
-<img src="images/cli004.png" width="768px" alt="pwd cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ pwd
+  /Users/ohjun/Desktop/project
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli004.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 
 ### mkdir
@@ -66,11 +80,28 @@ CLI Example:
 
 CLI Example:
 
-<img src="images/cli005.png" width="768px" alt="mkdir cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ ls
+  example.txt main.cpp stuff
+  $ mkdir stuff2
+  $ ls
+  example.txt main.cpp stuff stuff2
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli005.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 GUI Equivalent:
 
-<img src="images/cli012.png" width="768px" alt="mkdir gui example"/>
+<img src="images/cli012.png" class="invert-colors-in-dark-mode" width="768px" alt="mkdir gui example"/>
 
 ### touch
 `touch` creates a file with the specified name.
@@ -78,7 +109,24 @@ GUI Equivalent:
 
 CLI Example:
 
-<img src="images/cli006.png" width="768px" alt="touch cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ ls
+  example.txt main.cpp stuff stuff2
+  $ touch euchre.cpp
+  $ ls
+  euchre.cpp 
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 
 ### rm
@@ -89,11 +137,33 @@ You must include the `-r` (recursive) <b>option</b> to delete a directory.
 
 CLI Example:
 
-<img src="images/cli007.png" width="768px" alt="rm cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ ls
+  euchre.cpp example.txt main.cpp stuff stuff2
+  $ rm euchre.cpp
+  $ ls
+  example.txt main.cpp stuff stuff2
+  $ rm stuff2
+  rm: stuff2: is a directory
+  $ rm -r stuff2
+  $ ls
+  example.txt main.cpp stuff
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli007.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 GUI Equivalent:
 
-<img src="images/cli013.png" width="768px" alt="rm gui example"/>
+<img src="images/cli013.png" class="invert-colors-in-dark-mode" width="768px" alt="rm gui example"/>
 
 
 ### cd
@@ -101,11 +171,30 @@ GUI Equivalent:
 
 CLI Example:
 
-<img src="images/cli008.png" width="768px" alt="cd cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ pwd
+  /Users/ohjun/Desktop/project
+  $ ls
+  example.txt main.cpp stuff
+  $ cd stuff/
+  $ ls
+  $ 
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli008.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 GUI Equivalent:
 
-<img src="images/cli014.png" width="768px" alt="cd gui example"/>
+<img src="images/cli014.png" class="invert-colors-in-dark-mode" width="768px" alt="cd gui example"/>
 
 
 ### mv
@@ -115,23 +204,59 @@ GUI Equivalent:
 
 CLI Example (moving):
 
-<img src="images/cli009.png" width="768px" alt="mv cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ ls
+  example.txt main.cpp stuff
+  $ mv main.cpp stuff/
+  $ ls
+  example.txt stuff
+  $ ls stuff/
+  main.cpp
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli009.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 Note the `/` at the end of `stuff/`. While not necessary, it is convention to end directory paths with `/`.
 
 GUI Equivalent (moving):
 
-<video controls="controls" width="768px" name="mv gui example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv gui example">
   <source src="images/cli_vid001.mov">
 </video>
 
 CLI Example (renaming):
 
-<img src="images/cli010.png" width="768px" alt="mv cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ ls
+  example.txt stuff
+  $ mv example.txt new_name.txt
+  $ ls
+  new_name.txt stuff
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli010.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 GUI Equivalent (renaming):
 
-<img src="images/cli015.png" width="768px" alt="mv gui example"/>
+<img src="images/cli015.png" class="invert-colors-in-dark-mode" width="768px" alt="mv gui example"/>
 
 ### cp
 `cp` is short for "copy". It copies the specified file or directory to the specified path.
@@ -139,11 +264,30 @@ GUI Equivalent (renaming):
 
 CLI Example:
 
-<img src="images/cli011.png" width="768px" alt="cp cli example"/>
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ pwd
+  /Users/ohjun/Desktop/project
+  $ ls stuff/
+  main.cpp
+  $ cp new_name.txt stuff/
+  $ ls stuff/
+  main.cpp new_name.txt
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli011.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+  </td>
+  </tr>
+</table>
 
 GUI Equivalent:
 
-<img src="images/cli016.png" width="768px" alt="cp gui example"/>
+<img src="images/cli016.png" class="invert-colors-in-dark-mode" width="768px" alt="cp gui example"/>
 
 
 ### open / wslview
@@ -155,14 +299,14 @@ On WSL (Windows), `wslview` opens a file or directory with the default applicati
 
 CLI Example:
 
-<video controls="controls" width="768px" name="mv gui example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv gui example">
   <source src="images/cli_vid002.mov">
 </video>
 Note the `.` path used. This is a [special path](#special-paths) that refers to the current directory.
 
 GUI Equivalent:
 
-<img src="images/cli017.png" width="768px" alt="open gui example"/>
+<img src="images/cli017.png" class="invert-colors-in-dark-mode" width="768px" alt="open gui example"/>
 
 
 ## Special Paths
@@ -203,7 +347,7 @@ Below are some common, useful, special paths:
 
 Note that l is a lowercase L, not an uppercase i.
 
-<video controls="controls" width="768px" name="clear example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
   <source src="images/cli_vid003.mov">
 </video>
 
@@ -211,18 +355,19 @@ Note that l is a lowercase L, not an uppercase i.
 ## Tab
 Pressing tab autocompletes a file/directory name. This allows you to navigate much faster than typing the entire path.
 
-<video controls="controls" width="768px" name="clear example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
   <source src="images/cli_vid004.mov">
 </video>
 
 ## Up Arrow
 Pressing the up arrow allows you to see your previous commands. This is particularly useful when you are repeating compile-run-compile-run-... while debugging.
 
-<video controls="controls" width="768px" name="clear example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
   <source src="images/cli_vid005.mov">
 </video>
 
 ## Colors and Customization
+# TODO: CHANGE THIS
 Have you noticed how ugly the terminal looks in the screenshots above? Fortunately, there is a way to style the terminal exactly the way you want it. Below is one example.
 
 <img src="images/cli021.png" width="768px" alt="styled terminal example"/>
