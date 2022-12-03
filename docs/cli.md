@@ -326,19 +326,35 @@ Below are some common, useful, special paths:
 ### Parent directory: `..`
 `..` refers to the parent directory (of the current directory).
 
-<img src="images/cli018.png" width="768px" alt=".. example"/>
-
+```console
+$ pwd
+/Users/ohjun/Desktop/project/stuff
+$ cd ..
+$ pwd
+/Users/ohjun/Desktop/project
+```
 
 ### Home directory: `~`
 `~` refers to the home directory. [More info](https://stackoverflow.com/questions/998626/meaning-of-tilde-in-linux-bash-not-home-directory).
 
-<img src="images/cli019.png" width="768px" alt="~ example"/>
-
+```console
+$ cd ~
+$ pwd
+/Users/ohjun
+$ ls
+Applications Pictures Desktop ...
+```
 
 ### Root directory: `/`
 `/` refers to the root directory. This is the top-most directory in your file system, and has no parent.
 
-<img src="images/cli020.png" width="768px" alt="/ example"/>
+```console
+$ cd /
+$ pwd
+/
+$ ls
+Applications cores sbin ...
+```
 
 
 # Tips and Tricks
@@ -367,10 +383,9 @@ Pressing the up arrow allows you to see your previous commands. This is particul
 </video>
 
 ## Colors and Customization
-# TODO: CHANGE THIS
-Have you noticed how ugly the terminal looks in the screenshots above? Fortunately, there is a way to style the terminal exactly the way you want it. Below is one example.
+The default terminal can look a little boring without colors or path descriptions. Fortunately, there is a way to style the terminal exactly the way you want it. Below is one example.
 
-<img src="images/cli021.png" width="768px" alt="styled terminal example"/>
+<img src="images/cli021.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
 
 First, determine which shell you are using by running the following command.
 ```console
