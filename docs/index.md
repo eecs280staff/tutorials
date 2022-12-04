@@ -10,6 +10,7 @@ EECS 280 Tutorials
 {: .primer-spec-toc-ignore }
 
 List of tutorials:
+  - [cli.html](cli.html)
   - [index.html](index.html)
   - [setup.html](setup.html)
   - [setup_asan.html](setup_asan.html)
