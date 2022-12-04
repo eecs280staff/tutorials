@@ -118,7 +118,7 @@ CLI Example:
   example.txt main.cpp stuff stuff2
   $ touch euchre.cpp
   $ ls
-  euchre.cpp 
+  example.txt main.cpp stuff stuff2 euchre.cpp 
   ```
 
   </td>
@@ -133,7 +133,6 @@ CLI Example:
 `rm` is short for "remove". It deletes the file or directory at the specified path.
 
 You must include the `-r` (recursive) <b>option</b> to delete a directory.
-[More info](https://man7.org/linux/man-pages/man1/rm.1.html).
 
 CLI Example:
 
@@ -335,7 +334,8 @@ $ pwd
 ```
 
 ### Home directory: `~`
-`~` refers to the home directory. [More info](https://stackoverflow.com/questions/998626/meaning-of-tilde-in-linux-bash-not-home-directory).
+`~` refers to the home directory.
+[More info](https://en.wikipedia.org/wiki/Home_directory).
 
 ```console
 $ cd ~
@@ -347,6 +347,7 @@ Applications Pictures Desktop ...
 
 ### Root directory: `/`
 `/` refers to the root directory. This is the top-most directory in your file system, and has no parent.
+[More info](https://en.wikipedia.org/wiki/Root_directory).
 
 ```console
 $ cd /
@@ -465,6 +466,7 @@ Consider the files `main.cpp` and `text.txt`:
   ```txt
   random text
   more random text
+
   ```
 
   </td>
@@ -528,6 +530,7 @@ Consider the files `main.cpp` and `text.txt`:
   text text text text
   hello world
   this is a pointless text file
+
   ```
 
   </td>
@@ -544,7 +547,7 @@ $ grep -r 'hello' .
 ./text.txt:hello world
 $ grep -ri 'hello' .
 ./test.txt:hello world
-./main.cpp:  std:cout << "hello World\n";
+./main.cpp:  std:cout << "Hello World\n";
 ```
 
 Note that the `-r` option must be specified when searching for all files in a directory, and the `-i` option performs a case insensitive search.
@@ -663,6 +666,7 @@ int main(void) {
         std::cout << input << '\n'; 
     }
 }
+
 ```
 
 We can compile and run the program, then manually feed std::cin.
@@ -707,6 +711,7 @@ Consider a simple Hello World program that just prints "Hello World".
 int main(void) {
     std::cout << "Hello World\n";
 }
+
 ```
 
 We would normally see the output on the terminal.
