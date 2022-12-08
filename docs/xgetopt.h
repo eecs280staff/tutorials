@@ -435,6 +435,18 @@ const struct option *long_options, int *idx, int short_too)
 }
 
 /*
+* Return a pointer to the first occourance of char c in string s.
+*/
+char *mutable_strchr(const char *s, int c)
+{
+    while (*s != (char)c)
+        if (!*s++)
+            return 0;
+    return (char *)s;
+}
+
+
+/*
 * getopt_internal --
 *        Parse argc/argv argument vector. Called by user level routines.
 */
@@ -575,7 +587,7 @@ start:
 
 	if ((optchar = (int)*place++) == (int)':' ||
 		(optchar == (int)'-' && *place != '\0') ||
-		(oli = strchr(options, optchar)) == NULL) {
+		(oli = mutable_strchr(options, optchar)) == NULL) {
 		/*
 		* If the user specified "-" and '-' isn't listed in
 		* options, return -1 (non-option) as per POSIX.
