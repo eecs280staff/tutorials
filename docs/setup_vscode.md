@@ -449,7 +449,7 @@ To configure input redirection, edit `launch.json`.
 Skip this subsection for EECS 280 project 1.
 </div>
 
-Arguments and options are inputs to a program typed at the command line.  For example:
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
