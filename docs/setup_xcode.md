@@ -182,7 +182,7 @@ You will now see your files in the sidebar on the left.
 #### Rename files
 If you need to rename any files, use Xcode, not the command line or Finder.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
-Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
+Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
 | <img src="images/xcode120.png" width="192px" /> | <img src="images/xcode125.png" width="192px" /> |
 
