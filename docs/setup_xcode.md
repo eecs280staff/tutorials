@@ -55,7 +55,7 @@ Under "macOS", select "Command Line Tool".  Click "Next".
 
 <img src="images/xcode050.png" width="768px" />
 
-Set a project name, we'll call our example project `p1-stats`.  Ensure that that the Language is set to "C++". Click "Next".
+Set a project name, we'll call our example project `p1-stats`.  Ensure that that the Language is set to "C++".  Enter your uniqname in the "Organization Identifier" field. (It's used by the app store which we don't use, so you just need something there.)  Click "Next".
 
 <img src="images/xcode060.png" width="768px" />
 
