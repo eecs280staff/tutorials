@@ -204,8 +204,7 @@ main.cpp ...
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
-$ mkdir -p src
-$ mv starter-files/* src/
+$ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
 ```
 
