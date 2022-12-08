@@ -211,7 +211,7 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 
 | <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
-Select "Run", then "Options", then "Use custom working directory".  Set the directory to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
+Select "Run", then "Options", then "Use custom working directory".  Use the folder icon to browse to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
 <img src="images/xcode160.png" width="768px" />
 
