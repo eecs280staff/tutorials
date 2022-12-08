@@ -207,9 +207,9 @@ g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o 
 
 Configure Xcode to run the executable in the directory containing the input files, which is `src/` in this example.
 
-Select your scheme, then "Edit Scheme".
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
 
-<img src="images/xcode150.png" width="384px" />
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
 Select "Run", then "Options", then "Use custom working directory".  Set the directory to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
@@ -226,9 +226,9 @@ Compile and run.
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
 
-Select your scheme, then "Edit Scheme".
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
 
-<img src="images/xcode150.png" width="384px" />
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
 <img src="images/xcode170.png" width="768px" />
 
@@ -296,9 +296,9 @@ $ ./main.exe train_small.csv test_small.csv --debug
 - `train_small.csv` and `test_small.csv` are arguments
 - `--debug` is an option
 
-Select your scheme, then "Edit Scheme".
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
 
-<img src="images/xcode150.png" width="384px" />
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
 Add each option or argument separately.
 
