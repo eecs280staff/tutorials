@@ -54,6 +54,7 @@ For reference, this is the version of Visual Studio we're using in this example.
 
 <img src="images/visualstudio030.png" width="512px" />
 
+
 # Create a project
 A Visual Studio project contains the files and information to build your software.  In EECS 280, you'll eventually create one Visual Studio project for each EECS 280 project.
 
