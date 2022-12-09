@@ -54,13 +54,6 @@ For reference, this is the version of Visual Studio we're using in this example.
 
 <img src="images/visualstudio030.png" width="512px" />
 
-### `getopt` library
-<div class="primer-spec-callout info" markdown="1">
-Skip this section if you're in EECS 280.  We don't use the `getopt` library.
-</div>
-
-Visual Studio does not ship with a `getopt` library.  Follow the one-time install instructions in the EECS 281 Setup [`getopt` install section](setup_eecs281.md#getopt-setup).
-
 # Create a project
 A Visual Studio project contains the files and information to build your software.  In EECS 280, you'll eventually create one Visual Studio project for each EECS 280 project.
 
@@ -243,6 +236,13 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
+
+### `getopt` library
+<div class="primer-spec-callout info" markdown="1">
+Skip this section if you're in EECS 280.  We don't use the `getopt` library.
+</div>
+
+Visual Studio does not ship with a `getopt` library.  If you need it, check out the [`getopt` install section](setup_eecs281.md#getopt-setup).
 
 # Compile
 A Visual Studio Build compiles one executable.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
