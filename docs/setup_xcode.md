@@ -1,6 +1,6 @@
 ---
 layout: spec
-title: Setup Xcode
+title: Setup Xcode (macOS)
 excludeFromSitemap: true
 ---
 
@@ -15,10 +15,10 @@ If you already have Xcode installed, skip to the [Create a project](#create-a-pr
 </div>
 
 ## Prerequisites
-There are no prerequisites for VS Code.
+There are no prerequisites for Xcode.
 
 ## Restart
-To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
+To start clean, first quit Xcode.  Back up your files, and then delete your project directory.  Your project directory might be different.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280
@@ -98,7 +98,7 @@ Xcode created `main.cpp` by default.  Skip this subsection your first time throu
 Open your project folder by selecting `File` > `Open` > navigate to the `p1-stats` folder and open `p1-stats.xcodeproj`.
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.
+**Pro-tip:** Here's a quick way to open Xcode to a specific project folder from the command line.
 ```console
 $ open p1-stats.xcodeproj
 ```
