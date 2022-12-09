@@ -63,7 +63,6 @@ In the File Dialog, navigate to the directory where you store your projects. You
 
 <img src="images/xcode070.png" width="768px" />
 
-
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
 
@@ -303,7 +302,6 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 Add each option or argument separately.
 
 <img src="images/xcode259.png" width="576px" />
-
 
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
