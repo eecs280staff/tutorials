@@ -14,8 +14,6 @@ This tutorial will help you set up an EECS 281 project using the EECS 280 tutori
       ```
       p0-hello/p0-hello/main.cpp
       ```
-- [ ] get opt starter code
-- [ ] get opt work around on Visual Studio
 - [ ] Configure visual debugger for CLI args and opts
 
 ## OS and tool installs
@@ -116,11 +114,17 @@ Edit these three lines in the Makefile.  Your values might be different, check t
 ```make
 UNIQNAME = not_awdeorio
 # ...
-EXECUTABLE = main
+IDENTIFIER  = copy_me_from_project_spec
 # ...
 PROJECTFILE = main.cpp
+# ...
+EXECUTABLE = main
 ```
 {: data-title="Makefile" }
+
+**Shortcut:** You can skip updating `PROJECTFILE` if your `main()` function is in one of these filenames: `main.cpp`, `project0.cpp`, `project1.cpp`, `project2.cpp`, `project3.cpp`, `project4.cpp`, `EXECUTABLE.cpp`.
+
+If your project has additional dependencies, update the dependencies section at the bottom of the `Makefile`.
 
 You should be able to compile and run your main function.
 ```console
@@ -130,18 +134,93 @@ hello world!
 ```
 
 ## Parsing command line arguments and options
-Edit your main program (e.g., `main.cpp`) to parse command line options and print them.
+Edit your main program (e.g., `main.cpp`) to parse command line options and print them.  Copy this sample code.
 
 ```c++
-// FIXME getopt boiler plate goes here
+#include <iostream>
+#include <string>
+#include <getopt.h> // TODO: Visual Studio users change to "xgetopt.h"
+using namespace std;
+
+
+int main(int argc, char * argv[]) {
+  // TODO: Create a variable to store each option
+  int verbose = 0;
+  string output;
+
+  // TODO: Update these options
+  option long_options[] = {
+    {"verbose", no_argument, nullptr, 'v'},
+    {"output", required_argument, nullptr, 'o'},
+    { nullptr, 0, nullptr, '\0' }
+  };
+
+  // Parse options (starts with '-')
+  while (1) {
+    // getopt_long stores the option index here
+    int option_index = 0;
+
+    // TODO: Modify "o:v" to include each of the chars from long_options above.
+    // An option with a required argument is followed by ":".
+    int c = getopt_long (argc, argv, "o:v", long_options, &option_index);
+
+    // End of options
+    if (c == -1) break;
+
+    // TODO: Add a case for each option
+    switch (c) {
+    case 'o':
+      output = optarg;
+      break;
+    case 'v':
+      verbose++;
+      break;
+    default:
+      cerr << "Error: TODO: Update this help string" << endl;
+      return 1;
+    }
+  }
+
+  // TODO: Use the options
+  cout << "verbose = " << verbose << endl;
+  cout << "output = " << output << endl;
+}
 ```
 {: data-title="main.cpp" }
 
-Compile and run.  You should see the sample command line arguments.  This might be a good time to change them to match your project spec.
+Compile and run.
 ```console
 $ make main
-$ ./main FIXME
+$ ./main --verbose --output output.txt
+verbose = 1
+output = output.txt
+$ ./main -v -o output.txt
+verbose = 1
+output = output.txt
+$ ./main
+verbose = 0
+output = 
 ```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Visual Studio** does not ship with a `getopt` library, which processes command line arguments.
+
+Download [`xgetopt.h`](xgetopt.h) and place it in your project source code directory.  It's cross-platform and will work on both Windows and Linux.
+
+Remove the `<getopt.h>` include.  Add the `"xgetopt.h"` include.
+```c++
+#include <getopt.h> // REMOVE
+#include "xgetopt.h"
+```
+{: data-title="main.cpp" }
+
+**Pitfall:** Make sure `xgetopt.h` is in the same folder as your source code.
+```console
+$ ls
+Makefile  main.cpp  xgetopt.h
+```
+</div>
+
 
 ## Debug
 Configure your visual debugger to compile and run your main program.

@@ -238,6 +238,13 @@ int main() {
 {: data-title="main.cpp" }
 
 
+### `getopt` library
+<div class="primer-spec-callout info" markdown="1">
+Skip this section if you're in EECS 280.  We don't use the `getopt` library.
+</div>
+
+Visual Studio does not ship with a `getopt` library.  If you need it, check out the [`getopt` install section](setup_eecs281.md#getopt-setup).
+
 # Compile
 A Visual Studio Build compiles one executable.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
 
