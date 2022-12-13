@@ -17,13 +17,12 @@ We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will al
 
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
-
 ## Install Windows Subsystem for Linux (WSL)
 Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".
 
 <img src="images/wsl010.png" width="240px" />
 
-Check if WSL was already installed.
+Check if WSL was already installed.  If you see the WSL help text, you don't have WSL installed.
 ```console
 C:\WINDOWS\system32> wsl -l -v
   NAME      STATE       VERSION
@@ -38,8 +37,6 @@ C:\WINDOWS\system32> wsl --install
 
 Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).
 
-
-## Open terminal
 Start an Ubuntu Bash shell (not a Windows PowerShell).
 
 <img src="images/wsl020.png" width="240px" />
@@ -49,9 +46,9 @@ An Ubuntu Bash shell is a terminal that looks like this.
 <img src="images/wsl030.png" width="480px" />
 
 ## Install CLI tools
-Use the `apt-get` package manager to install a few command line programs.
+Use the `apt` package manager to install a few command line programs.
 ```console
-$ sudo apt-get install g++ make rsync wget git ssh gdb python3 tree
+$ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ```
 {: data-variant="no-line-numbers" }
 
