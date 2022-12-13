@@ -32,21 +32,18 @@ Visual Studio has a *lot* of settings.  You can reset the entire user interface 
 ## Install
 Install Visual Studio Community edition from [Microsoft's website](https://www.visualstudio.com/vs/community/).
 
-Select "Desktop Development with C++" and make sure that the "Windows 10 SDK" and "C++ AddressSanitizer" are selected (your version might be different).  Click "Continue".  Reboot your computer when the installer prompts you.
+Select "Desktop Development with C++" and make sure that the "Windows 10 SDK", "Windows 11 SDK", and "C++ AddressSanitizer" are selected.  Click "Continue".  Reboot your computer when the installer prompts you.
 
 <img src="images/visualstudio010.png" width="768px" />
 
-
-Start Visual Studio.  The first time, you'll be asked to sign in with your Microsoft account.  Select "Visual C++" for your default development settings.
+Start Visual Studio.  The first time, you'll be asked about a few preferences.
 
 <img src="images/visualstudio020.png" width="360px" />
 
-For reference, this is the version of Visual Studio we're using in this example.  Yours might be different.
-
-<img src="images/visualstudio030.png" width="512px" />
+The screenshots in the tutorial were created with Visual Studio Community 2022.  Your version might be different.
 
 ## Create a project
-An Xcode project contains the files and information to build your software.  In EECS 280, you'll eventually create one Xcode project for each EECS 280 project.
+A Visual Studio project contains the files and information to build your software.  In EECS 280, you'll eventually create one Visual Studio project for each EECS 280 project.
 
 Start Visual Studio.  Create a new project.
 
@@ -77,7 +74,7 @@ Click the `p1-stats` folder and rename it to `src`.  We recommend this in EECS 2
 
 <img src="images/visualstudio066.png" width="768px" />
 
-You can see the files created by Visual Studio from the command line.  Notice that Visual Studio created a folder project metadata: `.vs/p1-stats.xcodeproj/` and new files `p1-stats.sln`, `p1-stats.vcxproj`, `p1-stats.vcxproj.filters`.
+You can see the files created by Visual Studio from the command line.  Notice that Visual Studio created a folder project metadata: `.vs/p1-stats/` and new files `p1-stats.sln`, `p1-stats.vcxproj`, `p1-stats.vcxproj.filters`.
 ```console
 FIXME FIXME FIXME
 $ pwd
