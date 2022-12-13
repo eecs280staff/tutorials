@@ -59,8 +59,8 @@ $ sudo apt-get install g++ make rsync wget git ssh gdb python3 tree
 
 ### Copy paste
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page ([Source: Microsoft blog](https://devblogs.microsoft.com/commandline/copy-and-paste-arrives-for-linuxwsl-consoles/)).
-- Copy: <kbd>Control + Shift + C</kbd>
-- Paste: <kbd>Control + Shift + V</kbd>
+- Copy: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd>
+- Paste: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
 
