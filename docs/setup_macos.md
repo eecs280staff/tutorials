@@ -21,7 +21,6 @@ Install a compiler.
 ```console
 $ xcode-select --install
 ```
-{: data-variant="no-line-numbers" }
 
 Notice that this compiler is really Apple LLVM pretending to be `g++`.  Your version might be different.
 ```console
@@ -33,27 +32,26 @@ Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
 
-## Install package manager
+## Homebrew package manager
 Install the [Homebrew package manager](https://brew.sh/).
 ```console
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
-{: data-variant="no-line-numbers" }
 
 <div class="primer-spec-callout warning" markdown="1">
-Apple Silicon users ("M1" or "M2") only - Homebrew installs to a non-standard location, `/opt/homebrew/`. You'll need to run the following to add Homebrew to your path:
+Apple Silicon users ("M1", "M2", etc.) only - Homebrew installs to a non-standard location, `/opt/homebrew/`. You'll need to run the following to add Homebrew to your path:
 
 ```console
 $ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-$ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
-{: data-variant="no-line-numbers" }
+
+Close your terminal and reopen your terminal.
 </div>
 
 Check your install.  Your version might be different.
 ```console
 $ brew --version
-Homebrew 3.6.7
+Homebrew 3.6.14
 ```
 
 ## Install CLI tools
@@ -61,7 +59,6 @@ Use the Homebrew package manager to install a few command line programs.
 ```console
 $ brew install wget git tree
 ```
-{: data-variant="no-line-numbers" }
 
 ## Pro-tips
 
@@ -70,7 +67,6 @@ Simulate a double-click from the command line in the Terminal.
 ```console
 $ open babychickens.jpg
 ```
-{: data-variant="no-line-numbers" }
 
 
 ## Acknowledgments
