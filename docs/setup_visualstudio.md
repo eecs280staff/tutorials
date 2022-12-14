@@ -180,13 +180,17 @@ Right-click a file and select "Rename".  Change the file name.
 | <img src="images/visualstudio108.png" width="256px" /> | <img src="images/visualstudio076.png" width="256px" /> | <img src="images/visualstudio109.png" width="256px" /> |
 
 ## Compile and Run
-A Visual Studio Build compiles one executable.  One executable should have exactly one `main()` function.
+A Visual Studio Build compiles one executable.
 
-Now, we'll have Visual Studio do the build.  We need to avoid multiple `main()` functions in the same build.  Right-click `FIXME.cpp` in the solution explorer (left side bar) and select "Properties".  Set "Excluded From Build" to "Yes".
+We need to avoid multiple `main()` functions in the same build.  Exclude files not needed to compile the  main program.  This often means excluding unit tests from the build.
 
-<img src="images/visualstudio110.png" width="768px" />
+In this example from EECS 280 Project 1, we need to exclude our unit tests from the build because they each contain a `main()` function.
 
-Do the same to exclude `main.cpp` from the build.  You should now see that both are excluded in the side bar.
+Right-click a file in the solution explorer (sidebar) and select "Properties".  Set "Excluded From Build" to "Yes".
+
+<img src="images/visualstudio110.png" width="512px" />
+
+You can see a red symbol next to each excluded file.
 
 <img src="images/visualstudio120.png" width="768px" />
 
@@ -194,13 +198,9 @@ Do the same to exclude `main.cpp` from the build.  You should now see that both 
 
 <img src="images/visualstudio130.png" width="768px" />
 
-Compile and run.  Click the "Local Windows Debugger" button.
+Click the "Local Windows Debugger" button.  You should see your program run.
 
 <img src="images/visualstudio140.png" width="768px" />
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip**: FIXME To run a program to the end and view its terminal output, set a breakpoint at the end of your `main()` function.  The [Debug](#debug) section describes breakpoints.
-</div>
 
 ### Sanitizers
 FIXME
