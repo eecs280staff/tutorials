@@ -38,8 +38,6 @@ Select "Desktop Development with C++" and make sure that the "Windows 10 SDK", "
 
 Start Visual Studio.  The first time, you'll be asked about a few preferences.
 
-<img src="images/visualstudio020.png" width="360px" />
-
 The screenshots in the tutorial were created with Visual Studio Community 2022.  Your version might be different.
 
 ## Create a project
