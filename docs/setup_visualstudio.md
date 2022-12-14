@@ -340,12 +340,14 @@ int main() {
 {: data-title="main.cpp" }
 
 ### Breakpoint
-FIXME Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
+Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/visualstudio150.png" width="768px" />
 
 ### Run
-Run the debugger.  The program pauses at the breakpoint.  The FIXME indicator highlights the next line of code to be run.
+Run the debugger.  The program pauses at the breakpoint.  The indicator highlights the next line of code to be run.
+
+<img src="images/visualstudio155.png" width="768px" />
 
 <img src="images/visualstudio160.png" width="768px" />
 
@@ -355,24 +357,29 @@ Click "Step Over" a few times until you reach the highlighted line of code
 <img src="images/visualstudio170.png" width="768px" />
 
 ### Inspect
-Hover over a variable to inspect its value.  You can also see values in the variables pane.  FIXME
+Hover over a variable to inspect its value.  You can also see values in the Autos pane.
 
-<img src="images/visualstudio180.png" width="360px" />
+<img src="images/visualstudio180.png" width="768px" />
 
 ### Step into
 Click "Step Into".  The cursor enters the `sum()` function.
 
 <img src="images/visualstudio190.png" width="768px" />
 
+<img src="images/visualstudio195.png" width="768px" />
+
+
 ### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
 
 <img src="images/visualstudio200.png" width="768px" />
 
+<img src="images/visualstudio205.png" width="768px" />
+
 ### Continue
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-<img src="images/visualstudioXYZ.png" width="768px" />
+<img src="images/visualstudio210.png" width="768px" />
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
