@@ -83,7 +83,8 @@ $ tree
 └── p1-stats.vcxproj.user
 ```
 
-### Rename files
+### Rename main file
+{: .primer-spec-toc-ignore }
 Rename the default `p1-stats.cpp` to `main.cpp`.  Your main filename may be different.  Use Visual Studio to rename a file, not the command line or File Explorer.
 
 Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
@@ -95,7 +96,7 @@ Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
 Visual Studio created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to the `p1-stats` folder and open `p1-stats.sln`.
+Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to your project directory (`p1-stats` in this example) and open `p1-stats.sln`.
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Here's a quick way to open Visual Studio to a specific project folder from the command line.  FIXME FIXME FIXME
@@ -118,15 +119,17 @@ You should see your new file under "Source Files".
 <img src="images/visualstudio100.png" width="768px" />
 
 ### Add existing files
-If you have starter files, add them to the `src` subdirectory inside your project directory.
+If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
 
-We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+We'll use the WSL (Ubuntu) terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the subdirectory containing your source code.
 ```console
 $ ls
-main.cpp ...
+main.cpp
+p1-stats.sln
+...
 ```
 </div>
 
@@ -141,46 +144,40 @@ You should see your new files in the `src` subdirectory.
 ```console
 $ tree
 .
-├── p1-stats.xcodeproj
-    ...
-└── src
-    ├── Makefile
-    ├── main.cpp
-    ├── main_test.in
-    ├── main_test.out.correct
-    ├── main_test_data.tsv
-    ├── p1_library.cpp
-    ├── p1_library.h
-    ├── stats.cpp
-    ├── stats.h
-    ├── stats_public_test.cpp
-    └── stats_tests.cpp.starter
+├── Makefile
+├── main.cpp
+├── main_test.in
+├── main_test.out.correct
+├── main_test_data.tsv
+├── p1-stats.sln
+├── p1-stats.vcxproj
+├── p1-stats.vcxproj.filters
+├── p1-stats.vcxproj.user
+├── p1_library.cpp
+├── p1_library.h
+├── stats.h
+├── stats_public_test.cpp
+└── stats_tests.cpp.starter
 ```
 
-Start Visual Studio and open your project.
+Right-click "Source Files", then select "Add" > "Existing Item".
 
-FIXME remove image 070 ?
+<img src="images/visualstudio105.png" width="768px" />
+ 
+Navigate to your project directory.  Select your files by holding <kbd>Control</kbd> and clicking each one.  Do *not* select any `.sln` or `.vcxproj` files.  Click "Add".
 
-<img src="images/visualstudio070.png" width="768px" />
+<img src="images/visualstudio106.png" width="512px" />
 
-To add an existing file after the project has been created, right-click "Source Files", then select "Add" > "Existing Item".
+You will now see your files in the sidebar in the sidebar.
 
-<img src="images/visualstudio075.png" width="768px" />
-
-Select the file to add and click "Add".
-
-FIXME image
-
-You will now see your files in the sidebar on the left.
-
-FIXME image
+<img src="images/visualstudio107.png" width="768px" />
 
 #### Rename files
-If you need to rename any files, use Visual Studio, not the command line or Finder.  In EECS 280, you'll need to rename any files that end in `.starter`.
+If you need to rename any files, use Visual Studio, not the command line or File Explorer.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
-Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
+Right-click a file and select "Rename".  Change the file name.
 
-| <img src="images/visualstudioXYZ.png" width="192px" /> | <img src="images/visualstudioXYZ.png" width="192px" /> |
+| <img src="images/visualstudio108.png" width="256px" /> | <img src="images/visualstudio076.png" width="256px" /> | <img src="images/visualstudio109.png" width="256px" /> |
 
 ## Compile and Run
 A Visual Studio Build compiles one executable.  One executable should have exactly one `main()` function.
