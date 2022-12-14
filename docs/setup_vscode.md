@@ -190,7 +190,7 @@ int main() {
 If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the subdirectory containing your source code.
+**Pitfall:** Make sure you're in the directory containing your source code.
 ```console
 $ ls
 main.cpp
@@ -252,7 +252,7 @@ Hello World!
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the subdirectory containing your source code.
+**Pitfall:** Make sure you're in the directory containing your source code.
 ```console
 $ ls
 main.cpp ...
