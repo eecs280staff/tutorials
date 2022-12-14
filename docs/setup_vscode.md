@@ -144,7 +144,8 @@ $ cd p1-stats
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
-| `.../EECS 280/Project 1 Stats` | `.../eecs280/p1-stats`  |
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 
