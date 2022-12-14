@@ -40,9 +40,7 @@ Install Xcode using the App Store.  Your version might be different.
 
 Start Xcode and agree to the license.  You may be prompted for your administrator password to complete the install.
 
-For reference, this is the version of Xcode we're using in this example.  Yours might be different.
-
-<img src="images/xcode030.png" width="512px" />
+For reference, the screenshots in this tutorial were created with Xcode version 13.2.1.  Yours might be different.
 
 ## Create a project
 An Xcode project contains the files and information to build your software.  In EECS 280, you'll eventually create one Xcode project for each EECS 280 project.
