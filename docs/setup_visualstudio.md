@@ -43,46 +43,44 @@ The screenshots in the tutorial were created with Visual Studio Community 2022. 
 ## Create a project
 A Visual Studio project contains the files and information to build your software.  In EECS 280, you'll eventually create one Visual Studio project for each EECS 280 project.
 
-Start Visual Studio.  Create a new project.
+Start Visual Studio.  Create a new project.  You can also use "File" > "New" > "Project".
 
-<img src="images/visualstudio040.png" width="768px" />
+<img src="images/visualstudio040.png" width="512px" />
 
-Select the type "Visual C++".
+Select "Console App".  Click "Next".
 
-<img src="images/visualstudio050.png" width="512px" />
+<img src="images/visualstudio050.png" width="512x" />
 
-Set a project name, we'll call our example project `p1-stats`.  Click "Next".
+Set a project name, we'll call our example project `p1-stats`.  Pick a location where you'll store your projects.  Check "Place solution and project in the same directory.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  Click "Next".
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
-| `.../EECS 280/Project 1 Stats` | `.../eecs280/p1-stats`  |
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 
 <img src="images/visualstudio060.png" width="512px" />
 
-Select "Console application project" and then "Finish".
+You can see the files created by Visual Studio in the File Explorer.  Right-click `p1-stats`, select "Show in Finder".
 
-<img src="images/visualstudio065.png" width="512px" />
+| <img src="images/visualstudio070.png" height="512px" /> | <img src="images/visualstudio071.png" height="512px" /> |
 
-Click the `p1-stats` folder and rename it to `src`.  We recommend this in EECS 280 to avoid confusing the outer directory (`p1-stats`) with the inner directory (`src`).  This step is optional.
+<img src="images/visualstudio072.png" width="768px" />
 
-<img src="images/visualstudio066.png" width="768px" />
+You can also see the files created by Visual Studio from the WSL command line.  Notice that Visual Studio created `.sln`, and `vcxproj` files.
 
-You can see the files created by Visual Studio from the command line.  Notice that Visual Studio created a folder project metadata: `.vs/p1-stats/` and new files `p1-stats.sln`, `p1-stats.vcxproj`, `p1-stats.vcxproj.filters`.
 ```console
-FIXME FIXME FIXME
-$ pwd
-/mnt/c/Users/awdeorio/Desktop/eecs280/p1-stats
-$ tree -a -L 2
+$ tree
 .
-├── .vs
-│   └── p1-stats
-└── src
-    └── main.cpp
+├── p1-stats.cpp
+├── p1-stats.sln
+├── p1-stats.vcxproj
+├── p1-stats.vcxproj.filters
+└── p1-stats.vcxproj.user
 ```
 
 ### Add new files
