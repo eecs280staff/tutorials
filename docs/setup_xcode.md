@@ -202,7 +202,7 @@ g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o 
 {: data-highlight="3" }
 </div>
 
-Configure Xcode to run the executable in the directory containing the input files, which is `src/` in this example.
+Configure Xcode to run the executable in the directory containing the input files.
 
 Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
 
@@ -210,11 +210,7 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 
 Select "Run", then "Options", then "Use custom working directory".  Use the folder icon to browse to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
-<img src="images/xcode160.png" width="768px" />
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Remember to include the `src` subdirectory.
-</div>
+<img src="images/xcode160.png" width="512px" />
 
 Compile and run.
 
