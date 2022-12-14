@@ -15,7 +15,14 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 </div>
 
 ## Prerequisites
-There are no prerequisites for VS Code.
+Make sure you have command line tools installed for your operating system ([instructions](setup.html#command-line-tools)).  Your versions might be different.
+
+```console
+$ g++ --version
+g++ (Homebrew GCC 12.2.0) 12.2.0
+$ make --version
+GNU Make 3.81
+```
 
 ## Restart
 To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
