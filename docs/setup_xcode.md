@@ -104,7 +104,7 @@ $ open p1-stats.xcodeproj
 {: data-variant="no-line-numbers" }
 </div>
 
-Right-click `p1-stats` in the left side bar.  Select "New File".
+Right-click `p1-stats` in the sidebar.  Select "New File".
 
 <img src="images/xcode115.png" width="768px" />
 
@@ -137,7 +137,6 @@ main.cpp  p1-stats.xcodeproj
 
 We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 
-
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
@@ -145,39 +144,37 @@ $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
 ```
 
-You should see your new files in the `src` subdirectory.
+You should see your new files in your project directory.
 ```console
 $ tree
 .
+├── Makefile
+├── main.cpp
+├── main_test.in
+├── main_test.out.correct
+├── main_test_data.tsv
 ├── p1-stats.xcodeproj
-    ...
-└── src
-    ├── Makefile
-    ├── main.cpp
-    ├── main_test.in
-    ├── main_test.out.correct
-    ├── main_test_data.tsv
-    ├── p1_library.cpp
-    ├── p1_library.h
-    ├── stats.cpp
-    ├── stats.h
-    ├── stats_public_test.cpp
-    └── stats_tests.cpp.starter
+│   ├── ...
+├── p1_library.cpp
+├── p1_library.h
+├── stats.h
+├── stats_public_test.cpp
+└── stats_tests.cpp.starter
 ```
 
 Start Xcode and open your project.
 
-Right-click "src" in the left side bar.  Select "Add Files".  Do *not* select "Copy items if needed".
+Right-click `p1-stats` in the sidebar.  Select "Add Files".
 
-<img src="images/xcode080.png" width="768px" />
+<img src="images/xcode080.png" width="256px" />
 
-Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>) and click "Add".
+Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>).  Do *not* select "Copy items if needed".  Click "Add".
 
-<img src="images/xcode100.png" width="768px" />
+<img src="images/xcode100.png" width="384px" />
 
-You will now see your files in the sidebar on the left.
+You will now see your files in the sidebar.
 
-<img src="images/xcode110.png" width="768px" />
+<img src="images/xcode110.png" width="256px" />
 
 #### Rename files
 If you need to rename any files, use Xcode, not the command line or Finder.  In EECS 280, you'll need to rename any files that end in `.starter`.
