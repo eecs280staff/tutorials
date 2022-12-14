@@ -95,25 +95,25 @@ Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
 Visual Studio created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-FIXME Open your project folder by selecting `File` > `Open` > navigate to the `p1-stats` folder and open `p1-stats.xcodeproj`.
+Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to the `p1-stats` folder and open `p1-stats.sln`.
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open Visual Studio to a specific project folder from the command line.
+**Pro-tip:** Here's a quick way to open Visual Studio to a specific project folder from the command line.  FIXME FIXME FIXME
 ```console
 $ wslview p1-stats
 ```
 {: data-variant="no-line-numbers" }
 </div>
 
-Right click "Source Files", then select "Add" > "New Item".
+Right-click "Source Files", then select "Add" > "New Item".
 
 <img src="images/visualstudio080.png" width="768px" />
 
 Select "Visual C++" and "C++ File".  Name your file, we'll use `stats.cpp` for this example.  Click "Add".
 
-<img src="images/visualstudio090.png" width="768px" />
+<img src="images/visualstudio090.png" width="600px" />
 
-You should see your new file in the `src` directory.
+You should see your new file under "Source Files".
 
 <img src="images/visualstudio100.png" width="768px" />
 
@@ -163,7 +163,7 @@ FIXME remove image 070 ?
 
 <img src="images/visualstudio070.png" width="768px" />
 
-To add an existing file after the project has been created, right click "Source Files", then select "Add" > "Existing Item".
+To add an existing file after the project has been created, right-click "Source Files", then select "Add" > "Existing Item".
 
 <img src="images/visualstudio075.png" width="768px" />
 
@@ -185,7 +185,7 @@ Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, y
 ## Compile and Run
 A Visual Studio Build compiles one executable.  One executable should have exactly one `main()` function.
 
-Now, we'll have Visual Studio do the build.  We need to avoid multiple `main()` functions in the same build.  Right click `FIXME.cpp` in the solution explorer (left side bar) and select "Properties".  Set "Excluded From Build" to "Yes".
+Now, we'll have Visual Studio do the build.  We need to avoid multiple `main()` functions in the same build.  Right-click `FIXME.cpp` in the solution explorer (left side bar) and select "Properties".  Set "Excluded From Build" to "Yes".
 
 <img src="images/visualstudio110.png" width="768px" />
 
