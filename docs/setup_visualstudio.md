@@ -83,6 +83,13 @@ $ tree
 └── p1-stats.vcxproj.user
 ```
 
+### Rename files
+Rename the default `p1-stats.cpp` to `main.cpp`.  Your main filename may be different.  Use Visual Studio to rename a file, not the command line or File Explorer.
+
+Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
+
+| <img src="images/visualstudio075.png" width="256px" /> | <img src="images/visualstudio076.png" width="256px" /> | <img src="images/visualstudio077.png" width="256px" /> |
+
 ### Add new files
 <div class="primer-spec-callout info" markdown="1">
 Visual Studio created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
