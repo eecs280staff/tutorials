@@ -365,7 +365,7 @@ Click "Step Into".  The cursor enters the `sum()` function.
 
 <img src="images/xcode295.png" width="768px" />
 
-<img src="images/xcode300png" width="768px" />
+<img src="images/xcode300.png" width="768px" />
 
 ### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
