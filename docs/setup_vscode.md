@@ -164,22 +164,13 @@ $ code .
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-We recommend putting source code in a subdirectory called `src`.  Create the `src` subdirectory if needed.
-
-<img src="images/vscode022.png" width="768px" />
-
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
 <img src="images/vscode023.png" width="768px" />
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure your new file is in the `src` subdirectory.
-</div>
-
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** You can also create files and folders from the command line, for example:
+**Pro-tip:** You can also create files from the command line.  The `touch` command creates an empty file.
 ```console
-$ mkdir src
 $ touch src/main.cpp
 ```
 </div>
@@ -196,17 +187,17 @@ int main() {
 {: data-title="main.cpp" }
 
 ### Add existing files
-If you have starter files, add them to the `src` subdirectory inside your project directory.
-
-We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the subdirectory containing your source code.
 ```console
 $ ls
-main.cpp ...
+main.cpp
 ```
 </div>
+
+We'll use the terminal to download, unpack, and move the starter files.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
@@ -215,25 +206,23 @@ $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
 ```
 
-You should see your new files in the `src` subdirectory.
+You should see your new files in your project directory.
 ```console
 $ tree
 .
-└── src
-    ├── Makefile
-    ├── main.cpp
-    ├── main_test.in
-    ├── main_test.out.correct
-    ├── main_test_data.tsv
-    ├── p1_library.cpp
-    ├── p1_library.h
-    ├── stats.cpp
-    ├── stats.h
-    ├── stats_public_test.cpp
-    └── stats_tests.cpp.starter
+├── Makefile
+├── main.cpp
+├── main_test.in
+├── main_test.out.correct
+├── main_test_data.tsv
+├── p1_library.cpp
+├── p1_library.h
+├── stats.h
+├── stats_public_test.cpp
+└── stats_tests.cpp.starter
 ```
 
-In VS Code, open your project folder by selecting `File` > `Open Folder...` > to navigate to the `p1-stats` folder or from the command line.  You should see your files.
+You should see your new files appear in VS Code.
 
 <img src="images/vscode026.png" width="768px" />
 
@@ -242,7 +231,7 @@ If you need to rename any files, you can do this from VS Code or from the comman
 
 Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
-| <img src="images/vscode027.png" width="300px" /> | <img src="images/vscode028.png" width="192px" /> |
+| <img src="images/vscode027.png" height="512px" /> | <img src="images/vscode028.png" height="512px" /> |
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** You can also rename files the command line, for example:
@@ -254,12 +243,9 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
-VS Code has an integrated terminal; it's up to you if like the integrated terminal or your system terminal.  Don't forget to `cd` into the subdirectory containing your source code (`src` in this example).
-
-<img src="images/vscode029.png" width="768px" />
-
 Compile and run your executable at the command line.
 ```console
+$ touch stats.cpp  # Needed for EECS 280 P1
 $ make main.exe
 $ ./main.exe
 Hello World!
@@ -316,31 +302,39 @@ Select a "Launch" configuration.  This will create a default `launch.json` ([Mic
 
 <img src="images/vscode033.png" width="768px" />
 
-Edit the `program` field in `launch.json` with the program to run.  Save the updated file.  Your `launch.json` might be different.
+Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
+```json
+{
+    "name": "(lldb) Launch",
+    ...
+    "program": "${workspaceFolder}/main.exe",
+    ...
+    "cwd": "${workspaceFolder}",
+    ...
+}
+```
+{: data-highlight="4,6" }
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Remember to include the `src` subdirectory.
-</div>
+Your `launch.json` might be different.
+
+<img src="images/vscode034.png" width="768px" />
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** VS Code puts its configuration files in a hidden directory called `.vscode`.  You can see hidden files with `ls -A`.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
 $ ls -A
-.vscode  src
+.vscode
+main.cpp
+...
 ```
+{: data-highlight="2" }
 </div>
-
-<img src="images/vscode034.png" width="768px" />
 
 Click the triangle to run.  You'll see your program's output in the debug console.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to build your executable at the command line first.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats/src
 $ make main.exe
 ```
 </div>
