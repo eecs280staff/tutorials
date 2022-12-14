@@ -203,7 +203,14 @@ Click the "Local Windows Debugger" button.  You should see your program run.
 <img src="images/visualstudio140.png" width="768px" />
 
 ### Sanitizers
-FIXME
+Visual Studio provides an address sanitizer with bounds checking automatically with every debug build. You don’t need to do anything different!
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** When Visual Studio says "Press any key to continue", press a key, do *not* close the window by clicking the X.  Some memory checks run after you press any key.
+
+<img src="images/visualstudio055.png" width="512px" />
+
+</div>
 
 ### Input redirection
 <div class="primer-spec-callout info" markdown="1">
