@@ -255,7 +255,7 @@ Hello Drew!
 ```
 {: data-highlight="1" }
 
-Without input redirection, here's how to type input in the Visual Studio command line.  Notice that when we run `main`, a window pops up that accepts user input.
+Without input redirection, here's how to type input in the Visual Studio command line.  Notice that when we run, a window pops up that accepts user input.
 
 <img src="images/visualstudio145.png" width="768px" />
 
@@ -266,6 +266,13 @@ To configure input redirection, right-click the project in the Solution Explorer
 Edit "Command Arguments" and click "OK".
 
 <img src="images/visualstudio146.png" width="768px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Set a breakpoint on the last line of `main` to keep the output window open.
+
+With input redirection configured, Visual Studio will automatically close the terminal window, and you'll miss seeing the output.
+</div>
+
 
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
