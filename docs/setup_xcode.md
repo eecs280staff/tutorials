@@ -66,7 +66,8 @@ In the File Dialog, navigate to the directory where you store your projects. You
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
-| `.../EECS 280/Project 1 Stats` | `.../eecs280/p1-stats`  |
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 
@@ -74,7 +75,7 @@ Drag-and-drop `main.cpp` out of the `p1-stats` folder, then delete the `p1-stats
 
 | <img src="images/xcode075.png" width="192px" /> | <img src="images/xcode076.png" width="192px" /> | <img src="images/xcode077.png" width="192px" /> | <img src="images/xcode078.png" width="192px" /> |
 
-You can see the files created by Xcode in the Finder.  Right-click `main`, a select "Show in Finder".
+You can see the files created by Xcode in the Finder.  Right-click `main` and select "Show in Finder".
 
 | <img src="images/xcode079a.png" width="192px" /> | <img src="images/xcode079b.png" width="512px" /> |
 
@@ -135,7 +136,7 @@ main.cpp  p1-stats.xcodeproj
 ```
 </div>
 
-We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.
 
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
@@ -184,9 +185,9 @@ Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, y
 | <img src="images/xcode120.png" width="192px" /> | <img src="images/xcode125.png" width="192px" /> |
 
 ## Compile and Run
-An Xcode target compiles (builds) one executable.  One executable should have exactly one `main()` function.
+An Xcode target compiles (builds) one executable.
 
-Now, we'll have Xcode do the build.  We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the `main.exe` executable.  Remove any other files by selecting them and clicking on the "–" button.
+We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the main program.  Remove any other files by selecting them and clicking on the "–" button.
 
 <img src="images/xcode130.png" width="768px" />
 
