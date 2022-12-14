@@ -70,21 +70,23 @@ In the File Dialog, navigate to the directory where you store your projects. You
 
 </div>
 
-Click the `p1-stats` folder and rename it to `src`.  We recommend this in EECS 280 to avoid confusing the outer directory (`p1-stats`) with the inner directory (`src`).  This step is optional.
+Drag-and-drop `main.cpp` out of the `p1-stats` folder, then delete the `p1-stats` folder.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  This step is optional.
 
-<img src="images/xcode075.png" width="768px" />
+| <img src="images/xcode075.png" width="192px" /> | <img src="images/xcode076.png" width="192px" /> | <img src="images/xcode077.png" width="192px" /> | <img src="images/xcode078.png" width="192px" /> |
 
-You can see the files created by Xcode from the command line.  Notice that Xcode created a folder project metadata: `p1-stats.xcodeproj`.
+You can see the files created by Xcode in the Finder.  Right-click `main`, a select "Show in Finder".
+
+| <img src="images/xcode079a.png" width="192px" /> | <img src="images/xcode079b.png" width="512px" /> |
+
+You can also see the files created by Xcode from the command line.  Notice that Xcode created a folder with project metadata: `p1-stats.xcodeproj`.
+
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
 $ tree
 .
-├── p1-stats.xcodeproj
-│   ├── project.pbxproj
-        ...
-└── src
-    └── main.cpp
+├── main.cpp
+└── p1-stats.xcodeproj
+    ├── ...
+
 ```
 
 ### Add new files
@@ -102,7 +104,7 @@ $ open p1-stats.xcodeproj
 {: data-variant="no-line-numbers" }
 </div>
 
-Right-click the `src` folder in the left side bar.  Select "New File".
+Right-click `p1-stats` in the left side bar.  Select "New File".
 
 <img src="images/xcode115.png" width="768px" />
 
@@ -118,22 +120,23 @@ Don't select any targets.  Click "Create".
 
 <img src="images/xcode118.png" width="512px" />
 
-You should see your new file in the `src` directory.
+You should see your new file in the sidebar.
 
 <img src="images/xcode119.png" width="768px" />
 
 ### Add existing files
-If you have starter files, add them to the `src` subdirectory inside your project directory.
+If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
+```console
+$ ls
+main.cpp  p1-stats.xcodeproj
+```
+</div>
 
 We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the subdirectory containing your source code.
-```console
-$ ls
-main.cpp ...
-```
-</div>
 
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
@@ -368,7 +371,7 @@ Click "Step Into".  The cursor enters the `sum()` function.
 
 <img src="images/xcode295.png" width="768px" />
 
-<img src="images/xcode300.png" width="768px" />
+<img src="images/xcode300png" width="768px" />
 
 ### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
