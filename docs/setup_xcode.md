@@ -4,8 +4,8 @@ title: Setup Xcode (macOS)
 excludeFromSitemap: true
 ---
 
-Setting up Xcode
-================
+Setup Xcode (macOS)
+===================
 {: .primer-spec-toc-ignore }
 
 [Xcode](https://developer.apple.com/xcode/) is a feature-rich integrated debugging environment (IDE) that runs on macOS.
