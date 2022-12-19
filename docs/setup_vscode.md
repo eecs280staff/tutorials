@@ -29,6 +29,8 @@ GNU Make 3.81
 ```
 
 ## Restart
+To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
+
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280
