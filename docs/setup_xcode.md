@@ -28,6 +28,11 @@ README.md     main_test_data.tsv     stats.h
 main_test.in  p1_library.cpp         stats_public_test.cpp
 ```
 
+This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+
+
 # Restarting this tutorial
 If you tried using this tutorial in the past and want to "start clean", here's how to delete all Xcode project configuration files.  This will not delete your code.  First, quit Xcode.
 ```console

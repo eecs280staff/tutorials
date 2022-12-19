@@ -10,71 +10,12 @@ EECS 280 Setup Tutorial
 
 This how-to will walk you through setting up your computer for EECS 280.  At the end, you'll have the starter files for a project compiling on your own computer.  You'll have both command line tools and a visual debugger ready to go.  We'll also walk you through a few other C++ tools.
 
-
 ## Command line tools
-First, we'll install a shell (AKA command line).  The command line interface (CLI) lets us interact with the computer using the keyboard instead of the mouse.  Once you get used to it, it's very powerful and very fast.
+The command line interface (CLI) lets us interact with the computer using the keyboard instead of the mouse.  Select your operating system to install CLI tools.
 
-When you see `$` in this tutorial, you should type into your shell the command that comes after the `$`.
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-#### macOS
-macOS has a built-in shell.  Open the "Terminal" application.
-
-Install a compiler.
-```console
-$ xcode-select --install
-```
-{: data-variant="no-line-numbers" }
-
-Notice that this compiler is really Apple LLVM pretending to be `g++`.
-```console
-$ g++ --version
-Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
-Apple LLVM version 9.0.0 (clang-900.0.38)
-Target: x86_64-apple-darwin16.7.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-```
-
-Install the [Homebrew package manager](https://brew.sh/).
-```console
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-{: data-variant="no-line-numbers" }
-
-<div class="primer-spec-callout warning" markdown="1">
-Apple Silicon users ("M1" or "M2") only - Homebrew installs to a non-standard location, `/opt/homebrew/`. You'll need to run the following to add Homebrew to your path:
-
-```console
-$ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-$ eval "$(/opt/homebrew/bin/brew shellenv)"
-```
-{: data-variant="no-line-numbers" }
-</div>
-
-Use Homebrew to install a few command line programs that we'll use later.  Your versions might be different.
-```console
-$ brew install wget git tree
-```
-{: data-variant="no-line-numbers" }
-
-#### Windows
-On Windows, we recommend Ubuntu running on the Windows Subsystem for Linux (WSL).  WSL runs native Linux command-line tools directly on Windows and includes: 
-
-  * The command line interface programs you need
-  * Easy installation of other CLI programs
-  * SSH multiplexing to avoid repeated 2FA
-
-You can follow the [WSL Tutorial here](setup_wsl.html).
-
-#### Linux
-These instructions work for Ubuntu systems.  Linux systems come with a built-in shell.  Open the "Terminal" application.
-```console
-$ sudo apt-get install g++ make rsync wget git ssh gdb tree
-```
-{: data-variant="no-line-numbers" }
-
-#### Check your tools
-After you've installed a command line interface, you should have all these command line programs installed.  Your versions might be different.
+After you've installed CLI tools, you should have all these command line programs installed.  Your versions might be different.
 ```console
 $ g++ --version
 g++ (GCC) 6.4.0
