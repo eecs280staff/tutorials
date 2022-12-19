@@ -15,7 +15,11 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 </div>
 
 ## Prerequisites
-Make sure you have command line tools installed for your operating system ([instructions](setup.html#command-line-tools)).  Your versions might be different.
+VS Code relies on external command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+
+These are a few tools you should have now.  Your versions might be different.
 
 ```console
 $ g++ --version
@@ -25,7 +29,6 @@ GNU Make 3.81
 ```
 
 ## Restart
-To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280
