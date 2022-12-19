@@ -66,7 +66,7 @@ In the File Dialog, navigate to the directory where you store your projects. You
 <img src="images/xcode070.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
+**Pitfall:** Avoid paths that contain spaces.  Spaces cause problems with some command line tools.
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
