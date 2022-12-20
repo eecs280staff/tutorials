@@ -129,7 +129,7 @@ ms-vscode.cpptools-extension-pack
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
-Verify that the clangd or CodeLLDB extensions are *not* installed.  The clangd extension provided C/C++ intellisense which conflicts with the Microsoft C/C++ extension.  The CodeLLDB extension provides C/C++ debugging support which causes confusion with the Microsoft C/C++ extension.
+Verify that the clangd or CodeLLDB extensions are *not* installed.  The clangd extension provides C/C++ intellisense which conflicts with the Microsoft C/C++ extension.  The CodeLLDB extension provides C/C++ debugging support which causes confusion with the Microsoft C/C++ extension.
 ```consle
 $ code --list-extensions
 llvm-vs-code-extensions.vscode-clangd  # REMOVE ME
