@@ -263,6 +263,9 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
+### Compile
+{: .primer-spec-toc-ignore }
+
 Compile and run your executable at the command line.
 ```console
 $ touch stats.cpp  # Needed for EECS 280 P1
@@ -304,6 +307,9 @@ Hello World!
 ```
 </div>
 
+### Create `launch.json`
+{: .primer-spec-toc-ignore }
+
 Select the file you would like to run.  Navigate to the debugging pane.
 
 <img src="images/vscode030.png" width="768px" />
@@ -321,6 +327,9 @@ Select a "Launch" configuration.  This will create a default `launch.json` ([Mic
 - WSL orLinux: "C/C++ (gdb) Launch"
 
 <img src="images/vscode033.png" width="768px" />
+
+#### Edit `launch.json` program
+{: .primer-spec-toc-ignore }
 
 Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
 ```json
@@ -349,6 +358,9 @@ main.cpp
 ```
 {: data-highlight="2" }
 </div>
+
+### Run
+{: .primer-spec-toc-ignore }
 
 Click the triangle to run.  You'll see your program's output in the debug console.
 
