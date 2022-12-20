@@ -277,9 +277,9 @@ Edit "Command Arguments" and click "OK".
 <img src="images/visualstudio146.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Set a breakpoint on the last line of `main` to keep the output window open.
+**Pitfall:** With input redirection configured, Visual Studio will automatically close the terminal window, and you'll miss seeing the output.
 
-With input redirection configured, Visual Studio will automatically close the terminal window, and you'll miss seeing the output.
+Set a breakpoint on the last line of `main` to keep the output window open.
 </div>
 
 
