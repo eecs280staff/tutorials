@@ -593,7 +593,7 @@ Press "Continue" to run the program to the next breakpoint, or the end, whicheve
 ## Troubleshooting
 This section is for common problems and solutions.
 
-### Intellisense and C++11
+### Intellisense C++ Standard
 Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  If the C++ standard is out-of-date, you'll see squiggles where you shouldn't.
 
 First, you should already have the `C/C++` extension installed ([Instructions](#extensions)).
