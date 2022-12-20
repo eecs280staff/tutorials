@@ -20,6 +20,7 @@ List of tutorials:
   - [setup_git.html](setup_git.html)
   - [setup_lldb.html](setup_lldb.html)
   - [setup_make.html](setup_make.html)
+  - [setup_macos.html](setup_macos.html)
   - [setup_style.html](setup_style.html)
   - [setup_visualstudio.html](setup_visualstudio.html)
   - [setup_vscode.html](setup_vscode.html)
