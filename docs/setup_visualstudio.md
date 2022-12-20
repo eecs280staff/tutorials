@@ -57,7 +57,7 @@ Select "Console App".  Click "Next".
 Set a project name, we'll call our example project `p1-stats`.  Pick a location where you'll store your projects.  Check "Place solution and project in the same directory.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  Click "Next".
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
+**Pitfall:** Avoid paths that contain spaces.  Spaces cause problems with some command line tools.
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
