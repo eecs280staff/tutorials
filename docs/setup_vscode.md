@@ -41,6 +41,12 @@ $ rm -rf p1-stats              # Delete
 ## Install
 Choose your platform below.
 
+### Linux
+Install the .deb package from the web [https://code.visualstudio.com/docs/setup/linux](https://code.visualstudio.com/docs/setup/linux).
+
+### CAEN Linux
+VS Code is already installed on CAEN Linux desktop environment.  You can use it while sitting at a CAEN Linux computer, or through a [VNC connection to CAEN Linux](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=4999).
+
 ### macOS
 Make sure you have macOS 11.1 or later.
 ```console
@@ -99,12 +105,6 @@ You'll know that VS Code is running in remote mode when you see the remote mode 
 <img src="images/FIXME.png" width="768px">
 
 </div>
-
-### Linux
-Install the .deb package from the web [https://code.visualstudio.com/docs/setup/linux](https://code.visualstudio.com/docs/setup/linux).
-
-### CAEN Linux
-VS Code is already installed on CAEN Linux desktop environment.  You can use it while sitting at a CAEN Linux computer, or through a [VNC connection to CAEN Linux](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=4999).
 
 ### Extensions
 Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
