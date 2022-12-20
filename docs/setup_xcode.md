@@ -1,63 +1,33 @@
 ---
 layout: spec
-title: Setup Xcode (MacOS)
+title: Setup Xcode (macOS)
 excludeFromSitemap: true
 ---
 
-Setting up Xcode
-================
+Setup Xcode (macOS)
+===================
 {: .primer-spec-toc-ignore }
 
 [Xcode](https://developer.apple.com/xcode/) is a feature-rich integrated debugging environment (IDE) that runs on macOS.
 
+<div class="primer-spec-callout info" markdown="1">
+If you already have Xcode installed, skip to the [Create a project](#create-a-project) section.
+</div>
 
-# Prerequisites
-Be sure you have the `tree` command installed.
-```console
-$ brew install tree
-```
-{: data-variant="no-line-numbers" }
-
-At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
-README.md     main_test_data.tsv     stats.h
-main_test.in  p1_library.cpp         stats_public_test.cpp
-```
+## Prerequisites
+There are no prerequisites for Xcode.
 
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-
-# Restarting this tutorial
-If you tried using this tutorial in the past and want to "start clean", here's how to delete all Xcode project configuration files.  This will not delete your code.  First, quit Xcode.
+## Restart
+To start clean, first quit Xcode.  Back up your files, and then delete your project directory.  Your project directory might be different.
 ```console
 $ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ rm -rf p1-stats.xcodeproj
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-```
-
-Double-check that you only have project files in your directory, with no extra files or directories.  Files related to Git are OK, like `.git/` or `.gitignore`.  Remove extra files with `rm` and folders with `rm -rf`.
-```console
-$ tree
-.
-├── Makefile
-├── main.cpp
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
-├── p1_library.cpp
-├── p1_library.h
-├── stats.cpp
-├── stats.h
-├── stats_public_test.cpp
-└── stats_tests.cpp
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
 ```
 
 Xcode has a *lot* of settings.  You can reset the entire user interface to the default settings using this command.  This is optional.
@@ -67,21 +37,19 @@ $ defaults delete com.apple.dt.Xcode
 {: data-variant="no-line-numbers" }
 
 
-# Install
-Install Xcode using the App Store.
+## Install
+Install Xcode using the App Store.  Your version might be different.
 
 <img src="images/xcode010.png" width="768px" />
 
 Start Xcode and agree to the license.  You may be prompted for your administrator password to complete the install.
 
-For reference, this is the version of Xcode we're using in this example.  Yours might be different.
+For reference, the screenshots in this tutorial were created with Xcode version 13.2.1.  Yours might be different.
 
-<img src="images/xcode030.png" width="512px" />
-
-# Create a project
+## Create a project
 An Xcode project contains the files and information to build your software.  In EECS 280, you'll eventually create one Xcode project for each EECS 280 project.
 
-Start Xcode and create a new Xcode project.
+Start Xcode.  Create a new Xcode project.
 
 <img src="images/xcode040.png" width="512px" />
 
@@ -89,118 +57,59 @@ Under "macOS", select "Command Line Tool".  Click "Next".
 
 <img src="images/xcode050.png" width="768px" />
 
-Set a project name.  We're going to use the same name as the directory that contains our starter files, `p1-stats`.  Ensure that "Language" is set to "C++". Click "Next".
+Set a project name, we'll call our example project `p1-stats`.  Ensure that that the Language is set to "C++".  Enter your uniqname in the "Organization Identifier" field. (It's used by the app store which we don't use, so you just need something there.)  Click "Next".
 
 <img src="images/xcode060.png" width="768px" />
 
-In the File Dialog, navigate to the folder where you placed the starter files (`/Users/awdeorio/src/eecs280/p1-stats`).  Be sure to uncheck "Create Git repository".  Click "Create".
+In the File Dialog, navigate to the directory where you store your projects. Your folder location might be different. Be sure to uncheck "Create Git repository".  Click "Create".
 
 <img src="images/xcode070.png" width="768px" />
 
-Select and right-click the automatically created `p1-stats` folder and click "Delete".
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Avoid paths that contain spaces.  Spaces cause problems with some command line tools.
 
-<img src="images/xcode071.png" width="768px" />
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
-Select "Move to Trash" when prompted.
+</div>
 
-<img src="images/xcode072.png" width="480px" />
+Drag-and-drop `main.cpp` out of the `p1-stats` folder, then delete the `p1-stats` folder.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  This step is optional.
 
-You should now have no files in Xcode's left panel.
+| <img src="images/xcode075.png" width="192px" /> | <img src="images/xcode076.png" width="192px" /> | <img src="images/xcode077.png" width="192px" /> | <img src="images/xcode078.png" width="192px" /> |
 
-<img src="images/xcode073.png" width="768px" />
+You can see the files created by Xcode in the Finder.  Right-click `main` and select "Show in Finder".
 
+| <img src="images/xcode079a.png" width="192px" /> | <img src="images/xcode079b.png" width="512px" /> |
 
-Quit Xcode, open a terminal, and navigate to your source code directory (remember the `cd` command).  You'll notice that Xcode created a new folder, `p1-stats/`.
+You can also see the files created by Xcode from the command line.  Notice that Xcode created a folder with project metadata: `p1-stats.xcodeproj`.
+
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
 $ tree
 .
-├── Makefile
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
-├── p1-stats
-│   ├── p1-stats
-│   └── p1-stats.xcodeproj
-│       ├── project.pbxproj
-│       ├── project.xcworkspace
-│       │   ├── contents.xcworkspacedata
-│       │   └── xcuserdata
-│       │       └── awdeorio.xcuserdatad
-│       │           └── UserInterfaceState.xcuserstate
-│       └── xcuserdata
-│           └── awdeorio.xcuserdatad
-│               └── xcschemes
-│                   └── xcschememanagement.plist
-├── p1_library.cpp
-├── p1_library.h
-├── stats.h
-├── stats_public_test.cpp
-└── stats_tests.cpp
+├── main.cpp
+└── p1-stats.xcodeproj
+    ├── ...
+
 ```
 
-The directory structure we want is a little bit different than Xcode's default.  That's because we're setting up this project like a simple C++ application.  We want to make sure that newly created files end up in the right place, and to simplify the present working directory configuration in Xcode.
-```console
-$ mv p1-stats/p1-stats.xcodeproj/ .
-$ rm -rf p1-stats/
-```
+### Add new files
+<div class="primer-spec-callout info" markdown="1">
+Xcode created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
 
-Your files should now look like this:
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ tree
-.
-├── Makefile
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
-├── p1-stats.xcodeproj
-│   ├── project.pbxproj
-│   ├── project.xcworkspace
-│   │   ├── contents.xcworkspacedata
-│   │   └── xcuserdata
-│   │       └── awdeorio.xcuserdatad
-│   │           └── UserInterfaceState.xcuserstate
-│   └── xcuserdata
-│       └── awdeorio.xcuserdatad
-│           └── xcschemes
-│               └── xcschememanagement.plist
-├── p1_library.cpp
-├── p1_library.h
-├── stats.h
-├── stats_public_test.cpp
-└── stats_tests.cpp
-```
+Open your project folder by selecting `File` > `Open` > navigate to the `p1-stats` folder and open `p1-stats.xcodeproj`.
 
-## Add existing files
-Next, we'll add our existing source code files to the project.
-
-Start Xcode and open your project.  Here's how to do that all at once, from the command line:
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Here's a quick way to open Xcode to a specific project folder from the command line.
 ```console
 $ open p1-stats.xcodeproj
 ```
 {: data-variant="no-line-numbers" }
+</div>
 
-Right-click "p1-stats" in the left side bar.  Select "Add Files to 'p1-stats'".
-
-<img src="images/xcode080.png" width="768px" />
-
-Select all the starter files (press Command-A) and click "Add".
-
-<img src="images/xcode100.png" width="768px" />
-
-You will now see your files in the sidebar on the left.
-
-<img src="images/xcode110.png" width="768px" />
-
-
-## Add new files
-
-EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
-
-Right-click "p1-stats" in the left side bar.  Select "New File".
+Right-click `p1-stats` in the sidebar.  Select "New File".
 
 <img src="images/xcode115.png" width="768px" />
 
@@ -208,7 +117,7 @@ Select "macOS", "C++ File", and click "Next".
 
 <img src="images/xcode116.png" width="512px" />
 
-Name your file.  Uncheck "Also create a header file".  The first file we'll create for project 1 is `stats.cpp`.
+Name your file, we'll use `stats.cpp` for this example.  Uncheck "Also create a header file".  There's nothing wrong with using "create a header file" if your project needs it.
 
 <img src="images/xcode117.png" width="512px" />
 
@@ -216,16 +125,32 @@ Don't select any targets.  Click "Create".
 
 <img src="images/xcode118.png" width="512px" />
 
-Repeat the previous steps to create another new file, `main.cpp`.
-
-Now you'll see the two new files in the side bar.
+You should see your new file in the sidebar.
 
 <img src="images/xcode119.png" width="768px" />
 
-You'll also see the new files at the command line.
+### Add existing files
+If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
 ```console
-$ ls stats.cpp main.cpp
-main.cpp  stats.cpp
+$ ls
+main.cpp  p1-stats.xcodeproj
+```
+</div>
+
+We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.
+
+```console
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mv starter-files/* .
+$ rm -rf starter-files starter-files.tar.gz
+```
+
+You should see your new files in your project directory.
+```console
 $ tree
 .
 ├── Makefile
@@ -234,280 +159,234 @@ $ tree
 ├── main_test.out.correct
 ├── main_test_data.tsv
 ├── p1-stats.xcodeproj
-│   ├── project.pbxproj
-│   ├── project.xcworkspace
-│   │   ├── contents.xcworkspacedata
-│   │   └── xcuserdata
-│   │       └── awdeorio.xcuserdatad
-│   │           └── UserInterfaceState.xcuserstate
-│   └── xcuserdata
-│       └── awdeorio.xcuserdatad
-│           └── xcschemes
-│               └── xcschememanagement.plist
+│   ├── ...
 ├── p1_library.cpp
 ├── p1_library.h
-├── stats.cpp
 ├── stats.h
 ├── stats_public_test.cpp
-└── stats_tests.cpp
+└── stats_tests.cpp.starter
 ```
 
-### Project 1 `stats.cpp`
-Now let's modify the files that you created.  Edit `stats.cpp` and add function stubs.  A function stub contains only `assert(false)`; it's like a placeholder that we'll use to get our application to compile.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.
-```c++
-// stats.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
+Start Xcode and open your project.
 
-#include "stats.h"
-#include <cassert>
-#include <vector>
-#include <cmath>
-using namespace std;
+Right-click `p1-stats` in the sidebar.  Select "Add Files".
 
-vector<vector<double> > summarize(vector<double> v) {
-  assert(false);
-}
+<img src="images/xcode080.png" width="256px" />
 
-int count(vector<double> v) {
-  assert(false);
-}
+Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>).  Do *not* select "Copy items if needed".  Click "Add".
 
-double sum(vector<double> v) {
-  assert(false);
-}
+<img src="images/xcode100.png" width="384px" />
 
-double mean(vector<double> v) {
-  assert(false);
-}
+You will now see your files in the sidebar.
 
-double median(vector<double> v) {
-  assert(false);
-}
+<img src="images/xcode110.png" width="256px" />
 
-double mode(vector<double> v) {
-  assert(false);
-}
+#### Rename files
+If you need to rename any files, use Xcode, not the command line or Finder.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
-double min(vector<double> v) {
-  assert(false);
-}
+Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
-double max(vector<double> v) {
-  assert(false);
-}
+| <img src="images/xcode120.png" width="192px" /> | <img src="images/xcode125.png" width="192px" /> |
 
-double stdev(vector<double> v) {
-  assert(false);
-}
+## Compile and Run
+An Xcode target compiles (builds) one executable.
 
-double percentile(vector<double> v, double p) {
-  assert(false);
-}
-```
-{: data-title="stats.cpp" }
-
-### Project 1 `main.cpp`
-Start your `main.cpp` like this.  All it does so far is "hello world".  We'll include a few libraries that will be useful later.
-```c++
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-
-#include "stats.h"
-#include "p1_library.h"
-#include <iostream>
-using namespace std;
-
-int main() {
-  cout << "hello from main!\n";
-}
-```
-{: data-title="main.cpp" }
-
-
-# Compile
-An Xcode target compiles (builds) one executable.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
-
-| Project 1 Target | File with `main()` | Other `.cpp` Build Sources |
-| ------ | --------------- |
-| `stats_tests.exe` | `stats_tests.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_public_test.exe` | `stats_public_test.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `main.exe` | `main.cpp` | `stats.cpp`, `p1_library.cpp` |
-
-
-## Compile at the command line
-First, try building each target at the command line.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-$ make stats_public_test.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
-$ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
-```
-
-Clean up.
-```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-```
-
-## Compile with Xcode
-Now, we'll have Xcode do the build.  We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the `stats_tests.exe` executable.  Remove the other files by selecting them and clicking on the "–" button.
+We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the main program.  Remove any other files by selecting them and clicking on the "–" button.
 
 <img src="images/xcode130.png" width="768px" />
 
-Build.
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** In future projects, you'll have to figure out which files to include in a build.  Never include `.h` files.
 
-<img src="images/xcode140.png" width="768px" />
+**Method 1:** Include `myfile.cpp` each time you see `#include "myfile.h"`.
 
-The code will then run and crash at the assert in the `sum()` function.  You can press the stop button next to the play button at the top to stop the program.
-
-To compile a different target, change the list of files under "Compile Sources".
-
-## Compile future projects
-In future projects, you'll have to figure out which files to include in a build.  Generally, each time you see `#include "myfile.h"`, you will include a corresponding `myfile.cpp` file in the build.  Be sure that you include only one `main()` function.
-
-An alternative is to mimic the `Makefile`.  Compile one target and include any `.cpp` files in the `g++` command.  Notice that `main.cpp`, `stats.cpp`, and `p1_library.cpp` were included in the `g++` compile command.  These are the files you should include in the Xcode build.  Note that the files will be different for building a unit test, but you can use the same trick again.
+**Method 2:** Include `.cpp` files used by your `Makefile`.  In this example, `main.cpp`, `stats.cpp`, and `p1_library.cpp`.
 ```console
 $ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
 g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 ```
+{: data-highlight="3" }
+</div>
 
+Configure Xcode to run the executable in the directory containing the input files.
 
-# Run
-An Xcode scheme builds a target and then automatically executes it.  We will configure Xcode to run your executable in the same directory that contains your input files.
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
 
-Click "p1-stats" , then "Edit Scheme".
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
-<img src="images/xcode150.png" width="768px" />
+Select "Run", then "Options", then "Use custom working directory".  Use the folder icon to browse to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
-Select "Run", then "Options", then "Use custom working directory".  Set the directory to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats`.  Click "Close".
+<img src="images/xcode160.png" width="512px" />
 
-<img src="images/xcode160.png" width="768px" />
+Compile and run.
 
-## Sanitizers
-While editing the scheme ([instructions](#run)), we recommend enabling the address sanitizer and undefined behavior sanitizer.  These will help you find memory errors like going off the end of an array or vector. Find more detail in the [Apple Article](https://developer.apple.com/documentation/xcode/diagnosing_memory_thread_and_crash_issues_early).
+<img src="images/xcode165.png" width="768px" />
+
+### Sanitizers
+We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
+
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
+
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
 <img src="images/xcode170.png" width="768px" />
 
-## Input redirection
-Skip this subsection on your first time through the tutorial.  You can use input redirection to avoid typing program input each time you run (for debugging) a program.
+### Input redirection
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
 
-Without input redirection, here's how you type input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
+You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+  cout << "What's your name?" << endl;
+  string name;
+  cin >> name;
+  cout << "Hello " << name << "!\n";
+}
+```
+
+Without input redirection, the user types input at the command line (highlighted).
 ```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 $ ./main.exe
-enter a filename
-main_test_data.tsv
-enter a column name
-B
-...
+What's your name?
+Drew
+Hello Drew!
 ```
+{: data-highlight="4" }
 
-If we put the user input in a file we can automate the user input.  We'll put it in a file called `main_test.in`.
-```console
-$ cat main_test.in   # Peek at the contents of a file
-main_test_data.tsv
-B
-$ ./main.exe < main_test.in  # Redirect file content to main's stdin (cin)
-enter a filename
-enter a column name
-reading column B from main_test_data.tsv
-...
+Automate user input by putting it in a file.
 ```
+Drew
+```
+{: data-title="main_test.in" data-highlight="1" }
+
+Redirect file `main_test.in` to stdin of `main.exe`.
+```console
+$ ./main.exe < main_test.in
+What's your name?
+Hello Drew!
+```
+{: data-highlight="1" }
 
 Without input redirection, here's how to type input in the Xcode command line.
 
 <img src="images/xcode255.png" width="768px" />
 
-Xcode no longer directly supports command-line style redirection.  One option is to simply type the input each time.  Another option is to use a work-around described in [https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)
+Xcode does not support automated input redirection.  One option is to simply type the input each time.  Another option is to use a work-around described in [https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)
 
-
-## Arguments and options
+### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
+Skip this subsection for EECS 280 project 1.
 </div>
 
-*Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
-
-**Arguments example** from project 2:  `resize.exe` is the name of the program, and the arguments are `horses.ppm`,  `horses_400x250.ppm`, `400`, and `250`.
-```console
-$ ./resize.exe horses.ppm horses_400x250.ppm 400 250
-```
-{: data-variant="no-line-numbers" }
-
-**Options example** from project 5:  `main.exe` is the name of the program.  `train_small.csv` and  `test_small.csv` are arguments.  `--debug` is an option.
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
-{: data-variant="no-line-numbers" }
+{: data-variant="no-line-numbers" data-highlight="1" }
 
-To run a program with options or arguments in Xcode, select your scheme and then "Edit Scheme".
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
 
-<img src="images/xcode258.png" width="320px" />
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
+
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
 Add each option or argument separately.
 
-<img src="images/xcode259.png" width="768px" />
+<img src="images/xcode259.png" width="576px" />
 
+## Debug
+In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
-# Debug
-In order to debug, we want our application to stop when we run it.  Make sure your application is stopped and you can see the Project Navigator.  Set a breakpoint by clicking to the left of a line number.
+<img src="images/xcode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
+Run one line of code, stepping _over_ any function calls by running the whole function in one step.
+
+<img src="images/xcode_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**
+Run one line of code, stepping _into_ any function calls to execute them line-by-line.
+
+<img src="images/xcode_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**
+Run the program until it returns from the current function (or until the next breakpoint).
+
+<img src="images/xcode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
+Run the program until the next breakpoint.
+
+### Example code
+{: .primer-spec-toc-ignore }
+
+To get started, copy this example `main.cpp` into your editor.
+```c++
+#include <iostream>
+#include <vector>
+using namespace std;
+
+double sum (const vector<double> &data) {
+  double total = 0;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
+  }
+  return total;
+}
+
+int main() {
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << endl;
+}
+```
+{: data-title="main.cpp" }
+
+### Breakpoint
+Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/xcode260.png" width="768px" />
 
-Build and run.  Notice that the application is paused on entry to `main()`.
+### Run
+Run the debugger.  The program pauses at the breakpoint.  The green indicator highlights the next line of code to be run.
 
 <img src="images/xcode270.png" width="768px" />
 
-Click "Step Over" to go to the next line of code. Our test fails immediately because we haven't implemented `sum()` yet.
+### Step over
+Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/xcode280.png" width="768px" />
 
-Restart the program.
+### Inspect
+Hover over a variable to inspect its value.  You can also see values in the variables pane.
 
 <img src="images/xcode290.png" width="768px" />
 
-Click "step into".  You'll see that the cursor enters the `test_sum_small_data_set()` function.
+### Step into
+Click "Step Into".  The cursor enters the `sum()` function.
+
+<img src="images/xcode295.png" width="768px" />
 
 <img src="images/xcode300.png" width="768px" />
 
-Click "step over" a few times until you're on this line of code. Hover over a variable to see its value.
+### Step out
+Click "Step Out".  The `sum()` function completes, and the program pauses again.
+
+<img src="images/xcode305.png" width="768px" />
 
 <img src="images/xcode310.png" width="768px" />
 
+### Continue
+Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-# Pro-tips
-To start Xcode with our project open from the command line:
-```console
-$ open p1-stats.xcodeproj
-```
-{: data-variant="no-line-numbers" }
+<img src="images/xcode320.png" width="768px" />
 
-To search for help on the internet, try including the version.  For example, "Xcode 9.2 command line arguments".
 
-<img src="images/xcode900.png" width="360px" />
-
-If you run in to problems, try cleaning up your executables from the command line.
-```console
-$ make clean
-```
-{: data-variant="no-line-numbers" }
-
-# Next steps
-[Return to the main set up tutorial.](setup.html#visual-debugger)
-
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
