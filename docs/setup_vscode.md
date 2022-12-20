@@ -352,6 +352,8 @@ main.cpp
 
 Click the triangle to run.  You'll see your program's output in the debug console.
 
+<img src="images/vscode035.png" width="768px" />
+
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to build your executable at the command line first.
 ```console
@@ -359,7 +361,6 @@ $ make main.exe
 ```
 </div>
 
-<img src="images/vscode035.png" width="768px" />
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
