@@ -196,9 +196,11 @@ We need to avoid multiple `main()` functions by including the right files in our
 <img src="images/xcode130.png" width="768px" />
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** In future projects, you'll have to figure out which files to include in a build.  Generally, each time you see `#include "myfile.h"`, you will include a corresponding `myfile.cpp` file in the build.  Be sure that you include only one `main()` function.
+**Pro-tip:** In future projects, you'll have to figure out which files to include in a build.  Never include `.h` files.
 
-An alternative is to mimic the `Makefile`.  Compile one target and include any `.cpp` files in the `g++` command.  Notice that `main.cpp`, `stats.cpp`, and `p1_library.cpp` were included in the `g++` compile command.  These are the files you should include in the Xcode build.  Note that the files will be different for building a unit test, but you can use the same trick again.
+**Method 1:** Include `myfile.cpp` each time you see `#include "myfile.h"`.
+
+**Method 2:** Include `.cpp` files used by your `Makefile`.  In this example, `main.cpp`, `stats.cpp`, and `p1_library.cpp`.
 ```console
 $ make clean
 $ make main.exe
