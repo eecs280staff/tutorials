@@ -99,15 +99,7 @@ Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
 Visual Studio created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to your project directory (`p1-stats` in this example) and open `p1-stats.sln`.
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open Visual Studio to a specific project folder from the command line.  FIXME FIXME FIXME
-```console
-$ wslview p1-stats
-```
-{: data-variant="no-line-numbers" }
-</div>
+Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to your project directory (`p1-stats` in this example) and open `p1-stats.sln`.  An alternative is to double-click `p1-stats.sln` in the File Explorer.
 
 Right-click "Source Files", then select "Add" > "New Item".
 
