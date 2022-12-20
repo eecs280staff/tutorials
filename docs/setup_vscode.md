@@ -191,7 +191,7 @@ Select the add file icon and give it a name, e.g., `main.cpp`.
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** You can also create files from the command line.  The `touch` command creates an empty file.
 ```console
-$ touch src/main.cpp
+$ touch main.cpp
 ```
 </div>
 
@@ -433,7 +433,7 @@ To configure input redirection, edit `launch.json`.
     "configurations": [
         {
             ...
-            "program": "${workspaceFolder}/src/main.exe",
+            "program": "${workspaceFolder}/main.exe",
             "args": ["<", "main_test.in"],
             ...
         }
@@ -450,7 +450,7 @@ To configure input redirection, edit `launch.json`.
     "configurations": [
         {
             ...
-            "program": "${workspaceFolder}/src/main.exe",
+            "program": "${workspaceFolder}/main.exe",
             ...
             "MIMode": "lldb",
             "setupCommands": [
@@ -486,7 +486,7 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
     "configurations": [
         {
             ...
-            "program": "${workspaceFolder}/src/main.exe",
+            "program": "${workspaceFolder}/main.exe",
             "args": ["train_small.csv", "test_small.csv", "--debug"],
             ...
         }
