@@ -185,6 +185,9 @@ Right-click a file and select "Rename".  Change the file name.
 ## Compile and Run
 A Visual Studio Build compiles one executable.
 
+### Exclude files from build
+{: .primer-spec-toc-ignore }
+
 We need to avoid multiple `main()` functions in the same build.  Exclude files not needed to compile the  main program.  This often means excluding unit tests from the build.
 
 In this example from EECS 280 Project 1, we need to exclude our unit tests from the build because they each contain a `main()` function.
@@ -200,6 +203,9 @@ You can see a red symbol next to each excluded file.
 "Build" -> "Build Solution".  See that the build output was successful.
 
 <img src="images/visualstudio130.png" width="768px" />
+
+### Run
+{: .primer-spec-toc-ignore }
 
 Click the "Local Windows Debugger" button.  You should see your program run.
 
