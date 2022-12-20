@@ -10,276 +10,185 @@ Setting up Visual Studio
 
 [Visual Studio](https://www.visualstudio.com/) is a feature-rich integrated debugging environment (IDE) that runs on Windows.
 
+<div class="primer-spec-callout info" markdown="1">
+If you already have Visual Studio installed, skip to the [Create a project](#create-a-project) section.
+</div>
 
-# Prerequisites
-At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
-README.md     main_test_data.tsv     stats.h
-main_test.in  p1_library.cpp         stats_public_test.cpp
-```
+## Prerequisites
+There are no prerequisites for Visual Studio.
 
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-
-# Restarting this tutorial
-If you tried using this tutorial in the past and want to "start clean", here's how to delete all Visual Studio project configuration files.  This will not delete your code.  First, quit Visual Studio.  **BEWARE:** make sure you are in the correct `pwd` and be very careful with `rm -rf`!
+## Restart
+To start clean, first quit Visual Studio.  Back up your files, and then delete your project directory.  Your project directory might be different.
 ```console
-$ pwd
-/Users/awdeorio/Desktop/eecs280/p1-stats
-$ rm -rf .vs *.sln *.vcxproj *.vcxproj.filters
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
 ```
 
 Visual Studio has a *lot* of settings.  You can reset the entire user interface to the default settings by selecting "Tools" -> "Import" and Export Settings" -> "Reset all settings".  This is optional.
 
 
-# Install
-If you're using Windows, go to [https://www.visualstudio.com/vs/community/](https://www.visualstudio.com/vs/community/) and click "Click the "Download Community 2017" (select the latest version).
+## Install
+Install Visual Studio Community edition from [Microsoft's website](https://www.visualstudio.com/vs/community/).
 
-If you have an older version of Windows, we recommend upgrading to latest version of Windows, version 10 or newer.  It's free to UM students: [https://umich.onthehub.com/WebStore/Security/Signin.aspx](https://umich.onthehub.com/WebStore/Security/Signin.aspx)
-
-Select "Desktop Development with C++" and make sure that the "Windows 10 SDK" and "C++ AddressSanitizer" are selected (your version might be different).  Click "Continue".  Reboot your computer when the installer prompts you.
+Select "Desktop Development with C++" and make sure that the "Windows 10 SDK", "Windows 11 SDK", and "C++ AddressSanitizer" are selected.  Click "Continue".  Reboot your computer when the installer prompts you.
 
 <img src="images/visualstudio010.png" width="768px" />
 
+Start Visual Studio.  The first time, you'll be asked about a few preferences.
 
-Start Visual Studio.  The first time, you'll be asked to sign in with your Microsoft account.  Select "Visual C++" for your default development settings.
+The screenshots in the tutorial were created with Visual Studio Community 2022.  Your version might be different.
 
-<img src="images/visualstudio020.png" width="360px" />
-
-For reference, this is the version of Visual Studio we're using in this example.  Yours might be different.
-
-<img src="images/visualstudio030.png" width="512px" />
-
-
-# Create a project
+## Create a project
 A Visual Studio project contains the files and information to build your software.  In EECS 280, you'll eventually create one Visual Studio project for each EECS 280 project.
 
-Start Visual Studio and create a new "Project From Existing Code".
+Start Visual Studio.  Create a new project.  You can also use "File" > "New" > "Project".
 
-<img src="images/visualstudio040.png" width="768px" />
+<img src="images/visualstudio040.png" width="512px" />
 
-Select the type "Visual C++".
+Select "Console App".  Click "Next".
 
-<img src="images/visualstudio050.png" width="512px" />
+<img src="images/visualstudio050.png" width="512x" />
 
-We're going to use the same name as the directory that contains our starter files, `p1-stats`.  Set the project name to `p1-stats`.  Click "Next".
+Set a project name, we'll call our example project `p1-stats`.  Pick a location where you'll store your projects.  Check "Place solution and project in the same directory.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  Click "Next".
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Avoid paths that contain spaces.  Spaces cause problems with some command line tools.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
+
+</div>
 
 <img src="images/visualstudio060.png" width="512px" />
 
-Select "Console application project" and then "Finish".
+You can see the files created by Visual Studio in the File Explorer.  Right-click `p1-stats`, select "Show in Finder".
 
-<img src="images/visualstudio065.png" width="512px" />
+| <img src="images/visualstudio070.png" height="512px" /> | <img src="images/visualstudio071.png" height="512px" /> |
 
+<img src="images/visualstudio072.png" width="768px" />
 
-Quit Visual Studio, open a terminal, and navigate to your source code directory (remember the `cd` command).  You'll notice that Visual Studio created a new directory (`.vs/p1-stats.xcodeproj/`) and new files (`p1-stats.sln`, `p1-stats.vcxproj`, `p1-stats.vcxproj.filters`).
+You can also see the files created by Visual Studio from the WSL command line.  Notice that Visual Studio created `.sln`, and `vcxproj` files.
+
 ```console
-$ cd /mnt/c/Users/awdeorio/Desktop/eecs280/p1-stats  # where awdeorio stored his source code
-$ pwd
-/mnt/c/Users/awdeorio/Desktop/eecs280/p1-stats
-$ tree -a -L 2
+$ tree
 .
-├── .vs
-│   └── p1-stats
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
-├── Makefile
-├── p1_library.cpp
-├── p1_library.h
+├── p1-stats.cpp
 ├── p1-stats.sln
 ├── p1-stats.vcxproj
 ├── p1-stats.vcxproj.filters
-├── stats.h
-├── stats_public_test.cpp
-└── stats_tests.cpp
+└── p1-stats.vcxproj.user
 ```
 
+### Rename main file
+{: .primer-spec-toc-ignore }
+Rename the default `p1-stats.cpp` to `main.cpp`.  Your main filename may be different.  Use Visual Studio to rename a file, not the command line or File Explorer.
 
-## Add existing files
+Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
 
-Start Visual Studio and open your project.  Here's how to do that all at once, from the command line:
-```console
-$ cmd.exe /c start p1-stats.vcxproj
-```
+| <img src="images/visualstudio075.png" width="256px" /> | <img src="images/visualstudio076.png" width="256px" /> | <img src="images/visualstudio077.png" width="256px" /> |
 
-All our existing files were already added when we selected "Project From Existing Code".  You should see them in the side bar.
+### Add new files
+<div class="primer-spec-callout info" markdown="1">
+Visual Studio created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
 
-<img src="images/visualstudio070.png" width="768px" />
+Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to your project directory (`p1-stats` in this example) and open `p1-stats.sln`.  An alternative is to double-click `p1-stats.sln` in the File Explorer.
 
-To add an existing file after the project has been created, right click "Source Files", then select "Add" > "Existing Item".
-
-<img src="images/visualstudio075.png" width="768px" />
-
-Select the file to add and click "Add".
-
-## Add New files
-
-EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
-
-Right click "Source Files", then select "Add" > "New Item".
+Right-click "Source Files", then select "Add" > "New Item".
 
 <img src="images/visualstudio080.png" width="768px" />
 
-Select "Visual C++" and "C++ File".  Name it `main.cpp`.  Click "Add".
+Select "Visual C++" and "C++ File".  Name your file, we'll use `stats.cpp` for this example.  Click "Add".
 
-<img src="images/visualstudio090.png" width="768px" />
+<img src="images/visualstudio090.png" width="600px" />
 
-Repeat the previous steps to create another new file, `stats.cpp`.
-
-Now you'll see the two new files in the side bar.
+You should see your new file under "Source Files".
 
 <img src="images/visualstudio100.png" width="768px" />
 
-You'll also see the new files at the command line.
+### Add existing files
+If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
+
+We'll use the WSL (Ubuntu) terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the subdirectory containing your source code.
 ```console
-$ tree -L 1
+$ ls
+main.cpp
+p1-stats.sln
+...
+```
+</div>
+
+```console
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mv starter-files/* .
+$ rm -rf starter-files starter-files.tar.gz
+```
+
+You should see your new files in the `src` subdirectory.
+```console
+$ tree
 .
+├── Makefile
 ├── main.cpp
 ├── main_test.in
 ├── main_test.out.correct
 ├── main_test_data.tsv
-├── Makefile
-├── p1_library.cpp
-├── p1_library.h
 ├── p1-stats.sln
 ├── p1-stats.vcxproj
 ├── p1-stats.vcxproj.filters
-├── stats.cpp
+├── p1-stats.vcxproj.user
+├── p1_library.cpp
+├── p1_library.h
 ├── stats.h
 ├── stats_public_test.cpp
-└── stats_tests.cpp
+└── stats_tests.cpp.starter
 ```
 
-### Project 1 `stats.cpp`
-Now let's modify the files that you created.  Edit `stats.cpp` and add function stubs.  A function stub contains only `assert(false)`; it's like a placeholder that we'll use to get our application to compile.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.
-```c++
-{%- raw -%}
-// stats.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
+Right-click "Source Files", then select "Add" > "Existing Item".
 
-#include "stats.h"
-#include <cassert>
-#include <vector>
-#include <cmath>
-using namespace std;
+<img src="images/visualstudio105.png" width="768px" />
+ 
+Navigate to your project directory.  Select your files by holding <kbd>Control</kbd> and clicking each one.  Do *not* select any `.sln` or `.vcxproj` files.  Click "Add".
 
-vector<vector<double> > summarize(vector<double> v) {
-  assert(false);
-  return {{}};  // avoid Visual Studio error "function must return a value"
-}
+<img src="images/visualstudio106.png" width="512px" />
 
-int count(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+You will now see your files in the sidebar in the sidebar.
 
-double sum(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+<img src="images/visualstudio107.png" width="768px" />
 
-double mean(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+#### Rename files
+If you need to rename any files, use Visual Studio, not the command line or File Explorer.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
-double median(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+Right-click a file and select "Rename".  Change the file name.
 
-double mode(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+| <img src="images/visualstudio108.png" width="256px" /> | <img src="images/visualstudio076.png" width="256px" /> | <img src="images/visualstudio109.png" width="256px" /> |
 
-double min(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+## Compile and Run
+A Visual Studio Build compiles one executable.
 
-double max(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+### Exclude files from build
+{: .primer-spec-toc-ignore }
 
-double stdev(vector<double> v) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
+We need to avoid multiple `main()` functions in the same build.  Exclude files not needed to compile the  main program.  This often means excluding unit tests from the build.
 
-double percentile(vector<double> v, double p) {
-  assert(false);
-  return 0;  // avoid Visual Studio error "function must return a value"
-}
-{% endraw %}
-```
-{: data-title="stats.cpp" }
+In this example from EECS 280 Project 1, we need to exclude our unit tests from the build because they each contain a `main()` function.
 
-### Project 1 `main.cpp`
-Start your `main.cpp` like this.  All it does so far is "hello world".  We'll include a few libraries that will be useful later.
-```c++
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
+Right-click a file in the solution explorer (sidebar) and select "Properties".  Set "Excluded From Build" to "Yes".
 
-#include "stats.h"
-#include "p1_library.h"
-#include <iostream>
-using namespace std;
+<img src="images/visualstudio110.png" width="512px" />
 
-int main() {
-  cout << "hello from main!\n";
-}
-```
-{: data-title="main.cpp" }
-
-
-# Compile
-A Visual Studio Build compiles one executable.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
-
-| Project 1 Target | File with `main()` | Other `.cpp` files to include in build |
-| ------ | --------------- |
-| `stats_tests.exe` | `stats_tests.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_public_test.exe` | `stats_public_test.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_tests.exe` | `main.cpp` | `stats.cpp`, `p1_library.cpp` |
-
-
-## Compile at the command line
-First, try building each target at the command line.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-$ make stats_public_test.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
-$ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
-```
-
-Clean up.
-```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-```
-
-## Compile with Visual Studio
-Now, we'll make Visual Studio do the build.  We need to exclude the files that would cause multiple `main()` functions in the same build.  Right click `stats_public_test.cpp` in the solution explorer (left side bar) and select "Properties".  Set "Excluded From Build" to "Yes".
-
-<img src="images/visualstudio110.png" width="768px" />
-
-Do the same to exclude `main.cpp` from the build.  You should now see that both are excluded in the side bar.
+You can see a red symbol next to each excluded file.
 
 <img src="images/visualstudio120.png" width="768px" />
 
@@ -287,60 +196,69 @@ Do the same to exclude `main.cpp` from the build.  You should now see that both 
 
 <img src="images/visualstudio130.png" width="768px" />
 
-To compile a different target, change the files included in the build.
+### Run
+{: .primer-spec-toc-ignore }
 
-## Compile future projects
-In future projects, you'll have to figure out which files to include in a build.  Generally, each time you see `#include "myfile.h"`, you will include a corresponding `myfile.cpp` file in the build.  Be sure that you include only one `main()` function.
-
-An alternative is to mimic the `Makefile`.  Compile one target and include any `.cpp` files in the `g++` command.  Notice that `main.cpp`, `stats.cpp`, and `p1_library.cpp` were included in the `g++` compile command.  These are the files you should include in the Xcode build.  Note that the files will be different for building a unit test, but you can use the same trick again.
-```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-$ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
-```
-
-
-# Run
-Click the "Local Windows Debugger" button.  It compiles, runs, and stops on the assertion we added earlier.  Click "Abort".
+Click the "Local Windows Debugger" button.  You should see your program run.
 
 <img src="images/visualstudio140.png" width="768px" />
 
-**Tip**: to run a program to the end and view its terminal output, set a breakpoint at the end of your `main()` function.  The [Debug](#debug) section describes breakpoints.
+### Sanitizers
+Visual Studio provides an address sanitizer with bounds checking automatically with every debug build. You don’t need to do anything different!
 
-## Input redirection
-Skip this subsection on your first time through the tutorial.  You can use input redirection to avoid typing program input each time you run (for debugging) a program.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** When Visual Studio says "Press any key to continue", press a key, do *not* close the window by clicking the X.  Some memory checks run after you press any key.
 
-Without input redirection, here's how you type input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
+<img src="images/visualstudio055.png" width="512px" />
+
+</div>
+
+### Input redirection
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
+
+You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+  cout << "What's your name?" << endl;
+  string name;
+  cin >> name;
+  cout << "Hello " << name << "!\n";
+}
+```
+
+Without input redirection, the user types input at the command line (highlighted).
 ```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 $ ./main.exe
-enter a filename
-main_test_data.tsv
-enter a column name
-B
-...
+What's your name?
+Drew
+Hello Drew!
 ```
+{: data-highlight="4" }
 
-If we put the user input in a file we can automate the user input.  We'll put it in a file called `main_test.in`.
+Automate user input by putting it in a file.
+```
+Drew
+```
+{: data-title="main_test.in" data-highlight="1" }
+
+Redirect file `main_test.in` to stdin of `main.exe`.
 ```console
-$ cat main_test.in   # Peek at the contents of a file
-main_test_data.tsv
-B
-$ ./main.exe < main_test.in  # Redirect file content to main's stdin (cin)
-enter a filename
-enter a column name
-reading column B from main_test_data.tsv
-...
+$ ./main.exe < main_test.in
+What's your name?
+Hello Drew!
 ```
+{: data-highlight="1" }
 
-Without input redirection, here's how to type input in the Visual Studio command line.  Notice that when we run `main`, a window pops up that accepts user input.
+Without input redirection, here's how to type input in the Visual Studio command line.  Notice that when we run, a window pops up that accepts user input.
 
 <img src="images/visualstudio145.png" width="768px" />
-
 
 To configure input redirection, right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
 
@@ -350,28 +268,29 @@ Edit "Command Arguments" and click "OK".
 
 <img src="images/visualstudio146.png" width="768px" />
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** With input redirection configured, Visual Studio will automatically close the terminal window, and you'll miss seeing the output.
 
-## Arguments and options
-
-<div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
+Set a breakpoint on the last line of `main` to keep the output window open.
 </div>
 
-*Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
 
-**Arguments example** from project 2:  `resize.exe` is the name of the program, and the arguments are `horses.ppm`,  `horses_400x250.ppm`, `400`, and `250`.
-```console
-$ ./resize.exe horses.ppm horses_400x250.ppm 400 250
-```
-{: data-variant="no-line-numbers" }
+### Arguments and options
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection for EECS 280 project 1.
+</div>
 
-**Options example** from project 5:  `main.exe` is the name of the program.  `train_small.csv` and  `test_small.csv` are arguments.  `--debug` is an option.
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
-{: data-variant="no-line-numbers" }
+{: data-variant="no-line-numbers" data-highlight="1" }
 
-To configure options or arguments in Visual Studio, right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
+
+Right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
 
 <img src="images/visualstudio148.png" width="320px" />
 
@@ -379,46 +298,91 @@ Edit "Command Arguments" and click "OK".
 
 <img src="images/visualstudio149.png" width="768px" />
 
+## Debug
+In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
-# Debug
-In order to debug, we want our application to stop when we run it.  Set a breakpoint by clicking to the left of a line number.  Then run the application.
+<img src="images/visualstudio_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
+Run one line of code, stepping _over_ any function calls by running the whole function in one step.
+
+<img src="images/visualstudio_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**
+Run one line of code, stepping _into_ any function calls to execute them line-by-line.
+
+<img src="images/visualstudio_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**
+Run the program until it returns from the current function (or until the next breakpoint).
+
+<img src="images/visualstudio_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
+Run the program until the next breakpoint.
+
+### Example code
+{: .primer-spec-toc-ignore }
+
+To get started, copy this example `main.cpp` into your editor.
+```c++
+#include <iostream>
+#include <vector>
+using namespace std;
+
+double sum (const vector<double> &data) {
+  double total = 0;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
+  }
+  return total;
+}
+
+int main() {
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << endl;
+}
+```
+{: data-title="main.cpp" }
+
+### Breakpoint
+Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/visualstudio150.png" width="768px" />
 
-Build and run.  Notice that the application is paused on entry to `main()`.
+### Run
+Run the debugger.  The program pauses at the breakpoint.  The indicator highlights the next line of code to be run.
+
+<img src="images/visualstudio155.png" width="768px" />
 
 <img src="images/visualstudio160.png" width="768px" />
 
-Click "Step Over" to go to the next line of code.
+### Step over
+Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/visualstudio170.png" width="768px" />
 
-Our test fails immediately because we haven't implemented `sum()` yet.  Click "Abort".
+### Inspect
+Hover over a variable to inspect its value.  You can also see values in the Autos pane.
 
-<img src="images/visualstudio180.png" width="360px" />
+<img src="images/visualstudio180.png" width="768px" />
 
-Restart the program.  Then, click "step into".  You'll see that the cursor enters the `test_sum_small_data_set()` function.
+### Step into
+Click "Step Into".  The cursor enters the `sum()` function.
 
 <img src="images/visualstudio190.png" width="768px" />
 
-Click "step over" a few times until you're on this line of code. Hover over a variable to see its value.
+<img src="images/visualstudio195.png" width="768px" />
+
+
+### Step out
+Click "Step Out".  The `sum()` function completes, and the program pauses again.
 
 <img src="images/visualstudio200.png" width="768px" />
 
+<img src="images/visualstudio205.png" width="768px" />
 
-# Pro-tips
-To start Visual Studio with our project open from the command line:
-```console
-$ cmd.exe /c start p1-stats.vcxproj
-```
+### Continue
+Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-To search for help on the internet, try including the version.  For example, "Visual Studio 2017 command line arguments".
+<img src="images/visualstudio210.png" width="768px" />
 
-# Next steps
-[Return to the main set up tutorial.](setup.html#visual-debugger)
-
-
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
