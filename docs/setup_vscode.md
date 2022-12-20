@@ -63,7 +63,14 @@ Select "Add to PATH".
 
 <img src="images/vscode005.png" width="480px" />
 
-Finally, reboot
+Reboot.  Open a terminal again (WSL/Ubuntu) and verify your installation.  Your version might be different.
+
+```console
+$ code --version
+1.74.1
+1ad8d514439d5077d2b0b7ee64d2ce82a9308e5a
+x64
+```
 
 #### WSL remote mode
 
