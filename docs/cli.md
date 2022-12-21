@@ -272,8 +272,9 @@ Applications cores sbin ...
 ```
 
 
-# Tips and Tricks
-## Ctrl + l
+## Tips and Tricks
+
+### Clear
 `clear` is a command that clears the shell. A faster way of doing this is to press `Ctrl + l`.
 
 Note that l is a lowercase L, not an uppercase i.
@@ -283,21 +284,21 @@ Note that l is a lowercase L, not an uppercase i.
 </video>
 
 
-## Tab
+### Tab Complete
 Pressing tab autocompletes a file/directory name. This allows you to navigate much faster than typing the entire path.
 
 <video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
   <source src="images/cli_vid004.mov">
 </video>
 
-## Up Arrow
+### Previous Command
 Pressing the up arrow allows you to see your previous commands. This is particularly useful when you are repeating compile-run-compile-run-... while debugging.
 
 <video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
   <source src="images/cli_vid005.mov">
 </video>
 
-## Colors and Customization
+### Colors and Customization
 The default terminal can look a little boring without colors or path descriptions. Fortunately, there is a way to style the terminal exactly the way you want it. Below is one example.
 
 <img src="images/cli021.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
@@ -347,10 +348,10 @@ PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
 ```
 
 
-# Optional
+## More commands
 Below are some more advanced commands that are cool to know, but not necessary.
 
-## cat
+### `cat`
 `cat` is short for "con*cat*enate". It takes in a list of filenames, concatenates the contents, and prints it out.
 [More info](https://man7.org/linux/man-pages/man1/cat.1.html).
 
@@ -409,7 +410,7 @@ random text
 more random text
 ```
 
-## grep
+### `grep`
 `grep` is short for "*g*lobally search for a *re*gular expression and *p*rint matching lines". It takes in a regular expression (commonly called "regex") and a path. It finds all lines in the specified path that match the regex pattern.
 [More info](https://man7.org/linux/man-pages/man1/grep.1.html).
 
@@ -467,7 +468,7 @@ $ grep -ri 'hello' .
 Note that the `-r` option must be specified when searching for all files in a directory, and the `-i` option performs a case insensitive search.
 
 
-## Pipe redirection ( | )
+### Pipe `|`
 `|` is an operator, not a command. It can be placed between commands to feed the output of the "left" command as input to the "right" command.
 [More info](https://www.redhat.com/sysadmin/pipes-command-line-linux).
 
@@ -484,7 +485,7 @@ $ ls | grep '.txt'
 text.txt
 ```
 
-## curl
+### `curl`
 `curl` is short for "*c*lient *URL*". It takes in a URL with a specified protocol, sends a request to the URL, and prints out the received data.
 [More info](https://man7.org/linux/man-pages/man1/curl.1.html).
 
@@ -559,7 +560,7 @@ gcide "Helly"
 ```
 
 
-## Input redirection (<)
+### Input redirection `<`
 `<` is an operator, not a command. It can be placed between a command and a filename to feed the contents of the specified file as input to the command.
 [More info](https://www.redhat.com/sysadmin/linux-shell-redirection-pipelining).
 
@@ -612,7 +613,7 @@ world    // program output
 ```
 
 
-## Output redirection (>)
+### Output redirection `>`
 `>` is an operator, not a command. It can be placed between a command and a filename to redirect the output of the command into the specified file. If the specified file does not exist, it will be created.
 [More info](https://www.redhat.com/sysadmin/linux-shell-redirection-pipelining).
 
@@ -646,13 +647,13 @@ Hello World
 ```
 
 
-## Scripting
+### Scripting
 As you have seen, the shell is a powerful tool that can perform many useful tasks. To get even more out of the shell, we can write a program composed of shell commands. This is called a script.
 
 You can write scripts to automate many mundane tasks such as running test cases. Learn more at the [EECS 485 Shell Scripting Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_scripting.html).
 
 
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu and Oh Jun Kweon ohjun@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
