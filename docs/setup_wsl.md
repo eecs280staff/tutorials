@@ -22,7 +22,7 @@ Start PowerShell and run it as administrator.  Search for PowerShell in the star
 
 <img src="images/wsl010.png" width="240px" />
 
-Check if WSL was already installed.  If you see the WSL help text, you don't have WSL installed.
+Check if WSL was already installed.  If you see this, WSL is already installed.
 ```console
 C:\WINDOWS\system32> wsl -l -v
   NAME      STATE       VERSION
@@ -30,7 +30,15 @@ C:\WINDOWS\system32> wsl -l -v
 ```
 {: data-highlight="3"}
 
-If WSL is not installed, then install it.
+If you see the WSL help text, WSL is not installed.
+```console
+C:\WINDOWS\system32> wsl -l -v
+Copyright (c) Microsoft Corporation. All rights reserved.
+Usage: wsl.exe [Argument]
+...
+```
+
+Install WSL.
 ```console
 C:\WINDOWS\system32> wsl --install
 ```
