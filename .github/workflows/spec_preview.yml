@@ -26,23 +26,11 @@ jobs:
       - name: 📁 Checkout code
         uses: actions/checkout@v2
 
-      # A Ruby environment is required to build Jekyll websites. Use the
-      # official GH action provided by Ruby.
-      # Docs: https://github.com/ruby/setup-ruby
-      - name: 💎 Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-
-      # Build the Jekyll site. This GH action from the marketplace is
-      # indirectly endorsed by Jekyll, and simply builds the Jekyll site
-      # without deploying it. The Jekyll build output is placed in an `_site/`
-      # directory.
-      # Docs: https://github.com/limjh16/jekyll-action-ts
-      - name: 🛠 Build Jekyll site
-        uses: limjh16/jekyll-action-ts@v2
-        with:
-          enable_cache: true
+      # Build the Primer Spec website. The action places the fully-built
+      # website in an `_site/` directory.
+      # Docs: https://github.com/seshrs/build-primer-spec-action
+      - name: 🛠 Build Primer Spec website
+        uses: seshrs/build-primer-spec-action@v1
 
       # Upload the site to Primer Spec Preview and comment on the PR.
       # The Primer Spec Preview secret is stored as an encrypted repo or
