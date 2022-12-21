@@ -65,11 +65,32 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ### Copy paste
 
 Right click on the window pane header of your Ubuntu WSL terminal. You should see a drop down like the one below:
+
 <img src="/images/wsl040.png" width=720px>
 
-If your dropdown contains the option "Settings" (as seen above) follow the [Windows 11 H2 or newer](#windows-11-h2-or-newer) instructions. If your dropdown contains the option "Properties" follow the [Older than Windows 11 H2](#older-than-windows-11-h2)
+If your dropdown contains the option "Settings" (as seen above) follow the [Windows 11 H2 or newer](#windows-11-h2-or-newer) instructions. If your dropdown contains the option "Properties" follow the [Older than Windows 11 H2](#older-than-windows-11-h2).
 
 #### Windows 11 H2 or newer:
+The default settings should be set up so that you can easily copy and paste.
+
+Click on the Settings option in the drop down menu.
+
+<img src="/images/wsl050.png" width=480px>
+
+Click on the Actions tab on the left side of the settings window.
+
+<img src="/images/wsl060.png" width=720px>
+
+Confirm that the following bindings exist, and if they don't add them using the "Add new" button:
+- Copy text: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd>
+- Paste text: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
+
+<img src="/images/wsl070.png" width=720px>
+
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+Note: You may need to scroll down to see the Paste text bindings.
+</div>
 
 
 #### Older than Windows 11 H2:
