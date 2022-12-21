@@ -100,7 +100,9 @@ You'll know that VS Code is running in remote mode when you see the remote mode 
 <img src="images/vscode068.png" width="768px">
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you accidentally open VS Code from Windows mode, select "Reopen Folder in WSL".
+**Pitfall:** If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
+
+<img src="images/vscode070.png" width="720">
 </div>
 
 ### Extensions
