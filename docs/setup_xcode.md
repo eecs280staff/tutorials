@@ -191,6 +191,9 @@ Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, y
 ## Compile and Run
 An Xcode target compiles (builds) one executable.
 
+### Compile sources
+{: .primer-spec-toc-ignore }
+
 We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the main program.  Remove any other files by selecting them and clicking on the "–" button.
 
 <img src="images/xcode130.png" width="768px" />
@@ -209,6 +212,9 @@ g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o 
 {: data-highlight="3" }
 </div>
 
+### Working directory
+{: .primer-spec-toc-ignore }
+
 Configure Xcode to run the executable in the directory containing the input files.
 
 Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
@@ -218,6 +224,9 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 Select "Run", then "Options", then "Use custom working directory".  Use the folder icon to browse to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
 <img src="images/xcode160.png" width="512px" />
+
+### Run
+{: .primer-spec-toc-ignore }
 
 Compile and run.
 
