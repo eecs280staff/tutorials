@@ -15,7 +15,7 @@ If you already have Xcode installed, skip to the [Create a project](#create-a-pr
 </div>
 
 ## Prerequisites
-There are no prerequisites for Xcode.
+Xcode runs on macOS only.  There are no other prerequisites for Xcode.
 
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
