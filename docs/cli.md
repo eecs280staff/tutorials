@@ -168,9 +168,9 @@ A *directory* contains files and other directories.  It's also called a folder.
 
 Note the `/` at the end of `stuff/`. While not necessary, it is convention to end directory paths with `/`.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv move example">
-  <source src="images/cli_vid001.mov">
-</video>
+GUI Equivalent:
+
+<img src="images/cli005.png" class="invert-colors-in-dark-mode" width="768px" alt="mv move example"/>
 
 `mv` is also used to rename a file or directory.
 
