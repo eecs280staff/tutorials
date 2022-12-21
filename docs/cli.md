@@ -8,23 +8,25 @@ Command Line Interface (CLI)
 ================
 {: .primer-spec-toc-ignore }
 
-<b>GUI</b> (Graphic User Interface) is the familiar "point and click" way of interacting with a computer.
+This is a brief tutorial of command line interface basics.
 
-<b>CLI</b> (Command Line Interface) is an alternative way that can be faster and more flexible.
+The *GUI* (Graphic User Interface) is a "point and click" way to interact with a computer.  The Windows File Explorer and macOS Finder are examples of GUIs.
 
-You can use the CLI by opening a <b>terminal</b> (WSL on Windows, Terminal on Mac).
+The *CLI* (Command Line Interface) is a text-based way to interact with a computer.  The terminal is another name for the CLI.  On the Windows Subsystem for Linux (WSL) it might be called "Ubuntu".  The CLI is fast, easy to automate, and easy to use remotely.
 
 <img src="images/cli001.png" class="invert-colors-in-dark-mode" width=600px alt="gui vs cli"/>
 
 ## Keywords
 
-<b>Path</b>: Location of a given file or directory in your computer.
+A *Path* is the location of a file or directory.  For example:
+```
+/Users/ohjun/Desktop/project
+```
+{: data-variant="no-line-numbers" }
 
-<b>File</b>: Something that stores data.
+A *file* stores data like C++ source code (`main.cpp`) or plain text (`example.txt`).
 
-<b>Directory</b>: Something that can contain files and directories.
-
-Note that directory and folder mean the same thing. We will use the word directory in this tutorial.
+A *directory* contains files and other directories.  It's also called a folder.
 
 <img src="images/cli002.png" class="invert-colors-in-dark-mode" width="600px" alt="keywords example"/>
 
@@ -132,7 +134,7 @@ CLI Example:
 ### rm
 `rm` is short for "remove". It deletes the file or directory at the specified path.
 
-You must include the `-r` (recursive) <b>option</b> to delete a directory.
+You must include the `-r` (recursive) *option* to delete a directory.
 
 CLI Example:
 
@@ -311,9 +313,9 @@ GUI Equivalent:
 ## Special Paths
 A path is the location of a given file or directory in your computer. There are two types of paths: absolute and relative.
 
-<b>Absolute path</b>: a path that starts from the [root directory](#-3). eg. `/Users/ohjun/Desktop/project/`
+*Absolute path*: a path that starts from the [root directory](#-3). eg. `/Users/ohjun/Desktop/project/`
 
-<b>Relative path</b>: a path that starts from the current directory.
+*Relative path*: a path that starts from the current directory.
 
 You can choose the type of path depending on the situation, but relative pathing works in most cases and requires less typing.
 
@@ -437,7 +439,7 @@ PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
 Below are some more advanced commands that are cool to know, but not necessary.
 
 ## cat
-`cat` is short for "con<b>cat</b>enate". It takes in a list of filenames, concatenates the contents, and prints it out.
+`cat` is short for "con*cat*enate". It takes in a list of filenames, concatenates the contents, and prints it out.
 [More info](https://man7.org/linux/man-pages/man1/cat.1.html).
 
 Example:
@@ -496,7 +498,7 @@ more random text
 ```
 
 ## grep
-`grep` is short for "<b>g</b>lobally search for a <b>re</b>gular expression and <b>p</b>rint matching lines". It takes in a regular expression (commonly called "regex") and a path. It finds all lines in the specified path that match the regex pattern.
+`grep` is short for "*g*lobally search for a *re*gular expression and *p*rint matching lines". It takes in a regular expression (commonly called "regex") and a path. It finds all lines in the specified path that match the regex pattern.
 [More info](https://man7.org/linux/man-pages/man1/grep.1.html).
 
 Regular expressions are out of the scope of this tutorial, but you can learn how they work using [this guide](https://regexr.com/). The example below uses the most basic regular expression, a keyword.
@@ -571,7 +573,7 @@ text.txt
 ```
 
 ## curl
-`curl` is short for "<b>c</b>lient <b>URL</b>". It takes in a URL with a specified protocol, sends a request to the URL, and prints out the received data.
+`curl` is short for "*c*lient *URL*". It takes in a URL with a specified protocol, sends a request to the URL, and prints out the received data.
 [More info](https://man7.org/linux/man-pages/man1/curl.1.html).
 
 Examples:
