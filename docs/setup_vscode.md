@@ -4,405 +4,379 @@ title: Setup VSCode
 sitemapOrder: 20
 ---
 
-Setting up VS Code
-==================
+Setup up VS Code for C/C++
+==========================
 {: .primer-spec-toc-ignore }
 
-[Visual Studio Code](https://code.visualstudio.com/) is a lightweight, easy-to-use, source code editor with debugging support.  It run on macOS, Windows, and Linux (including CAEN Linux).  Visual Studio Code is not the same program as Visual Studio.
+[Visual Studio Code](https://code.visualstudio.com/) is a lightweight, easy-to-use, source code editor with debugging support.  It runs on macOS, Windows, and Linux (including CAEN Linux).  Visual Studio Code is not the same program as Visual Studio.
 
+<div class="primer-spec-callout info" markdown="1">
+If you already have VS Code installed with the C/C++ extensions, skip to the [Create a project](#create-a-project) section.
+</div>
 
-# Prerequisites
-At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
-README.md     main_test_data.tsv     stats.h
-main_test.in  p1_library.cpp         stats_public_test.cpp
-```
-
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+## Prerequisites
+VS Code relies on external command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
+These are a few tools you should have now.  Your versions might be different.
 
-# Restarting this tutorial
-If you tried using this tutorial in the past and want to "start clean", here's how to delete all VS Code configuration files.  This will not delete your code.  First, quit VS Code.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ rm -rf .vscode
-$ rm -rf ~/.vscode
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+$ g++ --version
+g++ (Homebrew GCC 12.2.0) 12.2.0
+$ make --version
+GNU Make 3.81
 ```
 
+## Restart
+To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
 
-# Install
+```console
+$ pwd
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
+```
+
+## Install
 Choose your platform below.
-
-### macOS
-Use the homebrew package manager.
-```console
-$ brew install --cask visual-studio-code
-```
-
-### Windows
-Install from the web [https://code.visualstudio.com/](https://code.visualstudio.com/).
-
-Select "Add to PATH".
-
-<img src="images/vscode005.png" width="480px" />
-
-Finally, reboot
-
-#### WSL remote mode
-{: .primer-spec-toc-ignore }
-
-Use VS Code's [remote mode](https://code.visualstudio.com/docs/remote/wsl) to connect the VS Code graphical user interface (GUI) running on Windows to the Linux environment and tools like `g++` running on WSL.
-
-WSL Remote Mode connects VS Code to a remote instance of a VS Code server running elsewhere. When you launch VS Code from the WSL terminal, a VS Code server is started within WSL and the VS Code UI running on Windows connects to that server.
-
-<img src="images/vscode065.png" width="768px">
-
-Start VS Code and install the `WSL - Remote` extension.  Navigate to the extensions tab and search for `WSL - Remote`.
-
-<img src="images/vscode067.png" width="768px">
-
-After the extension is installed, close VS Code and start it from the WSL terminal.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ code .
-```
-
-You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
-
-<img src="images/vscode068.png" width="768px">
 
 ### Linux
 Install the .deb package from the web [https://code.visualstudio.com/docs/setup/linux](https://code.visualstudio.com/docs/setup/linux).
 
 ### CAEN Linux
-VS Code is already installed on CAEN Linux desktop environment.  You can use it while sitting at a CAEN Linux computer, or through a [VNC connection to CAEN Linux](http://caenfaq.engin.umich.edu/linux-login/how-do-i-connect-to-a-caen-linux-computer-remotely).  You'll need to load the `vscode/1.19.2` module any time you open new terminal.
+VS Code is already installed on CAEN Linux desktop environment.  You can use it while sitting at a CAEN Linux computer, or through a [VNC connection to CAEN Linux](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=4999).
+
+### macOS
+Make sure you have macOS 11.1 or later.
 ```console
-$ module load vscode/1.19.2
-$ module load git     # Optional, avoids warning about old git version
+$ sw_vers
+ProductName:	macOS
+ProductVersion:	11.7
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-**PITFALL:** Do not use the Applications menu to open VS Code.  It will open an older version.  Always use the command line, as shown later in this tutorial.
-</div>
+Use the homebrew package manager to install VS Code.  You can run this command from any directory.
+```console
+$ brew install --cask visual-studio-code
+```
 
-### All platforms
-Make sure VS Code is installed correctly by checking the version.  You need version 1.18.0 or higher.
+### Windows
+Make sure you have updated Windows and WSL installations according to the [WSL tutorial](setup_wsl.html).
+
+Then, Install VS Code from the web [https://code.visualstudio.com/](https://code.visualstudio.com/).
+
+Select "Add to PATH".
+
+<img src="images/vscode005.png" width="480px" />
+
+Reboot.  Open a terminal again (WSL/Ubuntu) and verify your installation.  Your version might be different.
+
 ```console
 $ code --version
-1.18.0
-dcee2202709a4f223185514b9275aa4229841aa7
+1.74.1
+1ad8d514439d5077d2b0b7ee64d2ce82a9308e5a
+x64
 ```
 
-# Install the C/C++ extension
-Start Visual Studio Code from your source code directory.  Remember that the dot (`.`) means "the present working directory".
+#### WSL remote mode
+
+Use VS Code's [remote mode](https://code.visualstudio.com/docs/remote/wsl) to connect the VS Code graphical user interface (GUI) running on Windows to the Linux environment and tools like `g++` running on WSL.
+
+WSL Remote Mode connects VS Code to a remote instance of a VS Code server running elsewhere. When you launch VS Code from the WSL terminal, a VS Code server is started within WSL and the VS Code UI running on Windows connects to that server.
+
+<img src="images/vscode065.png" width="512px">
+
+Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).  It's OK if you have other extensions installed.
+```console
+$ code --install-extension ms-vscode-remote.remote-wsl
+$ code --list-extensions
+ms-vscode-remote.remote-wsl
+```
+
+After the extension is installed, quit VS Code and start it again.
+
+You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
+
+<img src="images/vscode068.png" width="768px">
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you accidentally open VS Code from Windows mode, select "Reopen Folder in WSL".
+</div>
+
+### Extensions
+Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
+```console
+$ code --version
+1.52.1
+```
+
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+```console
+$ code --install-extension ms-vscode.cpptools
+$ code --install-extension ms-vscode.cpptools-extension-pack
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+Verify that the cpptools extensions installed.  It's OK if you have other extensions installed.
+```consle
+$ code --list-extensions
+ms-vscode.cpptools
+ms-vscode.cpptools-extension-pack
+```
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+Verify that the clangd or CodeLLDB extensions are *not* installed.  The clangd extension provides C/C++ intellisense which conflicts with the Microsoft C/C++ extension.  The CodeLLDB extension provides C/C++ debugging support which causes confusion with the Microsoft C/C++ extension.
+```consle
+$ code --list-extensions
+llvm-vs-code-extensions.vscode-clangd  # REMOVE ME
+vadimcn.vscode-lldb                    # REMOVE ME
+```
+
+Uninstall them if necessary.
+```console
+$ code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
+$ code --uninstall-extension vadimcn.vscode-lldb
+```
+</div>
+
+
+## Create a project
+To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
+
+**macOS:** Open the Terminal application.
+
+**Windows/WSL:** Open the Ubuntu application.
+
+Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.
+```console
+$ cd /Users/awdeorio/src/eecs280
+$ mkdir p1-stats
+$ cd p1-stats
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
+
+</div>
+
+Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
 $ code .
 ```
-
-Navigate to the extensions pane.
-
-<img src="images/vscode010.png" width="768px" />
-
-Install the C/C++ extension.
-
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-If you have an M1 chip ("Apple Silicon"), install the CodeLLDB extension, too.
-
-At the time of this writing, the official VSCode C/C++ extension visual debugging feature is broken, but intellisense works.  The unofficial CodeLLDB extension visual debugging feature works, but it does not provide intellisense.  Install both to get visual debugging and intellisense on the M1.
 </div>
 
 <img src="images/vscode020.png" width="768px" />
 
+### Add new files
+Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-# Create a project
-VS Code doesn't require any special setup for a project.  However, we'll add some files to our directory.
+Select the add file icon and give it a name, e.g., `main.cpp`.
 
-Start VS Code.  If you're on CAEN linux, don't forget to load the vscode module with `module load vscode/1.19.2`.
+<img src="images/vscode023.png" width="768px" />
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** You can also create files from the command line.  The `touch` command creates an empty file.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ code .
+$ touch main.cpp
 ```
+</div>
 
-## Add new files
-EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
-
-Open the p1-stats folder by selecting `File` > `Open Folder...` > navigate to the p1-stats folder.
-
-Select the add file icon and name the new file `stats.cpp`.  Do this again to create `main.cpp`.
-
-<img src="images/vscode025.png" width="768px" />
-
-You'll also see the new files at the command line.
-```console
-$ ls
-Makefile      main_test.out.correct  p1_library.h  stats_public_test.cpp
-main.cpp      main_test_data.tsv     stats.cpp     stats_tests.cpp
-main_test.in  p1_library.cpp         stats.h
-```
-
-### Project 1 `stats.cpp`
-Now let's modify the files that you created.  Edit `stats.cpp` and add function stubs.  A function stub contains only `assert(false)`; it's like a placeholder that we'll use to get our application to compile.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.
+Copy-paste this Hello World program into your `main.cpp`.
 ```c++
-// stats.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-
-#include "stats.h"
-#include <cassert>
-#include <vector>
-#include <cmath>
-using namespace std;
-
-vector<vector<double> > summarize(vector<double> v) {
-  assert(false);
-}
-
-int count(vector<double> v) {
-  assert(false);
-}
-
-double sum(vector<double> v) {
-  assert(false);
-}
-
-double mean(vector<double> v) {
-  assert(false);
-}
-
-double median(vector<double> v) {
-  assert(false);
-}
-
-double mode(vector<double> v) {
-  assert(false);
-}
-
-double min(vector<double> v) {
-  assert(false);
-}
-
-double max(vector<double> v) {
-  assert(false);
-}
-
-double stdev(vector<double> v) {
-  assert(false);
-}
-
-double percentile(vector<double> v, double p) {
-  assert(false);
-}
-```
-{: data-title="stats.cpp" }
-
-### Project 1 `main.cpp`
-Start your `main.cpp` like this.  All it does so far is "hello world".  We'll include a few libraries that will be useful later.
-```c++
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-#include "stats.h"
-#include "p1_library.h"
 #include <iostream>
 using namespace std;
 
 int main() {
-  cout << "hello from main!\n";
+  cout << "Hello World!\n";
 }
 ```
 {: data-title="main.cpp" }
 
+### Add existing files
+If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
 
-# Compile
-VS Code uses an executable you build at the command line.  One executable should have exactly one `main()` function.  Three of our project 1 files have `main()` functions.
-
-| Project 1 Target | File with `main()` | Other `.cpp` Build Sources |
-| ------ | --------------- |
-| `stats_tests.exe` | `stats_tests.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_public_test.exe` | `stats_public_test.cpp` | `stats.cpp`, `p1_library.cpp` |
-| `stats_tests.exe` | `main.cpp` | `stats.cpp`, `p1_library.cpp` |
-
-
-Compile the executable you plan to run.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+$ ls
+main.cpp
 ```
-
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-**PITFALL:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
 </div>
 
-# Run
-Navigate to the debugging pane. Click "create a launch.json file".
+We'll use the terminal to download, unpack, and move the starter files.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+
+```console
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mv starter-files/* .
+$ rm -rf starter-files starter-files.tar.gz
+```
+
+You should see your new files in your project directory.
+```console
+$ tree
+.
+├── Makefile
+├── main.cpp
+├── main_test.in
+├── main_test.out.correct
+├── main_test_data.tsv
+├── p1_library.cpp
+├── p1_library.h
+├── stats.h
+├── stats_public_test.cpp
+└── stats_tests.cpp.starter
+```
+
+You should see your new files appear in VS Code.
+
+<img src="images/vscode026.png" width="768px" />
+
+#### Rename files
+If you need to rename any files, you can do this from VS Code or from the command line.  In EECS 280, you'll need to rename any files that end in `.starter`.
+
+Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
+
+| <img src="images/vscode027.png" height="512px" /> | <img src="images/vscode028.png" height="512px" /> |
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** You can also rename files the command line, for example:
+```console
+$ mv stats_tests.cpp.starter stats_tests.cpp
+```
+</div>
+
+## Compile and Run
+VS Code uses an executable you build at the command line.
+
+### Compile
+{: .primer-spec-toc-ignore }
+
+Compile and run your executable at the command line.
+```console
+$ touch stats.cpp  # Needed for EECS 280 P1
+$ make main.exe
+$ ./main.exe
+Hello World!
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
+```console
+$ ls
+main.cpp ...
+```
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you're in EECS 280 and get an error like this, [add a new file](#add-new-files) `stats.cpp`.  It's OK if the file is empty for now.
+```console
+$ make main.exe
+make: *** No rule to make target `stats.cpp', needed by `main.exe'.  Stop.
+```
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+```console
+$ make main.exe
+g++ ... -g main.cpp ...
+```
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+If you don't have a `Makefile`, you can compile manually.  We don't recommend this for EECS 280 students.
+```console
+$ g++ -g main.cpp -o main.exe
+$ ./main.exe
+Hello World!
+```
+</div>
+
+### Create `launch.json`
+{: .primer-spec-toc-ignore }
+
+Select the file you would like to run.  Navigate to the debugging pane.
 
 <img src="images/vscode030.png" width="768px" />
 
-You'll be prompted to select a debug configuration. Ignore the list of templates and just hit enter, leaving the box blank. This will create a default `launch.json` file.
+Click "create a launch.json file".
 
-<img src="images/vscode050.png" width="768px" />
+<img src="images/vscode031.png" width="768px" />
 
-VS Code should bring up the new `launch.json` file. If you need to find it again, look under `.vscode/launch.json` in your project explorer.
+Click "Add Configuration".
 
-<img src="images/vscode060.png" width="768px" />
+<img src="images/vscode032.png" width="768px" />
 
-Find the appropriate configuration below based on your computer and operating system. Copy and paste it to replace the entire contents of `launch.json`. Once you save the file, the debugging pane should contain a button to launch the debugger. Clicking the gear button will take you back to `launch.json` if you need to change the configuration.
+Select a "Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
+- macOS: "C/C++ (lldb) Launch"
+- WSL orLinux: "C/C++ (gdb) Launch"
 
-<img src="images/vscode061.png" width="768px" />
+<img src="images/vscode033.png" width="768px" />
 
-### macOS with Intel chip `launch.json`
+#### Edit `launch.json` program
+{: .primer-spec-toc-ignore }
+
+Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(lldb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/stats_tests.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb"
-        }
-    ]
-}
-```
-
-### macOS with M1 chip ("Apple Silicon") `launch.json`
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/stats_tests.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
-}
-```
-
-### Windows/WSL `launch.json`
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/stats_tests.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        }
-    ]
-}
-```
-
-### Linux `launch.json`
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/stats_tests.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": false
-                }
-            ]
-        }
-    ]
-}
-```
-
-## Intellisense
-Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  We'll configure the C/C++ Extension's intellisense features to support C++11.
-
-First, you should already have the `C/C++` extension installed ([Instructions](setup_vscode.html#install-the-cc-extension)).
-
-Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `ctrl + shift + P` on Windows or `cmd + shift + P` on macOS.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
-
-<img src="images/vscode150.png" width="480px" />
-
-Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  Don't change other settings.  Save the file.
-```json
-{
-    "configurations": [
-        {
-            ...
-            "cStandard": "c11",
-            "cppStandard": "c++11",
-            ...
-        }
-    ],
+    "name": "(lldb) Launch",
+    ...
+    "program": "${workspaceFolder}/main.exe",
+    ...
+    "cwd": "${workspaceFolder}",
     ...
 }
 ```
+{: data-highlight="4,6" }
 
-## Sanitizers
-We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.  Edit the `Makefile` and change the `CXXFLAGS`.  Then, edit your `launch.json` configuration.
+Your `launch.json` might be different.
 
-### macOS `CXXFLAGS`
-{: .primer-spec-toc-ignore }
-Add `-fsanitize=address -fsanitize=undefined`, for example:
-```make
-CXXFLAGS ?= --std=c++11 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined
+<img src="images/vscode034.png" width="768px" />
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** VS Code puts its configuration files in a hidden directory called `.vscode`.  You can see hidden files with `ls -A`.
+```console
+$ ls -A
+.vscode
+main.cpp
+...
 ```
+{: data-highlight="2" }
+</div>
 
-### WSL/Linux `CXXFLAGS`
+### Run
 {: .primer-spec-toc-ignore }
-Add `-D_GLIBCXX_DEBUG`, for example:
-```make
-CXXFLAGS ?= --std=c++11 -Wall -Werror -pedantic -g -D_GLIBCXX_DEBUG
-```
 
-### `launch.json` configuration
-Edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.
+Click the triangle to run.  You'll see your program's output in the debug console.
+
+<img src="images/vscode035.png" width="768px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Remember to build your executable at the command line first.
+```console
+$ make main.exe
+```
+</div>
+
+
+### Sanitizers
+We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
+
+First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
+
+Then, edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.
 
 ```json
   "environment": [
@@ -412,45 +386,56 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
     }
   ]
 ```
+{: data-highlight="3-4" }
 
 When ASan detects an error, VSCode will stop so that you can see the stack trace and inspect the current state of the program.  This configuration also turns off leak-checking (LSan), which can't run simultaneously with the visual debugger. If you do want to check for leaks, just run from the terminal with sanitizers enabled.
 
 If you're debugging something else in your program and don't want it to terminate on ASAN errors, you can change to `abort_on_error=0`.
 
-## Input redirection
-Skip this subsection on your first time through the tutorial.  You can use input redirection to avoid typing program input each time you run (for debugging) a program.
+### Input redirection
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
 
-Without input redirection, here's how you type input at the command line.  Notice that the program asks the user to `enter a filename` and then the user types `main_test_data.tsv`.  Then, the program asks the user to `enter a column name` and the user types `B`.
+You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+  cout << "What's your name?" << endl;
+  string name;
+  cin >> name;
+  cout << "Hello " << name << "!\n";
+}
+```
+
+Without input redirection, the user types input at the command line (highlighted).
 ```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
 $ ./main.exe
-enter a filename
-main_test_data.tsv
-enter a column name
-B
-...
+What's your name?
+Drew
+Hello Drew!
 ```
+{: data-highlight="4" }
 
-If we put the user input in a file we can automate the user input.  We'll put it in a file called `main_test.in`.
+Automate user input by putting it in a file.
+```
+Drew
+```
+{: data-title="main_test.in" data-highlight="1" }
+
+Redirect file `main_test.in` to stdin of `main.exe`.
 ```console
-$ cat main_test.in   # Peek at the contents of a file
-main_test_data.tsv
-B
-$ ./main.exe < main_test.in  # Redirect file content to main's stdin (cin)
-enter a filename
-enter a column name
-reading column B from main_test_data.tsv
-...
+$ ./main.exe < main_test.in
+What's your name?
+Hello Drew!
 ```
+{: data-highlight="1" }
 
-Without input redirection, here's how to type input in the Visual Studio Code command line.  In some configurations, a window will pop up, in others, you'll type into a pane on the VS Code interface.
-
-<img src="images/vscode075.png" width="768px" />
-
-### Windows `launch.json` changes
+#### Windows `launch.json` changes
 
 To configure input redirection, edit `launch.json`.
 ```json
@@ -465,13 +450,17 @@ To configure input redirection, edit `launch.json`.
     ]
 }
 ```
-### macOS Intel chip `launch.json` changes
+{: data-title="launch.json" data-highlight="6" }
+
+#### macOS `launch.json` changes
 
 To configure input redirection, edit `launch.json`.
 ```json
 {
     "configurations": [
         {
+            ...
+            "program": "${workspaceFolder}/main.exe",
             ...
             "MIMode": "lldb",
             "setupCommands": [
@@ -484,189 +473,163 @@ To configure input redirection, edit `launch.json`.
     ]
 }
 ```
+{: data-title="launch.json" data-highlight="10" }
 
-### macOS M1 chip `launch.json` changes
-
-To configure input redirection, edit `launch.json`.
-```json
-{
-    "configurations": [
-        {
-            ...
-            "stdio": ["main_test.in", null]
-            ...
-        }
-    ]
-}
-```
-
-
-## Arguments and options
+### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
+Skip this subsection for EECS 280 project 1.
 </div>
 
-*Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
-
-**Arguments example** from project 2:  `resize.exe` is the name of the program, and the arguments are `horses.ppm`,  `horses_400x250.ppm`, `400`, and `250`.
-```console
-$ ./resize.exe horses.ppm horses_400x250.ppm 400 250
-```
-
-**Options example** from project 5:  `main.exe` is the name of the program.  `train_small.csv` and  `test_small.csv` are arguments.  `--debug` is an option.
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
+{: data-variant="no-line-numbers" data-highlight="1" }
 
-To run a program with options or arguments in VS Code, edit `launch.json`.  Be sure to put each option or argument as a separate comma-separated string.
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
+
+To run a program with options or arguments in VS Code, edit `launch.json`.  Each option or argument should goes in a separate comma-separated string.
 ```json
-"args": ["train_small.csv", "test_small.csv", "--debug"],
+{
+    "configurations": [
+        {
+            ...
+            "program": "${workspaceFolder}/main.exe",
+            "args": ["train_small.csv", "test_small.csv", "--debug"],
+            ...
+        }
+    ]
+}
 ```
+{: data-title="launch.json" data-highlight="6" }
 
-# Debug
-In order to debug, we want our application to stop when we run it.  Set a breakpoint by clicking to the left of a line number.
+## Debug
+In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
+
+<img src="images/vscode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
+Run one line of code, stepping _over_ any function calls by running the whole function in one step.
+
+<img src="images/vscode_icon_step_in.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Into**
+Run one line of code, stepping _into_ any function calls to execute them line-by-line.
+
+<img src="images/vscode_icon_step_out.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Out**
+Run the program until it returns from the current function (or until the next breakpoint).
+
+<img src="images/vscode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
+Run the program until the next breakpoint.
+
+### Example code
+{: .primer-spec-toc-ignore }
+
+To get started, copy this example `main.cpp` into your editor.
+```c++
+#include <iostream>
+#include <vector>
+using namespace std;
+
+double sum (const vector<double> &data) {
+  double total = 0;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
+  }
+  return total;
+}
+
+int main() {
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << endl;
+}
+```
+{: data-title="main.cpp" }
+
+### Breakpoint
+Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/vscode080.png" width="768px" />
 
-
-Run the debugger.  The yellow indicator highlights the next line of code to be run (in this case, the first line of the program).
+### Run
+Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
 <img src="images/vscode090.png" width="768px" />
 
-Click "Step Over" to run the highlighted line of code all at once.  Our test fails immediately because we haven't implemented `sum()` yet.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Don't forget to compile!
+```console
+$ make main.exe                # With a Makefile
+$ g++ -g main.cpp -o main.exe  # Without a Makefile
+```
+</div>
+
+### Step over
+Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/vscode100.png" width="768px" />
 
-Restart the program.
+### Inspect
+Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
 <img src="images/vscode110.png" width="768px" />
 
-Click "step into".  You'll see that the cursor enters the function.
+<div class="primer-spec-callout warning" markdown="1">
+If you have trouble viewing the contents of a container like this screenshot, see [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
+
+<img src="images/vscode140.png" width="480px" />
+</div>
+
+### Step into
+Click "Step Into".  The cursor enters the `sum()` function.
+
+<img src="images/vscode115.png" width="768px" />
 
 <img src="images/vscode120.png" width="768px" />
 
-Click "step over" a few times until you're on this line of code.  Hover over a variable to see its value.
+### Step out
+Click "Step Out".  The `sum()` function completes, and the program pauses again.
+
+<img src="images/vscode125.png" width="768px" />
 
 <img src="images/vscode130.png" width="768px" />
 
-If you have trouble viewing the contents of the `vector` in the previous step, see the [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
+### Continue
+Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-# Pro-tips
-The C/C++ extension for Visual Studio Code has more features.  Check out this Blog Post from the Visual C++ Team Blog.  [https://blogs.msdn.microsoft.com/vcblog/2016/03/31/cc-extension-for-visual-studio-code/](https://blogs.msdn.microsoft.com/vcblog/2016/03/31/cc-extension-for-visual-studio-code/)
+<img src="images/vscode135.png" width="768px" />
 
-You can optionally use the command line to install VS Code extensions.
-```console
-$ code --install-extension ms-vscode.cpptools
-Found 'ms-vscode.cpptools' in the marketplace.
-Installing...
-Extension 'ms-vscode.cpptools' v0.14.0 was successfully installed!
-```
+## Troubleshooting
+This section is for common problems and solutions.
 
+### Intellisense C++ Standard
+Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  If the C++ standard is out-of-date, you'll see squiggles where you shouldn't.
 
-# Next steps
-[Return to the main set up tutorial.](setup.html#visual-debugger)
+First, you should already have the `C/C++` extension installed ([Instructions](#extensions)).
 
+Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `ctrl + shift + P` on Windows or `cmd + shift + P` on macOS.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
 
-# Troubleshooting & FAQ
+<img src="images/vscode150.png" width="480px" />
 
-## Pretty-printing STL Containers with `gdb`
-Some versions of Visual Studio Code uses `gdb` under the hood.  Some installations of `gdb` don't ship with pretty printing support for STL containers like `vector`.  If you have this problem, you'll see something like this when you try to view the contents of a `vector` while debugging.  See [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
-
-<img src="images/vscode140.png" width="480px" />
-
-
-## macOS Visual Debugger Issues
-On older versions of macOS, VS Code, or the C/C++ extension, you may experience issues with the visual debugger. Please try the following steps to troubleshoot your debugger:
-
-1. Restart your computer
-2. Update macOS, VS Code, and the C/C++ extension.  This tutorial has been tested as of macOS Big Sur 11.1, VS Code 1.52.1, and C/C++ Extension version 1.1.3.
-3. Try using CodeLLDB's debugger instead (see below)
-
-### Install CodeLLDB
-{: .primer-spec-toc-ignore }
-Another option in troubleshooting your visual debugger is to replace the one that comes with the C/C++ extension you set up in the beginning of this tutorial.
-
-We **do not** recommend you uninstall the C/C++ extension because it provides syntax highlighting and other various niceties; instead, you can have both plugins installed concurrently.
-
-<img src="images/vscode021.png" width="768px" />
-
-After you've installed the plugin, you'll need to update your `launch.json` to specify that you want to use the CodeLLDB plugin instead. Replace your `launch.json` with the following:
-
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(lldb) Launch",
-            "type": "lldb",
-            "request": "launch",
-            "program": "${workspaceFolder}/stats_tests.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
-}
-```
-
-If this method works for you, feel free to continue using the CodeLLDB debugger!
-
-Note that if you are using CodeLLDB, [the above section describing `launch.json`
-configuration](#run) is no longer accurate. Instead, refer to the below
-subsections.
-
-
-### Input redirection `launch.json` changes
-{: .primer-spec-toc-ignore }
-You can use input redirection to avoid typing program input each time you run (for debugging) a program. In the [Run / Input redirection](#input-redirection) section, we provide modifications to the `launch.json` for the C/C++ extension. For CodeLLDB, these changes are slightly different:
+Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  Don't change any other settings.  Save the file.
 ```json
 {
     "configurations": [
         {
             ...
-            "program": "${workspaceFolder}/main.exe",
-            "args": [
-                // don't put stdio redirection here
-            ],
-            "stdio": [
-                "main_test.in", // redirect stdin
-                null, // don't redirect stdout
-                null // don't redirect stderr
-            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
             ...
         }
-    ]
+    ],
+    ...
 }
 ```
-
-Here's what a complete `launch.json` might look like.
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(lldb) Launch",
-            "type": "lldb",
-            "request": "launch",
-            "program": "${workspaceFolder}/main.exe",
-            "args": [],
-            "stdio": [
-                "main_test.in", 
-                null,
-                null
-            ],
-            "cwd": "${workspaceFolder}"
-        }
-    ]
-}
-```
-
-### Arguments and options changes
-{: .primer-spec-toc-ignore }
-Passing command line arguments to CodeLLDB works identically to the [method
-described earlier](#arguments-and-options).
+{: data-title="c_cpp_properties.json" data-highlight="5-6" }
 
 
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
