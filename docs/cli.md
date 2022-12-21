@@ -32,14 +32,12 @@ A *directory* contains files and other directories.  It's also called a folder.
 
 ## Basic Commands
 
-### ls
-`ls` is short for "list directory". It prints out the names of files and directories at the current or specified directory. [More info](https://man7.org/linux/man-pages/man1/ls.1.html).
-
-CLI Example:
+### `ls`
+`ls` prints files and directories in the present working directory.
 
 <table>
   <tr>
-  <td markdown="1">
+  <td markdown="1" >
 
   ```console
   $ ls
@@ -48,16 +46,13 @@ CLI Example:
 
   </td>
   <td>
-    <img src="images/cli003.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli003.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px" />
   </td>
   </tr>
 </table>
 
-### pwd
-`pwd` stands for "print working directory". It prints out the path to the current directory.
-[More info](https://man7.org/linux/man-pages/man1/pwd.1.html).
-
-CLI Example:
+### `pwd`
+`pwd` prints the path of the present working directory.
 
 <table>
   <tr>
@@ -70,46 +65,32 @@ CLI Example:
 
   </td>
   <td>
-    <img src="images/cli004.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli004.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px" />
   </td>
   </tr>
 </table>
 
 
-### mkdir
-`mkdir` is short for "make directory". It creates a directory with the specified name.
-[More info](https://man7.org/linux/man-pages/man1/mkdir.1.html).
-
-CLI Example:
+### `mkdir`
+`mkdir` creates a directory.
 
 <table>
   <tr>
   <td markdown="1">
 
   ```console
-  $ ls
-  example.txt main.cpp stuff
-  $ mkdir stuff2
-  $ ls
-  example.txt main.cpp stuff stuff2
+  $ mkdir myfolder
   ```
 
   </td>
   <td>
-    <img src="images/cli005.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli012.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
   </td>
   </tr>
 </table>
 
-GUI Equivalent:
-
-<img src="images/cli012.png" class="invert-colors-in-dark-mode" width="768px" alt="mkdir gui example"/>
-
-### touch
-`touch` creates a file with the specified name.
-[More info](https://man7.org/linux/man-pages/man1/touch.1.html).
-
-CLI Example:
+### `touch`
+`touch` creates an empty file.
 
 <table>
   <tr>
@@ -125,180 +106,111 @@ CLI Example:
 
   </td>
   <td>
-    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
   </td>
   </tr>
 </table>
 
-
-### rm
-`rm` is short for "remove". It deletes the file or directory at the specified path.
-
-You must include the `-r` (recursive) *option* to delete a directory.
-
-CLI Example:
+### `rm`
+`rm` removes (deletes) a file. `rm -rf` removes a directory.
 
 <table>
   <tr>
   <td markdown="1">
 
   ```console
-  $ ls
-  euchre.cpp example.txt main.cpp stuff stuff2
   $ rm euchre.cpp
-  $ ls
-  example.txt main.cpp stuff stuff2
-  $ rm stuff2
-  rm: stuff2: is a directory
-  $ rm -r stuff2
-  $ ls
-  example.txt main.cpp stuff
+  $ rm -r stuff2/
   ```
 
   </td>
   <td>
-    <img src="images/cli007.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli013.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px" />
   </td>
   </tr>
 </table>
 
-GUI Equivalent:
-
-<img src="images/cli013.png" class="invert-colors-in-dark-mode" width="768px" alt="rm gui example"/>
-
-
-### cd
-`cd` stands for "change directory". It switches you to the specified directory. [More info](https://man7.org/linux/man-pages/man1/cd.1p.html).
-
-CLI Example:
+### `cd`
+`cd` changes directory.
 
 <table>
   <tr>
   <td markdown="1">
 
   ```console
-  $ pwd
-  /Users/ohjun/Desktop/project
-  $ ls
-  example.txt main.cpp stuff
   $ cd stuff/
-  $ ls
-  $ 
   ```
 
   </td>
   <td>
-    <img src="images/cli008.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli014.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
   </td>
   </tr>
 </table>
 
-GUI Equivalent:
-
-<img src="images/cli014.png" class="invert-colors-in-dark-mode" width="768px" alt="cd gui example"/>
-
-
-### mv
-`mv` is short for "move". It moves the specified file or directory to the specified path.
-
-`mv` is also commonly used to rename a file or directory. [More info](https://man7.org/linux/man-pages/man1/mv.1.html).
-
-CLI Example (moving):
+### `mv`
+`mv` moves a file or directory.
 
 <table>
   <tr>
   <td markdown="1">
 
   ```console
-  $ ls
-  example.txt main.cpp stuff
   $ mv main.cpp stuff/
-  $ ls
-  example.txt stuff
-  $ ls stuff/
-  main.cpp
   ```
 
   </td>
   <td>
-    <img src="images/cli009.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli009.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
   </td>
   </tr>
 </table>
 
 Note the `/` at the end of `stuff/`. While not necessary, it is convention to end directory paths with `/`.
 
-GUI Equivalent (moving):
-
 <video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv gui example">
   <source src="images/cli_vid001.mov">
 </video>
 
-CLI Example (renaming):
+`mv` is also used to rename a file or directory.
 
 <table>
   <tr>
   <td markdown="1">
 
   ```console
-  $ ls
-  example.txt stuff
   $ mv example.txt new_name.txt
-  $ ls
-  new_name.txt stuff
   ```
 
   </td>
   <td>
-    <img src="images/cli010.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli015.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
   </td>
   </tr>
 </table>
 
-GUI Equivalent (renaming):
-
-<img src="images/cli015.png" class="invert-colors-in-dark-mode" width="768px" alt="mv gui example"/>
-
-### cp
-`cp` is short for "copy". It copies the specified file or directory to the specified path.
-[More info](https://man7.org/linux/man-pages/man1/cp.1.html).
-
-CLI Example:
+### `cp`
+`cp` copies a file.
 
 <table>
   <tr>
   <td markdown="1">
 
   ```console
-  $ pwd
-  /Users/ohjun/Desktop/project
-  $ ls stuff/
-  main.cpp
   $ cp new_name.txt stuff/
-  $ ls stuff/
-  main.cpp new_name.txt
   ```
 
   </td>
   <td>
-    <img src="images/cli011.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli016.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
   </td>
   </tr>
 </table>
 
-GUI Equivalent:
+### `open` / `wslview`
+On macOS, `open` opens a file or directory with the default application ([docs](https://ss64.com/osx/open.html)).
 
-<img src="images/cli016.png" class="invert-colors-in-dark-mode" width="768px" alt="cp gui example"/>
-
-
-### open / wslview
-On MacOS, `open` opens a file or directory with the default application.
-[More Info](https://ss64.com/osx/open.html).
-
-On WSL (Windows), `wslview` opens a file or directory with the default application.
-[More Info](https://wslutiliti.es/wslu/man/wslview.html).
-
-CLI Example:
+On WSL (Windows), `wslview` opens a file or directory with the default application ([docs](https://wslutiliti.es/wslu/man/wslview.html)).
 
 <video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv gui example">
   <source src="images/cli_vid002.mov">
