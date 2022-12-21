@@ -63,11 +63,29 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ## Pro-tips
 
 ### Copy paste
-Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page ([Source: Microsoft blog](https://devblogs.microsoft.com/commandline/copy-and-paste-arrives-for-linuxwsl-consoles/)).
+
+Right click on the window pane header of your Ubuntu WSL terminal. You should see a drop down like the one below:
+<img src="/images/wsl040.png" width=720px>
+
+If your dropdown contains the option "Settings" (as seen above) follow the [Windows 11 H2 or newer](#windows-11-h2-or-newer) instructions. If your dropdown contains the option "Properties" follow the [Older than Windows 11 H2](#older-than-windows-11-h2)
+
+#### Windows 11 H2 or newer:
+
+
+#### Older than Windows 11 H2:
+
+Click on the properties option in the dropdown.
+
+<img src="https://defragged.org/wp-content/uploads/2020/10/Defragged-LinuxSubsytem-Properties.png" width=480px>
+
+
+Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
 - Copy: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd>
 - Paste: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
+
+(Source: [Microsoft blog](https://devblogs.microsoft.com/commandline/copy-and-paste-arrives-for-linuxwsl-consoles/) and [Defragged](https://defragged.org/2020/10/29/how-to-copy-paste-in-windows-subsystem-for-linux-wsl/))
 
 ### Accessing Windows files
 Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`.
