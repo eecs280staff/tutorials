@@ -45,6 +45,8 @@ C:\WINDOWS\system32> wsl --install
 
 Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).
 
+You will need to restart your laptop to complete the installation process.
+
 Start an Ubuntu Bash shell (not a Windows PowerShell).
 
 <img src="images/wsl020.png" width="240px" />
