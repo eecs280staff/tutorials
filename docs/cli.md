@@ -223,21 +223,19 @@ GUI Equivalent:
 
 
 ## Special Paths
-A path is the location of a given file or directory in your computer. There are two types of paths: absolute and relative.
+A Path is the location of a file or directory.  There two types of paths: absolute and relative.
 
-*Absolute path*: a path that starts from the [root directory](#-3). eg. `/Users/ohjun/Desktop/project/`
+### Current directory `.`
+`.` refers to the current directory.
 
-*Relative path*: a path that starts from the current directory.
+For example, you might open the current directory in the Finder (File Explorer).
+```console
+$ open .     # macOS
+$ wslview .  # Windows/WSL
+```
 
-You can choose the type of path depending on the situation, but relative pathing works in most cases and requires less typing.
-
-Below are some common, useful, special paths:
-
-### Current directory: `.`
-`.` refers to the current directory. Check the [open/wslview](#open--wslview) section for an example.
-
-### Parent directory: `..`
-`..` refers to the parent directory (of the current directory).
+### Parent directory `..`
+`..` refers to the parent directory of the current directory.
 
 ```console
 $ pwd
@@ -247,9 +245,8 @@ $ pwd
 /Users/ohjun/Desktop/project
 ```
 
-### Home directory: `~`
-`~` refers to the home directory.
-[More info](https://en.wikipedia.org/wiki/Home_directory).
+### Home directory `~`
+`~` refers to your home directory.
 
 ```console
 $ cd ~
@@ -259,18 +256,30 @@ $ ls
 Applications Pictures Desktop ...
 ```
 
-### Root directory: `/`
+### Root directory `/`
 `/` refers to the root directory. This is the top-most directory in your file system, and has no parent.
-[More info](https://en.wikipedia.org/wiki/Root_directory).
 
 ```console
-$ cd /
-$ pwd
-/
-$ ls
+$ ls /
 Applications cores sbin ...
 ```
 
+### Absolute Path
+An *absolute path* starts from the root directory `/`.
+
+For example, sometimes it's useful to make sure the *exact* file is correct.
+```console
+$ /usr/local/bin/python3  # One version of Python
+$ /usr/bin/python3        # Another version of Python
+```
+
+### Relative Path
+A *relative path*: starts from the current directory.
+
+For example, running an executable.
+```console
+$ ./main.exe
+```
 
 ## Tips and Tricks
 
