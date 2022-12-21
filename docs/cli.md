@@ -46,7 +46,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli003.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px" />
+    <img src="images/cli003.png" class="invert-colors-in-dark-mode" alt="ls example" width="470px" />
   </td>
   </tr>
 </table>
@@ -65,7 +65,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli004.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px" />
+    <img src="images/cli004.png" class="invert-colors-in-dark-mode" alt="pwd example" width="470px" />
   </td>
   </tr>
 </table>
@@ -84,7 +84,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli012.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
+    <img src="images/cli012.png" class="invert-colors-in-dark-mode" alt="mkdir example" width="470px"/>
   </td>
   </tr>
 </table>
@@ -106,7 +106,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
+    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="touch example" width="470px"/>
   </td>
   </tr>
 </table>
@@ -125,7 +125,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli013.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px" />
+    <img src="images/cli013.png" class="invert-colors-in-dark-mode" alt="rm example" width="470px" />
   </td>
   </tr>
 </table>
@@ -143,7 +143,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli014.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
+    <img src="images/cli014.png" class="invert-colors-in-dark-mode" alt="cd example" width="470px"/>
   </td>
   </tr>
 </table>
@@ -161,14 +161,14 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli009.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
+    <img src="images/cli009.png" class="invert-colors-in-dark-mode" alt="mv example" width="470px"/>
   </td>
   </tr>
 </table>
 
 Note the `/` at the end of `stuff/`. While not necessary, it is convention to end directory paths with `/`.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv gui example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv move example">
   <source src="images/cli_vid001.mov">
 </video>
 
@@ -184,7 +184,7 @@ Note the `/` at the end of `stuff/`. While not necessary, it is convention to en
 
   </td>
   <td>
-    <img src="images/cli015.png" class="invert-colors-in-dark-mode" alt="ls cli example" width="470px"/>
+    <img src="images/cli015.png" class="invert-colors-in-dark-mode" alt="mv rename example" width="470px"/>
   </td>
   </tr>
 </table>
@@ -202,7 +202,7 @@ Note the `/` at the end of `stuff/`. While not necessary, it is convention to en
 
   </td>
   <td>
-    <img src="images/cli016.png" class="invert-colors-in-dark-mode" alt="ls cli example"/>
+    <img src="images/cli016.png" class="invert-colors-in-dark-mode" alt="cp example"/>
   </td>
   </tr>
 </table>
@@ -212,14 +212,14 @@ On macOS, `open` opens a file or directory with the default application ([docs](
 
 On WSL (Windows), `wslview` opens a file or directory with the default application ([docs](https://wslutiliti.es/wslu/man/wslview.html)).
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="mv gui example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="open cli example">
   <source src="images/cli_vid002.mov">
 </video>
 Note the `.` path used. This is a [special path](#special-paths) that refers to the current directory.
 
 GUI Equivalent:
 
-<img src="images/cli017.png" class="invert-colors-in-dark-mode" width="768px" alt="open gui example"/>
+<img src="images/cli017.png" class="invert-colors-in-dark-mode" width="768px" alt="open click example"/>
 
 
 ## Special Paths
@@ -296,14 +296,14 @@ Note that l is a lowercase L, not an uppercase i.
 ### Tab Complete
 Pressing tab autocompletes a file/directory name. This allows you to navigate much faster than typing the entire path.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="tab example">
   <source src="images/cli_vid004.mov">
 </video>
 
 ### Previous Command
 Pressing the up arrow allows you to see your previous commands. This is particularly useful when you are repeating compile-run-compile-run-... while debugging.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
+<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="up arrow example">
   <source src="images/cli_vid005.mov">
 </video>
 
