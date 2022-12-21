@@ -17,9 +17,9 @@ If you already have Xcode installed, skip to the [Create a project](#create-a-pr
 ## Prerequisites
 Xcode runs on macOS only.  There are no other prerequisites for Xcode.
 
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow the macOS CLI setup tutorial below:
 
-| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+[macOS](setup_macos.html)
 
 ## Restart
 To start clean, first quit Xcode.  Back up your files, and then delete your project directory.  Your project directory might be different.
