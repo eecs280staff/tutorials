@@ -15,7 +15,7 @@ If you already have Visual Studio installed, skip to the [Create a project](#cre
 </div>
 
 ## Prerequisites
-There are no prerequisites for Visual Studio.
+Visual Studio runs on Windows only.  There are no other prerequisites for Visual Studio.
 
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
