@@ -239,81 +239,6 @@ GUI Equivalent:
 <img src="images/cli017.png" class="invert-colors-in-dark-mode" width="768px" alt="open click example"/>
 
 
-## Special Paths
-A Path is the location of a file or directory.  There two types of paths: absolute and relative.
-
-### Current directory `.`
-`.` refers to the current directory.
-
-For example, you might open the current directory in the Finder (File Explorer).
-```console
-$ open .     # macOS
-$ wslview .  # Windows/WSL
-```
-
-### Parent directory `..`
-`..` refers to the parent directory of the current directory.
-
-```console
-$ pwd
-/Users/ohjun/Desktop/project/stuff
-$ cd ..
-$ pwd
-/Users/ohjun/Desktop/project
-```
-
-### Home directory `~`
-`~` refers to your home directory.
-
-```console
-$ cd ~
-$ pwd
-/Users/ohjun
-$ ls
-Applications Pictures Desktop ...
-```
-
-### Root directory `/`
-`/` refers to the root directory. This is the top-most directory in your file system, and has no parent.
-
-```console
-$ ls /
-Applications cores sbin ...
-```
-
-### Absolute Path
-An *absolute path* starts from the root directory `/`.
-
-For example, sometimes it's useful to make sure the *exact* file is correct.
-```console
-$ /usr/local/bin/python3  # One version of Python
-$ /usr/bin/python3        # Another version of Python
-```
-
-### Relative Path
-A *relative path*: starts from the current directory.
-
-For example, running an executable.
-```console
-$ ./main.exe
-```
-
-### Glob `*`
-A *glob* is a wildcard path.  The `*` symbol matches any string.
-
-```console
-$ cp -v starter_files/* .
-'starter-files/Makefile' -> './Makefile'
-'starter-files/main_test.in' -> './main_test.in'
-'starter-files/main_test.out.correct' -> './main_test.out.correct'
-'starter-files/main_test_data.tsv' -> './main_test_data.tsv'
-'starter-files/p1_library.cpp' -> './p1_library.cpp'
-'starter-files/p1_library.h' -> './p1_library.h'
-'starter-files/stats.h' -> './stats.h'
-'starter-files/stats_public_test.cpp' -> './stats_public_test.cpp'
-'starter-files/stats_tests.cpp.starter' -> './stats_tests.cpp.starter'
-```
-
 ## Tips and Tricks
 
 ### `clear` <kbd>Control</kbd> + <kbd>l</kbd>
@@ -398,6 +323,82 @@ alias ls='ls --color'
 Close your terminal and reopen it.  Test
 
 FIXME screenshot on WSL.
+
+
+## Special Paths
+A Path is the location of a file or directory.  There two types of paths: absolute and relative.
+
+### Current directory `.`
+`.` refers to the current directory.
+
+For example, you might open the current directory in the Finder (File Explorer).
+```console
+$ open .     # macOS
+$ wslview .  # Windows/WSL
+```
+
+### Parent directory `..`
+`..` refers to the parent directory of the current directory.
+
+```console
+$ pwd
+/Users/ohjun/Desktop/project/stuff
+$ cd ..
+$ pwd
+/Users/ohjun/Desktop/project
+```
+
+### Home directory `~`
+`~` refers to your home directory.
+
+```console
+$ cd ~
+$ pwd
+/Users/ohjun
+$ ls
+Applications Pictures Desktop ...
+```
+
+### Root directory `/`
+`/` refers to the root directory. This is the top-most directory in your file system, and has no parent.
+
+```console
+$ ls /
+Applications cores sbin ...
+```
+
+### Absolute Path
+An *absolute path* starts from the root directory `/`.
+
+For example, sometimes it's useful to make sure the *exact* file is correct.
+```console
+$ /usr/local/bin/python3  # One version of Python
+$ /usr/bin/python3        # Another version of Python
+```
+
+### Relative Path
+A *relative path*: starts from the current directory.
+
+For example, running an executable.
+```console
+$ ./main.exe
+```
+
+### Glob `*`
+A *glob* is a wildcard path.  The `*` symbol matches any string.
+
+```console
+$ cp -v starter_files/* .
+'starter-files/Makefile' -> './Makefile'
+'starter-files/main_test.in' -> './main_test.in'
+'starter-files/main_test.out.correct' -> './main_test.out.correct'
+'starter-files/main_test_data.tsv' -> './main_test_data.tsv'
+'starter-files/p1_library.cpp' -> './p1_library.cpp'
+'starter-files/p1_library.h' -> './p1_library.h'
+'starter-files/stats.h' -> './stats.h'
+'starter-files/stats_public_test.cpp' -> './stats_public_test.cpp'
+'starter-files/stats_tests.cpp.starter' -> './stats_tests.cpp.starter'
+```
 
 ## More commands
 This section contains some more useful commands.
