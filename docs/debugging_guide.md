@@ -20,7 +20,7 @@ We also show several real examples drawn from course projects in EECS 280. In so
 
 If you need to get your debugger set up for the first time and configured to run your code, check out one of our IDE tutorials for instructions.
 
-| [VS Code Tutorial (recommended)](setup_vscode.html)| [Visual Studio Tutorial](setup_visualstudio.html) | [Xcode Tutorial](setup_xcode.html) | [Emacs (advanced)](setup_emacs.html) |
+| [VS Code](setup_vscode.html)| [Visual Studio](setup_visualstudio.html) | [Xcode](setup_xcode.html) | [Emacs](setup_emacs.html) |
 
 ## Inspect Program State
 
