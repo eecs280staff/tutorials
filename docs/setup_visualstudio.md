@@ -116,10 +116,8 @@ You should see your new file under "Source Files".
 ### Add existing files
 If you have starter files, add them to your project directory.  This example is from EECS 280 Project 1.  Your URL or files might be different.
 
-We'll use the WSL (Ubuntu) terminal to download, unpack, and move starter files into the `src` subdirectory.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
-
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the subdirectory containing your source code.
+**Pitfall:** Make sure you're in the directory containing your source code.
 ```console
 $ ls
 main.cpp
@@ -128,6 +126,11 @@ p1-stats.sln
 ```
 </div>
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** [Copy/paste instructions](setup_wsl.html#copy-paste) for WSL.
+</div>
+
+We'll use the WSL (Ubuntu) terminal to download, unpack, and move starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
