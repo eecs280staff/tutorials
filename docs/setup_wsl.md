@@ -66,7 +66,7 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 
 Right click on the window pane header of your Ubuntu WSL terminal. You should see a drop down like the one below:
 
-<img src="/images/wsl040.png" width=720px>
+<img src="/images/wsl040.png" width=480px>
 
 If your dropdown contains the option "Settings" (as seen above) follow the [Windows 11 H2 or newer](#windows-11-h2-or-newer) instructions. If your dropdown contains the option "Properties" follow the [Older than Windows 11 H2](#older-than-windows-11-h2).
 
@@ -82,8 +82,8 @@ Click on the Actions tab on the left side of the settings window.
 <img src="/images/wsl060.png" width=720px>
 
 Confirm that the following bindings exist, and if they don't add them using the "Add new" button:
-- Copy text: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd>
-- Paste text: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
+- Copy text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
+- Paste text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
 
 <img src="/images/wsl070.png" width=720px>
 
@@ -101,8 +101,8 @@ Click on the properties option in the dropdown.
 
 
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
-- Copy: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd>
-- Paste: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
+- Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
+- Paste: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
 
