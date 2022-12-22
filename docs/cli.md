@@ -52,6 +52,26 @@ A *path* is the location of a file or directory.  Sometimes we end a directory p
   </tr>
 </table>
 
+### `tree`
+`tree` recursively prints files and directories.
+
+```console
+$ tree
+.
+├── example.txt
+├── main.cpp
+└── stuff
+    └── hello.txt
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** You may need to install `tree`.
+```console
+$ sudo apt install tree  # WSL, Linux
+$ brew install tree      # macOS
+```
+</div>
+
 ### `pwd`
 `pwd` prints the path of the present working directory.
 
@@ -380,214 +400,87 @@ Close your terminal and reopen it.  Test
 FIXME screenshot on WSL.
 
 ## More commands
-Below are some more advanced commands that are cool to know, but not necessary.
+This section contains some more useful commands.
 
 ### `cat`
-`cat` is short for "con*cat*enate". It takes in a list of filenames, concatenates the contents, and prints it out.
-[More info](https://man7.org/linux/man-pages/man1/cat.1.html).
+`cat` concatenates files and prints them.
 
-Example:
-
-Consider the files `main.cpp` and `text.txt`:
-<table>
-  <tr>
-      <th>main.cpp</th>
-      <th>text.txt</th>
-  </tr>
-  <tr>
-  <td markdown="1">
-
-  ```cpp
-  #include <iostream>
-
-  int main(void) {
-    std::cout << "Hello World\n";
-  }
-
-  ```
-
-  </td>
-  <td markdown="1">
-
-  ```txt
-  random text
-  more random text
-
-  ```
-
-  </td>
-  </tr>
-</table>
-
-Then:
-
+For example, you can dump the contents of a file to the terminal.
 ```console
 $ cat main.cpp
 #include <iostream>
+using namespace std;
 
-int main(void) {
-  std::cout << "Hello World\n";
+int main() {
+  cout << "hello from main!\n";
 }
-$ cat text.txt
-random text
-more random text
-$ cat main.cpp text.txt
-#include <iostream>
-
-int main(void) {
-  std::cout << "Hello World\n";
-}
-random text
-more random text
 ```
 
 ### `grep`
-`grep` is short for "*g*lobally search for a *re*gular expression and *p*rint matching lines". It takes in a regular expression (commonly called "regex") and a path. It finds all lines in the specified path that match the regex pattern.
-[More info](https://man7.org/linux/man-pages/man1/grep.1.html).
+`grep` searches files.  It's short for "*g*lobally search for a *re*gular expression and *p*rint matching lines".
 
-Regular expressions are out of the scope of this tutorial, but you can learn how they work using [this guide](https://regexr.com/). The example below uses the most basic regular expression, a keyword.
-
-Example:
-
-Consider the files `main.cpp` and `text.txt`:
-<table>
-  <tr>
-      <th>main.cpp</th>
-      <th>text.txt</th>
-  </tr>
-  <tr>
-  <td markdown="1">
-
-  ```cpp
-  #include <iostream>
-
-  int main(void) {
-    std::cout << "Hello World\n";
-  }
-
-  ```
-
-  </td>
-  <td markdown="1">
-
-  ```txt
-  random text
-  more random text
-  text text text text
-  hello world
-  this is a pointless text file
-
-  ```
-
-  </td>
-  </tr>
-</table>
-
-Then:
-
+Search for `vector` in `main.cpp`.
 ```console
-$ grep 'random' text.txt
-random text
-more random text
-$ grep -r 'hello' .
-./text.txt:hello world
-$ grep -ri 'hello' .
-./test.txt:hello world
-./main.cpp:  std:cout << "Hello World\n";
+$ grep vector main.cpp
+#include <vector>
+  vector<double> v = extract_column(filename, column_name);
+  vector<vector<double> > summary = summarize(v);
 ```
 
-Note that the `-r` option must be specified when searching for all files in a directory, and the `-i` option performs a case insensitive search.
-
+Search for `vector` in all `.cpp` files.  This example also uses a [glob (`*`)](#glob-).
+```console
+$ grep vector *.cpp
+main.cpp:#include <vector>
+main.cpp:  vector<double> v = extract_column(filename, column_name);
+main.cpp:  vector<vector<double> > summary = summarize(v);
+stats.cpp:#include <vector>
+...
+stats_tests.cpp:#include <vector>
+...
+```
 
 ### Pipe `|`
-`|` is an operator, not a command. It can be placed between commands to feed the output of the "left" command as input to the "right" command.
-[More info](https://www.redhat.com/sysadmin/pipes-command-line-linux).
+`|` is an operator that *pipes* the output of the left command as input to the right command.
 
-Example:
-
-Consider a directory containing some files `Makefile`, `main.cpp`, and `text.txt`.
-
-Then:
-
+Here's an example that searches for `.cpp` files.
 ```console
+$ ls | grep cpp
+main.cpp
+stats.cpp
+stats_tests.cpp
+```
+
+### `wget`
+`wget` downloads a file from the internet.
+
+For example, download the starter files for EECS 280 project 1:
+```console
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ ls
-Makefile main.cpp text.txt
-$ ls | grep '.txt'
-text.txt
+starter-files.tar.gz
 ```
 
-### `curl`
-`curl` is short for "*c*lient *URL*". It takes in a URL with a specified protocol, sends a request to the URL, and prints out the received data.
-[More info](https://man7.org/linux/man-pages/man1/curl.1.html).
+### `tar`
+`tar` unpacks an archive.
 
-Examples:
-
+For example, unpack the starter files for EECS 280 project 1:
 ```console
-$ curl https://www.example.com/
-<!doctype html>
-<html>
-<head>
-    <title>Example Domain</title>
-
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    body {
-        background-color: #f0f0f2;
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
-    }
-    div {
-        width: 600px;
-        margin: 5em auto;
-        padding: 2em;
-        background-color: #fdfdff;
-        border-radius: 0.5em;
-        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
-    }
-    a:link, a:visited {
-        color: #38488f;
-        text-decoration: none;
-    }
-    @media (max-width: 700px) {
-        div {
-            margin: 0 auto;
-            width: auto;
-        }
-    }
-    </style>    
-</head>
-
-<body>
-<div>
-    <h1>Example Domain</h1>
-    <p>This domain is for use in illustrative examples in documents. You may use this
-    domain in literature without prior coordination or asking for permission.</p>
-    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
-</div>
-</body>
-</html>
-```
-
-```console
-$ curl dict://dict.org/m:hello
-220 dict.dict.org dictd 1.12.1/rf on Linux 4.19.0-10-amd64 <auth.mime> <155236214.10349.1670110969@dict.dict.org>
-250 ok
-152 8 matches found
-gcide "Hell"
-gcide "Hello"
-gcide "Cello"
-gcide "Jell-O"
-gcide "Hollo"
-gcide "Hullo"
-gcide "Helio-"
-gcide "Helly"
+$ tar -xvzf starter-files.tar.gz
+starter-files/
+...
+$ tree
 .
-250 ok [d/m/c = 0/8/12569; 0.000r 0.000u 0.000s]
-221 bye [d/m/c = 0/0/0; 0.000r 0.000u 0.000s]
+├── starter-files
+│   ├── Makefile
+│   ├── main_test.in
+│   ├── main_test.out.correct
+│   ├── main_test_data.tsv
+│   ├── p1_library.cpp
+│   ├── p1_library.h
+│   ├── stats.h
+│   ├── stats_public_test.cpp
+│   └── stats_tests.cpp.starter
+└── starter-files.tar.gz
 ```
 
 
