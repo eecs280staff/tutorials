@@ -18,15 +18,16 @@ The *CLI* (Command Line Interface) is a text-based way to interact with a comput
 
 ## Keywords
 
-A *Path* is the location of a file or directory.  For example:
-```
-/Users/ohjun/Desktop/project
-```
-{: data-variant="no-line-numbers" }
-
 A *file* stores data like C++ source code (`main.cpp`) or plain text (`example.txt`).
 
 A *directory* contains files and other directories.  It's also called a folder.
+
+A *path* is the location of a file or directory.  Sometimes we end a directory path with `/`.  For example:
+```
+/Users/ohjun/Desktop/project/main.cpp
+/Users/ohjun/Desktop/project/stuff/
+```
+{: data-variant="no-line-numbers" }
 
 <img src="images/cli002.png" class="invert-colors-in-dark-mode" width="600px" alt="keywords example"/>
 
@@ -149,7 +150,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 </table>
 
 ### `mv`
-`mv` moves a file or directory into a different directory.  Sometimes we end a directory path with `/`, this is optional.
+`mv` moves a file or directory into a different directory.
 
 <table>
   <tr>
@@ -206,9 +207,11 @@ On macOS, `open` opens a file or directory with the default application ([docs](
 
 On WSL (Windows), `wslview` opens a file or directory with the default application ([docs](https://wslutiliti.es/wslu/man/wslview.html)).
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="open cli example">
-  <source src="images/cli_vid002.mov">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+  <source src="images/cli_vid002.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
+
 Note the `.` path used. This is a [special path](#special-paths) that refers to the current directory.
 
 GUI Equivalent:
@@ -293,25 +296,34 @@ $ cp -v starter_files/* .
 
 ## Tips and Tricks
 
-### `clear`
-`clear` the terminal.  Pro-tip: <kbd>Ctrl</kbd> + <kbd>l</kbd>.  That's a lowercase L.
+### `clear` <kbd>Control</kbd> + <kbd>l</kbd>
+`clear` the terminal.  Pro-tip: <kbd>Control</kbd> + <kbd>l</kbd>.  That's a lowercase L.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
-  <source src="images/cli_vid003.mov">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+  <source src="images/cli_vid003.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
-### Tab Complete
-Pressing tab autocompletes a file/directory name. This allows you to navigate much faster than typing the entire path.
+### Tab complete <kbd>TAB</kbd>
+<kbd>TAB</kbd> autocompletes a file or directory name. It's faster than typing the whole thing.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="tab example">
-  <source src="images/cli_vid004.mov">
+Type the first part of a filename, then press <kbd>TAB</kbd>.  Press again to show multiple completion options.
+```console
+$ cd ~/src/e  # Press TAB twice to see options
+eecs280/     eecs281/     eecs485/
+```
+
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+  <source src="images/cli_vid004.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
-### Previous Command
-Pressing the up arrow allows you to see your previous commands. This is particularly useful when you are repeating compile-run-compile-run-... while debugging.
+### Previous Command <kbd>⬆</kbd>
+<kbd>⬆</kbd> shows previous commands. For example, you might repeat a compile and run step while debugging.
 
-<video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="up arrow example">
-  <source src="images/cli_vid005.mov">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+  <source src="images/cli_vid005.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 
 ### Colors and Customization
