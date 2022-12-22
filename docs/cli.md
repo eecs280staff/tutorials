@@ -110,28 +110,6 @@ $ brew install tree      # macOS
   </tr>
 </table>
 
-### `touch`
-`touch` creates an empty file.
-
-<table>
-  <tr>
-  <td markdown="1">
-
-  ```console
-  $ ls
-  example.txt main.cpp stuff stuff2
-  $ touch euchre.cpp
-  $ ls
-  example.txt main.cpp stuff stuff2 euchre.cpp 
-  ```
-
-  </td>
-  <td>
-    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="touch example" width="470px"/>
-  </td>
-  </tr>
-</table>
-
 ### `rm`
 `rm` removes (deletes) a file. `rm -rf` removes a directory.
 
@@ -223,20 +201,14 @@ $ brew install tree      # macOS
 </table>
 
 ### `open` / `wslview`
-On macOS, `open` opens a file or directory with the default application ([docs](https://ss64.com/osx/open.html)).
+On macOS, `open` opens a file or directory with the default application, like a double click ([docs](https://ss64.com/osx/open.html)).
 
-On WSL (Windows), `wslview` opens a file or directory with the default application ([docs](https://wslutiliti.es/wslu/man/wslview.html)).
+On WSL (Windows), `wslview` opens a file or directory with the default application, like a double click ([docs](https://wslutiliti.es/wslu/man/wslview.html)).
 
 <video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
   <source src="images/cli_vid002.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-
-Note the `.` path used. This is a [special path](#special-paths) that refers to the current directory.
-
-GUI Equivalent:
-
-<img src="images/cli017.png" class="invert-colors-in-dark-mode" width="768px" alt="open click example"/>
 
 
 ## Tips and Tricks
