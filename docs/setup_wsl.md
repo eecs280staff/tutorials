@@ -18,7 +18,7 @@ We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will al
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
 ## Install Windows Subsystem for Linux (WSL)
-Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".
+Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".  (Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).)
 
 <img src="images/wsl010.png" width="240px" />
 
@@ -43,9 +43,7 @@ Install WSL.
 C:\WINDOWS\system32> wsl --install
 ```
 
-Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).
-
-You will need to restart your laptop to complete the installation process.
+Restart your computer.
 
 Start an Ubuntu Bash shell (not a Windows PowerShell).
 
