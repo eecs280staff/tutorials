@@ -435,7 +435,7 @@ Hello Drew!
 ```
 {: data-highlight="1" }
 
-#### Windows `launch.json` changes
+#### Windows/WSL or Linux `launch.json` changes
 
 To configure input redirection, edit `launch.json`.
 ```json
