@@ -210,6 +210,12 @@ On WSL (Windows), `wslview` opens a file or directory with the default applicati
   Your browser does not support the video tag.
 </video>
 
+<div class="primer-spec-callout warning" markdown="1">
+**WSL Pitfall:** You may need to install `wslu`, which includes `wslview`.
+```console
+$ sudo apt install wslu
+```
+</div>
 
 ## Tips and Tricks
 
