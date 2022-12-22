@@ -439,15 +439,12 @@ stats_tests.cpp:#include <vector>
 ...
 ```
 
-### Pipe `|`
-`|` is an operator that *pipes* the output of the left command as input to the right command.
+### `diff`
+`diff` compares two files.  It's useful for comparing your output to correct output.
 
-Here's an example that searches for `.cpp` files.
+Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).  No output means the files are identical.
 ```console
-$ ls | grep cpp
-main.cpp
-stats.cpp
-stats_tests.cpp
+$ diff main_test.out main_test.out.correct
 ```
 
 ### `wget`
@@ -483,98 +480,46 @@ $ tree
 └── starter-files.tar.gz
 ```
 
+## Redirection
+*Redirection* sends input or output to a file or another command.
+
+### Pipe `|`
+The *pipe* (`|`) sends the output of the left command to the input of the right command.
+
+Here's an example that searches for `.cpp` files.  The output of `ls` is piped to the input of `grep`.
+```console
+$ ls | grep cpp
+main.cpp
+stats.cpp
+stats_tests.cpp
+```
 
 ### Input redirection `<`
-`<` is an operator, not a command. It can be placed between a command and a filename to feed the contents of the specified file as input to the command.
-[More info](https://www.redhat.com/sysadmin/linux-shell-redirection-pipelining).
+Input redirection sends the contents of a file to the input of a command.  It's useful for automating input.  Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).
 
-Below is a simple program that takes input from `std::cin` and prints it out.
-
-```cpp
-// main.cpp
-
-#include <iostream>
-#include <string>
-
-int main(void) {
-    std::string input;
-    while (std::cin >> input) {
-        if (input == "stop") {
-            break;
-        }
-        std::cout << input << '\n'; 
-    }
-}
-
+Put the input that you would type in a file.
 ```
+main_test_data.tsv
+B
+```
+{: data-title="main_test.in" data-variant="no-line-numbers" }
 
-We can compile and run the program, then manually feed std::cin.
-
+Now you can run your program and **redirect** the input from a file instead of typing it.
 ```console
-$ g++ -g -Wall -fno-builtin -std=c++17 main.cpp -o main.exe
-$ ./main.exe
-hello    // user input
-hello    // program output
-world    // user input
-world    // program output
-stop     // user input
+$ ./main.exe < main_test.in
 ```
-
-Or we can automate the input by creating a file with the words "hello", "world", "stop", then redirecting the file as input to the program.
-
-input.txt
-```
-hello
-world
-stop
-```
-Input redirection:
-```console
-$ g++ -g -Wall -fno-builtin -std=c++17 main.cpp -o main.exe
-$ ./main.exe < input.txt
-hello    // program output
-world    // program output
-```
-
 
 ### Output redirection `>`
-`>` is an operator, not a command. It can be placed between a command and a filename to redirect the output of the command into the specified file. If the specified file does not exist, it will be created.
-[More info](https://www.redhat.com/sysadmin/linux-shell-redirection-pipelining).
+Output redirection sends the output of a command to a file.  Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#example)).
 
-Consider a simple Hello World program that just prints "Hello World".
-```cpp
-// main.cpp
-
-#include <iostream>
-
-int main(void) {
-    std::cout << "Hello World\n";
-}
-
-```
-
-We would normally see the output on the terminal.
-
+Run `main.exe`, redirecting input and output.  Then, compare the output.
 ```console
-$ g++ -g -Wall -fno-builtin -std=c++17 main.cpp -o main.exe
-$ ./main.exe
-Hello World
+$ ./main.exe < main_test.in > main_test.out
+$ diff main_test.out main_test.out.correct
 ```
 
-Or we can redirect the output to a file.
-
-```console
-$ g++ -g -Wall -fno-builtin -std=c++17 main.cpp -o main.exe
-$ ./main.exe > main.out
-$ cat main.out
-Hello World
-```
-
-
-### Scripting
-As you have seen, the shell is a powerful tool that can perform many useful tasks. To get even more out of the shell, we can write a program composed of shell commands. This is called a script.
-
-You can write scripts to automate many mundane tasks such as running test cases. Learn more at the [EECS 485 Shell Scripting Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_scripting.html).
+### Shell scripting
+A *shell script* is a file that contains commands.  Shell scripts are useful for automating things like running test cases. Learn more at the [EECS 485 Shell Scripting Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_scripting.html).
 
 
 ## Acknowledgments
