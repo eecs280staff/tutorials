@@ -293,7 +293,7 @@ Running test: test_image_basic
 Image_public_test.exe: Matrix.cpp:72: int* Matrix_at(Matrix*, int, int): Assertion `0 <= row && row < Matrix_height(mat)' failed.
 Aborted
 ```
-{: data-highlight="16,39,49" data-variant="legacy" }
+{: data-highlight="16,39,49" data-variant="no-line-numbers" }
 
 That's nice, but just a line number (i.e. `Matrix.cpp:72`) doesn't really give us much to go on:
 
