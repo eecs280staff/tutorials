@@ -369,13 +369,7 @@ A *glob* is a wildcard path.  The `*` symbol matches any string.
 $ cp -v starter_files/* .
 'starter-files/Makefile' -> './Makefile'
 'starter-files/main_test.in' -> './main_test.in'
-'starter-files/main_test.out.correct' -> './main_test.out.correct'
-'starter-files/main_test_data.tsv' -> './main_test_data.tsv'
-'starter-files/p1_library.cpp' -> './p1_library.cpp'
-'starter-files/p1_library.h' -> './p1_library.h'
-'starter-files/stats.h' -> './stats.h'
-'starter-files/stats_public_test.cpp' -> './stats_public_test.cpp'
-'starter-files/stats_tests.cpp.starter' -> './stats_tests.cpp.starter'
+...
 ```
 
 ## More commands
