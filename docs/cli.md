@@ -491,7 +491,7 @@ $ ./main.exe < main_test.in > main_test.out
 $ diff main_test.out main_test.out.correct
 ```
 
-### Shell scripting
+## Shell scripting
 A *shell script* is a file that contains commands.  Shell scripts are useful for automating things like running test cases. Learn more at the [EECS 485 Shell Scripting Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_scripting.html).
 
 
