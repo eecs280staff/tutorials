@@ -319,7 +319,7 @@ eecs280/     eecs281/     eecs485/
 </video>
 
 ### Previous Command <kbd>⬆</kbd>
-<kbd>⬆</kbd> shows previous commands. For example, you might repeat a compile and run step while debugging.
+<kbd>⬆</kbd> shows previous commands. For example, you might repeat a compile command while debugging.
 
 <video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
   <source src="images/cli_vid005.mp4" type="video/mp4">
@@ -327,54 +327,57 @@ eecs280/     eecs281/     eecs485/
 </video>
 
 ### Colors and Customization
-The default terminal can look a little boring without colors or path descriptions. Fortunately, there is a way to style the terminal exactly the way you want it. Below is one example.
+Colorize the output of `ls`.
 
 <img src="images/cli021.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
 
-First, determine which shell you are using by running the following command.
+#### Windows/WSL and Linux
+Verify you're using the Bash shell, typical on WSL Ubuntu Linux.
 ```console
-$ echo $SHELL
+$ echo $0
+-bash
 ```
-On WSL, you will most likely see `bash`. On MacOS, you will most likely see `zsh`. These are different types of shells. A shell is a program that takes keyboard commands and gives them to the operating system.
+{: data-variant="no-line-numbers" }
 
-Next, create a file to store your environment settings at the [home directory](#-2).
-
-On `bash`:
-```console
-$ touch ~/.bash_profile
-```
-
-On `zsh`:
-```console
-$ touch ~/.zshrc
-```
-
-Now, open the file.
-
-On `bash`:
+Edit your shell customization file.
 ```console
 $ open ~/.bash_profile
 ```
+{: data-variant="no-line-numbers" }
 
-On `zsh`:
+Add this line.  Whenever you type `ls`, you'll actually get `ls -G`, which adds color.
+```bash
+alias ls='ls -G'
+```
+{: data-variant="no-line-numbers" data-title="~/.bash_profile" }
+
+Close your terminal and reopen it.  Test
+
+FIXME screenshot on macOS.
+
+#### macOS
+Verify you're using the Z shell, typical on macOS.
 ```console
-$ open ~/.zshrc
+$ echo $0
+zsh
 ```
+{: data-variant="no-line-numbers" }
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-**Note:** `open` is the command on MacOS. Use `wslview` if you are using WSL on Windows.
-</div>
-
-In this file, you can specify the exact interface you want by setting the right environment variables. But this can get very tedious and confusing. If you would like to learn how, start with [this guide](https://medium.com/@adamtowers/how-to-customize-your-terminal-and-bash-profile-from-scratch-9ab079256380) for `bash` or [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12) for `zsh`.
-
-If you just want a pretty terminal without going into all the details, you can find premade configurations online that you can simply copy and paste into `.bash_profile` or `.zshrc`. Below is the contents of the `.bash_profile` of the styled terminal in the screenshot above.
-
+Edit your shell customization file
+```console
+$ wslview ~/.zshrc
 ```
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export CLICOLOR=1
-PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
-```
+{: data-variant="no-line-numbers" }
 
+Add this line.  Whenever you type `ls`, you'll actually get `ls --color`.
+```bash
+alias ls='ls --color'
+```
+{: data-variant="no-line-numbers" data-title="~/.zshrc" }
+
+Close your terminal and reopen it.  Test
+
+FIXME screenshot on WSL.
 
 ## More commands
 Below are some more advanced commands that are cool to know, but not necessary.
