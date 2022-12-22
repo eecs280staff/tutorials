@@ -63,50 +63,49 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ## Pro-tips
 
 ### Copy paste
+Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
 
-Right click on the window pane header of your Ubuntu WSL terminal. You should see a drop down like the one below:
+Paste: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
 
-<img src="/images/wsl040.png" width=480px>
+If Copy/Paste doesn't work, read on to enable it.
 
-If your dropdown contains the option "Settings" (as seen above) follow the [Windows 11 H2 or newer](#windows-11-h2-or-newer) instructions. If your dropdown contains the option "Properties" follow the [Older than Windows 11 H2](#older-than-windows-11-h2).
+#### Enable copy paste
+{: .primer-spec-toc-ignore }
 
-#### Windows 11 H2 or newer:
-The default settings should be set up so that you can easily copy and paste.
+These instructions show how to enable WSL Copy/Paste on Windows 11 H2 or newer.
 
-Click on the Settings option in the drop down menu.
+Right click on the window pane header of your Ubuntu WSL terminal. Click on the Settings option in the drop down menu.
 
 <img src="/images/wsl050.png" width=480px>
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If your dropdown contains the option "Properties" follow the instructions for [Older versions of windows](#enable-copy-paste-on-older-windows).
+<img src="/images/wsl040.png" width=480px>
+
+</div>
+
 Click on the Actions tab on the left side of the settings window.
 
-<img src="/images/wsl060.png" width=720px>
+<img src="/images/wsl060.png" width=512px>
 
-Confirm that the following bindings exist, and if they don't add them using the "Add new" button:
+Confirm that the "Copy text" and "Paste text" bindings exist.  You may need to scroll down.  Add them if needed using the "Add new" button.
 - Copy text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
 - Paste text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
 
-<img src="/images/wsl070.png" width=720px>
+<img src="/images/wsl070.png" width=512px>
 
+#### Enable copy paste on older Windows
+{: .primer-spec-toc-ignore }
 
-<div class="primer-spec-callout info icon-info" markdown="1">
-Note: You may need to scroll down to see the Paste text bindings.
-</div>
-
-
-#### Older than Windows 11 H2:
+These instructions show how to enable WSL Copy/Paste on version of Windows older than 11 H2.
 
 Click on the properties option in the dropdown.
 
 <img src="https://defragged.org/wp-content/uploads/2020/10/Defragged-LinuxSubsytem-Properties.png" width=480px>
 
-
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
-- Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
-- Paste: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
-
-(Source: [Microsoft blog](https://devblogs.microsoft.com/commandline/copy-and-paste-arrives-for-linuxwsl-consoles/) and [Defragged](https://defragged.org/2020/10/29/how-to-copy-paste-in-windows-subsystem-for-linux-wsl/))
 
 ### Accessing Windows files
 Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`.
