@@ -8,7 +8,7 @@ Assertions Guide
 ==========================
 {: .primer-spec-toc-ignore }
 
-Assertions are a preemptive debugging tool. Add them to your code to detect bugs before they cause difficult-to-debug problems later in your code. (Note that this is distinct from using assertions for unit testing.)
+Assertions are a preemptive debugging tool. Add them to your code to detect bugs before they cause difficult-to-debug problems later in your code.
 
 ## Using Assertions
 
@@ -76,8 +76,9 @@ Player * Player_factory(const std::string &name,
 
 The `assert(false)` here is also helpful to suppress a warning the
 compiler might otherwise give because it's worried our code could reach
-the end of the function without returning anything. (But, with the assertion,
-the end of the function can literally never be reached.)
+the end of the function without returning anything (g++ phrases this as *"warning: control reaches end of non-void function"*). But, with the assertion,
+the end of the function can literally never be reached and the compiler
+doesn't give that warning.
 
 Or, you might write code to ensure some property, like forcing a
 user to enter a non-negative number. You could add an assertion
@@ -312,6 +313,10 @@ It looks like the problem is that the `column` parameter is too large (given wid
 Now we can actually see the call to `Matrix_at()` that broke its REQUIRES clause. In this implementation of `Matrix_fill()`, the `c` variable is allowed to reach value `5`, which is one too large. We need to adjust the conditions on the loops to fix this.
 
 Because we had assertions in `Matrix_at()`, it warned us right away that `Matrix_fill()` was up to no good!
+
+## Assertions for Testing
+
+In this guide, we discuss assertions as a preemptive debugging tool. Assertions are also frequently used for unit testing, often in combination with a unit-testing framework such as the one we provide in EECS 280 that may provide additional constructs like `ASSERT_TRUE` or `ASSERT_EQUAL()`. We don't address that context in this guide, and we don't recommend mixing those special testing assertions into your code for debugging purposes.
 
 ## Acknowledgments
 Original document written by James Juett jjuett@umich.edu.
