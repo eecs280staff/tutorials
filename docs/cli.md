@@ -149,7 +149,7 @@ A *directory* contains files and other directories.  It's also called a folder.
 </table>
 
 ### `mv`
-`mv` moves a file or directory.
+`mv` moves a file or directory into a different directory.  Sometimes we end a directory path with `/`, this is optional.
 
 <table>
   <tr>
@@ -161,16 +161,10 @@ A *directory* contains files and other directories.  It's also called a folder.
 
   </td>
   <td>
-    <img src="images/cli009.png" class="invert-colors-in-dark-mode" alt="mv example" width="470px"/>
+    <img src="images/cli005.png" class="invert-colors-in-dark-mode" alt="mv example" width="470px"/>
   </td>
   </tr>
 </table>
-
-Note the `/` at the end of `stuff/`. While not necessary, it is convention to end directory paths with `/`.
-
-GUI Equivalent:
-
-<img src="images/cli005.png" class="invert-colors-in-dark-mode" width="768px" alt="mv move example"/>
 
 `mv` is also used to rename a file or directory.
 
