@@ -27,3 +27,4 @@ List of tutorials:
   - [setup_xcode.html](setup_xcode.html)
   - [style_guide.html](style_guide.html)
   - [assertions_guide.html](assertions_guide.html)
+  - [debugging_guide.html](debugging_guide.html)
