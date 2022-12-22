@@ -313,3 +313,7 @@ Now we can actually see the call to `Matrix_at()` that broke its REQUIRES clause
 
 Because we had assertions in `Matrix_at()`, it warned us right away that `Matrix_fill()` was up to no good!
 
+## Acknowledgments
+Original document written by James Juett jjuett@umich.edu.
+
+This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You're free to copy and share this document, but not to sell it. You may not share source code provided with this document.
