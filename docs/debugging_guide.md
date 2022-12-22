@@ -14,9 +14,13 @@ There are two fundamental components to debugging:
 
 This guide focuses on effective strategies for point 2 above, in particular through the use of a **debugger**, which allows you to pause your program's execution at key points and inspect the state of objects in memory.
 
-We also show several real examples drawn from course projects in EECS 280. In some of the cases, we've blurred out parts of screenshots where we ran the debugger on our instructor solution.
+We also show several real examples drawn from course projects in EECS 280. In some of the cases, we've blurred out parts of screenshots where we ran the debugger on our instructor solution. We'll also note that the screenshots are of the VS Code visual debugger, but debuggers in other IDEs are quite similar.
 
-TODO: link back to relevant parts of IDE or setup tutorials for debuggers
+## Setup
+
+If you need to get your debugger set up for the first time and configured to run your code, check out one of our IDE tutorials for instructions.
+
+| [VS Code Tutorial (recommended)](setup_vscode.html)| [Visual Studio Tutorial](setup_visualstudio.html) | [Xcode Tutorial](setup_xcode.html) | [Emacs (advanced)](setup_emacs.html) |
 
 ## Inspect Program State
 
@@ -30,7 +34,7 @@ Use the **variables panel** to inspect the values of variables while your debugg
 
 Let's say I'm working on the Euchre project - there's a lot of information to keep track of during the card game. I'd like to check that everything seems in order after the cards are dealt and the players have finished making.
 
-When the debugger pauses at my breakpoint, we can see the value of local variables:
+When the debugger pauses at my [breakpoint](#breakpoints), we can see the value of local variables:
 
 <img src="images/debug_feature_variables_0.png" width="700px" />
 
