@@ -402,6 +402,47 @@ FIXME screenshot on WSL.
 ## More commands
 This section contains some more useful commands.
 
+### `wget`
+`wget` downloads a file from the internet.
+
+For example, download the starter files for EECS 280 project 1:
+```console
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ ls
+starter-files.tar.gz
+```
+
+### `tar`
+`tar` unpacks an archive.
+
+For example, unpack the starter files for EECS 280 project 1:
+```console
+$ tar -xvzf starter-files.tar.gz
+starter-files/
+...
+$ tree
+.
+├── starter-files
+│   ├── Makefile
+│   ├── main_test.in
+│   ├── main_test.out.correct
+│   ├── main_test_data.tsv
+│   ├── p1_library.cpp
+│   ├── p1_library.h
+│   ├── stats.h
+│   ├── stats_public_test.cpp
+│   └── stats_tests.cpp.starter
+└── starter-files.tar.gz
+```
+
+### `diff`
+`diff` compares two files.  It's useful for comparing your output to correct output.
+
+Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).  No output means the files are identical.
+```console
+$ diff main_test.out main_test.out.correct
+```
+
 ### `cat`
 `cat` concatenates files and prints them.
 
@@ -437,47 +478,6 @@ stats.cpp:#include <vector>
 ...
 stats_tests.cpp:#include <vector>
 ...
-```
-
-### `diff`
-`diff` compares two files.  It's useful for comparing your output to correct output.
-
-Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).  No output means the files are identical.
-```console
-$ diff main_test.out main_test.out.correct
-```
-
-### `wget`
-`wget` downloads a file from the internet.
-
-For example, download the starter files for EECS 280 project 1:
-```console
-$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
-$ ls
-starter-files.tar.gz
-```
-
-### `tar`
-`tar` unpacks an archive.
-
-For example, unpack the starter files for EECS 280 project 1:
-```console
-$ tar -xvzf starter-files.tar.gz
-starter-files/
-...
-$ tree
-.
-├── starter-files
-│   ├── Makefile
-│   ├── main_test.in
-│   ├── main_test.out.correct
-│   ├── main_test_data.tsv
-│   ├── p1_library.cpp
-│   ├── p1_library.h
-│   ├── stats.h
-│   ├── stats_public_test.cpp
-│   └── stats_tests.cpp.starter
-└── starter-files.tar.gz
 ```
 
 ## Redirection
