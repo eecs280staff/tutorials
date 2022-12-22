@@ -281,17 +281,30 @@ For example, running an executable.
 $ ./main.exe
 ```
 
+### Glob `*`
+A *glob* is a wildcard path.  The `*` symbol matches any string.
+
+```console
+$ cp -v starter_files/* .
+'starter-files/Makefile' -> './Makefile'
+'starter-files/main_test.in' -> './main_test.in'
+'starter-files/main_test.out.correct' -> './main_test.out.correct'
+'starter-files/main_test_data.tsv' -> './main_test_data.tsv'
+'starter-files/p1_library.cpp' -> './p1_library.cpp'
+'starter-files/p1_library.h' -> './p1_library.h'
+'starter-files/stats.h' -> './stats.h'
+'starter-files/stats_public_test.cpp' -> './stats_public_test.cpp'
+'starter-files/stats_tests.cpp.starter' -> './stats_tests.cpp.starter'
+```
+
 ## Tips and Tricks
 
-### Clear
-`clear` is a command that clears the shell. A faster way of doing this is to press `Ctrl + l`.
-
-Note that l is a lowercase L, not an uppercase i.
+### `clear`
+`clear` the terminal.  Pro-tip: <kbd>Ctrl</kbd> + <kbd>l</kbd>.  That's a lowercase L.
 
 <video controls="controls" class="invert-colors-in-dark-mode" width="768px" name="clear example">
   <source src="images/cli_vid003.mov">
 </video>
-
 
 ### Tab Complete
 Pressing tab autocompletes a file/directory name. This allows you to navigate much faster than typing the entire path.
