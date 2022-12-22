@@ -276,7 +276,7 @@ alias ls='ls -G'
 
 Close your terminal and reopen it.  Test
 
-FIXME screenshot on macOS.
+FIXME screenshot on WSL.
 
 #### macOS
 Verify you're using the Z shell, typical on macOS.
@@ -300,7 +300,7 @@ alias ls='ls --color'
 
 Close your terminal and reopen it.  Test
 
-FIXME screenshot on WSL.
+FIXME screenshot on macOS.
 
 
 ## Special Paths
