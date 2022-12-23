@@ -18,7 +18,7 @@ We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will al
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
 ## Install Windows Subsystem for Linux (WSL)
-Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".
+Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".  (Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).)
 
 <img src="images/wsl010.png" width="240px" />
 
@@ -43,7 +43,7 @@ Install WSL.
 C:\WINDOWS\system32> wsl --install
 ```
 
-Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).
+Restart your computer.
 
 Start an Ubuntu Bash shell (not a Windows PowerShell).
 
@@ -63,9 +63,47 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ## Pro-tips
 
 ### Copy paste
-Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page ([Source: Microsoft blog](https://devblogs.microsoft.com/commandline/copy-and-paste-arrives-for-linuxwsl-consoles/)).
-- Copy: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd>
-- Paste: <kbd>Control</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd>
+Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
+
+Paste: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
+
+If Copy/Paste doesn't work, read on to enable it.
+
+#### Enable copy paste
+{: .primer-spec-toc-ignore }
+
+These instructions show how to enable WSL Copy/Paste on Windows 11 H2 or newer.
+
+Right click on the window pane header of your Ubuntu WSL terminal. Click on the Settings option in the drop down menu.
+
+<img src="/images/wsl050.png" width=480px>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If your dropdown contains the option "Properties" follow the instructions for [Older versions of windows](#enable-copy-paste-on-older-windows).
+<img src="/images/wsl040.png" width=480px>
+
+</div>
+
+Click on the Actions tab on the left side of the settings window.
+
+<img src="/images/wsl060.png" width=512px>
+
+Confirm that the "Copy text" and "Paste text" bindings exist.  You may need to scroll down.  Add them if needed using the "Add new" button.
+- Copy text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
+- Paste text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
+
+<img src="/images/wsl070.png" width=512px>
+
+#### Enable copy paste on older Windows
+{: .primer-spec-toc-ignore }
+
+These instructions show how to enable WSL Copy/Paste on version of Windows older than 11 H2.
+
+Click on the properties option in the dropdown.
+
+<img src="https://defragged.org/wp-content/uploads/2020/10/Defragged-LinuxSubsytem-Properties.png" width=480px>
+
+Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
 
