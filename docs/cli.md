@@ -249,10 +249,10 @@ eecs280/     eecs281/     eecs485/
   Your browser does not support the video tag.
 </video>
 
-### Colors and Customization
+### Colorize `ls` output
 Colorize the output of `ls` so it's easy to tell the difference between files and directories.
 
-<img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
+<img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="colorized ls example"/>
 
 #### Windows/WSL and Linux
 Verify you're using the Bash shell, typical on WSL Ubuntu Linux.
@@ -264,9 +264,16 @@ $ echo $0
 
 Edit your shell customization file.
 ```console
-$ open ~/.bash_profile
+$ wslview ~/.bash_profile
 ```
 {: data-variant="no-line-numbers" }
+
+<div class="primer-spec-callout warning" markdown="1">
+**WSL Pitfall:** You may need to install `wslu`, which includes `wslview`.
+```console
+$ sudo apt install wslu
+```
+</div>
 
 Add this line.  Whenever you type `ls`, you'll actually get `ls -G`, which adds color.
 ```bash
@@ -276,7 +283,7 @@ alias ls='ls -G'
 
 Close your terminal and reopen it.  You should see colorized `ls` output.
 
-<img src="images/cli027.png" class="invert-colors-in-dark-mode" width="512px" alt="styled WSL example"/>
+<img src="images/cli027.png" class="invert-colors-in-dark-mode" width="512px" alt="colorized ls WSL example"/>
 
 #### macOS
 Verify you're using the Z shell, typical on macOS.
@@ -288,7 +295,7 @@ zsh
 
 Edit your shell customization file
 ```console
-$ wslview ~/.zshrc
+$ open ~/.zshrc
 ```
 {: data-variant="no-line-numbers" }
 
@@ -300,8 +307,39 @@ alias ls='ls --color'
 
 Close your terminal and reopen it.  You should see colorized `ls` output.
 
-<img src="images/cli028.png" class="invert-colors-in-dark-mode" width="512px" alt="styled macOS example"/>
+<img src="images/cli028.png" class="invert-colors-in-dark-mode" width="512px" alt="colorized ls macOS example"/>
 
+
+### Customize prompt
+Customize the terminal prompt to be more helpful and look prettier. Below is one example.
+
+First, complete the [Colorize `ls` output](#colorize-ls-output) section. At this point, you should know whether you are using Bash or Z Shell, and you should have a working `.bash_profile` or `.zshrc` file.
+
+In this file, you can specify the exact interface you want by setting the right environment variables. But this can get very tedious and confusing. If you would like to learn how, start with [this guide](https://medium.com/@adamtowers/how-to-customize-your-terminal-and-bash-profile-from-scratch-9ab079256380) for Bash or [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12) for Z Shell.
+
+If you just want a pretty terminal without going into all the details, you can find premade configurations online that you can simply copy and paste into `.bash_profile` or `.zshrc`. Make sure to exit and open a new terminal window to see the changes.
+
+Below are sample files that you can copy into `.bash_profile` or `.zshrc`.
+
+```bash
+PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
+alias ls='ls -G'
+```
+{: data-variant="no-line-numbers" data-title="~/.bash_profile" }
+
+<img src="images/cli029.png" class="invert-colors-in-dark-mode" width="768px" alt="customized bash example"/>
+
+```zsh
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+setopt PROMPT_SUBST
+PROMPT='%F{green}[%n] %F{blue}%~%f %F{red}$%f '
+alias ls='ls --color'
+```
+{: data-variant="no-line-numbers" data-title="~/.zshrc" }
+
+<img src="images/cli030.png" class="invert-colors-in-dark-mode" width="768px" alt="customized zsh example"/>
 
 ## Special Paths
 A Path is the location of a file or directory.  There two types of paths: absolute and relative.
