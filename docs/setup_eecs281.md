@@ -148,53 +148,6 @@ Makefile  main.cpp  xgetopt.h
 ```
 </div>
 
-
-## Debug
-Configure your visual debugger to compile and run your main program.
-
-### VS Code
-Follow the   [VS Code Run instructions](https://eecs280staff.github.io/p1-stats/setup_vscode.html#run) and configure it to run `main`.  Don't forget to change the `program` in `launch.json`.  Your program name might be different.
-```json
-  "program": "${workspaceFolder}/main"
-```
-
-Finally, follow the [Debug instructions](https://eecs280staff.github.io/p1-stats/setup_vscode.html#debug) to run your program with a breakpoint.  During unit testing, add a breakpoint to the first line of one test.
-
-### Visual Studio
-First, make sure the correct files are included in the build.  You can figure out the right files by compiling at the command line.  In this example, you can see that we'll only need `main.cpp`.  All other files should be excluded from the build.
-```console
-$ make main
-FIXME
-```
-
-Now you should be able to run your main program from inside Visual Studio ([instructions](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#run)).
-
-Finally, follow the [Debug instructions](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#debug) to run your program with a breakpoint.  During unit testing, add a breakpoint to the first line of one test.
-
-### Xcode
-First, make sure the correct files are included in the Xcode compile sources.  You can figure out the right files by compiling at the command line.  In this example, you can see that we'll only need `main.cpp`.  All other files should be excluded from the build.
-```console
-$ make main
-FIXME
-```
-
-Next, change the settings for running your program ([instructions](https://eecs280staff.github.io/p1-stats/setup_xcode.html#run)).
-
-Finally, follow the [Debug instructions](https://eecs280staff.github.io/p1-stats/setup_xcode.html#debug) to run your program with a breakpoint.  During unit testing, add a breakpoint to the first line of one test.
-
-## Configure Address Sanitizer
-The Address Sanitizer is very good at finding memory errors, including going off the end of an array or vector, making a mistake with a pointer, or leaking memory.  Follow our [Address Sanitizer Quick Start](https://eecs280staff.github.io/p1-stats/setup_asan.html#quick-start).
-
-<div class="primer-spec-callout warning" markdown="1">
-The EECS 280 faculty no longer recommend Valgrind.  Here's why.
-- ASAN is just as good at catching undefined behavior and leaks
-- ASAN is better supported, notably on macOS
-- ASAN is [faster](https://developers.redhat.com/blog/2021/05/05/memory-error-checking-in-c-and-c-comparing-sanitizers-and-valgrind#performance)
-</div>
-
-FIXME: enable leak check
-
-
 ## Version control
 <div class="primer-spec-callout info" markdown="1">
 When you're working alone, version control is optional.  Here are two reasons to consider using it.
