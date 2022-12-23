@@ -1,0 +1,85 @@
+/* Generated CSS for custom icon pack */
+/* Assigns Unicode values to each glyph in the font 
+   so fonts can render in HTML file
+*/
+@font-face {
+    font-family: 'custom';
+    src:  url('../fonts/custom.eot?t9kuy8');
+    src:  url('../fonts/custom.eot?t9kuy8#iefix') format('embedded-opentype'),
+      url('../fonts/custom.ttf?t9kuy8') format('truetype'),
+      url('../fonts/custom.woff?t9kuy8') format('woff'),
+      url('../fonts/custom.svg?t9kuy8#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'custom' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    margin: 0 0.25rem 0 0;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-visual-studio:before {
+    content: "\e900";
+}
+
+.icon-vscode:before {
+    content: "\e901";
+}
+  
+.icon-xcode:before {
+    content: "\e902";
+}
+
+.icon-emacs:before {
+    content: "\e903";
+}
+
+.icon-atom:before {
+    content: "\e904";
+}
+
+.icon-clion:before {
+    content: "\e905";
+}
+
+.icon-vim:before {
+    content: "\e906";
+}
+
+.icon-intellij:before {
+    content: "\e907";
+}
+
+.icon-canvas:before {
+    content: "\e908";
+}
+
+.icon-gradescope:before {
+    content: "\e909";
+}
+
+.icon-piazza:before {
+    content: "\e90a";
+}
+
+/* Style for icon links */
+.email i, span i {
+    color: rgba(0,0,0,.68);
+}
+
+.big {
+    font-size: 2em;
+    vertical-align: middle;
+}
