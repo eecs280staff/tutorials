@@ -148,6 +148,13 @@ Makefile  main.cpp  xgetopt.h
 ```
 </div>
 
+### Configure IDE
+Configure your IDE to pass arguments and options when you debug.
+
+In this example, you would configure the IDE arguments and options to include `--verbose --output output.txt`.
+
+| [VS Code](https://eecs280staff.github.io/tutorials/setup_vscode.html#arguments-and-options)| [Visual Studio](https://eecs280staff.github.io/tutorials/setup_visualstudio.html#arguments-and-options) | [Xcode](https://eecs280staff.github.io/tutorials/setup_xcode.html#arguments-and-options) |
+
 ## Version control
 <div class="primer-spec-callout info" markdown="1">
 When you're working alone, version control is optional.  Here are two reasons to consider using it.
