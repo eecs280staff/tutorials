@@ -140,7 +140,7 @@ main.cpp  p1-stats.xcodeproj
 ```
 </div>
 
-We'll use the terminal to download, unpack, and move starter files into the `src` subdirectory.
+We'll use the terminal to download, unpack, and move starter files into the directory that already contains `main.cpp`.
 
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
