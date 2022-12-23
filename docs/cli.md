@@ -281,9 +281,9 @@ $ sudo apt install wslu
 ```
 </div>
 
-Add this line.  Whenever you type `ls`, you'll actually get `ls -G`, which adds color.
+Add this line.  Whenever you type `ls`, you'll actually get `ls --color`, which adds color.
 ```bash
-alias ls='ls -G'
+alias ls='ls --color'
 ```
 {: data-variant="no-line-numbers" data-title="~/.bash_profile" }
 
@@ -305,9 +305,9 @@ $ open ~/.zshrc
 ```
 {: data-variant="no-line-numbers" }
 
-Add this line.  Whenever you type `ls`, you'll actually get `ls --color`.
+Add this line.  Whenever you type `ls`, you'll actually get `ls -G`.
 ```bash
-alias ls='ls --color'
+alias ls='ls -G'
 ```
 {: data-variant="no-line-numbers" data-title="~/.zshrc" }
 
