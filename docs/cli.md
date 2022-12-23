@@ -260,7 +260,9 @@ Colorize the output of `ls` so it's easy to tell the difference between files an
 
 <img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="colorized ls example"/>
 
-#### Windows/WSL and Linux
+#### Windows/WSL and Linux (Bash shell)
+{: .primer-spec-toc-ignore }
+
 Verify you're using the Bash shell, typical on WSL Ubuntu Linux.
 ```console
 $ echo $0
@@ -291,7 +293,9 @@ Close your terminal and reopen it.  You should see colorized `ls` output.
 
 <img src="images/cli027.png" class="invert-colors-in-dark-mode" width="512px" alt="colorized ls WSL example"/>
 
-#### macOS
+#### macOS (Z shell)
+{: .primer-spec-toc-ignore }
+
 Verify you're using the Z shell, typical on macOS.
 ```console
 $ echo $0
@@ -315,35 +319,34 @@ Close your terminal and reopen it.  You should see colorized `ls` output.
 
 <img src="images/cli028.png" class="invert-colors-in-dark-mode" width="512px" alt="colorized ls macOS example"/>
 
-
 ### Customize prompt
 Customize the terminal prompt to be more helpful and look prettier.
 
 First, complete the [Colorize `ls` output](#colorize-ls-output) section. At this point, you should know whether you are using Bash or Z Shell, and you should have a working `.bash_profile` or `.zshrc` file.
 
-In this file, you can specify the exact interface you want by setting the right environment variables. But this can get very tedious and confusing. If you would like to learn how, start with [this guide](https://medium.com/@adamtowers/how-to-customize-your-terminal-and-bash-profile-from-scratch-9ab079256380) for Bash or [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12) for Z Shell.
+#### Windows/WSL and Linux (Bash shell)
+{: .primer-spec-toc-ignore }
 
-If you just want a pretty terminal without going into all the details, you can find premade configurations online that you can simply copy and paste into `.bash_profile` or `.zshrc`. Make sure to exit and open a new terminal window to see the changes.
-
-Below are sample files that you can copy into `.bash_profile` or `.zshrc`.
-
+Add a line to your `.bash_profile` file that sets the `PS1` environment variable.
 ```bash
-PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
-alias ls='ls -G'
+export PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
 ```
 {: data-variant="no-line-numbers" data-title="~/.bash_profile" }
 
+Close your terminal and reopen it.  It should look like this.  For more, check out [this guide](https://medium.com/@adamtowers/how-to-customize-your-terminal-and-bash-profile-from-scratch-9ab079256380).
+
 <img src="images/cli029.png" class="invert-colors-in-dark-mode" width="768px" alt="customized bash example"/>
 
-```zsh
-autoload -Uz vcs_info
-precmd() { vcs_info }
+#### macOS (Z shell)
+{: .primer-spec-toc-ignore }
 
-setopt PROMPT_SUBST
+Add a line to your `.zshrc` file that sets the `PS1` environment variable.
+```zsh
 PROMPT='%F{green}[%n] %F{blue}%~%f %F{red}$%f '
-alias ls='ls --color'
 ```
 {: data-variant="no-line-numbers" data-title="~/.zshrc" }
+
+Close your terminal and reopen it.  It should look like this.  For more, check out [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12).
 
 <img src="images/cli030.png" class="invert-colors-in-dark-mode" width="768px" alt="customized zsh example"/>
 
