@@ -164,18 +164,14 @@ In this example, you would configure the IDE arguments and options to include `-
 | [VS Code](https://eecs280staff.github.io/tutorials/setup_vscode.html#arguments-and-options)| [Visual Studio](https://eecs280staff.github.io/tutorials/setup_visualstudio.html#arguments-and-options) | [Xcode](https://eecs280staff.github.io/tutorials/setup_xcode.html#arguments-and-options) |
 
 ## Version control
-<div class="primer-spec-callout info" markdown="1">
-When you're working alone, version control is optional.  Here are two reasons to consider using it.
+When you're working alone version control is optional, but it provides benefits:
 - Code backup
 - Easy to try and revert ideas
-</div>
 
 Set up version control using the [Version control tutorial](https://eecs280staff.github.io/p1-stats/setup_git.html).  If you've used version control before on your computer, you'll probably want to start with the [Create a local repository](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository) section.
 
 After you're done, you should have a local repository with a "clean" status and your local repository should be connected to a remote GitLab repository.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs281/p1-stats
 $ git status
 On branch main
 Your branch is up-to-date with 'origin/main'.
@@ -188,8 +184,6 @@ origin	https://gitlab.eecs.umich.edu/awdeorio/p1-stats.git (push)
 
 You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository)).
 ```console
-$ pwd
-/Users/awdeorio/src/eecs281/p1-stats
 $ head .gitignore
 # This is a sample .gitignore file that's useful for C++ projects.
 ...
