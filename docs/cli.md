@@ -58,6 +58,12 @@ A *path* is the location of a file or directory.  Sometimes we end a directory p
   </tr>
 </table>
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** You can colorize the output of `ls` so it's easy to tell the difference between files and directories ([instructions](#colorize-ls-output)).
+
+<img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="colorized ls example"/>
+</div>
+
 ### `tree`
 `tree` recursively prints files and directories.
 
