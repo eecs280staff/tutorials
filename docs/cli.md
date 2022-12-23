@@ -252,7 +252,7 @@ eecs280/     eecs281/     eecs485/
 ### Colors and Customization
 Colorize the output of `ls`.
 
-<img src="images/cli021.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
+<img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
 
 #### Windows/WSL and Linux
 Verify you're using the Bash shell, typical on WSL Ubuntu Linux.
@@ -276,7 +276,8 @@ alias ls='ls -G'
 
 Close your terminal and reopen it.  Test
 
-FIXME screenshot on WSL.
+<img src="images/cli027.png" class="invert-colors-in-dark-mode" width="600px" alt="styled WSL example"/>
+
 
 #### macOS
 Verify you're using the Z shell, typical on macOS.
@@ -300,7 +301,7 @@ alias ls='ls --color'
 
 Close your terminal and reopen it.  Test
 
-FIXME screenshot on macOS.
+<img src="images/cli028.png" class="invert-colors-in-dark-mode" width="600px" alt="styled macOS example"/>
 
 
 ## Special Paths
@@ -355,7 +356,7 @@ $ /usr/bin/python3        # Another version of Python
 ```
 
 ### Relative Path
-A *relative path*: starts from the current directory.
+A *relative path* starts from the current directory.
 
 For example, running an executable.
 ```console
