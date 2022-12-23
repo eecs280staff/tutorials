@@ -16,6 +16,12 @@ The *CLI* (Command Line Interface) is a text-based way to interact with a comput
 
 <img src="images/cli001.png" class="invert-colors-in-dark-mode" width=600px alt="gui vs cli"/>
 
+## Prerequisites
+If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.  Linux users have CLI tools installed by default.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) |
+
+
 ## Keywords
 
 A *file* stores data like C++ source code (`main.cpp`) or plain text (`example.txt`).
