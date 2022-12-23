@@ -7,7 +7,7 @@ title: EECS 281 Project Setup
 EECS 281 Project Setup
 ======================
 
-This tutorial will help you set up an EECS 281 project using the EECS 280 tutorials.
+This tutorial walks through EECS 281 project setup using EECS 280 tutorials.
 
 ## Visual debugger
 Set up your project in your visual debugger.  We'll use the project name `p1-stats` in this example, but your project name may be different.  If your project has starter files, you'll need the link from the project spec.
@@ -27,10 +27,18 @@ p1-stats/
 ```
 
 ## Makefile
-Next, we'll get all our code to compile with the [EECS 281 Makefile](https://gitlab.umich.edu/eecs281/makefile).
+Next, we'll add the [EECS 281 Makefile](https://gitlab.umich.edu/eecs281/makefile).
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs281/p1-stats
+$ ls
+main.cpp
+```
+</div>
+
+Download the EECS 281 Makefile.
+```console
 $ wget https://gitlab.umich.edu/eecs281/makefile/-/raw/main/Makefile
 $ make help
 EECS281 Advanced Makefile Help
@@ -53,7 +61,7 @@ EXECUTABLE = main
 
 If your project has additional dependencies, update the dependencies section at the bottom of the `Makefile`.
 
-You should be able to compile and run your main function.
+You should be able to compile and run your main file.
 ```console
 $ make
 $ ./main
