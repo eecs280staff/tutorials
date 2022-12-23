@@ -9,101 +9,28 @@ EECS 281 Project Setup
 
 This tutorial will help you set up an EECS 281 project using the EECS 280 tutorials.
 
-## TODO
-- [ ] Code goes in a subdirectory with the same name
-      ```
-      p0-hello/p0-hello/main.cpp
-      ```
-- [ ] Configure visual debugger for CLI args and opts
+## Visual debugger
+Set up your project in your visual debugger.  We'll use the project name `p1-stats` in this example, but your project name may be different.  If your project has starter files, you'll need the link from the project spec.
 
-## OS and tool installs
-FIXME: if you have a new computer or you wiped your computer, install stuff.
+| [VS Code Tutorial](https://eecs280staff.github.io/tutorials/setup_vscode.html)| [Visual Studio Tutorial](https://eecs280staff.github.io/tutorials/setup_visualstudio.html) | [Xcode Tutorial](https://eecs280staff.github.io/tutorials/setup_xcode.html) |
 
-## Project folder
-Create a folder for this project ([instructions](https://eecs280staff.github.io/p1-stats/setup.html#create-a-folder)). Your folder location might be different.
-```console
-$ pwd
-/Users/awdeorio/src/eecs281/p0-hello
-```
-
-## Starter files
-Download the starter files and unpack them.  These instructions are adapted from the Setup Tutorial [Starter files](https://eecs280staff.github.io/p1-stats/setup.html#starter-files) section.
-```console
-$ pwd
-/Users/awdeorio/src/eecs281/p0-hello
-$ wget https://eecs280staff.github.io/p2-cv/starter-files.tar.gz
-$ tar -xvzf starter-files.tar.gz
-$ ls
-starter-files  starter-files.tar.gz
-```
-
-Move the starter files from `starter-files/` to your present working directory (`.`) and clean up the old directory and tarball.
-```console
-$ mv starter-files/* .
-$ rm -rf starter-files/ starter-files.tar.gz
-$ ls
-FIXME
-```
-
-Create any new files.
-```console
-$ touch main.cpp
-```
-{: data-variant="no-line-numbers" }
-
-your project directory should look like this.
-```console
-$ ls
-FIXME
-```
-{: data-variant="no-line-numbers" }
-
-## Create a project in your IDE
-Create a project in your IDE (visual debugger).  Later, we'll compile and debug.
-
-### VS Code
 <div class="primer-spec-callout warning" markdown="1">
-Some EECS 281 professors are unfamiliar with VS Code.  VS Code will work great for EECS 281 projects.  Just ask one of the IAs or GSIs if you need help.  -- Andrew DeOrio
+Some EECS 281 professors are unfamiliar with VS Code.  VS Code works great for EECS 281 projects.  Just ask one of the IAs or GSIs who use VS Code if you need help.
 </div>
 
-If you've used VS Code on your computer before, all you need to do is start VS Code from your project directory.
+After you're done, you should have a folder with a main file.  Your files may be different.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs281/p0-hello
-$ code .
+$ tree p1-stats/
+p1-stats/
+├── main.cpp
+    ...
 ```
-
-If VS Code is new to you or new to your computer, start the tutorial at the [beginning](https://eecs280staff.github.io/p1-stats/setup_vscode.html).  Stop after you've completed the [Install the C/C++ extension](https://eecs280staff.github.io/p1-stats/setup_vscode.html#install-the-cc-extension) section.
-
-### Visual Studio
-If you've used Visual Studio on your computer before, start the tutorial at the [Create a project](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#create-a-project) section
-
-If Visual Studio is new to you or new to your computer, start at the [beginning](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html).  Stop after you've completed the [Add existing files](https://eecs280staff.github.io/p1-stats/setup_visualstudio.html#add-existing-files) section.
-
-### Xcode
-If you've used Xcode on your computer before, start the tutorial at the [Create a project](https://eecs280staff.github.io/p1-stats/setup_xcode.html#create-a-project) section.
-
-If Xcode is new to you or new to your computer, start at the [beginning](https://eecs280staff.github.io/p1-stats/setup_xcode.html).  Stop after you've completed the [Add existing files](https://eecs280staff.github.io/p1-stats/setup_xcode.html#add-existing-files) section.
-
-## Create a new file
-FIXME: create `main.cpp` or whatever.  Link to IDE tutorials.
-
-Edit `main.cpp` to print "hello world!".  Your filename might be different.
-```c++
-#include <iostream>
-using namespace std;
-
-int main() {
-  cout << "hello world!\n";
-}
-```
-{: data-title="main.cpp" }
 
 ## Makefile
 Next, we'll get all our code to compile with the [EECS 281 Makefile](https://gitlab.umich.edu/eecs281/makefile).
 ```console
 $ pwd
-/Users/awdeorio/src/eecs281/p0-hello
+/Users/awdeorio/src/eecs281/p1-stats
 $ wget https://gitlab.umich.edu/eecs281/makefile/-/raw/main/Makefile
 $ make help
 EECS281 Advanced Makefile Help
@@ -133,7 +60,7 @@ $ ./main
 hello world!
 ```
 
-## Parsing command line arguments and options
+## Arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them.  Copy this sample code.
 
 ```c++
@@ -280,21 +207,21 @@ Set up version control using the [Version control tutorial](https://eecs280staff
 After you're done, you should have a local repository with a "clean" status and your local repository should be connected to a remote GitLab repository.
 ```console
 $ pwd
-/Users/awdeorio/src/eecs281/p0-hello
+/Users/awdeorio/src/eecs281/p1-stats
 $ git status
 On branch main
 Your branch is up-to-date with 'origin/main'.
 
 nothing to commit, working tree clean
 $ git remote -v
-origin	https://gitlab.eecs.umich.edu/awdeorio/p0-hello.git (fetch)
-origin	https://gitlab.eecs.umich.edu/awdeorio/p0-hello.git (push)
+origin	https://gitlab.eecs.umich.edu/awdeorio/p1-stats.git (fetch)
+origin	https://gitlab.eecs.umich.edu/awdeorio/p1-stats.git (push)
 ```
 
 You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository)).
 ```console
 $ pwd
-/Users/awdeorio/src/eecs281/p0-hello
+/Users/awdeorio/src/eecs281/p1-stats
 $ head .gitignore
 # This is a sample .gitignore file that's useful for C++ projects.
 ...
