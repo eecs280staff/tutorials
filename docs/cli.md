@@ -250,7 +250,7 @@ eecs280/     eecs281/     eecs485/
 </video>
 
 ### Colors and Customization
-Colorize the output of `ls`.
+Colorize the output of `ls` so it's easy to tell the difference between files and directories.
 
 <img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="styled terminal example"/>
 
