@@ -274,10 +274,9 @@ alias ls='ls -G'
 ```
 {: data-variant="no-line-numbers" data-title="~/.bash_profile" }
 
-Close your terminal and reopen it.  Test
+Close your terminal and reopen it.  You should see colorized `ls` output.
 
-<img src="images/cli027.png" class="invert-colors-in-dark-mode" width="600px" alt="styled WSL example"/>
-
+<img src="images/cli027.png" class="invert-colors-in-dark-mode" width="512px" alt="styled WSL example"/>
 
 #### macOS
 Verify you're using the Z shell, typical on macOS.
@@ -299,9 +298,9 @@ alias ls='ls --color'
 ```
 {: data-variant="no-line-numbers" data-title="~/.zshrc" }
 
-Close your terminal and reopen it.  Test
+Close your terminal and reopen it.  You should see colorized `ls` output.
 
-<img src="images/cli028.png" class="invert-colors-in-dark-mode" width="600px" alt="styled macOS example"/>
+<img src="images/cli028.png" class="invert-colors-in-dark-mode" width="512px" alt="styled macOS example"/>
 
 
 ## Special Paths
