@@ -311,7 +311,7 @@ Close your terminal and reopen it.  You should see colorized `ls` output.
 
 
 ### Customize prompt
-Customize the terminal prompt to be more helpful and look prettier. Below is one example.
+Customize the terminal prompt to be more helpful and look prettier.
 
 First, complete the [Colorize `ls` output](#colorize-ls-output) section. At this point, you should know whether you are using Bash or Z Shell, and you should have a working `.bash_profile` or `.zshrc` file.
 
