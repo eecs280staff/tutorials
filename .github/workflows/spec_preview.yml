@@ -31,6 +31,9 @@ jobs:
       # Docs: https://github.com/seshrs/build-primer-spec-action
       - name: 🛠 Build Primer Spec website
         uses: seshrs/build-primer-spec-action@v1
+        with:
+          # We won't be using GitHub Pages for the spec previews.
+          configure_github_pages: false
 
       # Upload the site to Primer Spec Preview and comment on the PR.
       # The Primer Spec Preview secret is stored as an encrypted repo or
