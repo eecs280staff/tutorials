@@ -249,7 +249,7 @@ Automate user input by putting it in a file.
 ```
 Drew
 ```
-{: data-title="main_test.in" data-highlight="1" }
+{: data-title="main_test.in" }
 
 Redirect file `main_test.in` to stdin of `main.exe`.
 ```console
