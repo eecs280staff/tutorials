@@ -548,11 +548,6 @@ Of course Emacs has a dark mode. Add the following to your `init.el`.
 
 ```
 
-
-# Next steps
-[Return to the main set up tutorial.](setup.md#text-editor-and-debugger)
-
-
 # Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
