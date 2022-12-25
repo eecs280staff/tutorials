@@ -70,7 +70,7 @@ If you're not sure how to do this, you might find one of our IDE tutorials helpf
 
 
 # Install
-This tutorial focuses on LLDB for macOS.  Your versions might be different.  You should already have `g++` and `lldb` installed from the main [macOS tutorial](setup.html#macos).
+This tutorial focuses on LLDB for macOS.  Your versions might be different.  You should already have `g++` and `lldb` installed from the main [macOS tutorial](setup_macos.html).
 ```console
 $ g++ --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
