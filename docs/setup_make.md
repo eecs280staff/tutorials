@@ -186,11 +186,6 @@ $ make -j4 test
 ```
 {: data-variant="no-line-numbers" }
 
-
-# Next steps
-[Return to the main set up tutorial.](setup.html#makefiles)
-
-
 # Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
