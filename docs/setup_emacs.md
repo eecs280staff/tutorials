@@ -48,40 +48,6 @@ This tutorial uses command line tools.  If you haven't installed CLI tools on yo
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-Create a new folder for your project. Your folder location might be different.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280
-$ mkdir p1-stats
-```
-
-Change into your new project directory. Use the terminal to download, unpack, and move the starter files into your project. Your URL or folder might be different.
-```console
-$ cd p1-stats
-$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
-$ tar -xvzf starter-files.tar.gz
-$ mv starter-files/* .
-$ rm -rf starter-files starter-files.tar.gz
-```
-
-You should see your new files in your project directory.
-```console
-$ tree
-.
-├── Makefile
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
-├── p1_library.cpp
-├── p1_library.h
-├── stats.h
-├── stats_public_test.cpp
-└── stats_tests.cpp.starter
-```
-
-In the tutorial below, we'll show you how to use Emacs to create new files `stats.cpp` and `main.cpp`.
-
 
 # Restarting this tutorial
 If you tried using this tutorial in the past and want to "start clean", here's how to delete all Emacs configuration files.  This will not delete your code.  First, quit Emacs.
@@ -217,7 +183,39 @@ On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super
 
 
 # Create a project
-Emacs doesn't require any special setup for a project.  In this section, we'll add some files to our directory.
+Emacs doesn't require any special setup for a project.
+
+Create a new folder for your project. Your folder location might be different.
+
+```console
+$ pwd
+/Users/awdeorio/src/eecs280
+$ mkdir p1-stats
+```
+
+Change into your new project directory. Use the terminal to download, unpack, and move the starter files into your project. Your URL or folder might be different.
+```console
+$ cd p1-stats
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mv starter-files/* .
+$ rm -rf starter-files starter-files.tar.gz
+```
+
+You should see your new files in your project directory.
+```console
+$ tree
+.
+├── Makefile
+├── main_test.in
+├── main_test.out.correct
+├── main_test_data.tsv
+├── p1_library.cpp
+├── p1_library.h
+├── stats.h
+├── stats_public_test.cpp
+└── stats_tests.cpp.starter
+```
 
 ## Add new files
 EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
