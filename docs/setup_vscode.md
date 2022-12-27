@@ -214,8 +214,11 @@ main.cpp
 ```
 </div>
 
-We'll use the terminal to download, unpack, and move the starter files.  Your URL or folder might be different.  **Pro-tip:** [copy/paste instructions for WSL](setup_wsl.html#how-do-i-copy-and-paste).
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** [Copy/paste instructions](setup_wsl.html#copy-paste) for WSL.
+</div>
 
+We'll use the terminal to download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
 ```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
@@ -435,7 +438,7 @@ Hello Drew!
 ```
 {: data-highlight="1" }
 
-#### Windows `launch.json` changes
+#### Windows/WSL or Linux `launch.json` changes
 
 To configure input redirection, edit `launch.json`.
 ```json

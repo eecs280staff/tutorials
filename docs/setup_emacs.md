@@ -44,16 +44,6 @@ $ emacs main.cpp &
 
 
 # Prerequisites
-At this point, you should already have a folder for your project ([instructions](setup.md#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.md#download-and-unpack-starter-files)).
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h           stats_tests.cpp
-README.md     main_test_data.tsv     stats.h
-main_test.in  p1_library.cpp         stats_public_test.cpp
-```
-
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
@@ -193,7 +183,39 @@ On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super
 
 
 # Create a project
-Emacs doesn't require any special setup for a project.  In this section, we'll add some files to our directory.
+Emacs doesn't require any special setup for a project.
+
+Create a new folder for your project. Your folder location might be different.
+
+```console
+$ pwd
+/Users/awdeorio/src/eecs280
+$ mkdir p1-stats
+```
+
+Change into your new project directory. Use the terminal to download, unpack, and move the starter files into your project. Your URL or folder might be different.
+```console
+$ cd p1-stats
+$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ tar -xvzf starter-files.tar.gz
+$ mv starter-files/* .
+$ rm -rf starter-files starter-files.tar.gz
+```
+
+You should see your new files in your project directory.
+```console
+$ tree
+.
+├── Makefile
+├── main_test.in
+├── main_test.out.correct
+├── main_test_data.tsv
+├── p1_library.cpp
+├── p1_library.h
+├── stats.h
+├── stats_public_test.cpp
+└── stats_tests.cpp.starter
+```
 
 ## Add new files
 EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
@@ -523,11 +545,6 @@ Of course Emacs has a dark mode. Add the following to your `init.el`.
     )
 
 ```
-
-
-# Next steps
-[Return to the main set up tutorial.](setup.md#text-editor-and-debugger)
-
 
 # Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.

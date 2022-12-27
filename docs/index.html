@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EECS 280" />
+  <meta name="keywords"
+    content="C++ Setup, C++ Tutorial, EECS280, EECS 280, Programming and Introductory Data Structures, University of Michigan Computer Science" />
+  <title>EECS 280 Tutorials</title>
+  <link rel="icon" href="https://eecs280staff.github.io/eecs280.org/assets/images/eecs280favicon.ico">
+
+  <!-- Fomantic UI CSS  -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+
+  <!-- Custom fonts used for custom icons like Emacs, Gradescope, etc. -->
+  <link href='css/customfontpack.css' rel='stylesheet'/>
+</head>
+<body>
+
+  <div class="ui text container" style="margin-top: 2em">
+    <h1 style="border-bottom: 1px solid var(--main-header-border-bottom-color, #eaecef)">EECS 280 Tutorials</h1>
+
+    <div class="ui raised fluid card">
+      <div class="content">
+        <div class="header">
+          Setup Tutorial
+        </div>
+        <div class="description">
+          <p>
+            Get your computer set up for C++ development and EECS 280 projects.
+          </p>
+        </div>
+
+
+        <div class="ui compact internally celled stackable grid" style="font-size: 11pt; margin-top: 0.5em">
+
+          <div class="five wide column">
+            <b>1. Command Line Tools</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_wsl.html">
+                  <i class="icon windows"></i>Windows Setup
+                </a>
+                <div class="description">
+                  Basic setup on Windows
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="setup_macos.html">
+                  <i class="icon apple"></i>macOS Setup
+                </a>
+                <div class="description">
+                  Basic setup on macOS
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="seven wide column">
+            <b>2. C++ Dev Environment</b> 
+            <div class="ui primary left pointing label">
+              Choose One
+            </div>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_vscode.html">
+                  <i class="icon-vscode"></i> VS Code (recommended)
+                </a>
+                <div class="description">
+                  A versatile, cross-platform editor.
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="setup_xcode.html">
+                  <i class="icon-xcode"></i> XCode
+                </a>
+                <div class="description">
+                  Feature-rich IDE (macOS only)
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="setup_visualstudio.html">
+                  <i class="icon-visual-studio"></i> Visual Studio
+                </a>
+                <div class="description">
+                  Feature-rich IDE (Windows only)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="four wide column">
+            <b>3. C++ Compilation</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_make.html">
+                  <i class="icon tools"></i>Makefiles
+                </a>
+                <div class="description">
+                  Recipes for compiling and testing code
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- / ui grid -->
+
+      </div>
+    </div> <!-- / ui card -->
+
+
+    <div class="ui raised fluid card">
+      <div class="content">
+        <div class="header">
+          Coding + Debugging Tutorials
+        </div>
+        <div class="description">
+          <p>
+            Best practices and additional tools for coding and debugging.
+          </p>
+        </div>
+
+
+        <div class="ui compact internally celled stackable grid" style="font-size: 11pt; margin-top: 0.5em">
+
+          <div class="three wide column">
+            <b>Testing</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="https://eecs280staff.github.io/unit_test_framework/">
+                  <i class="icon tasks"></i>Unit Test Framework
+                </a>
+                <div class="description">
+                  A framework with special assertions for unit testing
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="five wide column">
+            <b>Debugging</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_asan.html">
+                  <i class="icon pump soap"></i>Sanitizers
+                </a>
+                <div class="description">
+                  Detect undefined behavior
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="assertions_guide.html">
+                  <i class="icon virus slash"></i>Assertions Guide
+                </a>
+                <div class="description">
+                  Prevent bugs with assertions
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="debugging_guide.html">
+                  <i class="icon bug"></i>Debugging Guide
+                </a>
+                <div class="description">
+                  Tips and tricks for debugging
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="four wide column">
+            <b>Code Style</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="style_guide.html">
+                  <i class="icon glasses"></i>280 Style Guide
+                </a>
+                <div class="description">
+                  Learn best practices
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="setup_style.html">
+                  <i class="icon robot"></i> AG Style Checks
+                </a>
+                <div class="description">
+                  Run the same style checks as the AG
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="four wide column">
+            <b>Version Control</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_git.html">
+                  <i class="icon code branch"></i>Git Tutorial
+                </a>
+                <div class="description">
+                  Track changes to your code like a pro
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- / ui grid -->
+
+      </div>
+    </div> <!-- / ui card -->
+
+
+
+    <div class="ui raised fluid card">
+      <div class="content">
+        <div class="header">
+          Advanced/Extra Tutorials
+        </div>
+        <div class="description">
+          <p>
+            Additional editors and tools you might be interested in. Not required.
+          </p>
+        </div>
+
+        <div class="ui compact internally celled stackable grid" style="font-size: 11pt; margin-top: 0.5em">
+          <div class="four wide column">
+            <b>Text Editors</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_emacs.html">
+                  <i class="icon-emacs"></i>Emacs
+                </a>
+                <div class="description">
+                  Highly customizable text editor, 
+                  works from the command line
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="six wide column">
+            <b>Command-Line Debuggers</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_gdb.html">
+                  <i class="icon bug"></i>gdb
+                </a>
+                <div class="description">
+                  Command-line debugger for Linux
+                </div>
+              </div>
+              <div class="item">
+                <a class="header" target="_blank" href="setup_lldb.html">
+                  <i class="icon bug"></i>lldb
+                </a>
+                <div class="description">
+                  Command-line debugger for macOS
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="six wide column">
+            <b>CAEN Linux Environment</b>
+            <div class="ui list" style="margin-top: 0.5em;">
+              <div class="item">
+                <a class="header" target="_blank" href="setup_caen.html">
+                  <i class="icon server"></i>CAEN Linux
+                </a>
+                <div class="description">
+                  Remote connect to a
+                  UMich CoE Linux environment
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div> <!-- / ui grid -->
+
+      </div>
+    </div> <!-- / ui card -->
+
+  </div> <!-- / ui text container -->
+  <br />
+</body>
