@@ -11,7 +11,7 @@ sitemapOrder: 30
 This tutorial will show you how to compile source code at the command line without typing long commands.  Instead, we'll write the commands in a file called `Makefile` and use shortcuts.
 
 
-# Prerequisites
+## Prerequisites
 We're assuming that you already have a folder with starter source code in it, e.g., `p1-stats/`.  You've created new files and added function stubs to make the code base compile, e.g., `stats.cpp` and `main.cpp`.
 ```console
 $ pwd
@@ -23,7 +23,7 @@ main_test.in  p1_library.cpp         stats.h
 ```
 
 
-# Compile without `make`
+## Compile without `make`
 Compile and run unit tests written by you (start test provided).  We expect a failure from our function stub.
 ```console
 $ g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
@@ -49,7 +49,7 @@ hello from main!
 ```
 
 
-# Compile with `make`
+## Compile with `make`
 Remove all automatically generated files
 ```console
 $ make clean
@@ -93,7 +93,7 @@ Abort trap: 6
 ```
 
 
-# Run one unit test 
+## Run one unit test
 To run one unit test, e.g., `stats_public_test.exe`, first compile it.
 ```console
 $ make stats_public_test.exe
@@ -108,7 +108,7 @@ countAbort trap: 6
 ```
 
 
-# Run one system test
+## Run one system test
 To run one system test, compile `main.exe`, run and save the output, then compare the output to the correct answer.
 
 Compile
@@ -154,7 +154,7 @@ $ diff main_test.out main_test.out.correct
 ```
 
 
-# Run regression test
+## Run regression test
 The `Makefile` contains a regression test.  It will compile all unit tests, your main application, and then run all unit tests and all system tests.
 
 Notice that the regression test is a list of the commands we entered while running unit and system tests.
@@ -179,14 +179,15 @@ countmake: *** [test] Abort trap: 6
 ```
 
 
-# Pro-tips
+## Pro-tips
 Speed up compilation by running multiple commands simultaneously.
 ```console
 $ make -j4 test
 ```
 {: data-variant="no-line-numbers" }
 
-# Acknowledgments
+
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
