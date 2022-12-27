@@ -12,15 +12,16 @@ This tutorial will show you how to compile source code at the command line witho
 
 
 ## Prerequisites
-We're assuming that you already have a folder with starter source code in it, e.g., `p1-stats/`.  You've created new files and added function stubs to make the code base compile, e.g., `stats.cpp` and `main.cpp`.
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile      main_test.out.correct  p1_library.h  stats_public_test.cpp
-main.cpp      main_test_data.tsv     stats.cpp     stats_tests.cpp
-main_test.in  p1_library.cpp         stats.h
-```
+This tutorial relies on command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+
+We're also assuming you are familiar with a text editor or IDE.  If you haven't already done so, follow one of these tutorials.
+
+| [VS Code (recommended)](https://eecs280staff.github.io/tutorials/setup_vscode.html)| [Visual Studio](https://eecs280staff.github.io/tutorials/setup_visualstudio.html) | [Xcode](https://eecs280staff.github.io/tutorials/setup_xcode.html) |
+
+
+Finally, you'll need to be familiar with the command line interface (CLI).  If you haven't seen it yet, take a look at the [Command Line Tutorial](cli.html).
 
 
 ## Compile without `make`
