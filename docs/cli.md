@@ -59,13 +59,13 @@ A *path* is the location of a file or directory.  Sometimes we end a directory p
 </table>
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** You can colorize the output of `ls` so it's easy to tell the difference between files and directories ([instructions](#colorize-ls-output)).
+**Pro-tip:** Colorize the output of `ls` to tell files and directories apart ([instructions](#colorize-ls-output)).
 
 <img src="images/cli026.png" class="invert-colors-in-dark-mode" width="768px" alt="colorized ls example"/>
 </div>
 
 ### `tree`
-`tree` recursively prints files and directories.
+`tree` recursively prints files and directories.  `tree` is useful for comparing your files against a project spec.
 
 ```console
 $ tree
@@ -123,7 +123,9 @@ $ brew install tree      # macOS
 </table>
 
 ### `rm`
-`rm` removes (deletes) a file. `rm -rf` removes a directory.
+`rm` removes (deletes) a file.
+
+`rm -rf` removes a directory.
 
 <table>
   <tr>
@@ -240,7 +242,7 @@ $ sudo apt install wslu
 </video>
 
 ### Tab complete <kbd>TAB</kbd>
-<kbd>TAB</kbd> autocompletes a file or directory name. It's faster than typing the whole thing.
+<kbd>TAB</kbd> autocompletes a file or directory name.
 
 Type the first part of a filename, then press <kbd>TAB</kbd>.  Press again to show multiple completion options.
 ```console
@@ -254,7 +256,7 @@ eecs280/     eecs281/     eecs485/
 </video>
 
 ### Previous Command <kbd>⬆</kbd>
-<kbd>⬆</kbd> shows previous commands. For example, you might repeat a compile command while debugging.
+<kbd>⬆</kbd> shows previous commands.
 
 <video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
   <source src="images/cli_vid005.mp4" type="video/mp4">
@@ -269,7 +271,7 @@ Colorize the output of `ls` so it's easy to tell the difference between files an
 #### Windows/WSL and Linux (Bash shell)
 {: .primer-spec-toc-ignore }
 
-Verify you're using the Bash shell, typical on WSL Ubuntu Linux.
+Verify you're using the Bash shell, which is typical on WSL Ubuntu Linux.
 ```console
 $ echo $0
 -bash
@@ -302,7 +304,7 @@ Close your terminal and reopen it.  You should see colorized `ls` output.
 #### macOS (Z shell)
 {: .primer-spec-toc-ignore }
 
-Verify you're using the Z shell, typical on macOS.
+Verify you're using the Z shell, which is typical on macOS.
 ```console
 $ echo $0
 zsh
@@ -357,7 +359,7 @@ Close your terminal and reopen it.  It should look like this.  For more, check o
 <img src="images/cli030.png" class="invert-colors-in-dark-mode" width="768px" alt="customized zsh example"/>
 
 ## Special Paths
-A Path is the location of a file or directory.  There two types of paths: absolute and relative.
+A *path* is the location of a file or directory.
 
 ### Current directory `.`
 `.` refers to the current directory.
@@ -416,7 +418,7 @@ $ ./main.exe
 ```
 
 ### Glob `*`
-A *glob* is a wildcard path.  The `*` symbol matches any string.
+A *glob* is a wildcard path that may match multiple paths.  The `*` symbol matches any string.
 
 ```console
 $ cp -v starter_files/* .
@@ -462,7 +464,7 @@ $ tree
 ```
 
 ### `diff`
-`diff` compares two files.  It's useful for comparing your output to correct output.
+`diff` compares two files.
 
 Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).  No output means the files are identical.
 ```console
@@ -484,7 +486,7 @@ int main() {
 ```
 
 ### `grep`
-`grep` searches files.  It's short for "*g*lobally search for a *re*gular expression and *p*rint matching lines".
+`grep` searches inside a file.  It's short for "*g*lobally search for a *re*gular expression and *p*rint matching lines".
 
 Search for `vector` in `main.cpp`.
 ```console
@@ -530,7 +532,7 @@ B
 ```
 {: data-title="main_test.in" data-variant="no-line-numbers" }
 
-Now you can run your program and **redirect** the input from a file instead of typing it.
+Now you can run your program and redirect the input from a file instead of typing it.
 ```console
 $ ./main.exe < main_test.in
 ```
