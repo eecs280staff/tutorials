@@ -40,8 +40,14 @@ $ lldb stats_tests.exe
 | `q` | quit |
 
 
+
 # Prerequisites
-At this point, you should already have a folder for your project ([instructions](setup.html#create-a-folder)).  Your folder location might be different.  You should have downloaded and unpacked the starter files already ([instructions](setup.html#download-and-unpack-starter-files)).
+This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+
+We presume you've created a folder for your project, downloaded and unpacked the starter files, and created any new files with appropriate function stubs.
+
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280/p1-stats
@@ -57,9 +63,14 @@ $ wget --no-clobber https://eecs280staff.github.io/tutorials/stats.cpp -O stats.
 $ wget --no-clobber https://eecs280staff.github.io/tutorials/main.cpp -O main.cpp
 ```
 
+If you're not sure how to do this, you might find one of our IDE tutorials helpful. Walk through the tutorial up through the "Create a project" section.
+
+| [VS Code](setup_vscode.html) | [Visual Studio](setup_visualstudio.html) | [Xcode](setup_xcode.html) | [Emacs](setup_emacs.html) |
+```
+
 
 # Install
-This tutorial focuses on LLDB for macOS.  Your versions might be different.  You should already have `g++` and `lldb` installed from the main [macOS tutorial](setup.html#macos).
+This tutorial focuses on LLDB for macOS.  Your versions might be different.  You should already have `g++` and `lldb` installed from the main [macOS tutorial](setup_macos.html).
 ```console
 $ g++ --version
 Apple clang version 12.0.0 (clang-1200.0.32.28)
@@ -311,10 +322,6 @@ Use the up and down arrow keys to cycle through previous commands similar to you
 Use TAB completion to automatically complete the name of a command or a variable.
 
 Use [Emacs](setup_emacs.html) keyboard shortcuts to enter and edit your current command.
-
-
-# Next steps
-[Return to the main set up tutorial.](setup.html#text-editor-and-debugger)
 
 
 # Acknowledgments
