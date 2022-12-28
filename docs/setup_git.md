@@ -56,8 +56,12 @@ $ git status
 fatal: Not a git repository (or any of the parent directories): .git
 ```
 
-## Install
-You should already have `git` installed after completing the [Command line tools](setup.html#command-line-tools) tutorial.  Verify that `git` is installed.  Your version might be different.
+## Prerequisites
+This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+
+Verify that `git` is installed.  Your version might be different.
 ```console
 $ git --version
 git version 2.15.1
