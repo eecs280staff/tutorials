@@ -20,7 +20,6 @@ We're also assuming you are familiar with a text editor or IDE.  If you haven't 
 
 | [VS Code (recommended)](https://eecs280staff.github.io/tutorials/setup_vscode.html)| [Visual Studio](https://eecs280staff.github.io/tutorials/setup_visualstudio.html) | [Xcode](https://eecs280staff.github.io/tutorials/setup_xcode.html) |
 
-
 Finally, you'll need to be familiar with the command line interface (CLI).  If you haven't seen it yet, take a look at the [Command Line Tutorial](cli.html).
 
 
@@ -68,41 +67,30 @@ $ tree
 ## Compile
 Compile manually, then remove the executable.
 ```console
-$ g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp -o main.exe
+$ g++ -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
 $ ./main.exe
 Hello World!
 $ rm main.exe
 ```
 
-Compile using `make`.
+Compile using `make`.  Notice that it automated the long compile command.
 ```console
 $ make main.exe
 g++ -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
+```
+
+Run the executable created by the previous `make` command.
+```console
 $ ./main.exe
 Hello World!
-```
 
-The `make` command read `Makefile`, which is a plain text file.  Open it and you'll see that the `Makefile` contains this exact command.  The *target* is `stats_tests.exe`, on the left side of the colon (`:`).
-```make
-# This appears in the middle of the Makefile
-main.exe: main.cpp
-	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
-```
 
-With `make`, we can run the command saved in the `Makefile`.
+Clean up using `make`.  Notice that it automated the `rm` command.
 ```console
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+$ make clean
+rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+removed 'main.exe'
 ```
-
-This produces an executable, which we can now run.  A failure is expected due to the function stub.
-```console
-$ ./stats_tests.exe
-test_sum_small_data_set
-Assertion failed: (false), function sum, file stats.cpp, line 16.
-Abort trap: 6
-```
-
 
 ## Run one unit test
 To run one unit test, e.g., `stats_public_test.exe`, first compile it.
