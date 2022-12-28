@@ -54,7 +54,7 @@ An Ubuntu Bash shell is a terminal that looks like this.
 <img src="images/wsl030.png" width="480px" />
 
 ## Install CLI tools
-Use the `apt` package manager to install a few command line programs.
+Use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
 ```console
 $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ```
