@@ -540,7 +540,7 @@ $ ./main.exe < main_test.in
 ### Output redirection `>`
 Output redirection sends the output of a command to a file.  Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#example)).
 
-Run `main.exe`, redirecting input and output.  Then, compare the output.
+Run `main.exe`, redirecting input and output.  Then, compare the output with [diff](#diff).
 ```console
 $ ./main.exe < main_test.in > main_test.out
 $ diff main_test.out main_test.out.correct
