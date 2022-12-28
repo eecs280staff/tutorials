@@ -45,6 +45,12 @@ Create a file called `Makefile` and copy-paste this code.
 CXX ?= g++
 CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
 
+# Run regression test
+test: main.exe
+	./main.exe < main_test.in > main_test.out
+	diff main_test.out main_test.out.correct
+	echo PASS
+
 # Compile the main executable
 main.exe: main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
@@ -92,98 +98,43 @@ rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 removed 'main.exe'
 ```
 
-## Run one unit test
-To run one unit test, e.g., `stats_public_test.exe`, first compile it.
-```console
-$ make stats_public_test.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
+
+## Test
+Makefiles are useful for automating tests, sometimes called a *regression test*.
+
+Put input (stdin) in a file.  We'll use `main_test.in` in this example.
 ```
-
-Then, run the unit test.
-```console
-$ ./stats_public_test.exe
-Assertion failed: (false), function count, file stats.cpp, line 12.
-countAbort trap: 6
+this program doesn't read stdin,
+so this text doesn't matter
 ```
+{: data-title="main_test.in" }
 
-
-## Run one system test
-To run one system test, compile `main.exe`, run and save the output, then compare the output to the correct answer.
-
-Compile
-```console
-$ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
+Put the correct output in a file.  We'll use `main_test.out.correct`.  In EECS 280 and EECS 281, these are typically provided.
 ```
+Hello World!
+```
+{: data-title="main_test.out.correct" }
 
-Run.  Redirect input from the file `main_test.in` and redirect output to the file `main_test.out`.
+Run manually with [input redirection](cli.html#input-redirection-) and [output redirection](cli.html#output-redirection-).  Compare with [`diff`](cli.html#diff).
 ```console
 $ ./main.exe < main_test.in > main_test.out
-```
-
-Compare your output in `main_test.out` to the correct output in `main_test.out.correct`.  What you see are the differences.
-```console
 $ diff main_test.out main_test.out.correct
-1c1,23
-< hello from main!
----
-> enter a filename
-> enter a column name
-> reading column B from main_test_data.tsv
-> Summary (value: frequency)
-> 6: 1
-> 7: 1
-> 8: 1
-> 9: 1
-> 10: 1
-> 
-> count = 5
-> sum = 40
-> mean = 8
-> stdev = 1.58114
-> median = 8
-> mode = 6
-> min = 6
-> max = 10
->   0th percentile = 6
->  25th percentile = 7
->  50th percentile = 8
->  75th percentile = 9
-> 100th percentile = 10
 ```
 
-
-## Run regression test
-The `Makefile` contains a regression test.  It will compile all unit tests, your main application, and then run all unit tests and all system tests.
-
-Notice that the regression test is a list of the commands we entered while running unit and system tests.
-```make
-# This appears in the Makefile
-test: main.exe stats_tests.exe stats_public_test.exe
-	./stats_public_test.exe
-	./stats_tests.exe
-	./main.exe < main_test.in > main_test.out
-	diff main_test.out main_test.out.correct
-```
-
-Run regression test.  It will stop at the first error.
+Run regression test automatically using the Makefile.
 ```console
 $ make test
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
-./stats_public_test.exe
-Assertion failed: (false), function count, file stats.cpp, line 12.
-countmake: *** [test] Abort trap: 6
+./main.exe < main_test.in > main_test.out
+diff main_test.out main_test.out.correct
 ```
 
-
-## Pro-tips
-Speed up compilation by running multiple commands simultaneously.
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Run commands in parallel with `make -j`.
 ```console
 $ make -j4 test
 ```
 {: data-variant="no-line-numbers" }
+</div>
 
 
 ## Acknowledgments
