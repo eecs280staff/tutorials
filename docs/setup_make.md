@@ -24,59 +24,69 @@ We're also assuming you are familiar with a text editor or IDE.  If you haven't 
 Finally, you'll need to be familiar with the command line interface (CLI).  If you haven't seen it yet, take a look at the [Command Line Tutorial](cli.html).
 
 
-## Compile without `make`
-Compile and run unit tests written by you (start test provided).  We expect a failure from our function stub.
+## Example program
+We'll work in a directory called `make-example` just for this tutorial.
 ```console
-$ g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-$ ./stats_tests.exe
-test_sum_small_data_set
-Assertion failed: (false), function sum, file stats.cpp, line 16.
-Abort trap: 6
+$ mkdir make-example
 ```
 
-Compile and run unit tests provided by the staff.  We expect a failure from our function stub.
-```console
-$ g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
-$ ./stats_public_test.exe
-Assertion failed: (false), function count, file stats.cpp, line 12.
-countAbort trap: 6
+Create a file called `main.cpp` and copy-paste this Hello World program.
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Hello World!\n";
+}
 ```
+{: data-title="main.cpp" }
 
-Compile and run main.
-```console
-$ g++ -Wall -Werror -pedantic --std=c++11 -g main.cpp stats.cpp p1_library.cpp -o main.exe
-$ ./main.exe
-hello from main!
-```
-
-
-## Compile with `make`
-Remove all automatically generated files
-```console
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-removed 'main.exe'
-removed 'stats_tests.exe'
-removed 'stats_public_test.exe'
-```
-
-The `make` command reads a file called `Makefile`, which is a plain text file.  Open it in your IDE or text editor and you'll see the exact command it executed to do the cleanup.
+Create a file called `Makefile` and copy-paste this code.
 ```make
-# This appears in the middle of the Makefile
+CXX ?= g++
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+
+# Compile the main executable
+main.exe: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
+
+# Remove automatically generated files
 clean :
 	rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 ```
+{: data-title="Makefile" }
 
-Without `make`, we had to type a long command to compile our unit tests:
+Your directory should look like this:
 ```console
-$ g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+$ tree
+.
+├── Makefile
+└── main.cpp
 ```
 
-Notice that the `Makefile` contains this exact command.  The *target* is `stats_tests.exe`, on the left side of the colon (`:`).
+
+## Compile
+Compile manually, then remove the executable.
+```console
+$ g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp -o main.exe
+$ ./main.exe
+Hello World!
+$ rm main.exe
+```
+
+Compile using `make`.
+```console
+$ make main.exe
+g++ -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
+$ ./main.exe
+Hello World!
+```
+
+The `make` command read `Makefile`, which is a plain text file.  Open it and you'll see that the `Makefile` contains this exact command.  The *target* is `stats_tests.exe`, on the left side of the colon (`:`).
 ```make
 # This appears in the middle of the Makefile
-stats_tests.exe: stats_tests.cpp stats.cpp p1_library.cpp
-	g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+main.exe: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
 ```
 
 With `make`, we can run the command saved in the `Makefile`.
