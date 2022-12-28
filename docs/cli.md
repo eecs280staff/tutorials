@@ -337,7 +337,7 @@ First, complete the [Colorize `ls` output](#colorize-ls-output) section. At this
 
 Add a line to your `.bash_profile` file that sets the `PS1` environment variable.
 ```bash
-export PS1='\[\e[90m\][\u] \[\e[36m\]\w/ \[\e[31m\]$ \[\e[0m\]'
+export PS1='\[\e[0;32m\][\u] \[\e[0;34m\]\w/ \[\e[01;34m\]$ \[\e[0m\]'
 ```
 {: data-variant="no-line-numbers" data-title="~/.bash_profile" }
 
@@ -350,7 +350,7 @@ Close your terminal and reopen it.  It should look like this.  For more, check o
 
 Add a line to your `.zshrc` file that sets the `PS1` environment variable.
 ```zsh
-PROMPT='%F{green}[%n] %F{blue}%~%f %F{red}$%f '
+PROMPT='%F{green}[%n] %F{blue}%~%f %B%F{blue}$%f%b '
 ```
 {: data-variant="no-line-numbers" data-title="~/.zshrc" }
 
