@@ -158,7 +158,7 @@ A *prerequisite* is a file that is used as input to create the target, like `mai
 A *recipe* is a command that `make` runs, like `g++ main.cpp -o main.exe`.  There might be more than one command.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Every recipe line must start with a TAB character.
+**Pitfall:** Every recipe line must start with a <kbd>TAB</kbd> character.
 </div>
 
 A *variable* is helpful for avoiding duplication, like the compiler flags.
