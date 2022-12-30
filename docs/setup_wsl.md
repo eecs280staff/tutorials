@@ -115,11 +115,7 @@ $ cd /mnt/c/Users/awdeorio/Documents  # Windows Documents
 ```
 
 ### CLI open file
-Simulate a double-click from the command line in the WSL Bash shell.
-```console
-$ cmd.exe /c start babychickens.jpg
-```
-{: data-variant="no-line-numbers" }
+Opens a file or directory with the default application, like a double click.  See the [`wslview` command](cli.html#open--wslview) in the CLI tutorial.
 
 
 ## Acknowledgments
