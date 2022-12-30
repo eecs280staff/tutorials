@@ -17,7 +17,9 @@ If you already have Visual Studio installed, skip to the [Create a project](#cre
 ## Prerequisites
 Visual Studio runs on Windows only.  There are no other prerequisites for Visual Studio.
 
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow the [Windows command line tools tutorial](setup_wsl.html).
+This tutorial recommends command line tools.  To install CLI tools, follow the [Windows command line tools tutorial](setup_wsl.html).
+
+Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
 To start clean, first quit Visual Studio.  Back up your files, and then delete your project directory.  Your project directory might be different.
