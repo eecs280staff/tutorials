@@ -60,6 +60,9 @@ Use the Homebrew package manager to install a few command line programs.
 $ brew install wget git tree
 ```
 
+## Use CLI tools
+Now would be a great time to take a look at our [CLI Tutorial](cli.html).
+
 ## Pro-tips
 
 ### CLI open file
