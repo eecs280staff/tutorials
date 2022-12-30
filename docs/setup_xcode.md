@@ -286,7 +286,26 @@ Without input redirection, here's how to type input in the Xcode command line.
 
 <img src="images/xcode255.png" width="768px" />
 
-Xcode does not support automated input redirection.  One option is to simply type the input each time.  Another option is to use a work-around described in [https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)
+#### `main.cpp` changes
+Xcode does not support input redirection.  We'll use work-around that connects an input file to `cin`  ([source](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)).
+
+Add these lines to the top of your `main` function.  Your input filename may be different.
+```c++
+// primer-spec-highlight-start
+#include <cstdio>
+// primer-spec-highlight-end
+//...
+
+int main() {
+  // primer-spec-highlight-start
+  #ifdef __APPLE__
+  freopen("main_test.in", "r", stdin);
+  #endif
+  // primer-spec-highlight-end
+  //...
+```
+
+To stop input redirection, comment or delete these lines.
 
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
