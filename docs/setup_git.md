@@ -470,13 +470,15 @@ Statistics
 
 By Andrew DeOrio <awdeorio@umich.edu>
 
+<!-- primer-spec-highlight-start -->
 ## Quick start
 ```console
 $ make main.exe
 $ ./main.exe
 ```
+<!-- primer-spec-highlight-end -->
 ````
-{: data-title="README.md" data-highlight="7-11" }
+{: data-title="README.md" }
 
 We can see that our files are no longer clean.
 ```console
