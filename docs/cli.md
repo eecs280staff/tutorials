@@ -5,7 +5,7 @@ excludeFromSitemap: true
 ---
 
 Command Line Interface (CLI)
-================
+============================
 {: .primer-spec-toc-ignore }
 
 This is a brief tutorial of command line interface basics.

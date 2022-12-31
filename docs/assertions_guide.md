@@ -18,16 +18,20 @@ The `<cassert>` header defines an `assert()` macro that checks a boolean conditi
 
 For example:
 ```c++
+// primer-spec-highlight-start
 #include <cassert>
+// primer-spec-highlight-end
 
 int main() {
   int x = 2;
   int y = 5;
+  // primer-spec-highlight-start
   assert(x + 3 == y); // true, all good :)
   assert(x > y); // false, crash!! (╯°□°)╯︵ ┻━┻
+  // primer-spec-highlight-end
 }
 ```
-{: data-title="test.cpp" data-highlight="1,6,7" }
+{: data-title="test.cpp" }
 
 We might see this output when running the above:
 
@@ -66,13 +70,14 @@ Player * Player_factory(const std::string &name,
   // Repeat for each other type of Player
   ...
 
+  // primer-spec-highlight-start
   // Assuming we've checked for each kind of Player
   // above, the code should never get here. If we do...
   // something is very wrong and the assert lets us know!
   assert(false);
+  // primer-spec-highlight-end
 }
 ```
-{: data-highlight="13-16" }
 
 The `assert(false)` here is also helpful to suppress a warning the
 compiler might otherwise give because it's worried our code could reach
@@ -98,13 +103,14 @@ int get_order_quantity() {
     cin >> quantity;
   }
 
+  // primer-spec-highlight-start
   // We should have a valid quantity after the user interaction above.
   // (Unless there's a bug somewhere - this will sanity check!)
   assert(quantity >= 0);
+  // primer-spec-highlight-end
   return quantity;
 }
 ```
-{: data-highlight="13-15" }
 
 That assertion proves worthwhile, since there is a bug in the code! Because
 the `if` statement only checks the first input for validity, an invalid
@@ -126,19 +132,22 @@ Here's an example of assertions you could use in function that
 provides access to data at a given row/column within a `Matrix` struct:
 
 ```c++
+// primer-spec-highlight-start
 // REQUIRES: mat points to a valid Matrix
 //           0 <= row && row < Matrix_height(mat)
 //           0 <= column && column < Matrix_width(mat)
+// primer-spec-highlight-end
 // EFFECTS:  Returns a pointer to the element in
 //           the Matrix at the given row and column.
 int* Matrix_at(Matrix* mat, int row, int column) {
+  // primer-spec-highlight-start
   assert(0 <= row && row < mat->height);
   assert(0 <= column && column < mat->width);
+  // primer-spec-highlight-end
   // Implementation
   // ...
 }
 ```
-{: data-highlight="1-3,7-8" }
 
 If we were to call `Matrix_at()` with parameters that are outside the
 bounds of the `Matrix`, we get a failed `assert` right away and can debug
@@ -151,16 +160,19 @@ Some of them can't possibly be checked. Here's another example:
 
 ```c++
 // REQUIRES: mat points to a valid Matrix
+// primer-spec-highlight-start
 //           the destination array is large enough
+// primer-spec-highlight-end
 // EFFECTS:  Copies all data from the matrix to
 //           the given destination array
 void copy_matrix_to_array(const Matrix* mat, int dest[]) {
+  // primer-spec-highlight-start
   // Verify REQUIRES clause???
+  // primer-spec-highlight-end
   // Implementation
   // ...
 }
 ```
-{: data-highlight="2,6" }
 
 In this case, we can't use an `assert` to verify that the destination
 array is large enough, because the `int[]` array parameter decays to
@@ -210,11 +222,12 @@ Then, call it at as needed to proactively sanity check:
 // EFFECTS:  Returns a pointer to the last element (at the
 //           highest possible row/column) in the Matrix.
 int * Matrix_last(Matrix* mat) {
+  // primer-spec-highlight-start
   Matrix_check_invariants(mat);
+  // primer-spec-highlight-end
   return &mat->data[mat->height * mat->width - 1];
 }
 ```
-{: data-highlight="5" }
 
 In the example above, you could think of this as a check on the REQUIRES
 clause that specifies `mat` must point to a _valid_ `Matrix`. This keeps
@@ -243,6 +256,7 @@ private:
   Node *last;
   int num_nodes;
 
+  // primer-spec-highlight-start
   // Check represenation invariants with assert
   void check_invariants() {
     // Either it's empty with null first/last pointers,
@@ -262,12 +276,15 @@ private:
     }
     assert(count == num_nodes);
   }
+  // primer-spec-highlight-end
 
 public:
 
   // Default constructor. Creates an empty list.
   List : first(nullptr), last(nullptr), num_nodes(0) {
+    // primer-spec-highlight-start
     check_invariants(); // ensure our list is set up
+    // primer-spec-highlight-end
   }
 
   //EFFECTS:  inserts datum into the front of the list
@@ -277,11 +294,12 @@ public:
     // pointers to add a node to the list
     // ...
 
+    // primer-spec-highlight-start
     check_invariants(); // make sure we didn't screw up the pointers
+    // primer-spec-highlight-end
   }
 };
 ```
-{: data-highlight="15-33,39,49" }
 
 ## Debug Failed Assertions
 
@@ -294,7 +312,7 @@ Running test: test_image_basic
 Image_public_test.exe: Matrix.cpp:72: int* Matrix_at(Matrix*, int, int): Assertion `0 <= row && row < Matrix_height(mat)' failed.
 Aborted
 ```
-{: data-highlight="16,39,49" data-variant="no-line-numbers" }
+{: data-variant="no-line-numbers" }
 
 That's nice, but just a line number (i.e. `Matrix.cpp:72`) doesn't really give us much to go on:
 

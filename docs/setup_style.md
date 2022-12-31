@@ -40,10 +40,12 @@ using namespace std;
 
 
 int main() {
+  // primer-spec-highlight-start
   cout << "hello world this is a veryyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy long line" << endl;
+  // primer-spec-highlight-end
 }
 ```
-{: data-title="test.cpp" data-highlight="7" }
+{: data-title="test.cpp" }
 
 Make sure the code compiles before running style checks.  If you have a Makefile, you could just type `make`.
 ```console

@@ -19,14 +19,7 @@ VS Code relies on external command line tools.  If you haven't installed CLI too
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-These are a few tools you should have now.  Your versions might be different.
-
-```console
-$ g++ --version
-g++ (Homebrew GCC 12.2.0) 12.2.0
-$ make --version
-GNU Make 3.81
-```
+Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
 To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
