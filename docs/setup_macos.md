@@ -60,13 +60,13 @@ Use the Homebrew package manager to install a few command line programs.
 $ brew install wget git tree
 ```
 
+## Use CLI tools
+Now would be a great time to take a look at our [CLI Tutorial](cli.html).
+
 ## Pro-tips
 
 ### CLI open file
-Simulate a double-click from the command line in the Terminal.
-```console
-$ open babychickens.jpg
-```
+Opens a file or directory with the default application, like a double click.  See the [`open` command](cli.html#open--wslview) in the CLI tutorial.
 
 
 ## Acknowledgments
