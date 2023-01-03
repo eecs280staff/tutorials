@@ -19,14 +19,7 @@ VS Code relies on external command line tools.  If you haven't installed CLI too
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-These are a few tools you should have now.  Your versions might be different.
-
-```console
-$ g++ --version
-g++ (Homebrew GCC 12.2.0) 12.2.0
-$ make --version
-GNU Make 3.81
-```
+Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
 To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
@@ -100,7 +93,9 @@ You'll know that VS Code is running in remote mode when you see the remote mode 
 <img src="images/vscode068.png" width="768px">
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you accidentally open VS Code from Windows mode, select "Reopen Folder in WSL".
+**Pitfall:** If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
+
+<img src="images/vscode070.png" width="720">
 </div>
 
 ### Extensions
@@ -400,43 +395,7 @@ If you're debugging something else in your program and don't want it to terminat
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
-```c++
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-  cout << "What's your name?" << endl;
-  string name;
-  cin >> name;
-  cout << "Hello " << name << "!\n";
-}
-```
-
-Without input redirection, the user types input at the command line (highlighted).
-```console
-$ make main.exe
-$ ./main.exe
-What's your name?
-Drew
-Hello Drew!
-```
-{: data-highlight="4" }
-
-Automate user input by putting it in a file.
-```
-Drew
-```
-{: data-title="main_test.in" data-highlight="1" }
-
-Redirect file `main_test.in` to stdin of `main.exe`.
-```console
-$ ./main.exe < main_test.in
-What's your name?
-Hello Drew!
-```
-{: data-highlight="1" }
+If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
 
 #### Windows/WSL or Linux `launch.json` changes
 

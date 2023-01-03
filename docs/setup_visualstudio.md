@@ -15,11 +15,11 @@ If you already have Visual Studio installed, skip to the [Create a project](#cre
 </div>
 
 ## Prerequisites
-There are no prerequisites for Visual Studio.
+Visual Studio runs on Windows only.  There are no other prerequisites for Visual Studio.
 
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+This tutorial recommends command line tools.  To install CLI tools, follow the [Windows command line tools tutorial](setup_wsl.html).
 
-| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
 To start clean, first quit Visual Studio.  Back up your files, and then delete your project directory.  Your project directory might be different.
@@ -221,43 +221,7 @@ Visual Studio provides an address sanitizer with bounds checking automatically w
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
-```c++
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-  cout << "What's your name?" << endl;
-  string name;
-  cin >> name;
-  cout << "Hello " << name << "!\n";
-}
-```
-
-Without input redirection, the user types input at the command line (highlighted).
-```console
-$ make main.exe
-$ ./main.exe
-What's your name?
-Drew
-Hello Drew!
-```
-{: data-highlight="4" }
-
-Automate user input by putting it in a file.
-```
-Drew
-```
-{: data-title="main_test.in" data-highlight="1" }
-
-Redirect file `main_test.in` to stdin of `main.exe`.
-```console
-$ ./main.exe < main_test.in
-What's your name?
-Hello Drew!
-```
-{: data-highlight="1" }
+If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
 
 Without input redirection, here's how to type input in the Visual Studio command line.  Notice that when we run, a window pops up that accepts user input.
 
