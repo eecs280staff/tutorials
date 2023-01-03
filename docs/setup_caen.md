@@ -190,7 +190,7 @@ You've noticed that each time we use `ssh` or `rsync`, CAEN requires us to re-au
 
 Add some lines to the SSH config file, which lives in `~/.ssh/config`.  Alternatively, you can use a text editor to make the changes.
 ```console
-$ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPath ~/.ssh/master-%r@%h:%p' >> ~/.ssh/config
+$ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPersist yes\n   ControlPath ~/.ssh/socket-%C\n  ServerAliveInterval 60\n  ServerAliveCountMax 5' >> ~/.ssh/config
 $ chmod 600 ~/.ssh/config
 ```
 
@@ -200,7 +200,10 @@ $ cat ~/.ssh/config
 # SSH multiplexing
 Host *
   ControlMaster auto
-  ControlPath ~/.ssh/master-%r@%h:%p
+  ControlPersist yes
+  ControlPath ~/.ssh/socket-%C
+  ServerAliveInterval 60
+  ServerAliveCountMax 5
 ```
 
 SSH into CAEN Linux.  You'll need to use 2FA.
