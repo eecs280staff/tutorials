@@ -219,7 +219,7 @@ On macOS, `open` opens a file or directory with the default application, like a 
 
 On WSL (Windows), `wslview` opens a file or directory with the default application, like a double click ([docs](https://wslutiliti.es/wslu/man/wslview.html)).
 
-<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;" class="invert-colors-in-dark-mode">
   <source src="images/cli_vid002.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -236,7 +236,7 @@ $ sudo apt install wslu
 ### `clear` <kbd>Control</kbd> + <kbd>l</kbd>
 `clear` the terminal.  Pro-tip: <kbd>Control</kbd> + <kbd>l</kbd>.  That's a lowercase L.
 
-<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;" class="invert-colors-in-dark-mode">
   <source src="images/cli_vid003.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -250,7 +250,7 @@ $ cd ~/src/e  # Press TAB twice to see options
 eecs280/     eecs281/     eecs485/
 ```
 
-<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;" class="invert-colors-in-dark-mode">
   <source src="images/cli_vid004.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -258,7 +258,7 @@ eecs280/     eecs281/     eecs485/
 ### Previous Command <kbd>⬆</kbd>
 <kbd>⬆</kbd> shows previous commands.
 
-<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;">
+<video controls autoplay loop style="width: 100%; max-width: 640px; max-height: 480px;" class="invert-colors-in-dark-mode">
   <source src="images/cli_vid005.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
