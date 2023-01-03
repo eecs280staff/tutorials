@@ -253,7 +253,7 @@ Without input redirection, here's how to type input in the Xcode command line.
 <img src="images/xcode255.png" width="768px" />
 
 #### `main.cpp` changes
-Xcode does not support input redirection.  We'll use work-around that connects an input file to `cin`  ([source](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)).
+Xcode does not support input redirection.  We'll use a work-around that connects an input file to `cin`  ([source](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)).
 
 Add these lines to the top of your `main` function.  Your input filename may be different.
 ```c++
