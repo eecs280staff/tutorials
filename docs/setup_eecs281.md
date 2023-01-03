@@ -27,7 +27,7 @@ p1-stats/
 ```
 
 ## Makefile
-Next, we'll add the [EECS 281 Makefile](https://gitlab.umich.edu/eecs281/makefile).
+Next, we'll add the [EECS 281 Makefile](https://github.com/eecs281staff/Makefile).
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the directory containing your source code.
@@ -39,7 +39,7 @@ main.cpp
 
 Download the EECS 281 Makefile.
 ```console
-$ wget https://gitlab.umich.edu/eecs281/makefile/-/raw/main/Makefile
+$ wget https://raw.githubusercontent.com/eecs281staff/Makefile/main/Makefile
 $ make help
 EECS281 Advanced Makefile Help
 ...
