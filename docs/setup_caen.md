@@ -194,7 +194,7 @@ $ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPersist ye
 $ chmod 600 ~/.ssh/config
 ```
 
-Let's double-check and make sure you see this chunk in your `~/.ssh/config` file.  You can find a more in depth explanation at the [Linux Journal](http://www.linuxjournal.com/content/speed-multiple-ssh-connections-same-server).
+Let's double-check and make sure you see this chunk in your `~/.ssh/config` file.
 ```console
 $ cat ~/.ssh/config
 # SSH multiplexing
