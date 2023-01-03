@@ -17,7 +17,9 @@ If you already have Xcode installed, skip to the [Create a project](#create-a-pr
 ## Prerequisites
 Xcode runs on macOS only.  There are no other prerequisites for Xcode.
 
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow the [macOS command line tools tutorial](setup_macos.html).
+This tutorial recommends command line tools.  To install CLI tools, follow the [Windows command line tools tutorial](setup_macos.html).
+
+Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
 To start clean, first quit Xcode.  Back up your files, and then delete your project directory.  Your project directory might be different.
@@ -244,49 +246,32 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-You can use input redirection to avoid typing program input each time you run a program.  Here's an example program.
-```c++
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-  cout << "What's your name?" << endl;
-  string name;
-  cin >> name;
-  cout << "Hello " << name << "!\n";
-}
-```
-
-Without input redirection, the user types input at the command line (highlighted).
-```console
-$ make main.exe
-$ ./main.exe
-What's your name?
-Drew
-Hello Drew!
-```
-{: data-highlight="4" }
-
-Automate user input by putting it in a file.
-```
-Drew
-```
-{: data-title="main_test.in" data-highlight="1" }
-
-Redirect file `main_test.in` to stdin of `main.exe`.
-```console
-$ ./main.exe < main_test.in
-What's your name?
-Hello Drew!
-```
-{: data-highlight="1" }
+If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
 
 Without input redirection, here's how to type input in the Xcode command line.
 
 <img src="images/xcode255.png" width="768px" />
 
-Xcode does not support automated input redirection.  One option is to simply type the input each time.  Another option is to use a work-around described in [https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)
+#### `main.cpp` changes
+Xcode does not support input redirection.  We'll use a work-around that connects an input file to `cin`  ([source](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)).
+
+Add these lines to the top of your `main` function.  Your input filename may be different.
+```c++
+// primer-spec-highlight-start
+#include <cstdio>
+// primer-spec-highlight-end
+//...
+
+int main() {
+  // primer-spec-highlight-start
+  #ifdef __APPLE__
+  freopen("main_test.in", "r", stdin);
+  #endif
+  // primer-spec-highlight-end
+  //...
+```
+
+To stop input redirection, comment or delete these lines.
 
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">

@@ -44,10 +44,12 @@ using namespace std;
 int main() {
   cout << "hello from main!\n";
   vector<int> v = {0, 0};  // v contains 2 items
+  // primer-spec-highlight-start
   cout << v[2] << "\n";    // off the end of v
+  // primer-spec-highlight-end
 }
 ```
-{: data-title="asan.cpp" data-highlight="8" }
+{: data-title="asan.cpp" }
 
 Clean, build and run.  Notice that the output of `v[2]` is `0`, however, this operation is undefined because it's off the end of the vector!  Because the output is undefined, your output might be different.
 ```console

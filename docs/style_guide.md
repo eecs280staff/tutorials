@@ -11,7 +11,7 @@ EECS 280 C++ Style Guide
 
 The goal of coding standards is to make code easier to understand and maintain. Refer to these guidelines as you are writing code, not just at the end, to develop good coding habits.
 
-# Names
+## Names
 1. Use meaningful variable names. If a variable name is not descriptive and its purpose is not clear by convention, choose a different name.
 2. Avoid single-letter variable names unless their meaning is very clear by convention, mathematical definition, or documentation.
    1. `i` as a counter variable name is OK.
@@ -27,7 +27,7 @@ The goal of coding standards is to make code easier to understand and maintain. 
 7. Start custom type names (classes, structs, and type aliases) with a capital letter.
 
 
-# Comments
+## Comments
 1. Comments help people understand your code. They are for humans, not for computers.
 2. Comments go on their own line(s) unless they are *extremely* short.
 3. Don't comment basic stuff such as `// looping from 0 to size - 1`.
@@ -36,7 +36,7 @@ The goal of coding standards is to make code easier to understand and maintain. 
 6. You may use `/* ... */` or `//` for comments spanning multiple lines, just be consistent.
 
 
-# Functions
+## Functions
 1. Use functions to improve code readability and avoid duplication.
 2. Document functions with an "RME" (requires, modifies, effects) to indicate what they do.
 3. Make functions short and targeted.
@@ -89,7 +89,7 @@ The goal of coding standards is to make code easier to understand and maintain. 
       </table>
 
 
-# Formatting
+## Formatting
 1. Curly braces can be on the same line or their own line, just be consistent.
    <table>
    <tr>
@@ -159,7 +159,7 @@ The goal of coding standards is to make code easier to understand and maintain. 
    - `--cheese`
 
 
-# Other ways to make your code better
+## Other ways to make your code better
 1. Avoid using "magic" numbers, strings, etc. Prefer to use a constant instead.
    1. Do NOT use `#define` to define constants. Declare them as `const` variables instead.
    2. Avoid constants where the name is the same as the value:
@@ -325,7 +325,7 @@ The goal of coding standards is to make code easier to understand and maintain. 
 8. Don't explicitly implement the Big 3 if the compiler-supplied versions will work.
 
 
-# Dangerous things that you should never do
+## Dangerous things that you should never do
 1. `goto` - just don't use it. Use functions, loops, conditionals, and exceptions instead.
 2. Global variables (global constants are different, see bullet 5 under [Names section](#names)).
    1. Dangerous because they can be changed at any point in your program. Use function parameters instead.
@@ -337,7 +337,7 @@ the point your header file was included. They are stuck with whatever namespace
 using decision you made, and can't override it with their own.
 
 
-# Project-specific ways to make your code better
+## Project-specific ways to make your code better
 1. P2 Image: Respect the interfaces. That includes in your unit tests!
 2. P3 Euchre:
    1. Don't copy paste calls to `deal_one()`. Write a function.
@@ -345,11 +345,11 @@ using decision you made, and can't override it with their own.
 3. P5 Machine Learning: Write moar functions.
 
 
-# Further reading
+## Further reading
 - [EECS 381](http://umich.edu/~eecs381/handouts/C++_Coding_Standards.pdf)
 - [Google](https://google.github.io/styleguide/cppguide.html)
 - [Mozilla](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Coding_Style)
 - [PEP 8](https://www.python.org/dev/peps/pep-0008/), a widely used standard for Python
 
-# Acknowledgments
+## Acknowledgments
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
