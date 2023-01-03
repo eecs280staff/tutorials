@@ -15,7 +15,7 @@ Set up your project in your visual debugger.  We'll use the project name `p1-sta
 | [VS Code Tutorial](https://eecs280staff.github.io/tutorials/setup_vscode.html)| [Visual Studio Tutorial](https://eecs280staff.github.io/tutorials/setup_visualstudio.html) | [Xcode Tutorial](https://eecs280staff.github.io/tutorials/setup_xcode.html) |
 
 <div class="primer-spec-callout warning" markdown="1">
-Some EECS 281 professors are unfamiliar with VS Code.  VS Code works great for EECS 281 projects.  Just ask one of the IAs or GSIs who use VS Code if you need help.
+VS Code works great for EECS 281 projects.  Just ask one of the IAs or GSIs who use VS Code if you need help.
 </div>
 
 After you're done, you should have a folder with a main file.  Your files may be different.
@@ -142,10 +142,10 @@ output =
 
 Download [`xgetopt.h`](xgetopt.h) and place it in your project source code directory.  It's cross-platform and will work on both Windows and Linux.
 
-Remove the `<getopt.h>` include.  Add the `"xgetopt.h"` include.
+Add the `"xgetopt.h"` include.  Remove the `<getopt.h>` include.
 ```c++
-#include <getopt.h> // REMOVE
 #include "xgetopt.h"
+//#include <getopt.h> // REMOVE
 ```
 {: data-title="main.cpp" }
 
