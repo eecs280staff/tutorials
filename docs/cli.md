@@ -5,7 +5,7 @@ excludeFromSitemap: true
 ---
 
 Command Line Interface (CLI)
-================
+============================
 {: .primer-spec-toc-ignore }
 
 This is a brief tutorial of command line interface basics.
@@ -523,28 +523,73 @@ stats_tests.cpp
 ```
 
 ### Input redirection `<`
-Input redirection sends the contents of a file to the input of a command.  It's useful for automating input.  Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).
+*Input redirection* sends the contents of a file to the input of a program.   Input redirection is useful for automating program input.
 
-Put the input that you would type in a file.
-```
-main_test_data.tsv
-B
-```
-{: data-title="main_test.in" data-variant="no-line-numbers" }
+Here's an example program.
+```c++
+#include <iostream>
+#include <string>
+using namespace std;
 
-Now you can run your program and redirect the input from a file instead of typing it.
+int main() {
+  cout << "What's your name?" << endl;
+  string name;
+  cin >> name;
+  cout << "Hello " << name << "!\n";
+}
+```
+
+Without input redirection, the user types input (highlighted).
+```console
+$ g++ main.cpp -o main.exe
+$ ./main.exe
+What's your name?
+Drew
+Hello Drew!
+```
+{: data-highlight="4" }
+
+Create a file with user input.  We'll call it `main_test.in`.
+```
+Drew
+```
+{: data-title="main_test.in" data-highlight="1" }
+
+Redirect file `main_test.in` to stdin of `main.exe`.  We have automated user input.
 ```console
 $ ./main.exe < main_test.in
+What's your name?
+Hello Drew!
 ```
+{: data-highlight="1" }
 
 ### Output redirection `>`
-Output redirection sends the output of a command to a file.  Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#example)).
+*Output redirection* sends the output of a program to a file.  Output redirection is useful for testing program output.
 
-Run `main.exe`, redirecting input and output.  Then, compare the output with [diff](#diff).
+We will use the example program from the [input redirection section](#input-redirection-).
+
+Create a file with correct output.  We'll call it `main_test.out.correct`.  EECS 280 projects typically provided a few correct output files.
+```
+What's your name?
+Hello Drew!
+```
+{: data-title="main_test.out.corect" }
+
+Run `main.exe`, redirecting input and output.
+- `./main.exe` runs the program
+- `< main_test.in` redirects `main_test.in` to stdin
+- `> main_test.out` redirects stdout to `main_test.out`
+
 ```console
 $ ./main.exe < main_test.in > main_test.out
+```
+{: data-variant="no-line-numbers" }
+
+Compare the saved (redirected) output to the correct output using [`diff`](#diff).  No output means the files are identical.
+```console
 $ diff main_test.out main_test.out.correct
 ```
+{: data-variant="no-line-numbers" }
 
 ## Shell scripting
 A *shell script* is a file that contains commands.  Shell scripts are useful for automating things like running test cases. Learn more at the [EECS 485 Shell Scripting Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_scripting.html).
