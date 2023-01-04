@@ -43,6 +43,16 @@ Install WSL.
 C:\WINDOWS\system32> wsl --install
 ```
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure Windows Update is enabled and your machine is up-to-date.  Settings > Update and Security > Windows Update.
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you still get an error from `wsl --install`, try the [Manual installation steps](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
+
+For the Linux distribution, choose the latest version of Ubuntu LTS.  At the time of this writing, that's Ubuntu 22.04 LTS.
+</div>
+
 Restart your computer.
 
 Start an Ubuntu Bash shell (not a Windows PowerShell).
