@@ -10,6 +10,9 @@ Setting Up Version Control
 
 This how-to will walk you through setting up a Git repository and using it to collaborate with a partner.
 
+<div class="primer-spec-callout info" markdown="1">
+If you've used version control before on your computer, skip to the [Create a local repository](#create-a-local-repository) section.
+</div>
 
 ## Prerequisites
 We're assuming that you already have a folder with starter source code in it, e.g., `p1-stats/`.
