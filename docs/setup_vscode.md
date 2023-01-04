@@ -143,9 +143,10 @@ To create a VS Code project, create a folder (directory).  There are many ways t
 
 **Windows/WSL:** Open the Ubuntu application.
 
-Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.
+Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 ```console
-$ cd /Users/awdeorio/src/eecs280
+$ mkdir ~/Desktop/eecs280
+$ cd ~/Desktop/eecs280
 $ mkdir p1-stats
 $ cd p1-stats
 ```
@@ -163,10 +164,10 @@ $ cd p1-stats
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.
+**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.  First make sure you're in the directory that contains your source code.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
+$ ls
+main.cpp ...
 $ code .
 ```
 </div>
