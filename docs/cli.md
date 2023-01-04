@@ -280,6 +280,7 @@ $ echo $0
 
 Edit your shell customization file.
 ```console
+$ touch ~/.bash_profile  # Create file if it doesn't exist
 $ wslview ~/.bash_profile
 ```
 {: data-variant="no-line-numbers" }
