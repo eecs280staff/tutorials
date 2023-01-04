@@ -280,7 +280,7 @@ $ echo $0
 
 Edit your shell customization file.
 ```console
-$ wslview ~/.bash_profile
+$ wslview ~/.bashrc
 ```
 {: data-variant="no-line-numbers" }
 
@@ -295,7 +295,7 @@ Add this line.  Whenever you type `ls`, you'll actually get `ls --color`, which 
 ```bash
 alias ls='ls --color'
 ```
-{: data-variant="no-line-numbers" data-title="~/.bash_profile" }
+{: data-variant="no-line-numbers" data-title="~/.bashrc" }
 
 Close your terminal and reopen it.  You should see colorized `ls` output.
 
@@ -330,16 +330,16 @@ Close your terminal and reopen it.  You should see colorized `ls` output.
 ### Customize prompt
 Customize the terminal prompt to be more helpful and look prettier.
 
-First, complete the [Colorize `ls` output](#colorize-ls-output) section. At this point, you should know whether you are using Bash or Z Shell, and you should have a working `.bash_profile` or `.zshrc` file.
+First, complete the [Colorize `ls` output](#colorize-ls-output) section. At this point, you should know whether you are using Bash or Z Shell, and you should have a working `.bashrc` or `.zshrc` file.
 
 #### Windows/WSL and Linux (Bash shell)
 {: .primer-spec-toc-ignore }
 
-Add a line to your `.bash_profile` file that sets the `PS1` environment variable.
+Add a line to your `.bashrc` file that sets the `PS1` environment variable.
 ```bash
 export PS1='\[\e[0;32m\][\u] \[\e[0;34m\]\w/ \[\e[01;34m\]$ \[\e[0m\]'
 ```
-{: data-variant="no-line-numbers" data-title="~/.bash_profile" }
+{: data-variant="no-line-numbers" data-title="~/.bashrc" }
 
 Close your terminal and reopen it.  It should look like this.  For more, check out [this guide](https://medium.com/@adamtowers/how-to-customize-your-terminal-and-bash-profile-from-scratch-9ab079256380).
 
