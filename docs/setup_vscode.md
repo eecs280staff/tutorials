@@ -180,13 +180,13 @@ Select the add file icon and give it a name, e.g., `main.cpp`.
 
 <img src="images/vscode023.png" width="768px" />
 
-Create a `main.cpp` file using [`touch`](cli.html#touch). 
+Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
 
 ```console
 $ touch main.cpp
 ```
 
-Copy-paste this Hello World program into it.
+Copy-paste this Hello World program into your `main.cpp`.
 
 ```c++
 #include <iostream>
