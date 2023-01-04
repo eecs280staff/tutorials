@@ -305,6 +305,16 @@ Hello World!
 ### Create `launch.json`
 {: .primer-spec-toc-ignore }
 
+<div class="primer-spec-callout warning" markdown="1">
+**WSL Pitfall:** Make sure you're in WSL mode.
+
+<img src="images/vscode069.png" width="768px">
+
+If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
+
+<img src="images/vscode070.png" width="720">
+</div>
+
 Select the file you would like to run.  Navigate to the debugging pane.
 
 <img src="images/vscode030.png" width="768px" />
