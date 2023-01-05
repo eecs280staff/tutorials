@@ -601,6 +601,15 @@ Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  D
 ```
 {: data-title="c_cpp_properties.json" data-highlight="5-6" }
 
+### C/C++ extension alternatives
+There are multiple options for C/C++ extensions.
+
+[Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) provides debugging support and intellisense on Windows, Linux and macOS.  At the time of this writing (January 2023) debug support has a [bug on macOS](https://github.com/microsoft/vscode-cpptools/issues/7240).
+
+[CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) provides debugging support for those using the LLVM compiler.  Apple's compiler on macOS is based on LLVM.
+
+[clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) provides intellisense and requires the `clangd` language server, which is related to the LLVM compiler.  We do not recommend installing the `clangd` extension with the Microsoft C/C++ extension because multiple intellisense providers can produce confusing results.
+
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
