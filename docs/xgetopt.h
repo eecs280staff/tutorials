@@ -11,7 +11,7 @@
 * This file is adapted from from w64 mingw-runtime package's getopt.{h,c}.
 */
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 #include <getopt.h>  // Linux et al.
 #else
 
