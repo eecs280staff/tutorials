@@ -11,7 +11,7 @@
 * This file is adapted from from w64 mingw-runtime package's getopt.{h,c}.
 */
 
-#ifndef _WIN32
+#ifndef _MSC_VER
 #include <getopt.h>  // Linux et al.
 #else
 
@@ -204,8 +204,11 @@ extern char __declspec(dllimport) *__progname;
 
 #ifdef __CYGWIN__
 static char EMSG[] = "";
+#elif defined(_MSC_VER)
+// xgetopt.h: Visual Studio needs this to be non-const
+static char EMSG[] = "";
 #else
-#define        EMSG                ""
+#define EMSG ""
 #endif
 
 static int getopt_internal(int, char * const *, const char *,
@@ -434,17 +437,6 @@ const struct option *long_options, int *idx, int short_too)
 #undef IDENTICAL_INTERPRETATION
 }
 
-/*
-* Return a pointer to the first occourance of char c in string s.
-*/
-char *mutable_strchr(const char *s, int c)
-{
-    while (*s != (char)c)
-        if (!*s++)
-            return 0;
-    return (char *)s;
-}
-
 
 /*
 * getopt_internal --
@@ -475,14 +467,18 @@ const struct option *long_options, int *idx, int flags)
 	* CV, 2009-12-14: Check POSIXLY_CORRECT anew if optind == 0 or
 	* optreset != 0 for GNU compatibility.
 	*/
-	if (posixly_correct == -1 || optreset != 0)
-		posixly_correct = (getenv("POSIXLY_CORRECT") != NULL);
-	if (*options == '-')
-		flags |= FLAG_ALLARGS;
-	else if (posixly_correct || *options == '+')
-		flags &= ~FLAG_PERMUTE;
-	if (*options == '+' || *options == '-')
-		options++;
+    // xgetopt.h: Windows does not use environment variables for this,
+    // so it's not necessary to check for this
+#ifndef _MSC_VER
+    if (posixly_correct == -1 || optreset != 0)
+        posixly_correct = (getenv("POSIXLY_CORRECT") != NULL);
+#endif
+    if (*options == '-')
+        flags |= FLAG_ALLARGS;
+    else if (posixly_correct || *options == '+')
+        flags &= ~FLAG_PERMUTE;
+    if (*options == '+' || *options == '-')
+        options++;
 
 	optarg = NULL;
 	if (optreset)
@@ -587,7 +583,7 @@ start:
 
 	if ((optchar = (int)*place++) == (int)':' ||
 		(optchar == (int)'-' && *place != '\0') ||
-		(oli = mutable_strchr(options, optchar)) == NULL) {
+		(oli = (char*)strchr(options, optchar)) == NULL) {
 		/*
 		* If the user specified "-" and '-' isn't listed in
 		* options, return -1 (non-option) as per POSIX.
@@ -697,4 +693,4 @@ const struct option *long_options, int *idx)
 
 #endif /* !defined(__UNISTD_H_SOURCED__) && !defined(__GETOPT_LONG_H__) */
 #endif /* ifndef __XGETOPT_H__ */
-#endif /* ifndef _WIN32 */
+#endif /* ifndef _MSC_VER */
