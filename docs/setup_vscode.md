@@ -32,7 +32,7 @@ $ rm -rf p1-stats              # Delete
 ```
 
 ## Install
-Choose your platform below.
+Choose your platform below. Also make sure to install extensions.
 
 ### Linux
 Install the .deb package from the web [https://code.visualstudio.com/docs/setup/linux](https://code.visualstudio.com/docs/setup/linux).
