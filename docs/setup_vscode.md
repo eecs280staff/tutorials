@@ -181,14 +181,14 @@ Select the add file icon and give it a name, e.g., `main.cpp`.
 
 <img src="images/vscode023.png" width="768px" />
 
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** You can also create files from the command line.  The `touch` command creates an empty file.
+Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
+
 ```console
 $ touch main.cpp
 ```
-</div>
 
 Copy-paste this Hello World program into your `main.cpp`.
+
 ```c++
 #include <iostream>
 using namespace std;

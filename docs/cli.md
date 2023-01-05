@@ -103,7 +103,6 @@ $ brew install tree      # macOS
   </tr>
 </table>
 
-
 ### `mkdir`
 `mkdir` creates a directory.
 
@@ -118,6 +117,24 @@ $ brew install tree      # macOS
   </td>
   <td>
     <img src="images/cli012.png" class="invert-colors-in-dark-mode" alt="mkdir example" width="470px"/>
+  </td>
+  </tr>
+</table>
+
+### `touch`
+`touch` creates an empty file.
+
+<table>
+  <tr>
+  <td markdown="1">
+
+  ```console
+  $ touch euchre.cpp
+  ```
+
+  </td>
+  <td>
+    <img src="images/cli006.png" class="invert-colors-in-dark-mode" alt="touch example" width="470px"/>
   </td>
   </tr>
 </table>
