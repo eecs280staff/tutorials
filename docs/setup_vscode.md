@@ -120,22 +120,6 @@ ms-vscode.cpptools-extension-pack
 ```
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
-Verify that the clangd or CodeLLDB extensions are *not* installed.  The clangd extension provides C/C++ intellisense which conflicts with the Microsoft C/C++ extension.  The CodeLLDB extension provides C/C++ debugging support which causes confusion with the Microsoft C/C++ extension.
-```consle
-$ code --list-extensions
-llvm-vs-code-extensions.vscode-clangd  # REMOVE ME
-vadimcn.vscode-lldb                    # REMOVE ME
-```
-
-Uninstall them if necessary.
-```console
-$ code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
-$ code --uninstall-extension vadimcn.vscode-lldb
-```
-</div>
-
-
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
