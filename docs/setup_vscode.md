@@ -32,7 +32,7 @@ $ rm -rf p1-stats              # Delete
 ```
 
 ## Install
-Choose your platform below.
+Choose your platform below. Also make sure to install extensions.
 
 ### Linux
 Install the .deb package from the web [https://code.visualstudio.com/docs/setup/linux](https://code.visualstudio.com/docs/setup/linux).
@@ -71,33 +71,6 @@ $ code --version
 x64
 ```
 
-#### WSL remote mode
-
-Use VS Code's [remote mode](https://code.visualstudio.com/docs/remote/wsl) to connect the VS Code graphical user interface (GUI) running on Windows to the Linux environment and tools like `g++` running on WSL.
-
-WSL Remote Mode connects VS Code to a remote instance of a VS Code server running elsewhere. When you launch VS Code from the WSL terminal, a VS Code server is started within WSL and the VS Code UI running on Windows connects to that server.
-
-<img src="images/vscode065.png" width="512px">
-
-Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).  It's OK if you have other extensions installed.
-```console
-$ code --install-extension ms-vscode-remote.remote-wsl
-$ code --list-extensions
-ms-vscode-remote.remote-wsl
-```
-
-After the extension is installed, quit VS Code and start it again.
-
-You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
-
-<img src="images/vscode068.png" width="768px">
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
-
-<img src="images/vscode070.png" width="720">
-</div>
-
 ### Extensions
 Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
 ```console
@@ -105,36 +78,48 @@ $ code --version
 1.52.1
 ```
 
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+Install the Microsoft [C/C++ extensions](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 ```console
 $ code --install-extension ms-vscode.cpptools
 $ code --install-extension ms-vscode.cpptools-extension-pack
 ```
 
-<div class="primer-spec-callout warning" markdown="1">
-Verify that the cpptools extensions installed.  It's OK if you have other extensions installed.
-```consle
+Verify that the extensions are installed.  It's OK if you have other extensions installed.
+```console
 $ code --list-extensions
 ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ```
-</div>
 
-<div class="primer-spec-callout warning" markdown="1">
-Verify that the clangd or CodeLLDB extensions are *not* installed.  The clangd extension provides C/C++ intellisense which conflicts with the Microsoft C/C++ extension.  The CodeLLDB extension provides C/C++ debugging support which causes confusion with the Microsoft C/C++ extension.
-```consle
-$ code --list-extensions
-llvm-vs-code-extensions.vscode-clangd  # REMOVE ME
-vadimcn.vscode-lldb                    # REMOVE ME
-```
-
-Uninstall them if necessary.
+#### macOS
+Install the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).
 ```console
-$ code --uninstall-extension llvm-vs-code-extensions.vscode-clangd
-$ code --uninstall-extension vadimcn.vscode-lldb
+$ code --install-extension vadimcn.vscode-lldb
 ```
-</div>
 
+Verify that the extension is installed.  It's OK if you have other extensions installed.
+```console
+$ code --list-extensions
+vadimcn.vscode-lldb
+```
+
+#### Windows
+Install the [WSL extension](https://code.visualstudio.com/docs/remote/wsl) to develop with Linux-based utilities like the `g++` compiler.
+```console
+$ code --install-extension ms-vscode-remote.remote-wsl
+```
+
+Quit VS Code and start it again.
+
+Verify that the extension is installed.  It's OK if you have other extensions installed.
+```console
+$ code --list-extensions
+ms-vscode-remote.remote-wsl
+```
+
+You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
+
+<img src="images/vscode069.png" width="768px">
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
@@ -324,11 +309,15 @@ Click "create a launch.json file".
 
 <img src="images/vscode031.png" width="768px" />
 
-Click "Add Configuration".
+**macOS:** Select LLDB.
+
+<img src="images/vscode031b.png" width="768px" />
+
+You may need to click "Add Configuration".
 
 <img src="images/vscode032.png" width="768px" />
 
-Select a "Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
+You may need to select a "Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 - macOS: "C/C++ (lldb) Launch"
 - WSL orLinux: "C/C++ (gdb) Launch"
 
@@ -576,6 +565,11 @@ Press "Continue" to run the program to the next breakpoint, or the end, whicheve
 ## Troubleshooting
 This section is for common problems and solutions.
 
+### Compile and run
+If you have trouble with the [compile and run](#compile-and-run) section, a good first step is to delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+
+<img src="images/vscode160.png" width="768px" />
+
 ### Intellisense C++ Standard
 Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  If the C++ standard is out-of-date, you'll see squiggles where you shouldn't.
 
@@ -600,6 +594,15 @@ Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  D
 }
 ```
 {: data-title="c_cpp_properties.json" data-highlight="5-6" }
+
+### C/C++ extension alternatives
+There are multiple options for C/C++ extensions.
+
+[Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) provides debugging support and intellisense on Windows, Linux and macOS.  At the time of this writing (January 2023) debug support has a [bug on macOS](https://github.com/microsoft/vscode-cpptools/issues/7240).
+
+[CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) provides debugging support for those using the LLVM compiler.  Apple's compiler on macOS is based on LLVM.
+
+[clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) provides intellisense and requires the `clangd` language server, which is related to the LLVM compiler.  We do not recommend installing the `clangd` extension with the Microsoft C/C++ extension because multiple intellisense providers can produce confusing results.
 
 
 ## Acknowledgments
