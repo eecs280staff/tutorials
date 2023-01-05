@@ -309,11 +309,15 @@ Click "create a launch.json file".
 
 <img src="images/vscode031.png" width="768px" />
 
-Click "Add Configuration".
+**macOS:** Select LLDB.
+
+<img src="images/vscode031b.png" width="768px" />
+
+You may need to click "Add Configuration".
 
 <img src="images/vscode032.png" width="768px" />
 
-Select a "Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
+You may need to select a "Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 - macOS: "C/C++ (lldb) Launch"
 - WSL orLinux: "C/C++ (gdb) Launch"
 
