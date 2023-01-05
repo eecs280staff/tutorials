@@ -71,33 +71,6 @@ $ code --version
 x64
 ```
 
-#### WSL remote mode
-
-Use VS Code's [remote mode](https://code.visualstudio.com/docs/remote/wsl) to connect the VS Code graphical user interface (GUI) running on Windows to the Linux environment and tools like `g++` running on WSL.
-
-WSL Remote Mode connects VS Code to a remote instance of a VS Code server running elsewhere. When you launch VS Code from the WSL terminal, a VS Code server is started within WSL and the VS Code UI running on Windows connects to that server.
-
-<img src="images/vscode065.png" width="512px">
-
-Install the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).  It's OK if you have other extensions installed.
-```console
-$ code --install-extension ms-vscode-remote.remote-wsl
-$ code --list-extensions
-ms-vscode-remote.remote-wsl
-```
-
-After the extension is installed, quit VS Code and start it again.
-
-You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
-
-<img src="images/vscode068.png" width="768px">
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
-
-<img src="images/vscode070.png" width="720">
-</div>
-
 ### Extensions
 Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
 ```console
@@ -111,8 +84,8 @@ $ code --install-extension ms-vscode.cpptools
 $ code --install-extension ms-vscode.cpptools-extension-pack
 ```
 
-Verify that the cpptools extensions installed.  It's OK if you have other extensions installed.
-```consle
+Verify that the extensions are installed.  It's OK if you have other extensions installed.
+```console
 $ code --list-extensions
 ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
@@ -124,11 +97,29 @@ Install the [CodeLLDB extension](https://marketplace.visualstudio.com/items?item
 $ code --install-extension vadimcn.vscode-lldb
 ```
 
-Verify that the cpptools extensions installed.  It's OK if you have other extensions installed.
-```consle
+Verify that the extension is installed.  It's OK if you have other extensions installed.
+```console
 $ code --list-extensions
 vadimcn.vscode-lldb
 ```
+
+#### Windows
+Install the [WSL extension](https://code.visualstudio.com/docs/remote/wsl) to develop with Linux-based utilities like the `g++` compiler.
+```console
+$ code --install-extension ms-vscode-remote.remote-wsl
+```
+
+Quit VS Code and start it again.
+
+Verify that the extension is installed.  It's OK if you have other extensions installed.
+```console
+$ code --list-extensions
+ms-vscode-remote.remote-wsl
+```
+
+You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
+
+<img src="images/vscode069.png" width="768px">
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
