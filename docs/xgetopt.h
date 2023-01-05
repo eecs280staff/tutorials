@@ -697,4 +697,4 @@ const struct option *long_options, int *idx)
 
 #endif /* !defined(__UNISTD_H_SOURCED__) && !defined(__GETOPT_LONG_H__) */
 #endif /* ifndef __XGETOPT_H__ */
-#endif /* ifndef _WIN32 */
+#endif /* ifndef _MSC_VER */
