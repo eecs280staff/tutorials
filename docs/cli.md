@@ -21,6 +21,11 @@ If you haven't installed CLI tools on your machine yet, follow one of these tuto
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) |
 
+On macOS, make sure to use the pre-installed Terminal application.
+
+On Windows, make sure to use the Ubuntu shell you installed in the set up above. A common mistake is to use the pre-installed PowerShell. An Ubuntu terminal looks like this.
+
+<img src="images/wsl030.png" class="invert-colors-in-dark-mode" width="400px" alt="keywords example"/>
 
 ## Keywords
 
@@ -141,7 +146,7 @@ $ brew install tree      # macOS
 
 ### `rm`
 `rm` removes (deletes) a file.
-
+q
 `rm -rf` removes a directory.
 
 <table>
