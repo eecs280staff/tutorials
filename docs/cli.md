@@ -146,7 +146,7 @@ $ brew install tree      # macOS
 
 ### `rm`
 `rm` removes (deletes) a file.
-q
+
 `rm -rf` removes a directory.
 
 <table>
