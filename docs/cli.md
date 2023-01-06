@@ -21,11 +21,15 @@ If you haven't installed CLI tools on your machine yet, follow one of these tuto
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) |
 
-On macOS, make sure to use the pre-installed Terminal application.
+### Open Terminal (Windows)
+Start an Ubuntu Bash shell.
 
-On Windows, make sure to use the Ubuntu shell you installed in the set up above. A common mistake is to use the pre-installed PowerShell. An Ubuntu terminal looks like this.
+| <img src="images/wsl020.png" class="invert-colors-in-dark-mode" width="240px" alt="start menu select Ubuntu" /> | <img src="images/wsl030.png" class="invert-colors-in-dark-mode" width="400px" alt="WSL Ubuntu terminal"/> |
 
-<img src="images/wsl030.png" class="invert-colors-in-dark-mode" width="400px" alt="keywords example"/>
+### Open Terminal (macOS)
+Start the Terminal application that comes with macOS.
+
+<img src="images/macos010.png" width="480px" />
 
 ## Keywords
 
