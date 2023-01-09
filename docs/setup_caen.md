@@ -188,30 +188,22 @@ manzana.local
 ## Avoiding repeated 2FA
 You've noticed that each time we use `ssh` or `rsync`, CAEN requires us to re-authenticate with 2FA (two factor authentication, using our phone).  You can configure SSH to share one connection and only authenticate once.  Note that `rsync` uses SSH under the hood.
 
-On your laptop, navigate to your home directory.  The tilde (`~`) symbol means "my home directory" at the command line.  Then, navigate to the hidden `.ssh` directory.  Note: files and directories that start with a dot (`.`) are hidden.
-```console
-$ cd ~         # This will move to your home directory
-$ ls           # list files
-src ...
-$ ls -A        # list files, including hidden files
-.ssh src  ...
-$ cd .ssh/
-$ cd ~/.ssh/   # Alternative: do it in one command
-```
-
 Add some lines to the SSH config file, which lives in `~/.ssh/config`.  Alternatively, you can use a text editor to make the changes.
 ```console
-$ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPath ~/.ssh/master-%r@%h:%p' >> ~/.ssh/config
+$ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPersist yes\n   ControlPath ~/.ssh/socket-%C\n  ServerAliveInterval 60\n  ServerAliveCountMax 5' >> ~/.ssh/config
 $ chmod 600 ~/.ssh/config
 ```
 
-Let's double-check and make sure you see this chunk in your `~/.ssh/config` file.  You can find a more in depth explanation at the [Linux Journal](http://www.linuxjournal.com/content/speed-multiple-ssh-connections-same-server).
+Let's double-check and make sure you see this chunk in your `~/.ssh/config` file.
 ```console
 $ cat ~/.ssh/config
 # SSH multiplexing
 Host *
   ControlMaster auto
-  ControlPath ~/.ssh/master-%r@%h:%p
+  ControlPersist yes
+  ControlPath ~/.ssh/socket-%C
+  ServerAliveInterval 60
+  ServerAliveCountMax 5
 ```
 
 SSH into CAEN Linux.  You'll need to use 2FA.
