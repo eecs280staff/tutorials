@@ -78,17 +78,15 @@ $ code --version
 1.52.1
 ```
 
-Install the Microsoft [C/C++ extensions](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 ```console
 $ code --install-extension ms-vscode.cpptools
-$ code --install-extension ms-vscode.cpptools-extension-pack
 ```
 
-Verify that the extensions are installed.  It's OK if you have other extensions installed.
+Verify that the extension is installed.  It's OK if you have other extensions installed.
 ```console
 $ code --list-extensions
 ms-vscode.cpptools
-ms-vscode.cpptools-extension-pack
 ```
 
 #### macOS
