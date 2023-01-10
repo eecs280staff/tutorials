@@ -55,13 +55,10 @@ For the Linux distribution, choose the latest version of Ubuntu LTS.  At the tim
 
 Restart your computer.
 
-Start an Ubuntu Bash shell (not a Windows PowerShell).
+## Open terminal
+Start an Ubuntu Bash shell.
 
-<img src="images/wsl020.png" width="240px" />
-
-An Ubuntu Bash shell is a terminal that looks like this.
-
-<img src="images/wsl030.png" width="480px" />
+| <img src="images/wsl020.png" width="240px" /> | <img src="images/wsl030.png" width="480px" /> |
 
 ## Install CLI tools
 Use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
