@@ -126,10 +126,13 @@ To create a VS Code project, create a folder (directory).  There are many ways t
 
 **Windows/WSL:** Open the Ubuntu application.
 
+Your root directory is located at [tilde `~`](cli.html#home-directory-). We recommend that you store your project files here.
+
 Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
+
 ```console
-$ mkdir ~/Desktop/eecs280
-$ cd ~/Desktop/eecs280
+$ mkdir ~/eecs280
+$ cd ~/eecs280
 $ mkdir p1-stats
 $ cd p1-stats
 ```
@@ -143,7 +146,7 @@ $ cd p1-stats
 | `Project 1 Stats/` | `p1-stats/` |
 
 </div>
-
+  
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
 <div class="primer-spec-callout info" markdown="1">
@@ -155,7 +158,11 @@ $ code .
 ```
 </div>
 
-<img src="images/vscode020.png" width="768px" />
+<img src="images/vscode020.png" width="512px" />
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Windows users will find it difficult to navigate the file structure at first. Make sure you understand how to locate your files according to the [WSL tutorial](setup_wsl.html).
+</div>
 
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
