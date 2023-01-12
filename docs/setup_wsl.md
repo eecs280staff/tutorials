@@ -132,7 +132,7 @@ $ explorer.exe .
 
 You'll see your home directory. Right click it and choose "Pin to Quick access". Now you'll have a shortcut to your Linux home directory. 
 
-<img src="images/vscode022.png" />
+<img src="images/vscode021.png" />
 
 ### Accessing Windows files 
 In case you do need to access these folders, you can start by navigating to your `/mnt/c/Users` path. Then, move into the directory labelled with your username. From here you should be able to access directories like Desktop and Documents. If you cannot find them, they may also be inside the OneDrive directory.
