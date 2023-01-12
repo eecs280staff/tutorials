@@ -158,12 +158,22 @@ $ code .
 ```
 </div>
 
-<img src="images/vscode022.png" width="512px" />
+<img src="images/vscode020.png" width="512px" />
 
 ## Windows  
-This section includes more information on the command line for Windows users, macOS users can skip to the `Add new files` section. 
+This section includes more information on the command line for Windows users. macOS users can skip to the `Add new files` section. 
 
-Most students will want to store project files on the Desktop or Documents folders, however we recommend storing them in the Linux home directory for ease of access. In case you do need to access these folders, you can start by navigating to your `/mnt/c/Users` path. Then, move into the directory labelled with your username. From here you should be able to access directories like Desktop and Documents. If you cannot find them, they may potentially be inside the OneDrive directory.
+Most students will want to store project files on the Desktop or in Documents, however we recommend storing them in the Linux home directory for ease of access. 
+
+In case you do need to access these folders, you can start by navigating to your `/mnt/c/Users` path. Then, move into the directory labelled with your username. From here you should be able to access directories like Desktop and Documents. If you cannot find them, they may potentially be inside the OneDrive directory.
+
+```console
+$ cd /mnt/c/Users
+$ ls
+'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
+$ cd awdeorio
+$ cd Desktop
+```
 
 To find Linux files in the file explorer, navigate to `/home`, and open the file explorer there using the command line.
 
@@ -174,7 +184,7 @@ $ explorer.exe .
 
 You'll see your home folder. Right click it and choose "Pin to Quick access". Now you'll have a shortcut to your linux home directory. 
 
-<img src="images/vscode020.png" width="768px" />
+<img src="images/vscode022.png" width="768px" />
 
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
