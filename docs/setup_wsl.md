@@ -121,20 +121,14 @@ Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" propertie
 ### Accessing Linux files from Windows
 To access Linux files from the Windows file explorer, click the Linux icon in the File Explorer.  You may need to scroll down.
 
+Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your username will be different.
+
 <img src="images/wsl080.png" width=512px>
-
-Navigate to your home directory: Ubuntu > home > awdeorio.  Your username will be different.
-
-FIXME SCREENSHOT
-
-<img src="images/wsl090.png" width=512px>
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access".
 
-FIXME SCREENSHOT
-
-<img src="images/wsl100.png" width=512px>
+<img src="images/wsl090.png" width=512px>
 </div>
 
 
