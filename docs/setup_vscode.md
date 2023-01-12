@@ -170,9 +170,8 @@ In case you do need to access these folders, you can start by navigating to your
 ```console
 $ cd /mnt/c/Users
 $ ls
-'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
+'All Users'  'Default User'   defaultuser0   ## awdeorio   Default   Public   defaultuser100000   desktop.ini
 $ cd awdeorio
-$ cd Desktop
 ```
 
 To find Linux files in the file explorer, navigate to `/home`, and open the file explorer there using the command line.
