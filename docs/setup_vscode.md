@@ -126,10 +126,13 @@ To create a VS Code project, create a folder (directory).  There are many ways t
 
 **Windows/WSL:** Open the Ubuntu application.
 
+Your root directory is located at [tilde `~`](cli.html#home-directory-). We recommend that you store your project files here.
+
 Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
+
 ```console
-$ mkdir ~/Desktop/eecs280
-$ cd ~/Desktop/eecs280
+$ mkdir ~/eecs280
+$ cd ~/eecs280
 $ mkdir p1-stats
 $ cd p1-stats
 ```
@@ -143,7 +146,7 @@ $ cd p1-stats
 | `Project 1 Stats/` | `p1-stats/` |
 
 </div>
-
+  
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
 <div class="primer-spec-callout info" markdown="1">
@@ -154,6 +157,22 @@ main.cpp ...
 $ code .
 ```
 </div>
+
+<img src="images/vscode022.png" width="512px" />
+
+## Windows  
+This section includes more information on the command line for Windows users, macOS users can skip to the `Add new files` section. 
+
+Most students will want to store project files on the Desktop or Documents folders, however we recommend storing them in the Linux home directory for ease of access. In case you do need to access these folders, you can start by navigating to your `/mnt/c/Users` path. Then, move into the directory labelled with your username. From here you should be able to access directories like Desktop and Documents. If you cannot find them, they may potentially be inside the OneDrive directory.
+
+To find Linux files in the file explorer, navigate to `/home`, and open the file explorer there using the command line.
+
+```console
+$ cd /home
+$ explorer.exe .
+```
+
+You'll see your home folder. Right click it and choose "Pin to Quick access". Now you'll have a shortcut to your linux home directory. 
 
 <img src="images/vscode020.png" width="768px" />
 
