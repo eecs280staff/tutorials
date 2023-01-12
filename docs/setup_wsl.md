@@ -118,30 +118,43 @@ Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" propertie
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
 
-### Accessing files with Linux
-Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`. 
+### Accessing Linux files from Windows
+To access Linux files from the Windows file explorer, click the Linux icon in the File Explorer.  You may need to scroll down.
 
-Most students will want to store project files on the Windows side (e.g. Desktop, Documents), however we recommend storing them in the Ubuntu home directory for ease of access and best practice. 
+<img src="images/wsl080.png" width=512px>
 
-To find Ubuntu/Linux files in the file explorer, navigate to `/home`, and open the file explorer there using the command line.
+Navigate to your home directory: Ubuntu > home > awdeorio.  Your username will be different.
 
+FIXME SCREENSHOT
+
+<img src="images/wsl090.png" width=512px>
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access".
+
+FIXME SCREENSHOT
+
+<img src="images/wsl100.png" width=512px>
+</div>
+
+
+To open the File Explorer from any Linux directory: 
 ```console
-$ cd /home
 $ explorer.exe .
 ```
 
-You'll see your home directory. Right click it and choose "Pin to Quick access". Now you'll have a shortcut to your Linux home directory. 
+### Accessing Windows files from Linux
+To access Windows files from Linux, navigate to `/mnt/c/`.
 
-<img src="images/vscode021.png" />
-
-### Accessing Windows files 
-In case you do need to access these folders, you can start by navigating to your `/mnt/c/Users` path. Then, move into the directory labelled with your username. From here you should be able to access directories like Desktop and Documents. If you cannot find them, they may also be inside the OneDrive directory.
-
+For example, here's how to access your Windows Desktop.  Your username will be different.
 ```console
 $ cd /mnt/c/Users
 $ ls
 'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
 $ cd awdeorio
+$ ls
+... Desktop  Downloads ...
+$ cd Desktop
 ```
 
 ### CLI open file
