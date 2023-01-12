@@ -118,11 +118,29 @@ Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" propertie
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
 
-### Accessing Windows files
-Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`.
+### Accessing files with Linux
+Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`. 
+Most students will want to store project files on the Windows side (e.g. Desktop, Documents), however we recommend storing them in the Ubuntu home directory for ease of access and best practice. 
+
+To find Ubuntu/Linux files in the file explorer, navigate to `/home`, and open the file explorer there using the command line.
+
 ```console
-$ cd /mnt/c/Users/awdeorio/Desktop    # Windows Desktop
-$ cd /mnt/c/Users/awdeorio/Documents  # Windows Documents
+$ cd /home
+$ explorer.exe .
+```
+
+You'll see your home directory. Right click it and choose "Pin to Quick access". Now you'll have a shortcut to your Linux home directory. 
+
+<img src="images/vscode022.png" width="768px" />
+
+### Accessing Windows files 
+In case you do need to access these folders, you can start by navigating to your `/mnt/c/Users` path. Then, move into the directory labelled with your username. From here you should be able to access directories like Desktop and Documents. If you cannot find them, they may also be inside the OneDrive directory.
+
+```console
+$ cd /mnt/c/Users
+$ ls
+'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
+$ cd awdeorio
 ```
 
 ### CLI open file
