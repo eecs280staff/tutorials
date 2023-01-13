@@ -126,9 +126,7 @@ To create a VS Code project, create a folder (directory).  There are many ways t
 
 **Windows/WSL:** Open the Ubuntu application.
 
-Your root directory is located at [tilde `~`](cli.html#home-directory-). We recommend that you store your project files here.
-
-Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
+Navigate to your Linux home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 
 ```console
 $ mkdir ~/eecs280
