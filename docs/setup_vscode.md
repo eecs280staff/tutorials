@@ -122,14 +122,13 @@ You'll know that VS Code is running in remote mode when you see the remote mode 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
-**macOS:** Open the Terminal application.
+Open the Terminal ([macOS](cli.html#open-terminal-macos)) or Ubuntu Bash Shell ([Windows](cli.html#open-terminal-windows)).
 
-**Windows/WSL:** Open the Ubuntu application.
+Navigate to your home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 
-Navigate to the directory where you store your projects, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 ```console
-$ mkdir ~/Desktop/eecs280
-$ cd ~/Desktop/eecs280
+$ mkdir ~/eecs280
+$ cd ~/eecs280
 $ mkdir p1-stats
 $ cd p1-stats
 ```
@@ -141,6 +140,19 @@ $ cd p1-stats
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
 | `Project 1 Stats/` | `p1-stats/` |
+
+</div>
+  
+<div class="primer-spec-callout warning" markdown="1">
+**Windows Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
+
+```console
+$ pwd
+/home/awdeorio ...         # Good, Linux home
+/c/mnt/Users/awdeorio ...  # Bad, Windows home
+```
+
+Here's how to [access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
 
 </div>
 

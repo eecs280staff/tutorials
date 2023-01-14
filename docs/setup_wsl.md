@@ -73,6 +73,44 @@ Now would be a great time to take a look at our [CLI Tutorial](cli.html).
 
 ## Pro-tips
 
+### Accessing Linux files from Windows
+To access Linux files from the Windows File Explorer, click the Linux icon.  You may need to scroll down.
+
+Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your username will be different.
+
+<img src="images/wsl080.png" width=768px>
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access". 
+
+It should now show up under "Quick access" in the left sidebar.
+
+| <img src="images/wsl090.png" width=512px> | <img src="images/wsl100.png" width=512px> |
+
+</div>
+
+To open the File Explorer in any directory at the WSL (Ubuntu) Terminal:
+```console
+$ explorer.exe .
+```
+
+### Accessing Windows files from Linux
+To access Windows files from Linux, navigate to `/mnt/c/`.
+
+For example, here's how to access your Windows Desktop.  Your username will be different.
+```console
+$ cd /mnt/c/Users
+$ ls
+'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
+$ cd awdeorio
+$ ls
+... Desktop  Downloads ...
+$ cd Desktop
+```
+
+### CLI open file
+Opens a file or directory with the default application, like a double click.  See the [`wslview` command](cli.html#open--wslview) in the CLI tutorial.
+
 ### Copy paste
 Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
 
@@ -117,16 +155,6 @@ Click on the properties option in the dropdown.
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
-
-### Accessing Windows files
-Windows files are accessible from Linux at `/mnt/c/`.  You have a separate Ubuntu home directory, e.g., `/home/awdeorio/`.
-```console
-$ cd /mnt/c/Users/awdeorio/Desktop    # Windows Desktop
-$ cd /mnt/c/Users/awdeorio/Documents  # Windows Documents
-```
-
-### CLI open file
-Opens a file or directory with the default application, like a double click.  See the [`wslview` command](cli.html#open--wslview) in the CLI tutorial.
 
 
 ## Acknowledgments
