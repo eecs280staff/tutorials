@@ -78,18 +78,14 @@ To access Linux files from the Windows File Explorer, click the Linux icon.  You
 
 Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your username will be different.
 
-FIXME: If possible, show in the side bar Linux -> Ubuntu -> home -> justin789liu
-
 <img src="images/wsl080.png" width=768px>
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access".
+**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access". 
 
-FIXME: Left screenshot should not show the already-pinned `justin789liu` in the Quick Access.  Circle "home" in the left sidebar.
+It should now show up under "Quick access" in the left sidebar.
 
-FIXME Right screenshot should show the "after", with the `justin789liu` directory in the quick access.  Circle the `justin789liu` in the Quick Access.  You'll need to add a new file for this.
-
-| <img src="images/wsl090.png" width=512px> | <img src="images/wsl090.png" width=512px> |
+| <img src="images/wsl090.png" width=512px> | <img src="images/wsl100.png" width=512px> |
 
 </div>
 

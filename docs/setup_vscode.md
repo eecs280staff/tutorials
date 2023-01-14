@@ -154,7 +154,6 @@ $ pwd
 
 Here's how to [access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
 
-<img src="images/wsl080.png" width=768px>
 </div>
 
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
