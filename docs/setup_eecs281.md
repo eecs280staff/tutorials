@@ -170,7 +170,7 @@ When you're working alone version control is optional, but it provides benefits:
 
 Set up version control using the [Version control tutorial](https://eecs280staff.github.io/p1-stats/setup_git.html).  If you've used version control before on your computer, you'll probably want to start with the [Create a local repository](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository) section.
 
-After you're done, you should have a local repository with a "clean" status and your local repository should be connected to a remote GitLab repository.
+After you're done, you should have a local repository with a "clean" status and your local repository should be connected to a remote GitHub repository.
 ```console
 $ git status
 On branch main
@@ -178,13 +178,13 @@ Your branch is up-to-date with 'origin/main'.
 
 nothing to commit, working tree clean
 $ git remote -v
-origin	https://gitlab.eecs.umich.edu/awdeorio/p1-stats.git (fetch)
-origin	https://gitlab.eecs.umich.edu/awdeorio/p1-stats.git (push)
+origin	https://github.com/awdeorio/p1-stats.git (fetch)
+origin	https://github.com/awdeorio/p1-stats.git (push)
 ```
 
 You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository)).
 ```console
 $ head .gitignore
-# This is a sample .gitignore file that's useful for C++ projects.
+This is a sample .gitignore file that's useful for C++ projects.
 ...
 ```

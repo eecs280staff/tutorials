@@ -257,7 +257,7 @@ fatal: Not a git repository (or any of the parent directories): .git
 Change directory and `git clone` your repo.
 ```console
 $ cd ~  # This will move to your home directory
-$ git clone https://gitlab.eecs.umich.edu/awdeorio/p1-stats.git
+$ git clone https://github.com/awdeorio/p1-stats.git
 $ ls
 p1-stats p1-stats-copy
 ```
