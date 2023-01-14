@@ -85,7 +85,7 @@ Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your usernam
 
 It should now show up under "Quick access" in the left sidebar.
 
-| <img src="images/wsl990.png" width=512px> | <img src="images/wsl100.png" width=512px> |
+| <img src="images/wsl090.png" width=512px> | <img src="images/wsl100.png" width=512px> |
 
 </div>
 
