@@ -80,7 +80,7 @@ Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your usernam
 
 FIXME: If possible, show in the side bar Linux -> Ubuntu -> home -> justin789liu
 
-<img src="images/wsl080.png" width=512px>
+<img src="images/wsl080.png" width=768px>
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access".

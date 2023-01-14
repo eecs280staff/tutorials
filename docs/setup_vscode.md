@@ -122,11 +122,9 @@ You'll know that VS Code is running in remote mode when you see the remote mode 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
-**macOS:** Open the Terminal application.
+Open the Terminal ([macOS](cli.html#open-terminal-macos)) or Ubuntu Bash Shell ([Windows](cli.html#open-terminal-windows)).
 
-**Windows/WSL:** Open the Ubuntu application.
-
-Navigate to your Linux home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
+Navigate to your home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 
 ```console
 $ mkdir ~/eecs280
@@ -145,6 +143,12 @@ $ cd p1-stats
 
 </div>
   
+<div class="primer-spec-callout warning" markdown="1">
+**Windows Pitfall:** Windows and Linux (WSL) have separate home directories.  Here's how to [Access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
+
+<img src="images/wsl080.png" width=768px>
+</div>
+
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
 <div class="primer-spec-callout info" markdown="1">
@@ -156,11 +160,7 @@ $ code .
 ```
 </div>
 
-<img src="images/vscode020.png" width="512px" />
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Windows users will find it difficult to navigate the file structure at first. Make sure you understand how to locate your files according to the [WSL tutorial](setup_wsl.html).
-</div>
+<img src="images/vscode020.png" width="768px" />
 
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
