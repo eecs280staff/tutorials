@@ -144,7 +144,15 @@ $ cd p1-stats
 </div>
   
 <div class="primer-spec-callout warning" markdown="1">
-**Windows Pitfall:** Windows and Linux (WSL) have separate home directories.  Here's how to [Access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
+**Windows Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
+
+```console
+$ pwd
+/home/awdeorio ...         # Good, Linux home
+/c/mnt/Users/awdeorio ...  # Bad, Windows home
+```
+
+Here's how to [access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
 
 <img src="images/wsl080.png" width=768px>
 </div>
