@@ -73,6 +73,42 @@ Now would be a great time to take a look at our [CLI Tutorial](cli.html).
 
 ## Pro-tips
 
+### Accessing Linux files from Windows
+To access Linux files from the Windows file explorer, click the Linux icon in the File Explorer.  You may need to scroll down.
+
+Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your username will be different.
+
+<img src="images/wsl080.png" width=512px>
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access".
+
+<img src="images/wsl090.png" width=512px>
+</div>
+
+
+To open the File Explorer from any Linux directory:
+```console
+$ explorer.exe .
+```
+
+### Accessing Windows files from Linux
+To access Windows files from Linux, navigate to `/mnt/c/`.
+
+For example, here's how to access your Windows Desktop.  Your username will be different.
+```console
+$ cd /mnt/c/Users
+$ ls
+'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
+$ cd awdeorio
+$ ls
+... Desktop  Downloads ...
+$ cd Desktop
+```
+
+### CLI open file
+Opens a file or directory with the default application, like a double click.  See the [`wslview` command](cli.html#open--wslview) in the CLI tutorial.
+
 ### Copy paste
 Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
 
@@ -117,42 +153,6 @@ Click on the properties option in the dropdown.
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
-
-### Accessing Linux files from Windows
-To access Linux files from the Windows file explorer, click the Linux icon in the File Explorer.  You may need to scroll down.
-
-Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your username will be different.
-
-<img src="images/wsl080.png" width=512px>
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access".
-
-<img src="images/wsl090.png" width=512px>
-</div>
-
-
-To open the File Explorer from any Linux directory: 
-```console
-$ explorer.exe .
-```
-
-### Accessing Windows files from Linux
-To access Windows files from Linux, navigate to `/mnt/c/`.
-
-For example, here's how to access your Windows Desktop.  Your username will be different.
-```console
-$ cd /mnt/c/Users
-$ ls
-'All Users'  'Default User'   defaultuser0   awdeorio   Default   Public   defaultuser100000   desktop.ini
-$ cd awdeorio
-$ ls
-... Desktop  Downloads ...
-$ cd Desktop
-```
-
-### CLI open file
-Opens a file or directory with the default application, like a double click.  See the [`wslview` command](cli.html#open--wslview) in the CLI tutorial.
 
 
 ## Acknowledgments
