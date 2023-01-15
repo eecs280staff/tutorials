@@ -255,6 +255,15 @@ On WSL (Windows), `wslview` opens a file or directory with the default applicati
 ```console
 $ sudo apt install wslu
 ```
+If this does not work, try running:
+```console
+$ sudo apt update
+$ sudo apt install ubuntu-wsl
+$ sudo add-apt-repository ppa:wslutilities/wslu
+$ sudo apt update
+$ sudo apt install wslu
+```
+
 </div>
 
 ## Tips and Tricks
@@ -314,6 +323,14 @@ $ wslview ~/.bash_profile
 <div class="primer-spec-callout warning" markdown="1">
 **WSL Pitfall:** You may need to install `wslu`, which includes `wslview`.
 ```console
+$ sudo apt install wslu
+```
+If this does not work, try running:
+```console
+$ sudo apt update
+$ sudo apt install ubuntu-wsl
+$ sudo add-apt-repository ppa:wslutilities/wslu
+$ sudo apt update
 $ sudo apt install wslu
 ```
 </div>
