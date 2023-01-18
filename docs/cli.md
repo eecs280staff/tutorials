@@ -251,19 +251,26 @@ On WSL (Windows), `wslview` opens a file or directory with the default applicati
 </video>
 
 <div class="primer-spec-callout warning" markdown="1">
-**WSL Pitfall:** You may need to install `wslu`, which includes `wslview`.
+**WSL Pitfall:** You may need to install `wslu`, which includes `wslview` ([source](https://wslutiliti.es/wslu/install.html#ubuntu)).
+
+Check your Ubuntu version.
 ```console
-$ sudo apt install wslu
+$ lsb_release
+Description:    Ubuntu 20.04.1 LTS
 ```
-If this does not work, try running:
+
+Ubuntu 20.04 and earlier:
 ```console
 $ sudo apt update
-$ sudo apt install ubuntu-wsl
+$ sudo apt install ubuntu-wsl wslu
+```
+
+Ubuntu 22.04 and later:
+```console
 $ sudo add-apt-repository ppa:wslutilities/wslu
 $ sudo apt update
 $ sudo apt install wslu
 ```
-
 </div>
 
 ## Tips and Tricks
