@@ -125,23 +125,23 @@ These instructions show how to enable WSL Copy/Paste on Windows 11 H2 or newer.
 
 Right click on the window pane header of your Ubuntu WSL terminal. Click on the Settings option in the drop down menu.
 
-<img src="/images/wsl050.png" width=480px>
+<img src="images/wsl050.png" width=480px>
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If your dropdown contains the option "Properties" follow the instructions for [Older versions of windows](#enable-copy-paste-on-older-windows).
-<img src="/images/wsl040.png" width=480px>
+<img src="images/wsl040.png" width=480px>
 
 </div>
 
 Click on the Actions tab on the left side of the settings window.
 
-<img src="/images/wsl060.png" width=512px>
+<img src="images/wsl060.png" width=512px>
 
 Confirm that the "Copy text" and "Paste text" bindings exist.  You may need to scroll down.  Add them if needed using the "Add new" button.
 - Copy text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
 - Paste text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
 
-<img src="/images/wsl070.png" width=512px>
+<img src="images/wsl070.png" width=512px>
 
 #### Enable copy paste on older Windows
 {: .primer-spec-toc-ignore }
