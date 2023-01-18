@@ -433,19 +433,13 @@ To configure input redirection, edit `launch.json`.
         {
             ...
             "program": "${workspaceFolder}/main.exe",
-            ...
-            "MIMode": "lldb",
-            "setupCommands": [
-                {
-                    "text": "settings set target.input-path main_test.in"
-                }
-            ]
+            "stdio": ["main_test.in", null, null],
             ...
         }
     ]
 }
 ```
-{: data-title="launch.json" data-highlight="10" }
+{: data-title="launch.json" data-highlight="6" }
 
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
