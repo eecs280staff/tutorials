@@ -250,7 +250,7 @@ On WSL (Windows), `wslview` opens a file or directory with the default applicati
   Your browser does not support the video tag.
 </video>
 
-<div class="primer-spec-callout warning" markdown="1">
+<div id="pitfall-install-wslview" class="primer-spec-callout warning" markdown="1">
 **WSL Pitfall:** You may need to install `wslu`, which includes `wslview` ([source](https://wslutiliti.es/wslu/install.html#ubuntu)).
 
 Check your Ubuntu version.
@@ -328,18 +328,7 @@ $ wslview ~/.bash_profile
 {: data-variant="no-line-numbers" }
 
 <div class="primer-spec-callout warning" markdown="1">
-**WSL Pitfall:** You may need to install `wslu`, which includes `wslview`.
-```console
-$ sudo apt install wslu
-```
-If this does not work, try running:
-```console
-$ sudo apt update
-$ sudo apt install ubuntu-wsl
-$ sudo add-apt-repository ppa:wslutilities/wslu
-$ sudo apt update
-$ sudo apt install wslu
-```
+**WSL Pitfall:** You may need to [install `wslview`](#pitfall-install-wslview).
 </div>
 
 Add this line.  Whenever you type `ls`, you'll actually get `ls --color`, which adds color.
