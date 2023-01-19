@@ -426,7 +426,7 @@ To configure input redirection, edit `launch.json`.
 
 #### macOS `launch.json` changes
 
-To configure input redirection, edit `launch.json`.
+To configure input redirection, edit `launch.json` ([docs](https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md#stdio-redirection)).
 ```json
 {
     "configurations": [
