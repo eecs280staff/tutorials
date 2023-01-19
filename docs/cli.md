@@ -255,8 +255,8 @@ On WSL (Windows), `wslview` opens a file or directory with the default applicati
 
 Check your Ubuntu version.
 ```console
-$ lsb_release
-Description:    Ubuntu 20.04.1 LTS
+$ lsb_release -a
+Description:    Ubuntu 22.04 LTS
 ```
 
 Ubuntu 20.04 and earlier:
