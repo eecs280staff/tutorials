@@ -441,6 +441,20 @@ To configure input redirection, edit `launch.json` ([docs](https://github.com/va
 ```
 {: data-title="launch.json" data-highlight="6" }
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're using the CodeLLDB extension.  You should see `lldb` in your `launch.json`.  If not, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+
+```json
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            ...
+```
+{: data-title="launch.json" data-highlight="4" }
+
+</div>
+
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection for EECS 280 project 1.
