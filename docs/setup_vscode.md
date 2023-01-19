@@ -426,26 +426,34 @@ To configure input redirection, edit `launch.json`.
 
 #### macOS `launch.json` changes
 
-To configure input redirection, edit `launch.json`.
+To configure input redirection, edit `launch.json` ([docs](https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md#stdio-redirection)).
 ```json
 {
     "configurations": [
         {
             ...
             "program": "${workspaceFolder}/main.exe",
-            ...
-            "MIMode": "lldb",
-            "setupCommands": [
-                {
-                    "text": "settings set target.input-path main_test.in"
-                }
-            ]
+            "stdio": ["main_test.in", null, null],
             ...
         }
     ]
 }
 ```
-{: data-title="launch.json" data-highlight="10" }
+{: data-title="launch.json" data-highlight="6" }
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're using the CodeLLDB extension.  You should see `lldb` in your `launch.json`.  If not, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+
+```json
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            ...
+```
+{: data-title="launch.json" data-highlight="4" }
+
+</div>
 
 ### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
