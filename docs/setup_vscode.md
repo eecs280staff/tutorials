@@ -19,44 +19,19 @@ VS Code relies on external command line tools.  If you haven't installed CLI too
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-Check below ([macOS](#macos), [Windows](#windows)) that you have successfully installed the required command line tools.
+Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos#install-compiler), [Windows/WSL/Linux](setup_wsl.html#install-cli-tools).
+```console
+$ g++ --version  # macOS
+Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+$ lldb --version # macOS
+Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+$ g++ --version  # WSL/Linux
+g++ (GCC) 8.5.0 20210514
+$ gdb --version  # WSL/Linux
+GNU gdb (GDB)
+```
 
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
-
-### macOS
-Your version might be different.
-
-```console
-$ g++ --version
-Apple clang version 13.1.6 (clang-1316.0.21.2.5)
-...
-$ lldb --version
-Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
-...
-```
-
-If g++ is not installed, [install a compiler](setup_macos#install-compiler).
-
-If lldb is not installed, enter the following into your terminal and you will be prompted to the installation.
-
-```console
-$ lldb
-```
-
-### Windows
-Your version might be different.
-
-```console
-$ g++ --version
-...TODO: some output here...
-...
-$ gdb --version
-...TODO: some output here...
-...
-```
-
-If either is not installed, [install it](setup_wsl.html#install-cli-tools).
-
 
 ## Restart
 To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
