@@ -19,6 +19,18 @@ VS Code relies on external command line tools.  If you haven't installed CLI too
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
+Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos#install-compiler), [Windows/WSL/Linux](setup_wsl.html#install-cli-tools).
+```console
+$ g++ --version  # macOS
+Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+$ lldb --version # macOS
+Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+$ g++ --version  # WSL/Linux
+g++ (GCC) 8.5.0 20210514
+$ gdb --version  # WSL/Linux
+GNU gdb (GDB)
+```
+
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
