@@ -101,6 +101,22 @@ $ ls -A
 ```
 
 ### Initialize repo
+Initialize the repo.  You may have more untracked files.
+```console
+$ git init
+Initialized empty Git repository in /Users/japplefield/Developer/eecs485/p1-insta485-static/.git/
+$ git status
+On branch main
+
+Untracked files:
+
+	.gitignore
+    ...
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+### Add existing files to version control
 First, double-check that you have a `.gitignore` file.  Your gitignore might be different.
 ```console
 $ head .gitignore
@@ -109,36 +125,16 @@ This is a sample .gitignore file that's useful for C++ projects.
 This is a sample .gitignore file that's useful for EECS 485 projects.
 ```
 
-Initialize the repo.  You'll see that the `.gitignore` file is untracked.
+Add your `.gitignore` file and any additional starter files.  See that your existing files are ready to be committed.  You may have more files.
 ```console
-$ git init
-Initialized empty Git repository in /Users/japplefield/Developer/eecs485/p1-insta485-static/.git/
+$ git add .
 $ git status
 On branch main
-
-No commits yet
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-	.gitignore
-
-nothing added to commit but untracked files present (use "git add" to track)
-```
-
-### Add existing files to version control
-Add your `.gitignore` file.  See that it is ready to be committed.
-```console
-$ git add .gitignore
-$ git status
-On branch main
-
-No commits yet
 
 Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
 
 	new file:   .gitignore
+    ...
 ```
 
 Commit the added files to the local repo with the commit message "Initial commit".
