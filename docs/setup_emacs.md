@@ -76,19 +76,14 @@ Use the [Homebrew package manager](https://brew.sh).
 ```console
 $ brew install --cask emacs
 ```
-{: data-variant="no-line-numbers" }
 
 ### Windows/WSL or Linux
 Start a Bash shell (not a Windows PowerShell) and then follow the [Ubuntu Linux instructions](#ubuntu-linux).
 ```console
 $ sudo apt-get install emacs
 ```
-{: data-variant="no-line-numbers" }
 
 Caveat: getting GUI Emacs windows to work from inside WSL can be tricky.  Search for "WSL emacs X server" to get started.
-
-### CAEN Linux
-Emacs is already installed on CAEN Linux.  See the [Editing remotely with TRAMP](#editing-remotely-with-tramp) pro-tip.
 
 ### All platforms
 You should have Emacs version 24.4 or higher.
@@ -101,7 +96,6 @@ Start Emacs, and you should see something like this screenshot.
 ```console
 $ emacs
 ```
-{: data-variant="no-line-numbers" }
 
 <img src="images/emacs010.png" width="512px" />
 
@@ -125,7 +119,6 @@ View `init.el` with Emacs.  You should see something like this screenshot.  Noti
 ```console
 $ emacs ~/.emacs.d/init.el
 ```
-{: data-variant="no-line-numbers" }
 
 <img src="images/emacs015.png" width="512px" />
 
@@ -196,8 +189,6 @@ Emacs doesn't require any special setup for a project.
 Create a new folder for your project. Your folder location might be different.
 
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280
 $ mkdir p1-stats
 ```
 
@@ -232,7 +223,6 @@ Add a new file in the same way you edit an existing file.  The ampersand (`&`) a
 ```console
 $ emacs stats.cpp &
 ```
-{: data-variant="no-line-numbers" }
 
 #### Project 1 `stats.cpp`
 Edit `stats.cpp` and add placeholder function stubs.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.  The keyboard shortcut for paste is `C-y`, and save is `C-x C-s`.
@@ -382,7 +372,6 @@ Start Emacs.
 ```console
 $ emacs stats_tests.cpp &
 ```
-{: data-variant="no-line-numbers" }
 
 Start debug mode.  Emacs runs GDB or LLDB behind the scenes.
 
@@ -433,7 +422,6 @@ Then you can simply type:
 ```console
 $ e stats.cpp
 ```
-{: data-variant="no-line-numbers" }
 
 #### Editing remotely with TRAMP
 Emacs [TRAMP](https://www.emacswiki.org/emacs/TrampMode) mode lets you edit a file on a remote server using a local GUI window.
@@ -442,7 +430,6 @@ First, make sure you have a copy of your code on CAEN Linux ([CAEN Linux Tutoria
 ```console
 $ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
-{: data-variant="no-line-numbers" }
 
 Next, configure Emacs TRAMP mode to use SSH multiplexing.  Add this to your `~/.emacs.d/init.el`.
 ```elisp
@@ -466,7 +453,6 @@ Open an Emacs GUI window on your local machine.  It doesn't matter what director
 ```console
 $ emacs &
 ```
-{: data-variant="no-line-numbers" }
 
 SSH into your remote server, CAEN Linux in this example.
 ```console
@@ -526,7 +512,6 @@ If you're on a remote server without a GUI, you can use Emacs in text-only mode.
 ```console
 $ emacs -nw
 ```
-{: data-variant="no-line-numbers" }
 
 <img src="images/emacs110.png" width="512px" />
 
@@ -535,14 +520,12 @@ For a light weight text-only Emacs install on a Linux server, use the `emacs-nox
 ```console
 $ sudo apt-get install emacs-nox
 ```
-{: data-variant="no-line-numbers" }
 
 ##### Nano as a fallback
 Many servers have two text editors installed by default: `vi` and `nano`.  Because Nano navigation keyboard shortcuts are similar to Emacs, it's a nice alternative for environments where you need to edit some configuration files, but don't want to install anything.
 ```console
 $ nano main.cpp
 ```
-{: data-variant="no-line-numbers" }
 
 ##### Dark mode
 Of course Emacs has a dark mode. Add the following to your `init.el`.
