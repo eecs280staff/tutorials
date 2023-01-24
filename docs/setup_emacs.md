@@ -29,13 +29,6 @@ $ sudo apt install emacs     # Windows/WSL, Linux
 
 Learn keyboard shortcuts with this [Emacs Cheat Sheet for beginners](http://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs-v2-Large.png).
 
-Get a copy of our beginner `init.el` file and install third party Emacs packages.
-```console
-$ mkdir ~/.emacs.d
-$ wget --no-clobber https://eecs280staff.github.io/tutorials/init.el -O ~/.emacs.d/init.el
-$ emacs --batch -l ~/.emacs.d/init.el
-```
-
 Start editing files.
 ```console
 $ emacs main.cpp &
@@ -178,21 +171,128 @@ On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super
 
 
 ## Customize
-The out-of-the-box Emacs configuration is terrible.  Some users start with *Spacemacs* or *Doom Emacs*, which are just Emacs shipped with a bunch of customizations.  Many of these users later graduate to vanilla Emacs with their own customizations.  We have provided a starting point for Emacs customization.  The Emacs configuration file is `~/emacs.d/init.el` (formerly `~/.emacs`).
+The out-of-the-box Emacs configuration is terrible.  Some users start with *Spacemacs* or *Doom Emacs*, which are just Emacs shipped with a bunch of customizations.  Many of these users later graduate to vanilla Emacs with their own customizations.  Here's [awdeorio's init.el](https://github.com/awdeorio/dotfiles/blob/main/.emacs.d/init.el).
 
-Get a copy of our sample `init.el` and install third party Emacs packages.
-```console
-$ mkdir -p ~/.emacs.d
-$ wget --no-clobber https://eecs280staff.github.io/tutorials/init.el -O ~/.emacs.d/init.el
-$ emacs --batch -l ~/.emacs.d/init.el
-```
-
-View `init.el` with Emacs.  You should see something like this screenshot.  Notice that the Welcome message is gone.  Quit with `C-x C-c`.
+### Basic
+Edit `~/emacs.d/init.el` with Emacs.  Yours will probably be blank.
 ```console
 $ emacs ~/.emacs.d/init.el
 ```
 
 <img src="images/emacs015.png" width="512px" />
+
+Here are a few basic customizations that you might like.  Paste with `C-y`
+```elisp
+;; Don't show a startup message
+(setq inhibit-startup-message t)
+
+;; Show line and column numbers
+(setq line-number-mode t)
+(setq column-number-mode t)
+
+;; Show syntax highlighting
+(global-font-lock-mode t)
+
+;; Highlight marked regions
+(setq-default transient-mark-mode t)
+
+;; Parentheses
+(electric-pair-mode 1)                  ; automatically close parentheses, etc.
+(show-paren-mode t)                     ; show matching parentheses
+
+;; Smooth scrolling (one line at a time)
+(setq scroll-step 1)
+
+;; Tab settings: 2 spaces.  See also: language-specific customizations below.
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
+
+;; Easier buffer switching
+(global-set-key "\C-x\C-b" 'electric-buffer-list)
+```
+
+### Package manager
+Set up [`use-package`](https://github.com/jwiegley/use-package), which automates package installation and configuration.
+
+```elisp
+;; Package Management.  Configure the built-in emacs package manager to use
+;; several publicly available repositories.
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(package-initialize)
+
+;; Bootstrap 'use-package' and enable it.  Later, 'use-package- will
+;; download and install third-party packages automatically.
+;; http://cachestocaches.com/2015/8/getting-started-use-package/
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+```
+
+### Undo/redo
+Emacs default undo is confusing.  [Undo Tree](https://www.emacswiki.org/emacs/UndoTree) provides more intuitive undo and redo.
+```elisp
+;; More intuitive undo/redo.  M-_ undo, C-M-_ redo
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode)
+  (global-set-key "\C-\M-_" 'redo)
+  :ensure t
+  :defer t
+  )
+```
+
+### C/C++
+Here are some optional packages that you might like for C/C++ programming.
+
+```elisp
+;; Intellisense syntax checking
+;; http://www.flycheck.org/en/latest/
+(use-package flycheck
+  :config
+  ;; enable in all modes
+  (global-flycheck-mode)
+  ;; C++11
+  (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+  :ensure t
+  :defer t
+)
+
+;; Autocomplete for code
+;; Company docs: https://company-mode.github.io/
+;; Company TNG: https://github.com/company-mode/company-mode/issues/526
+(use-package company
+  :config
+  (company-tng-configure-default)       ; use default configuration
+  (global-company-mode)
+  :ensure t
+  :defer t                              ; lazy loading
+  )
+
+;; C and C++ programming.  Build with C-c m.  Rebuild with C-c c.  Put
+;; this in c-mode-base-map because c-mode-map, c++-mode-map, and so
+;; on, inherit from it.
+(add-hook 'c-initialization-hook
+          (lambda () (define-key c-mode-base-map (kbd "C-c m") 'compile)))
+(add-hook 'c-initialization-hook
+          (lambda () (define-key c-mode-base-map (kbd "C-c c") 'recompile)))
+(setq-default c-basic-offset tab-width) ; indentation
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))  ; assume C++ for .h files
+```
+
+### Dark mode
+Of course Emacs has a dark mode. Add the following to your `init.el`.
+```elisp
+(use-package spacemacs-common
+    :ensure spacemacs-theme
+    :config (load-theme 'spacemacs-dark t)
+    )
+
+```
 
 ## Create a project
 Emacs doesn't require any special setup for a project.
@@ -373,6 +473,16 @@ Other Emacs users prefer to run a shell inside Emacs.  Give it a try if you like
 ## Debug
 Emacs provides a user interface for GDB or LLDB.  First, check out the [GDB Tutorial](setup_gdb.html) (Linux and Windows/WSL) or [LLDB Tutorial](setup_lldb.html) (macOS).
 
+**macOS:** You'll need to install and configure the realgud-lldb package.
+```elisp
+(use-package realgud
+  :ensure t
+  )
+(use-package realgud-lldb
+  :ensure t
+  )
+```
+
 Compile the executable you wish to debug.
 ```console
 $ make stats_tests.exe 
@@ -536,16 +646,6 @@ $ sudo apt-get install emacs-nox
 Many servers have two text editors installed by default: `vi` and `nano`.  Because Nano navigation keyboard shortcuts are similar to Emacs, it's a nice alternative for environments where you need to edit some configuration files, but don't want to install anything.
 ```console
 $ nano main.cpp
-```
-
-##### Dark mode
-Of course Emacs has a dark mode. Add the following to your `init.el`.
-```elisp
-(use-package spacemacs-common
-    :ensure spacemacs-theme
-    :config (load-theme 'spacemacs-dark t)
-    )
-
 ```
 
 ## Acknowledgments
