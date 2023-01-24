@@ -55,6 +55,16 @@ For the Linux distribution, choose the latest version of Ubuntu LTS.  At the tim
 
 Restart your computer.
 
+Start PowerShell as administrator, and check that the  `VERSION` is 2.
+
+```console
+C:\WINDOWS\system32> wsl -l -v
+  NAME      STATE       VERSION
+* Ubuntu    Stopped     2
+```
+
+If the `VERSION` is 1, you must [upgrade to WSL 2](wsl_upgrade.html).
+
 ## Open terminal
 Start an Ubuntu Bash shell.
 
