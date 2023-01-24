@@ -71,27 +71,35 @@ $ rm -rf ~/.emacs ~/.emacs.d/
 ## Install
 Choose your platform below.
 
+When you're done, you should have Emacs version 24.4 or higher.
+```console
+$ emacs --version
+GNU Emacs 27.1
+```
+### Linux
+This works for Ubuntu and other Debian-based distros.
+```console
+$ sudo apt install emacs
+```
+
+### CAEN Linux
+Emacs is already installed on CAEN Linux.
+
 ### macOS
 Use the [Homebrew package manager](https://brew.sh).
 ```console
 $ brew install --cask emacs
 ```
 
-### Windows/WSL or Linux
-Start a Bash shell (not a Windows PowerShell) and then follow the [Ubuntu Linux instructions](#ubuntu-linux).
+### Windows/WSL
+Start an Ubuntu Bash shell.
 ```console
-$ sudo apt-get install emacs
+$ sudo apt install emacs
 ```
 
-Caveat: getting GUI Emacs windows to work from inside WSL can be tricky.  Search for "WSL emacs X server" to get started.
+It will be easier to get GUI Emacs windows to work from inside WSL if you have Windows 11 and WSL 2.
 
-### All platforms
-You should have Emacs version 24.4 or higher.
-```console
-$ emacs --version
-GNU Emacs 27.1
-```
-
+## Start and quit
 Start Emacs, and you should see something like this screenshot.
 ```console
 $ emacs
@@ -100,28 +108,10 @@ $ emacs
 <img src="images/emacs010.png" width="512px" />
 
 Quit.  The Emacs notation for this keyboard shortcut is `C-x C-c`.
-1. Press and hold `Control`.
-2. Press `x` and release it.  Continue holding `Control`.
-3. Press `c` and release it.
-4. Release `Control`.
-
-#### Configure
-The out-of-the-box Emacs configuration is terrible.  Some users start with *Spacemacs* or *Doom Emacs*, which are just Emacs shipped with a bunch of customizations.  Many of these users later graduate to vanilla Emacs with their own customizations.  We have provided a starting point for Emacs customization.  The Emacs configuration file is `~/emacs.d/init.el` (formerly `~/.emacs`).
-
-Get a copy of our sample `init.el` and install third party Emacs packages.
-```console
-$ mkdir -p ~/.emacs.d
-$ wget --no-clobber https://eecs280staff.github.io/tutorials/init.el -O ~/.emacs.d/init.el
-$ emacs --batch -l ~/.emacs.d/init.el
-```
-
-View `init.el` with Emacs.  You should see something like this screenshot.  Notice that the Welcome message is gone.  Quit with `C-x C-c`.
-```console
-$ emacs ~/.emacs.d/init.el
-```
-
-<img src="images/emacs015.png" width="512px" />
-
+1. Press and hold <kbd>Control</kbd>.
+2. Press <kbd>x</kbd> and release it.  Continue holding <kbd>Control</kbd>.
+3. Press <kbd>c</kbd> and release it.
+4. Release <kbd>Control</kbd>.
 
 ## Key bindings
 Emacs key bindings may seem byzantine at first, but once you learn them you can edit files *very* quickly.  When Emacs was created, keyboards looked different and today's conventions like cut-copy-paste hadn't been invented yet.
@@ -182,6 +172,23 @@ On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super
 (setq mac-option-modifier 'super) ; Option == Super
 ```
 
+
+## Customize
+The out-of-the-box Emacs configuration is terrible.  Some users start with *Spacemacs* or *Doom Emacs*, which are just Emacs shipped with a bunch of customizations.  Many of these users later graduate to vanilla Emacs with their own customizations.  We have provided a starting point for Emacs customization.  The Emacs configuration file is `~/emacs.d/init.el` (formerly `~/.emacs`).
+
+Get a copy of our sample `init.el` and install third party Emacs packages.
+```console
+$ mkdir -p ~/.emacs.d
+$ wget --no-clobber https://eecs280staff.github.io/tutorials/init.el -O ~/.emacs.d/init.el
+$ emacs --batch -l ~/.emacs.d/init.el
+```
+
+View `init.el` with Emacs.  You should see something like this screenshot.  Notice that the Welcome message is gone.  Quit with `C-x C-c`.
+```console
+$ emacs ~/.emacs.d/init.el
+```
+
+<img src="images/emacs015.png" width="512px" />
 
 ## Create a project
 Emacs doesn't require any special setup for a project.
