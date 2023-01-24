@@ -119,26 +119,29 @@ Emacs key bindings may seem byzantine at first, but once you learn them you can 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Space-cadet.jpg" width="512px" />
 
 Without keyboard shortcuts, you can run commands by name, for example "save and quit" with `M-x save-buffers-kill-terminal`.
-1. Press and hold `Meta` (AKA `Alt` on Windows/Linux, AKA `Option` on macOS).
-2. Continue pressing `Meta` and press `x`.
+1. Press and hold <kbd>Meta</kbd> (AKA <kbd>Alt</kbd> on Windows/Linux, AKA <kbd>Option</kbd> on macOS).
+2. Continue pressing <kbd>Meta</kbd> and press <kbd>x</kbd>.
 3. Release both keys.
 4. You're now in the mini-buffer, where you can type the command `save-buffer`. Tab completion works in the mini-buffer.
-5. Press `Return` (`Enter`).
+5. Press <kbd>Return</kbd> (<kbd>Enter</kbd>).
 
-In Emacs documentation, `M` means `Meta` (AKA `Alt` on Windows/Linux, AKA `Option` on macOS) and `C` means `Control`.
+In Emacs documentation, `M` means <kbd>Meta</kbd> (AKA <kbd>Alt</kbd> on Windows/Linux, AKA <kbd>Option</kbd> on macOS) and `C` means <kbd>Control</kbd>.
 
 `C-x C-s`: Save
-1. Press and hold `Control`.
-2. Press `x` and release it.  Continue holding `Control`.
-3. Press `s` and release it.
-4. Release `Control`.
+1. Press and hold <kbd>Control</kbd>.
+2. Press <kbd>x</kbd> and release it.  Continue holding <kbd>Control</kbd>.
+3. Press <kbd>s</kbd> and release it.
+4. Release <kbd>Control</kbd>.
 
 `C-x C-c`: Quit
 
 Learn a few more keyboard shortcuts with this [Emacs Cheat Sheet for beginners](http://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs-v2-Large.png) and keep around an [Emacs Reference Card](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf).
 
+<div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Keep your hands on the keyboard's home row.  Don't use the mouse or the arrow keys.
+</div>
 
+<div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Remove the menu bars, tool bars and scroll bars by adding this to your `~/emacs.d/init.el`.  You'll get a nice clean look.  Move to end of buffer with `M->`, then paste with `C-y`.  Save and quit (`C-x C-s C-x C-c`).  Restart Emacs to see the changes.
 ```elisp
 ;; Remove scrollbars, menu bars, and toolbars
@@ -153,6 +156,7 @@ Learn a few more keyboard shortcuts with this [Emacs Cheat Sheet for beginners](
 ```
 
 <img src="images/emacs020.png" width="512px" />
+</div>
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
 **Warning:** You might be tempted to remap Emacs keyboard shortcuts to be more familiar, `M-c` for copy, etc.  Don't do this!  There are thousands of keybindings, and changing them can cause a chain reaction.  For example, `C-c` is already used a prefix for many other commands.
