@@ -15,7 +15,7 @@ To use the tools required in EECS 280, you must use WSL 2.
 ## Prerequisites
 Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".  
 
-<img src="images/wsl010.png" width="240px" />
+<img src="images/wsl010.png" width="240px" alt="start PowerShell as administrator"/>
 
 Check your version of WSL.
 ```console
@@ -41,7 +41,35 @@ We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will al
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
 ## Enable Virtualization
-TODO: something about BIOS...?
+TODO(ohjun): instructions are taken from [some random online article](https://www.simplilearn.com/enable-virtualization-windows-10-article) but I am unable to test it (as I do not have a Windows machine)
+
+First, check if virtualization is already enabled.
+
+Open Task Manager by pressing <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>Delete</kbd>, then clicking Task Manager.
+
+Go to the Performance tab, and check if virtualization is enabled.
+
+<img src="images/wsl_upgrade001.png" width="600px" alt="Performance tab of Task Manager"/>
+
+If virtualization is enabled, skip to the [next step](#enable-windows-virtual-machine-platform).
+
+Else, follow the instructions below to enable it.
+
+TODO(ohjun): instructions below are copied word-for-word from the [random online article](https://www.simplilearn.com/enable-virtualization-windows-10-article). Perhaps some screenshots from a Windows machine would be helpful.
+
+Open Windows Settings.
+
+Click on Update and Security.
+
+Go to the Security tab and press <kbd>Enter</kbd> on CPU Setup.
+
+Select Intel(R) Virtualization Technology and press <kbd>Enter</kbd>.
+
+Choose Enable and press <kbd>Enter</kbd>.
+
+Press F10.
+
+Press <kbd>Enter</kbd> to select Yes to save the settings and Boot into Windows.
 
 ## Enable Windows Virtual Machine Platform
 Start PowerShell as administrator and run:
@@ -74,7 +102,7 @@ Start PowerShell as administrator and run:
 C:\WINDOWS\system32> wsl --set-default-version 2
 ```
 
-TODO: Do they have to uninstall their previous WSL then reinstall it now? Or if they installed WSL 1 before, does running `wsl --set-default-version 2` automatically update their installed version?
+TODO(ohjun): Do they have to uninstall their previous WSL then reinstall it now? Or if they installed WSL 1 before, does running `wsl --set-default-version 2` automatically update their installed version?
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu and Oh Jun Kweon ohjun@umich.edu.
