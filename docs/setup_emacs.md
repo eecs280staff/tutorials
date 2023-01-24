@@ -20,7 +20,7 @@ Reasons to learn Emacs:
 - Emacs keyboard shortcuts work in many places: command line, GDB prompt, LLDB prompt, Xcode (optional), Visual Studio (optional)
 
 
-# Quick start
+## Quick start
 Install.
 ```console
 $ brew install --cask emacs  # macOS
@@ -43,34 +43,42 @@ $ emacs main.cpp &
 {: data-variant="no-line-numbers" }
 
 
-# Prerequisites
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
+## Prerequisites
+We're going to use external command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
-
-# Restarting this tutorial
-If you tried using this tutorial in the past and want to "start clean", here's how to delete all Emacs configuration files.  This will not delete your code.  First, quit Emacs.
+Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos#install-compiler), [Windows/WSL/Linux](setup_wsl.html#install-cli-tools).
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ rm -rf ~/.emacs ~/.emacs.d/
-$ make clean
-rm -rvf main stats_tests stats_public_test *~ *.out *.dSYM *.stackdump
+$ g++ --version  # macOS
+Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+$ lldb --version # macOS
+Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+$ g++ --version  # WSL/Linux
+g++ (GCC) 8.5.0 20210514
+$ gdb --version  # WSL/Linux
+GNU gdb (GDB)
 ```
 
+Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
-# Install
+## Restart
+Here's how to delete all Emacs configuration files.  This will not delete your code.  First, quit Emacs.
+```console
+$ rm -rf ~/.emacs ~/.emacs.d/
+```
+
+## Install
 Choose your platform below.
 
-## macOS
+### macOS
 Use the [Homebrew package manager](https://brew.sh).
 ```console
 $ brew install --cask emacs
 ```
 {: data-variant="no-line-numbers" }
 
-## Windows/WSL or Linux
+### Windows/WSL or Linux
 Start a Bash shell (not a Windows PowerShell) and then follow the [Ubuntu Linux instructions](#ubuntu-linux).
 ```console
 $ sudo apt-get install emacs
@@ -79,10 +87,10 @@ $ sudo apt-get install emacs
 
 Caveat: getting GUI Emacs windows to work from inside WSL can be tricky.  Search for "WSL emacs X server" to get started.
 
-## CAEN Linux
+### CAEN Linux
 Emacs is already installed on CAEN Linux.  See the [Editing remotely with TRAMP](#editing-remotely-with-tramp) pro-tip.
 
-## All platforms
+### All platforms
 You should have Emacs version 24.4 or higher.
 ```console
 $ emacs --version
@@ -103,7 +111,7 @@ Quit.  The Emacs notation for this keyboard shortcut is `C-x C-c`.
 3. Press `c` and release it.
 4. Release `Control`.
 
-### Configure
+#### Configure
 The out-of-the-box Emacs configuration is terrible.  Some users start with *Spacemacs* or *Doom Emacs*, which are just Emacs shipped with a bunch of customizations.  Many of these users later graduate to vanilla Emacs with their own customizations.  We have provided a starting point for Emacs customization.  The Emacs configuration file is `~/emacs.d/init.el` (formerly `~/.emacs`).
 
 Get a copy of our sample `init.el` and install third party Emacs packages.
@@ -122,7 +130,7 @@ $ emacs ~/.emacs.d/init.el
 <img src="images/emacs015.png" width="512px" />
 
 
-# Key bindings
+## Key bindings
 Emacs key bindings may seem byzantine at first, but once you learn them you can edit files *very* quickly.  When Emacs was created, keyboards looked different and today's conventions like cut-copy-paste hadn't been invented yet.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Space-cadet.jpg" width="512px" />
@@ -167,13 +175,13 @@ Learn a few more keyboard shortcuts with this [Emacs Cheat Sheet for beginners](
 **Warning:** You might be tempted to remap Emacs keyboard shortcuts to be more familiar, `M-c` for copy, etc.  Don't do this!  There are thousands of keybindings, and changing them can cause a chain reaction.  For example, `C-c` is already used a prefix for many other commands.
 </div>
 
-## Caps lock as control
+### Caps lock as control
 You'll use the control key a lot in Emacs.  Some users find it more ergonomic to map the Caps Lock key to Control.  Here's the setting in MacOS.
 
 <img src="images/emacs022.png" width="512px" />
 
 
-## macOS
+### macOS
 On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super.  Add this to your `init.el`.
 ```elisp
 ;; macOS modifier keys
@@ -182,7 +190,7 @@ On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super
 ```
 
 
-# Create a project
+## Create a project
 Emacs doesn't require any special setup for a project.
 
 Create a new folder for your project. Your folder location might be different.
@@ -217,7 +225,7 @@ $ tree
 └── stats_tests.cpp.starter
 ```
 
-## Add new files
+### Add new files
 EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
 
 Add a new file in the same way you edit an existing file.  The ampersand (`&`) at the end of a command means "run this command in the background".  That way, you can continue using the command prompt.
@@ -226,7 +234,7 @@ $ emacs stats.cpp &
 ```
 {: data-variant="no-line-numbers" }
 
-### Project 1 `stats.cpp`
+#### Project 1 `stats.cpp`
 Edit `stats.cpp` and add placeholder function stubs.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.  The keyboard shortcut for paste is `C-y`, and save is `C-x C-s`.
 ```c++
 // stats.cpp
@@ -279,7 +287,7 @@ double percentile(vector<double> v, double p) {
 ```
 {: data-title="stats.cpp" }
 
-### Project 1 `main.cpp`
+#### Project 1 `main.cpp`
 Start your `main.cpp` like this.
 
 To open a new file while Emacs is already open, use `C-x C-f`, and save with `C-x C-s`.
@@ -300,7 +308,7 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-# Autocomplete
+## Autocomplete
 Use built-in Emacs autocomplete with `M-/`.  Cycle through the completion options by holding `M` and continuing to hit `/`.
 
 Use [Company Mode](http://company-mode.github.io/) to provide more complex C++ code completion by simply typing the first 3 characters of a symbol and waiting for a second.  Hit `TAB` to cycle the completion options.  `M-n` and `M-p` for next or previous completion.  You'll see the `company-mode` configuration in `init.el`.
@@ -308,10 +316,10 @@ Use [Company Mode](http://company-mode.github.io/) to provide more complex C++ c
 <img src="images/emacs025.png" width="512px" />
 
 
-# Compile
+## Compile
 Compiling inside Emacs is optional.
 
-## Compile outside Emacs
+### Compile outside Emacs
 Compile using the command line.
 ```console
 $ make stats_tests.exe
@@ -322,14 +330,14 @@ g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.
 **PITFALL:** Debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
 </div>
 
-## Compile inside Emacs
+### Compile inside Emacs
 Optionally, Emacs can run `make stats_tests.exe` for you.  `C-c m` (or `M-x compile`) builds (this keyboard shortcut is set in `init.el`).  Edit the target in the mini-buffer (`stats_tests.exe`) and hit Return.
 
 Emacs will show the compilation output in a separate window.
 
 <img src="images/emacs040.png" width="512px" />
 
-### Tips
+#### Tips
 {: .primer-spec-toc-ignore }
 
 `C-c c` (`M-x recompile`) recompile without prompting
@@ -339,7 +347,7 @@ Emacs will show the compilation output in a separate window.
 `C-x 0` delete this window
 
 
-### Compile errors
+#### Compile errors
 {: .primer-spec-toc-ignore }
 
 `M-g n` (`M-x next-error`) navigates to the next error in the source code.
@@ -349,7 +357,7 @@ Emacs will show the compilation output in a separate window.
 <img src="images/emacs050.png" width="512px" />
 
 
-# Run
+## Run
 Some Emacs users run programs from the terminal.  Open an Emacs window for editing, and a terminal window for compiling and running the program.  The tests fail because of the `assert()` calls in our function stubs.
 ```console
 $ ./stats_tests.exe
@@ -361,7 +369,7 @@ Abort trap: 6
 Other Emacs users prefer to run a shell inside Emacs.  Give it a try if you like with `M-x shell`.
 
 
-# Debug
+## Debug
 Emacs provides a user interface for GDB or LLDB.  First, check out the [GDB Tutorial](setup_gdb.html) (Linux and Windows/WSL) or [LLDB Tutorial](setup_lldb.html) (macOS).
 
 Compile the executable you wish to debug.
@@ -409,10 +417,10 @@ Print a variable with `p`.
 Quit the debugger with `q`.  Then, close the current window pane (the debugger) with `C-x 0`.
 
 
-# Pro-tips
+## Pro-tips
 Tips and tricks for becoming an Emacs wizard.
 
-### Emacs launch shortcut
+#### Emacs launch shortcut
 Add this to your `.bash_profile` (`.bashrc` on some machines) to start Emacs in the background with `e`.  Close your terminal and open it again.
 ```bash
 e ()
@@ -427,7 +435,7 @@ $ e stats.cpp
 ```
 {: data-variant="no-line-numbers" }
 
-### Editing remotely with TRAMP
+#### Editing remotely with TRAMP
 Emacs [TRAMP](https://www.emacswiki.org/emacs/TrampMode) mode lets you edit a file on a remote server using a local GUI window.
 
 First, make sure you have a copy of your code on CAEN Linux ([CAEN Linux Tutorial](setup_caen.html)).  In particular, make sure you set up SSH multiplexing to avoid repeated 2FA ([Avoiding repeated 2FA Tutorial](setup_caen.html#avoiding-repeated-2fa)).
@@ -492,7 +500,7 @@ Added this line from TRAMP mode
 **Warning:** Your changes on the remote server will be clobbered when you run `rsync` again.
 </div>
 
-### Pair programming with tmux
+#### Pair programming with tmux
 Pair program on a remote machine with two people inside the same Emacs instance.  We'll use tmux, which is a terminal multiplexer.
 
 Alice connects to a remote server containing her code.  She starts a tmux session named `shared`.  Then, she starts Emacs inside that tmux session.
@@ -513,7 +521,7 @@ $ tmux attach -t shared
 
 **Pro-tip:** Debug inside the tmux session so everyone on the team can see what's going on.  You can debug with GDB at the command line ([Tutorial](setup_gdb.html)) or inside Emacs.
 
-### Text-only Emacs
+#### Text-only Emacs
 If you're on a remote server without a GUI, you can use Emacs in text-only mode.  The `-nw` option stands for "no window".
 ```console
 $ emacs -nw
@@ -522,21 +530,21 @@ $ emacs -nw
 
 <img src="images/emacs110.png" width="512px" />
 
-#### Fast text-only Emacs install
+##### Fast text-only Emacs install
 For a light weight text-only Emacs install on a Linux server, use the `emacs-nox` package.  This is great for small tasks on remote servers.
 ```console
 $ sudo apt-get install emacs-nox
 ```
 {: data-variant="no-line-numbers" }
 
-#### Nano as a fallback
+##### Nano as a fallback
 Many servers have two text editors installed by default: `vi` and `nano`.  Because Nano navigation keyboard shortcuts are similar to Emacs, it's a nice alternative for environments where you need to edit some configuration files, but don't want to install anything.
 ```console
 $ nano main.cpp
 ```
 {: data-variant="no-line-numbers" }
 
-#### Dark mode
+##### Dark mode
 Of course Emacs has a dark mode. Add the following to your `init.el`.
 ```elisp
 (use-package spacemacs-common
@@ -546,7 +554,7 @@ Of course Emacs has a dark mode. Add the following to your `init.el`.
 
 ```
 
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
