@@ -62,6 +62,7 @@ C:\WINDOWS\system32> wsl -l -v
   NAME      STATE       VERSION
 * Ubuntu    Stopped     2
 ```
+{: data-highlight="3"}
 
 If the `VERSION` is 1, you must [upgrade to WSL 2](wsl_upgrade.html).
 
