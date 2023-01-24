@@ -72,7 +72,7 @@ Press F10.
 Press <kbd>Enter</kbd> to select Yes to save the settings and Boot into Windows.
 
 ## Enable Windows Virtual Machine Platform
-Start PowerShell as administrator and run:
+Start PowerShell as administrator. Enable Windows Virtual Machine Platform.
 
 ```console
 C:\WINDOWS\system32> dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -96,13 +96,17 @@ If you are on an ARM64 machine, [click here](https://wslstorestorage.blob.core.w
 Double click the downloaded package. Select 'yes' if prompted for elevated permissions.
 
 ## Set WSL 2 As Default
-Start PowerShell as administrator and run:
+Start PowerShell as administrator. Set WSL 2 as the default version.
 
 ```console
 C:\WINDOWS\system32> wsl --set-default-version 2
 ```
 
-TODO(ohjun): Do they have to uninstall their previous WSL then reinstall it now? Or if they installed WSL 1 before, does running `wsl --set-default-version 2` automatically update their installed version?
+Upgrade WSL to be version 2.
+
+```console
+C:\WINDOWS\system32> wsl --set-version Ubuntu-20.04 2
+```
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu and Oh Jun Kweon ohjun@umich.edu.
