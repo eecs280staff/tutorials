@@ -23,8 +23,8 @@ Reasons to learn Emacs:
 # Quick start
 Install.
 ```console
-$ brew install --cask emacs   # macOS
-$ sudo apt-get install emacs  # Windows/WSL, Linux
+$ brew install --cask emacs  # macOS
+$ sudo apt install emacs     # Windows/WSL, Linux
 ```
 
 Learn keyboard shortcuts with this [Emacs Cheat Sheet for beginners](http://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs-v2-Large.png).
