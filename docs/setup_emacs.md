@@ -462,8 +462,7 @@ Configure Company Mode by adding this to your `init.el`.
   )
 ```
 
-
-#### Emacs launch shortcut
+### Emacs launch shortcut
 Add this to your `.bash_profile` (`.bashrc` on some machines) to start Emacs in the background with `e`.  Close your terminal and open it again.
 ```bash
 e ()
@@ -477,7 +476,7 @@ Then you can simply type:
 $ e stats.cpp
 ```
 
-#### Editing remotely with TRAMP
+### Editing remotely with TRAMP
 Emacs [TRAMP](https://www.emacswiki.org/emacs/TrampMode) mode lets you edit a file on a remote server using a local GUI window.
 
 First, make sure you have a copy of your code on CAEN Linux ([CAEN Linux Tutorial](setup_caen.html)).  In particular, make sure you set up SSH multiplexing to avoid repeated 2FA ([Avoiding repeated 2FA Tutorial](setup_caen.html#avoiding-repeated-2fa)).
@@ -540,7 +539,7 @@ Added this line from TRAMP mode
 **Warning:** Your changes on the remote server will be clobbered when you run `rsync` again.
 </div>
 
-#### Pair programming with tmux
+### Pair programming with tmux
 Pair program on a remote machine with two people inside the same Emacs instance.  We'll use tmux, which is a terminal multiplexer.
 
 Alice connects to a remote server containing her code.  She starts a tmux session named `shared`.  Then, she starts Emacs inside that tmux session.
@@ -561,7 +560,7 @@ $ tmux attach -t shared
 
 **Pro-tip:** Debug inside the tmux session so everyone on the team can see what's going on.  You can debug with GDB at the command line ([Tutorial](setup_gdb.html)) or inside Emacs.
 
-#### Text-only Emacs
+### Text-only Emacs
 If you're on a remote server without a GUI, you can use Emacs in text-only mode.  The `-nw` option stands for "no window".
 ```console
 $ emacs -nw
@@ -569,13 +568,13 @@ $ emacs -nw
 
 <img src="images/emacs110.png" width="512px" />
 
-##### Fast text-only Emacs install
+#### Fast text-only Emacs install
 For a light weight text-only Emacs install on a Linux server, use the `emacs-nox` package.  This is great for small tasks on remote servers.
 ```console
 $ sudo apt-get install emacs-nox
 ```
 
-##### Nano as a fallback
+#### Nano as a fallback
 Many servers have two text editors installed by default: `vi` and `nano`.  Because Nano navigation keyboard shortcuts are similar to Emacs, it's a nice alternative for environments where you need to edit some configuration files, but don't want to install anything.
 ```console
 $ nano main.cpp
