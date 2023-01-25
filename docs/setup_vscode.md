@@ -305,8 +305,6 @@ g++ ... -g main.cpp ...
 If you don't have a `Makefile`, you can compile manually.  We don't recommend this for EECS 280 students.
 ```console
 $ g++ -g main.cpp -o main.exe
-$ ./main.exe
-Hello World!
 ```
 </div>
 

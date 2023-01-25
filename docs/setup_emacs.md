@@ -363,58 +363,21 @@ Rename a file at the command line.
 $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
 
-## Compile
-Compiling inside Emacs is optional.
+## Compile and Run
+Some Emacs users compile and run at the command line.  Some compile and run inside Emacs.  We'll use the command line in this tutorial.
 
-### Compile outside Emacs
-Compile using the command line.
 ```console
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+$ make main.exe
+$ ./main.exe
+Hello World!
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-**PITFALL:** Debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+<div class="primer-spec-callout warning" markdown="1">
+If you don't have a `Makefile`, you can compile manually.
+```console
+$ g++ -g main.cpp -o main.exe
+```
 </div>
-
-### Compile inside Emacs
-Optionally, Emacs can run `make stats_tests.exe` for you.  `C-c m` (or `M-x compile`) builds (this keyboard shortcut is set in `init.el`).  Edit the target in the mini-buffer (`stats_tests.exe`) and hit Return.
-
-Emacs will show the compilation output in a separate window.
-
-<img src="images/emacs040.png" width="512px" />
-
-#### Tips
-{: .primer-spec-toc-ignore }
-
-`C-c c` (`M-x recompile`) recompile without prompting
-
-`C-x 1` delete all other windows
-
-`C-x 0` delete this window
-
-
-#### Compile errors
-{: .primer-spec-toc-ignore }
-
-`M-g n` (`M-x next-error`) navigates to the next error in the source code.
-
-`M-g p` (`M-x previous-error`) navigates to the previous error in the source code.
-
-<img src="images/emacs050.png" width="512px" />
-
-
-## Run
-Some Emacs users run programs from the terminal.  Open an Emacs window for editing, and a terminal window for compiling and running the program.  The tests fail because of the `assert()` calls in our function stubs.
-```console
-$ ./stats_tests.exe
-test_sum_small_data_set
-Assertion failed: (false), function sum, file stats.cpp, line 16.
-Abort trap: 6
-```
-
-Other Emacs users prefer to run a shell inside Emacs.  Give it a try if you like with `M-x shell`.
-
 
 ## Debug
 Emacs provides a user interface for GDB or LLDB.  First, check out the [GDB Tutorial](setup_gdb.html) (Linux and Windows/WSL) or [LLDB Tutorial](setup_lldb.html) (macOS).
