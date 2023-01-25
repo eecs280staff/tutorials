@@ -297,15 +297,42 @@ Of course Emacs has a dark mode. Add the following to your `init.el`.
 ## Create a project
 Emacs doesn't require any special setup for a project.
 
-Create a new folder for your project. Your folder location might be different.
+Create a new directory, then move into the new directory. Your folder location might be different.
 
 ```console
-$ mkdir p1-stats
+$ mkdir ~/eecs280/p1-stats
+$ cd ~/eecs280/p1-stats
 ```
 
-Change into your new project directory. Use the terminal to download, unpack, and move the starter files into your project. Your URL or folder might be different.
+### Add new files
+To create a new file, start Emacs with a new file name.
 ```console
-$ cd p1-stats
+$ emacs main.cpp
+```
+
+Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
+```console
+$ touch main.cpp
+```
+
+Copy-paste this Hello World program into your `main.cpp`.  Remember, paste is `C-y`.
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+  cout << "Hello World!\n";
+}
+```
+{: data-title="main.cpp" }
+
+### Add existing files
+Emacs doesn't require any special steps for adding existing files.
+
+If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+
+Download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
+```console
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
@@ -317,6 +344,7 @@ You should see your new files in your project directory.
 $ tree
 .
 ├── Makefile
+├── main.cpp
 ├── main_test.in
 ├── main_test.out.correct
 ├── main_test_data.tsv
@@ -327,87 +355,13 @@ $ tree
 └── stats_tests.cpp.starter
 ```
 
-### Add new files
-EECS 280 project 1 requires us to create two new files: `stats.cpp` and `main.cpp`.
+#### Rename files
+Emacs doesn't require any special steps for renaming files.
 
-Add a new file in the same way you edit an existing file.  The ampersand (`&`) at the end of a command means "run this command in the background".  That way, you can continue using the command prompt.
+Rename a file at the command line.
 ```console
-$ emacs stats.cpp &
+$ mv stats_tests.cpp.starter stats_tests.cpp
 ```
-
-#### Project 1 `stats.cpp`
-Edit `stats.cpp` and add placeholder function stubs.  Each of these stubs corresponds to a function prototype in `stats.h`.  Don't forget to save.  The keyboard shortcut for paste is `C-y`, and save is `C-x C-s`.
-```c++
-// stats.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-#include "stats.h"
-#include <cassert>
-#include <vector>
-#include <cmath>
-using namespace std;
-
-vector<vector<double> > summarize(vector<double> v) {
-  assert(false);
-}
-
-int count(vector<double> v) {
-  assert(false);
-}
-
-double sum(vector<double> v) {
-  assert(false);
-}
-
-double mean(vector<double> v) {
-  assert(false);
-}
-
-double median(vector<double> v) {
-  assert(false);
-}
-
-double mode(vector<double> v) {
-  assert(false);
-}
-
-double min(vector<double> v) {
-  assert(false);
-}
-
-double max(vector<double> v) {
-  assert(false);
-}
-
-double stdev(vector<double> v) {
-  assert(false);
-}
-
-double percentile(vector<double> v, double p) {
-  assert(false);
-}
-```
-{: data-title="stats.cpp" }
-
-#### Project 1 `main.cpp`
-Start your `main.cpp` like this.
-
-To open a new file while Emacs is already open, use `C-x C-f`, and save with `C-x C-s`.
-
-To switch between files, use `C-x C-b`.  You can select a file with the up and down arrows, or better yet, use `C-n` for next or `C-p` for previous.
-
-```c++
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
-#include "stats.h"
-#include "p1_library.h"
-#include <iostream>
-using namespace std;
-
-int main() {
-  cout << "hello from main!\n";
-}
-```
-{: data-title="main.cpp" }
 
 ## Autocomplete
 Use built-in Emacs autocomplete with `M-/`.  Cycle through the completion options by holding `M` and continuing to hit `/`.
