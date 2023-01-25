@@ -363,14 +363,6 @@ Rename a file at the command line.
 $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
 
-## Autocomplete
-Use built-in Emacs autocomplete with `M-/`.  Cycle through the completion options by holding `M` and continuing to hit `/`.
-
-Use [Company Mode](http://company-mode.github.io/) to provide more complex C++ code completion by simply typing the first 3 characters of a symbol and waiting for a second.  Hit `TAB` to cycle the completion options.  `M-n` and `M-p` for next or previous completion.  You'll see the `company-mode` configuration in `init.el`.
-
-<img src="images/emacs025.png" width="512px" />
-
-
 ## Compile
 Compiling inside Emacs is optional.
 
@@ -483,6 +475,14 @@ Quit the debugger with `q`.  Then, close the current window pane (the debugger) 
 
 ## Pro-tips
 Tips and tricks for becoming an Emacs wizard.
+
+### Autocomplete
+Use built-in Emacs autocomplete with `M-/`.  Cycle through the completion options by holding `M` and continuing to hit `/`.
+
+Use [Company Mode](http://company-mode.github.io/) to provide more complex C++ code completion by simply typing the first 3 characters of a symbol and waiting for a second.  Hit `TAB` to cycle the completion options.  `M-n` and `M-p` for next or previous completion.  You'll see the `company-mode` configuration in `init.el`.
+
+<img src="images/emacs025.png" width="512px" />
+
 
 #### Emacs launch shortcut
 Add this to your `.bash_profile` (`.bashrc` on some machines) to start Emacs in the background with `e`.  Close your terminal and open it again.
