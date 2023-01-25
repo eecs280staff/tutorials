@@ -31,7 +31,7 @@ Learn keyboard shortcuts with this [Emacs Cheat Sheet for beginners](http://sach
 
 Start editing files.
 ```console
-$ emacs main.cpp &
+$ emacs main.cpp
 ```
 {: data-variant="no-line-numbers" }
 
@@ -495,7 +495,7 @@ Next, configure Emacs TRAMP mode to use SSH multiplexing.  Add this to your `~/.
 
 Open an Emacs GUI window on your local machine.  It doesn't matter what directory you're in.
 ```console
-$ emacs &
+$ emacs
 ```
 
 SSH into your remote server, CAEN Linux in this example.
