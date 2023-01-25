@@ -100,6 +100,13 @@ $ emacs
 
 <img src="images/emacs010.png" width="512px" />
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** Start Emacs in the background so you can continue to use your Terminal.
+```console
+$ emacs &
+```
+</div>
+
 Quit.  The Emacs notation for this keyboard shortcut is `C-x C-c`.
 1. Press and hold <kbd>Control</kbd>.
 2. Press <kbd>x</kbd> and release it.  Continue holding <kbd>Control</kbd>.
