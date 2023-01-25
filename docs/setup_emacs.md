@@ -364,7 +364,7 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
 
 ## Compile and Run
-Some Emacs users compile and run at the command line.  Some compile and run inside Emacs.  We'll use the command line in this tutorial.
+Some Emacs users compile and run at the command line.  Others compile and run inside Emacs.  We'll use the command line in this tutorial.
 
 ```console
 $ make main.exe
@@ -380,9 +380,16 @@ $ g++ -g main.cpp -o main.exe
 </div>
 
 ## Debug
-Emacs provides a user interface for GDB or LLDB.  First, check out the [GDB Tutorial](setup_gdb.html) (Linux and Windows/WSL) or [LLDB Tutorial](setup_lldb.html) (macOS).
+Some Emacs users run GDB or LLDB at the command line.  Others use Emacs' GDB or LLDB integration.  We'll start at the command line.
 
-**macOS:** You'll need to install and configure the realgud-lldb package.
+**Linux and Windows/WSL**: Run GDB from the command line with the [GDB Tutorial](setup_gdb.html)
+
+**macOS:** Run LLDB from the command line with the [LLDB Tutorial](setup_lldb.html).
+
+### Integrated debugging
+Emacs provides a user interface for GDB or LLDB.  Make sure you already know how to use one.
+
+**macOS:** Install and configure the `realgud-lldb` package by adding this to your `init.el`.
 ```elisp
 (use-package realgud
   :ensure t
@@ -394,13 +401,12 @@ Emacs provides a user interface for GDB or LLDB.  First, check out the [GDB Tuto
 
 Compile the executable you wish to debug.
 ```console
-$ make stats_tests.exe 
-g++-10 --std=c++11 -Wall -Werror -pedantic -g stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+$ make stats_tests.exe
 ```
 
 Start Emacs.
 ```console
-$ emacs stats_tests.cpp &
+$ emacs stats_tests.cpp
 ```
 
 Start debug mode.  Emacs runs GDB or LLDB behind the scenes.
