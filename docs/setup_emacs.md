@@ -269,17 +269,6 @@ Here are some optional packages that you might like for C/C++ programming.
   :defer t
 )
 
-;; Autocomplete for code
-;; Company docs: https://company-mode.github.io/
-;; Company TNG: https://github.com/company-mode/company-mode/issues/526
-(use-package company
-  :config
-  (company-tng-configure-default)       ; use default configuration
-  (global-company-mode)
-  :ensure t
-  :defer t                              ; lazy loading
-  )
-
 ;; C and C++ programming.  Build with C-c m.  Rebuild with C-c c.  Put
 ;; this in c-mode-base-map because c-mode-map, c++-mode-map, and so
 ;; on, inherit from it.
@@ -458,6 +447,20 @@ Use built-in Emacs autocomplete with `M-/`.  Cycle through the completion option
 Use [Company Mode](http://company-mode.github.io/) to provide more complex C++ code completion by simply typing the first 3 characters of a symbol and waiting for a second.  Hit `TAB` to cycle the completion options.  `M-n` and `M-p` for next or previous completion.  You'll see the `company-mode` configuration in `init.el`.
 
 <img src="images/emacs025.png" width="512px" />
+
+Configure Company Mode by adding this to your `init.el`.
+```elisp
+;; Autocomplete for code
+;; Company docs: https://company-mode.github.io/
+;; Company TNG: https://github.com/company-mode/company-mode/issues/526
+(use-package company
+  :config
+  (company-tng-configure-default)       ; use default configuration
+  (global-company-mode)
+  :ensure t
+  :defer t                              ; lazy loading
+  )
+```
 
 
 #### Emacs launch shortcut
