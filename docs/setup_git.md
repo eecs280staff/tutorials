@@ -245,6 +245,9 @@ Avoid entering your access token every time by configuring the local Git client 
 $ git config --global credential.helper store
 ```
 
+#### Copy token
+{: .primer-spec-toc-ignore }
+
 Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab.**
 
 <img src="images/github_copy_token.png" width="768px" />
@@ -306,8 +309,7 @@ origin	https://github.com/japplefield/p1-insta485-static.git (push)
 ```
 </div>
 
-Push commits already committed on the local repo to the remote repo. You will be prompted to enter a password, 
-this will be your personal access token.
+Push commits already committed on the local repo to the remote repo. If you are using Personal Access Tokens, the password is the token you [copied earlier](#copy-token).
 ```console
 $ git push -u origin main
 Username for 'https://github.com': japplefield
