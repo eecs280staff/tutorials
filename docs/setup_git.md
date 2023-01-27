@@ -198,30 +198,10 @@ nothing to commit, working tree clean
 ```
 </div>
 
-## Create a remote repository
-First, log in to [https://github.com/](https://github.com/login).
+## GitHub Authentication
+There are two ways to connect to GitHub: Personal Access Tokens and SSH Keys.
 
-Create a new project.
-
-<img src="images/github003.png" width="384px" />
-
-Call the new project `p1-insta485-static`, mark it as "private". Click "Create repository".
-
-<div class="primer-spec-callout danger" markdown="1">
-**Double check that you have selected "private".** Making your project code or test cases publicly available online is a violation of the honor code.
-</div>
-
-<img src="images/github004.png" width="768px" />
-
-Triple-check that your new repository is private.  If you made a mistake, you can change it to private in "Settings".
-
-<img src="images/github005a.png" width="768px" />
-
-You now have a project page for your remote repo.  In this example, japplefield's project page is [https://github.com/japplefield/p1-insta485-static](https://github.com/japplefield/p1-insta485-static). You won't have access to it because it's private, but your page should look similar.
-
-<img src="images/github005b.png" width="768px" />
-
-#### Create a GitHub Personal Access Token
+### Personal Access Token
 Before you continue with using your repositories in GitHub, you want to create your authentication method for accessing remote repo. GitHub personal access token (PAT) is a secure, user-friendly way to connect to GitHub. It gives you unique credentials to verify your identity.
 
 Click on your profile, and head over to Settings.
@@ -270,9 +250,37 @@ Open your terminal and enter the following command. Now, you only have to enter 
 $ git config --global credential.helper store
 ```
 
-<div class="primer-spec-callout info icon-info" markdown="1">
-**Alternative method:** If you want avoid re-generating tokens every 90 days, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/). Don't forget to [add your key to GitHub](https://github.com/settings/keys) and [switch the remote from SSH to HTTPS.](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
+### SSH Keys
+If you want avoid re-generating tokens every 90 days, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/). Don't forget to [add your key to GitHub](https://github.com/settings/keys) and [switch the remote from SSH to HTTPS.](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
+
+Test your connection.
+```console
+$ ssh -T git@github.com
+Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+## Create a remote repository
+First, log in to [https://github.com/](https://github.com/login).
+
+Create a new project.
+
+<img src="images/github003.png" width="384px" />
+
+Call the new project `p1-insta485-static`, mark it as "private". Click "Create repository".
+
+<div class="primer-spec-callout danger" markdown="1">
+**Double check that you have selected "private".** Making your project code or test cases publicly available online is a violation of the honor code.
 </div>
+
+<img src="images/github004.png" width="768px" />
+
+Triple-check that your new repository is private.  If you made a mistake, you can change it to private in "Settings".
+
+<img src="images/github005a.png" width="768px" />
+
+You now have a project page for your remote repo.  In this example, japplefield's project page is [https://github.com/japplefield/p1-insta485-static](https://github.com/japplefield/p1-insta485-static). You won't have access to it because it's private, but your page should look similar.
+
+<img src="images/github005b.png" width="768px" />
 
 #### Connect local repo to remote repo
 Browse to your repository's project page from [https://github.com/](https://github.com//). Copy the URL for your repo from the `HTTPS` tab by clicking on the copy icon. The link starts with `https://` .
