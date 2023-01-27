@@ -199,7 +199,27 @@ nothing to commit, working tree clean
 </div>
 
 ## GitHub Authentication
-There are two ways to connect to GitHub: Personal Access Tokens and SSH Keys.  A Personal Access Token works like a separate password used just for GitHub.  An SSH Key is a special file that you can use to connect to remote terminals.
+There are two ways to connect to GitHub: SSH Keys and GitHub Personal Access Tokens Keys.  An SSH Key is a special file that you can use to connect to remote terminals.  A Personal Access Token works like a separate password used just for GitHub.
+
+### SSH Keys (recommended)
+Follow the GitHub [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) tutorial.
+
+Test your connection.
+```console
+$ ssh -T git@github.com
+Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Don't forget to [add your key to GitHub](https://github.com/settings/keys)
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Remember to clone using SSH.
+
+<img src="images/github_clone.png" width="384px" />
+
+</div>
 
 ### Personal Access Token
 Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
@@ -229,15 +249,6 @@ Copy your token.  You'll need it later when you do `git push`.  **Do not close t
 
 <img src="images/github_copy_token.png" width="768px" />
 
-### SSH Keys
-If you want avoid re-generating tokens, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/). Don't forget to [add your key to GitHub](https://github.com/settings/keys) and [switch the remote from SSH to HTTPS.](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
-
-Test your connection.
-```console
-$ ssh -T git@github.com
-Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
 ## Create a remote repository
 First, log in to [https://github.com/](https://github.com/login).
 
@@ -265,6 +276,13 @@ You now have a project page for your remote repo.  In this example, japplefield'
 Browse to your repository's project page from [https://github.com/](https://github.com//). Copy the URL for your repo from the `HTTPS` tab by clicking on the copy icon. The link starts with `https://` .
 
 <img src="images/github006.png" width="768px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you're using SSH Keys, remember to clone using SSH.
+
+<img src="images/github_clone.png" width="384px" />
+
+</div>
 
 Connect your local repo to your remote repo.
 ```console
