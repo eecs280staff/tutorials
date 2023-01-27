@@ -153,6 +153,8 @@ Copy your token.  You'll need it later when you do `git push`.  **Do not close t
 <img src="images/github_copy_token.png" width="768px" />
 
 ## Create a local repository
+Only one team member creates the first local repository.
+
 Navigate to your project directory.  Your directory might be different.
 ```console
 $ pwd
@@ -281,6 +283,8 @@ nothing to commit, working tree clean
 </div>
 
 ## Create a remote repository
+Only one team member creates the remote repository.
+
 First, log in to [https://github.com/](https://github.com/login).
 
 Create a new project.
@@ -340,7 +344,7 @@ Push commits already committed on the local repo to the remote repo. If you are 
 ```console
 $ git push -u origin main
 Username for 'https://github.com': japplefield
-Password for 'https://japplefield@github.com': 
+Password for 'https://japplefield@github.com':
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (12/12), done.
@@ -403,12 +407,41 @@ You should see your first commit show up.
 
 <img src="images/github008.png" width="768px" />
 
-## Add a new file to version control
-Next we'll add a README, which will show up on the front page of our GitHub repository web page.
+## Daily work flow with version control
+This section describes the work flow for a coding session with `git`.
+
+Start with clean files.
 ```console
-$ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+
+nothing to commit, working tree clean
 ```
+
+Retrieve any changes from the server.  For example, you might have pushed changes while working on another computer, like CAEN Linux, or your partners may have made changes, if applicable.
+```console
+$ git fetch
+$ git rebase
+```
+
+Make changes to files.  Add and commit when you're ready.  You can do this several times.
+```console
+$ git add SOME_FILE
+$ git commit -m "Short description goes here"
+```
+
+Push changes to GitHub server.
+```console
+$ git push
+```
+
+If you get a `rejected` error, see [Fixing rejected pushes](#fixing-rejected-pushes), below.
+
+### Add a new file to version control
+Let's practice by adding a README, which will show up on the front page of our GitHub repository web page.
+
+Navigate to the directory containing your source code using the [`cd`](cli.html#cd) command.
 
 We have no modified files and our code is in sync with the code stored on GitHub.  In other words, we haven't changed anything since the last `git commit`, and no changes have happened on the GitHub server.
 ```console
@@ -481,7 +514,7 @@ From the previous `git status` command, we see that we have added code on our lo
 </div>
 
 ```console
-$ git push 
+$ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
@@ -500,12 +533,13 @@ Browse to your repo's project page on GitHub and you'll see a fancy formatted ve
 
 <img src="images/github009.png" width="768px" />
 
+### Modify a version controlled file
+Let's practice modifying an existing file.  We'll add to the README.
 
-## Modify a version controlled file
-Let's practice modifying an existing file.  We'll add to the README.  Check that our version controlled files are clean and up to date with the remote repo.
+Navigate to the directory containing your source code using the [`cd`](cli.html#cd) command.
+
+Check that our version controlled files are clean and up to date with the remote repo.
 ```console
-$ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
 $ git fetch
 $ git status
 On branch main
@@ -619,37 +653,6 @@ View the commit history on GitHub.  Click a commit message to see a graphical di
 View the diff on GitHub.
 
 <img src="images/github011.png" width="768px" />
-
-## Daily work flow with version control
-This section describes the work flow for a coding session with `git`.
-
-Start with clean files.
-```console
-$ git status
-On branch main
-Your branch is up-to-date with 'origin/main'.
-
-nothing to commit, working tree clean
-```
-
-Retrieve any changes from the server.  For example, you might have pushed changes while working on another computer, like CAEN Linux, or your partners may have made changes, if applicable.
-```console
-$ git fetch
-$ git rebase
-```
-
-Make changes to files.  Add and commit when you're ready.  You can do this several times.
-```console
-$ git add SOME_FILE
-$ git commit -m "Short description goes here"
-```
-
-Push changes to GitHub server.
-```console
-$ git push
-```
-
-If you get a `rejected` error, see [Fixing rejected pushes](#fixing-rejected-pushes), below.
 
 ## Version control for a team
 Add your partner as a "Collaborator" on the remote repo by inviting them in the "Collaborators" tab.
