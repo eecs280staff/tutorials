@@ -73,9 +73,9 @@ fatal: Not a git repository (or any of the parent directories): .git
 ## GitHub Authentication
 There are two ways to connect to GitHub: SSH Keys and GitHub Personal Access Tokens Keys.  An SSH Key is a special file that you can use to connect to remote terminals.  A Personal Access Token works like a separate password used just for GitHub.
 
-### SSH Keys (recommended)
-This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+**We recommend SSH Keys.**
 
+### SSH Keys
 Check for existing SSH keys.  You already have an SSH key if you see one of these files.  If you get an error that `~/.ssh` does not exist, you can create it in the next step.
 - `id_rsa.pub`
 - `id_ecdsa.pub`
@@ -118,6 +118,8 @@ Hi awdeorio! You've successfully authenticated, but GitHub does not provide shel
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Don't forget to [add your key to GitHub](https://github.com/settings/keys)
 </div>
+
+This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 ### Personal Access Token
 Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
