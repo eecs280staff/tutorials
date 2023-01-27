@@ -106,7 +106,6 @@ Navigate to Profile > Settings > Access > SSH and GPG Keys.  Here's a [quick lin
 
 Paste your SSH public key.  **Your paste will be different.**  ([GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)).
 
-
 <img src="images/github_paste_ssh_key.png" width="768px" />
 
 Test your connection.
@@ -114,10 +113,6 @@ Test your connection.
 $ ssh -T git@github.com
 Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Don't forget to [add your key to GitHub](https://github.com/settings/keys)
-</div>
 
 This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
@@ -655,6 +650,8 @@ View the diff on GitHub.
 <img src="images/github011.png" width="768px" />
 
 ## Version control for a team
+
+### Add collaborators
 Add your partner as a "Collaborator" on the remote repo by inviting them in the "Collaborators" tab.
 
    <img src="images/github012.png" width="768px" />
@@ -679,7 +676,7 @@ Cloning into 'p1-insta485-static...
 
 Remember, other team members don't need to download the starter files again because those files were already added by the first team member.
 
-## Resolving conflicts
+### Resolving conflicts
 The following text is copied from a [helpful GitHub article](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/).
 
 When you perform a `git rebase` operation, you're typically moving commits around. Because of this, you might get into a situation where a merge conflict is introduced. That means that two of your commits modified the same line in the same file, and Git doesn't know which change to apply.
@@ -701,7 +698,7 @@ If you did this by mistake, you can undo the `git rebase` with `git rebase --abo
 
 To fix the conflict, follow [this how-to]( https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/).
 
-## Fixing `rejected` pushes
+### Fixing `rejected` pushes
 If you get a `rejected` error when using `git push`, this probably means you (or your partner) changed your repo using another computer (or the GitHub web interface).
 ```console
 $ git push
