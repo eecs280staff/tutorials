@@ -273,16 +273,13 @@ You now have a project page for your remote repo.  In this example, japplefield'
 <img src="images/github005b.png" width="768px" />
 
 #### Connect local repo to remote repo
-Browse to your repository's project page from [https://github.com/](https://github.com//). Copy the URL for your repo from the `HTTPS` tab by clicking on the copy icon. The link starts with `https://` .
+Browse to your repository's project page from [https://github.com/](https://github.com//) and copy the repo URL.
+
+If you are using [SSH Keys](#ssh-keys-recommended), copy the URL from the `SSH` tab. The link starts with `git@github.com:` .
+
+If you are using GitHub [Personal Access Tokens](#personal-access-token), copy the URL from the `HTTPS` tab. The link starts with `https://` .
 
 <img src="images/github006.png" width="768px" />
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you're using SSH Keys, remember to clone using SSH.
-
-<img src="images/github_clone.png" width="384px" />
-
-</div>
 
 Connect your local repo to your remote repo.
 ```console
@@ -291,12 +288,23 @@ $ pwd
 $ git remote add origin https://github.com/japplefield/p1-insta485-static.git  # use your URL
 ```
 
-Double-check that your local repo is connected to your remote repo.  You'll see the URL you copied from your remote repo appear.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Double-check that your local repo is connected to your remote repo.
+
+If you're using [SSH Keys](#ssh-keys-recommended), you'll see `git@github.com`.
+```console
+$ git remote -v
+origin	git@github.com:japplefield/p1-insta485-static.git (fetch)
+origin	git@github.com:japplefield/p1-insta485-static.git (push)
+```
+
+If you're using GitHub [Personal Access Tokens](#personal-access-token), you'll see `https://`.
 ```console
 $ git remote -v
 origin	https://github.com/japplefield/p1-insta485-static.git (fetch)
 origin	https://github.com/japplefield/p1-insta485-static.git (push)
 ```
+</div>
 
 Push commits already committed on the local repo to the remote repo. You will be prompted to enter a password, 
 this will be your personal access token.
