@@ -173,7 +173,7 @@ main.exe.dSYM/Contents/Resources/DWARF/main.exe
 ...
 ```
 
-First, double-check your `.gitignore`.  Go [back](http://localhost:4000/setup_git.html#create-a-local-repository) if necessary and re-download it.
+First, double-check your `.gitignore`.  Go [back](setup_git.html#create-a-local-repository) if necessary and re-download it.
 ```console
 $ head .gitignore
 # This is a sample .gitignore file that's useful for C++ projects.
@@ -199,59 +199,38 @@ nothing to commit, working tree clean
 </div>
 
 ## GitHub Authentication
-There are two ways to connect to GitHub: Personal Access Tokens and SSH Keys.
+There are two ways to connect to GitHub: Personal Access Tokens and SSH Keys.  A Personal Access Token works like a separate password used just for GitHub.  An SSH Key is a special file that you can use to connect to remote terminals.
 
 ### Personal Access Token
-Before you continue with using your repositories in GitHub, you want to create your authentication method for accessing remote repo. GitHub personal access token (PAT) is a secure, user-friendly way to connect to GitHub. It gives you unique credentials to verify your identity.
-
-Click on your profile, and head over to Settings.
-
-<img src="images/github_settings.png" width="768px" />
-
-Scroll down and select Developer settings from the left-hand side menu bar.
-
-<img src="images/github_developer_settings.png" width="768px" />
-
-Click on the drop down arrow to reveal the options. Select Tokens (classic). 
-
-<img src="images/github_tokens.png" width="768px" />
+Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
 
 Click on Generate new token and from the drop down menu, click on Generate new token (classic).
 
-<img src="images/github_generate_token.png" width="768px" />
+<img src="images/github_new_token.png" width="768px" />
 
-Now you should be able to view a page similar to the one below titled New personal access token (classic). If you do not see this page, go back to the previous page and make sure to select Generate new token (classic).
-
-Write a meaningful name for your token (such as &lt;uniqname&gt;-token). From the Expiration drop down menu select Custom. Set the expiration date to January 1st of next year (in `mm/dd/yy` format).
+Give your token a name and an expiration.  We recommend setting the expiration date for one year.
 
 <img src="images/github_token_view.png" width="768px" />
 
-<div class="primer-spec-callout info icon-info" markdown="1">
-**Note**: You have to renew your token after January 1st of next year by repeating this process. Setting your token expiration date to no expiration is a security risk. After expiration, to access remote repos previously accessed using your expired access token, you have to use the HTTPS link for the repo and [update the remote repo url](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url). 
-</div>
-
-From the list below, select the boxes for `repo`, `admin:repo_hook`, and `delete_repo`.
+Check only the `repo` box.
 
 <img src="images/github_scopes.png" width="768px" />
 
-Now generate your token.
+Scroll down and click generate token.  **Do not close the browser tab.** You won't be able to see the token again!
 
 <img src="images/github_gen_token.png" width="768px" />
 
-Copy your token. **Make sure to copy it now. You won’t be able to see it again!**
-
-<img src="images/github_copy_token.png" width="768px" />
-
-For now, store your token on your computer in a text file. Do not share this token with anyone!
-
-Open your terminal and enter the following command. Now, you only have to enter your access token the first time you are prompted for your password. From then on, GitHub won't prompt you to enter a password again.
-
+Avoid entering your access token every time by configuring the local Git client to save the GitHub personal access token. 
 ```console
 $ git config --global credential.helper store
 ```
 
+Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab.**
+
+<img src="images/github_copy_token.png" width="768px" />
+
 ### SSH Keys
-If you want avoid re-generating tokens every 90 days, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/). Don't forget to [add your key to GitHub](https://github.com/settings/keys) and [switch the remote from SSH to HTTPS.](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
+If you want avoid re-generating tokens, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/). Don't forget to [add your key to GitHub](https://github.com/settings/keys) and [switch the remote from SSH to HTTPS.](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
 
 Test your connection.
 ```console
