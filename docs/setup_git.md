@@ -173,7 +173,7 @@ main.exe.dSYM/Contents/Resources/DWARF/main.exe
 ...
 ```
 
-First, double-check your `.gitignore`.  Go [back](http://localhost:4000/setup_git.html#create-a-local-repository) if necessary and re-download it.
+First, double-check your `.gitignore`.  Go [back](#add-a-gitignore-file) if necessary and re-download it.
 ```console
 $ head .gitignore
 # This is a sample .gitignore file that's useful for C++ projects.
