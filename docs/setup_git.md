@@ -221,15 +221,63 @@ You now have a project page for your remote repo.  In this example, japplefield'
 
 <img src="images/github005b.png" width="768px" />
 
-#### Connect local repo to remote repo
-{: .primer-spec-toc-ignore }
-Browse to your repository's project page from [https://github.com/](https://github.com//). Copy the URL for your repo ending with `.git` by clicking on the copy icon.
+#### Create a GitHub Personal Access Token
+Before you continue with using your repositories in GitHub, you want to create your authentication method for accessing remote repo. GitHub personal access token (PAT) is a secure, user-friendly way to connect to GitHub. It gives you unique credentials to verify your identity.
 
-<img src="images/github006.png" width="768px" />
+Click on your profile, and head over to Settings.
+
+<img src="images/github_settings.png" width="768px" />
+
+Scroll down and select Developer settings from the left-hand side menu bar.
+
+<img src="images/github_developer_settings.png" width="768px" />
+
+Click on the drop down arrow to reveal the options. Select Tokens (classic). 
+
+<img src="images/github_tokens.png" width="768px" />
+
+Click on Generate new token and from the drop down menu, click on Generate new token (classic).
+
+<img src="images/github_generate_token.png" width="768px" />
+
+Now you should be able to view a page similar to the one below titled New personal access token (classic). If you do not see this page, go back to the previous page and make sure to select Generate new token (classic).
+
+Write a meaningful name for your token (such as &lt;uniqname&gt;-token). From the Expiration drop down menu select Custom. Set the expiration date to January 1st of next year (in `mm/dd/yy` format).
+
+<img src="images/github_token_view.png" width="768px" />
 
 <div class="primer-spec-callout info icon-info" markdown="1">
-**Pro-tip:** If you want avoid typing a username and password all the time, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/).  Don't forget to [add your key to GitHub](https://github.com/settings/keys).
+**Note**: You have to renew your token after January 1st of next year by repeating this process. Setting your token expiration date to no expiration is a security risk. After expiration, to access remote repos previously accessed using your expired access token, you have to use the HTTPS link for the repo and [update the remote repo url](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url). 
 </div>
+
+From the list below, select the boxes for `repo`, `admin:repo_hook`, and `delete_repo`.
+
+<img src="images/github_scopes.png" width="768px" />
+
+Now generate your token.
+
+<img src="images/github_gen_token.png" width="768px" />
+
+Copy your token. **Make sure to copy it now. You won’t be able to see it again!**
+
+<img src="images/github_copy_token.png" width="768px" />
+
+For now, store your token on your computer in a text file. Do not share this token with anyone!
+
+Open your terminal and enter the following command. Now, you only have to enter your access token the first time you are prompted for your password. From then on, GitHub won't prompt you to enter a password again.
+
+```console
+$ git config --global credential.helper store
+```
+
+<div class="primer-spec-callout info icon-info" markdown="1">
+**Alternative method:** If you want avoid re-generating tokens every 90 days, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/). Don't forget to [add your key to GitHub](https://github.com/settings/keys) and [switch the remote from SSH to HTTPS.](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
+</div>
+
+#### Connect local repo to remote repo
+Browse to your repository's project page from [https://github.com/](https://github.com//). Copy the URL for your repo from the `HTTPS` tab by clicking on the copy icon. The link starts with `https://` .
+
+<img src="images/github006.png" width="768px" />
 
 Connect your local repo to your remote repo.
 ```console
@@ -245,7 +293,8 @@ origin	https://github.com/japplefield/p1-insta485-static.git (fetch)
 origin	https://github.com/japplefield/p1-insta485-static.git (push)
 ```
 
-Push commits already committed on the local repo to the remote repo.
+Push commits already committed on the local repo to the remote repo. You will be prompted to enter a password, 
+this will be your personal access token.
 ```console
 $ git push -u origin main
 Username for 'https://github.com': japplefield
@@ -259,6 +308,10 @@ To https://github.com/japplefield/p1-insta485-static.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
+
+<div class="primer-spec-callout warning" markdown="1">
+**MacOS Pitfall:** If you are not prompted for your username and password, your credentials may be cached on your computer. [Clear your credentials from Keychain Access](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain#updating-your-credentials-via-keychain-access).
+</div>
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Your local `git` may use `master` as the name for the initial branch, whereas GitHub expects it to be named main.
