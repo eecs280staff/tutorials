@@ -658,7 +658,9 @@ Add your partner as a "Collaborator" on the remote repo by inviting them in the 
 
    <img src="images/github014.png" width="768px" />
 
-   GitHub sends a confirmation email to your partner.  Your partner clicks accept.
+GitHub sends a confirmation email to your partner.  Your partner clicks accept.
+
+Your partner creates an SSH key or a GitHub Personal Access Token using the [GitHub Authentication](#github-authentication) instructions.
 
 Your partner `clone`s the remote repo on their own local machine using the same remote URL that you do.  Notice that `awdeorio` uses a link that has `japplefield` in it, that's because `awdeorio` is a member of the repo that `japplefield` created.
 ```console
