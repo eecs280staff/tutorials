@@ -117,6 +117,12 @@ Hi awdeorio! You've successfully authenticated, but GitHub does not provide shel
 This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 ### Personal Access Token
+<div class="primer-spec-callout info" markdown="1">
+Skip this section if you are using SSH Keys.
+</div>
+
+A Personal Access Token is an alternative to SSH Keys.
+
 Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
 
 Click on Generate new token and from the drop down menu, click on Generate new token (classic).
