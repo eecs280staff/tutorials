@@ -137,21 +137,21 @@ Check only the `repo` box.
 
 <img src="images/github_scopes.png" width="768px" />
 
-Scroll down and click generate token.  **Do not close the browser tab.** You won't be able to see the token again!
+Scroll down and click generate token.
 
 <img src="images/github_gen_token.png" width="768px" />
+
+#### Copy token
+{: .primer-spec-toc-ignore }
+
+Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab. You won't be able to see the token again!**
+
+<img src="images/github_copy_token.png" width="768px" />
 
 Avoid entering your access token every time by configuring the local Git client to save the GitHub personal access token. 
 ```console
 $ git config --global credential.helper store
 ```
-
-#### Copy token
-{: .primer-spec-toc-ignore }
-
-Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab.**
-
-<img src="images/github_copy_token.png" width="768px" />
 
 ## Create a local repository
 Only one team member creates the first local repository.
