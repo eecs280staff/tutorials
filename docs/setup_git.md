@@ -70,6 +70,86 @@ $ git status
 fatal: Not a git repository (or any of the parent directories): .git
 ```
 
+## GitHub Authentication
+There are two ways to connect to GitHub: SSH Keys and GitHub Personal Access Tokens Keys.  An SSH Key is a special file that you can use to connect to remote terminals.  A Personal Access Token works like a separate password used just for GitHub.
+
+### SSH Keys (recommended)
+This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+Check for existing SSH keys.  You already have an SSH key if you see one of these files.  If you get an error that `~/.ssh` does not exist, you can create it in the next step.
+- `id_rsa.pub`
+- `id_ecdsa.pub`
+- `id_ed25519.pub`
+```console
+$ ls ~/.ssh
+id_ed25519
+id_ed25519.pub
+...
+```
+
+If you don't have an SSH key, generate one.  Accept the default file location.  We recommend entering a passphrase.
+```console
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+...
+Your public key has been saved in /Users/awdeorio/.ssh/id_ed25519.pub
+```
+
+Copy your SSH public key.  Select and copy the output.  **Your output will be different.**
+```console
+$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 KLBJDjlkaksfadhinoueliwekljhfasdlkjhfdss/asdnfkjlnaksjdfdfnkljdafslF awdeorio@umich.edu.com
+```
+
+Navigate to Profile > Settings > Access > SSH and GPG Keys.  Here's a [quick link](https://github.com/settings/keys).  Click New SSH key or Add SSH key.
+
+<img src="images/github_new_ssh_key.png" width="768px" />
+
+Paste your SSH public key.  **Your paste will be different.**  ([GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)).
+
+
+<img src="images/github_paste_ssh_key.png" width="768px" />
+
+Test your connection.
+```console
+$ ssh -T git@github.com
+Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Don't forget to [add your key to GitHub](https://github.com/settings/keys)
+</div>
+
+### Personal Access Token
+Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
+
+Click on Generate new token and from the drop down menu, click on Generate new token (classic).
+
+<img src="images/github_new_token.png" width="768px" />
+
+Give your token a name and an expiration.  We recommend setting the expiration date for one year.
+
+<img src="images/github_token_view.png" width="768px" />
+
+Check only the `repo` box.
+
+<img src="images/github_scopes.png" width="768px" />
+
+Scroll down and click generate token.  **Do not close the browser tab.** You won't be able to see the token again!
+
+<img src="images/github_gen_token.png" width="768px" />
+
+Avoid entering your access token every time by configuring the local Git client to save the GitHub personal access token. 
+```console
+$ git config --global credential.helper store
+```
+
+#### Copy token
+{: .primer-spec-toc-ignore }
+
+Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab.**
+
+<img src="images/github_copy_token.png" width="768px" />
+
 ## Create a local repository
 Navigate to your project directory.  Your directory might be different.
 ```console
@@ -197,86 +277,6 @@ On branch main
 nothing to commit, working tree clean
 ```
 </div>
-
-## GitHub Authentication
-There are two ways to connect to GitHub: SSH Keys and GitHub Personal Access Tokens Keys.  An SSH Key is a special file that you can use to connect to remote terminals.  A Personal Access Token works like a separate password used just for GitHub.
-
-### SSH Keys (recommended)
-This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
-
-Check for existing SSH keys.  You already have an SSH key if you see one of these files.  If you get an error that `~/.ssh` does not exist, you can create it in the next step.
-- `id_rsa.pub`
-- `id_ecdsa.pub`
-- `id_ed25519.pub`
-```console
-$ ls ~/.ssh
-id_ed25519
-id_ed25519.pub
-...
-```
-
-If you don't have an SSH key, generate one.  Accept the default file location.  We recommend entering a passphrase.
-```console
-$ ssh-keygen -t ed25519 -C "your_email@example.com"
-...
-Your public key has been saved in /Users/awdeorio/.ssh/id_ed25519.pub
-```
-
-Copy your SSH public key.  Select and copy the output.  **Your output will be different.**
-```console
-$ cat ~/.ssh/id_ed25519.pub
-ssh-ed25519 KLBJDjlkaksfadhinoueliwekljhfasdlkjhfdss/asdnfkjlnaksjdfdfnkljdafslF awdeorio@umich.edu.com
-```
-
-Navigate to Profile > Settings > Access > SSH and GPG Keys.  Here's a [quick link](https://github.com/settings/keys).  Click New SSH key or Add SSH key.
-
-<img src="images/github_new_ssh_key.png" width="768px" />
-
-Paste your SSH public key.  **Your paste will be different.**  ([GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)).
-
-
-<img src="images/github_paste_ssh_key.png" width="768px" />
-
-Test your connection.
-```console
-$ ssh -T git@github.com
-Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Don't forget to [add your key to GitHub](https://github.com/settings/keys)
-</div>
-
-### Personal Access Token
-Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
-
-Click on Generate new token and from the drop down menu, click on Generate new token (classic).
-
-<img src="images/github_new_token.png" width="768px" />
-
-Give your token a name and an expiration.  We recommend setting the expiration date for one year.
-
-<img src="images/github_token_view.png" width="768px" />
-
-Check only the `repo` box.
-
-<img src="images/github_scopes.png" width="768px" />
-
-Scroll down and click generate token.  **Do not close the browser tab.** You won't be able to see the token again!
-
-<img src="images/github_gen_token.png" width="768px" />
-
-Avoid entering your access token every time by configuring the local Git client to save the GitHub personal access token. 
-```console
-$ git config --global credential.helper store
-```
-
-#### Copy token
-{: .primer-spec-toc-ignore }
-
-Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab.**
-
-<img src="images/github_copy_token.png" width="768px" />
 
 ## Create a remote repository
 First, log in to [https://github.com/](https://github.com/login).
