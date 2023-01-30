@@ -360,7 +360,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**MacOS Pitfall:** If you are not prompted for your username and password when using the token, your credentials may be cached on your computer. [Clear your credentials from Keychain Access](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain#updating-your-credentials-via-keychain-access).
+**MacOS Pitfall:** If you are not prompted for your username and password when using a Personal Access Token, your credentials may be cached on your computer. [Clear your credentials from Keychain Access](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain#updating-your-credentials-via-keychain-access).
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
