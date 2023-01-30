@@ -100,7 +100,7 @@ $ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 KLBJDjlkaksfadhinoueliwekljhfasdlkjhfdss/asdnfkjlnaksjdfdfnkljdafslF awdeorio@umich.edu.com
 ```
 <div class="primer-spec-callout danger" markdown="1">
-**WARNING:** Do not share your private key with anyone!
+**WARNING:** Do not share your private key with anyone!  It's the file that looks like `id_ed25519`.
 </div>
 
 Navigate to Profile > Settings > Access > SSH and GPG Keys.  Here's a [quick link](https://github.com/settings/keys).  Click New SSH key or Add SSH key.
