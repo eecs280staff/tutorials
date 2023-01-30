@@ -94,7 +94,7 @@ $ ssh-keygen -t ed25519 -C "your_email@example.com"
 Your public key has been saved in /Users/awdeorio/.ssh/id_ed25519.pub
 ```
 
-Copy your SSH public key (the file ending with .pub).  Select and copy the output.  **Your output will be different.**
+Copy your SSH public key (the file ending with `.pub`).  Select and copy the output.  **Your output will be different.**
 ```console
 $ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 KLBJDjlkaksfadhinoueliwekljhfasdlkjhfdss/asdnfkjlnaksjdfdfnkljdafslF awdeorio@umich.edu.com
