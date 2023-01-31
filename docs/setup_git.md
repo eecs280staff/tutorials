@@ -70,7 +70,95 @@ $ git status
 fatal: Not a git repository (or any of the parent directories): .git
 ```
 
+## GitHub Authentication
+There are two ways to connect to GitHub: SSH Keys and GitHub Personal Access Tokens Keys.  An SSH Key is a special file that you can use to connect to remote terminals.  A Personal Access Token works like a separate password used just for GitHub.
+
+**We recommend SSH Keys.**
+
+### SSH Keys
+Check for existing SSH keys.  You already have an SSH key if you see one of these files.  If you get an error that `~/.ssh` does not exist, you can create it in the next step.
+- `id_rsa.pub`
+- `id_ecdsa.pub`
+- `id_ed25519.pub`
+```console
+$ ls ~/.ssh
+id_ed25519
+id_ed25519.pub
+...
+```
+
+If you don't have an SSH key, generate one.  Accept the default file location.  We recommend entering a passphrase.
+```console
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+...
+Your public key has been saved in /Users/awdeorio/.ssh/id_ed25519.pub
+```
+
+Copy your SSH public key (the file ending with `.pub`).  Select and copy the output.  **Your output will be different.**
+```console
+$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 KLBJDjlkaksfadhinoueliwekljhfasdlkjhfdss/asdnfkjlnaksjdfdfnkljdafslF awdeorio@umich.edu.com
+```
+<div class="primer-spec-callout danger" markdown="1">
+**WARNING:** Do not share your private key with anyone!  It's the file that looks like `id_ed25519`.
+</div>
+
+Navigate to Profile > Settings > Access > SSH and GPG Keys.  Here's a [quick link](https://github.com/settings/keys).  Click New SSH key or Add SSH key.
+
+<img src="images/github_new_ssh_key.png" width="768px" />
+
+Paste your SSH public key.  **Your paste will be different.**  ([GitHub docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux#adding-a-new-ssh-key-to-your-account)).
+
+<img src="images/github_paste_ssh_key.png" width="768px" />
+
+Test your connection.
+```console
+$ ssh -T git@github.com
+Hi awdeorio! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+This section is based on the [GitHub SSH docs](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+### Personal Access Token
+<div class="primer-spec-callout info" markdown="1">
+Skip this section if you are using SSH Keys.
+</div>
+
+A Personal Access Token is an alternative to SSH Keys.
+
+Login to GitHub.  Navigate to Profile > Settings > Developer Settings > Tokens (classic).  Here's a [direct link](https://github.com/settings/tokens).
+
+Click on Generate new token and from the drop down menu, click on Generate new token (classic).
+
+<img src="images/github_new_token.png" width="768px" />
+
+Give your token a name and an expiration.  We recommend setting the expiration date for one year.
+
+<img src="images/github_token_view.png" width="768px" />
+
+Check only the `repo` box.
+
+<img src="images/github_scopes.png" width="768px" />
+
+Scroll down and click generate token.
+
+<img src="images/github_gen_token.png" width="768px" />
+
+#### Copy token
+{: .primer-spec-toc-ignore }
+
+Copy your token.  You'll need it later when you do `git push`.  **Do not close the browser tab. You won't be able to see the token again!**
+
+<img src="images/github_copy_token.png" width="768px" />
+
+Avoid entering your access token every time by configuring the local Git client to save the GitHub personal access token. 
+```console
+$ git config --global credential.helper store
+```
+
 ## Create a local repository
+Only one team member creates the first local repository.
+
 Navigate to your project directory.  Your directory might be different.
 ```console
 $ pwd
@@ -173,7 +261,7 @@ main.exe.dSYM/Contents/Resources/DWARF/main.exe
 ...
 ```
 
-First, double-check your `.gitignore`.  Go [back](http://localhost:4000/setup_git.html#create-a-local-repository) if necessary and re-download it.
+First, double-check your `.gitignore`.  Go [back](#add-a-gitignore-file) if necessary and re-download it.
 ```console
 $ head .gitignore
 # This is a sample .gitignore file that's useful for C++ projects.
@@ -199,6 +287,8 @@ nothing to commit, working tree clean
 </div>
 
 ## Create a remote repository
+Only one team member creates the remote repository.
+
 First, log in to [https://github.com/](https://github.com/login).
 
 Create a new project.
@@ -222,14 +312,12 @@ You now have a project page for your remote repo.  In this example, japplefield'
 <img src="images/github005b.png" width="768px" />
 
 #### Connect local repo to remote repo
-{: .primer-spec-toc-ignore }
-Browse to your repository's project page from [https://github.com/](https://github.com//). Copy the URL for your repo ending with `.git` by clicking on the copy icon.
+Browse to your repository's project page from [https://github.com/](https://github.com//) and copy the repo URL.
 
-<img src="images/github006.png" width="768px" />
-
-<div class="primer-spec-callout info icon-info" markdown="1">
-**Pro-tip:** If you want avoid typing a username and password all the time, you can use SSH keys and an SSH URL (instead of HTTPS).  Check out the [GitHub tutorial on SSH keys](https://help.github.com/articles/connecting-to-github-with-ssh/).  Don't forget to [add your key to GitHub](https://github.com/settings/keys).
-</div>
+| SSH Keys | Personal Access Tokens |
+| - | - |
+| Copy the URL from the `SSH` tab. [SSH Keys](#ssh-keys-recommended) | Copy the URL from the `HTTPS` tab. [Personal Access Tokens](#personal-access-token) |
+| <img src="images/github_clone_ssh.png" width="384px" /> | <img src="images/github_clone_https.png" width="384px" /> |
 
 Connect your local repo to your remote repo.
 ```console
@@ -238,18 +326,29 @@ $ pwd
 $ git remote add origin https://github.com/japplefield/p1-insta485-static.git  # use your URL
 ```
 
-Double-check that your local repo is connected to your remote repo.  You'll see the URL you copied from your remote repo appear.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Double-check that your local repo is connected to your remote repo.
+
+If you're using [SSH Keys](#ssh-keys-recommended), you'll see `git@github.com`.
+```console
+$ git remote -v
+origin	git@github.com:japplefield/p1-insta485-static.git (fetch)
+origin	git@github.com:japplefield/p1-insta485-static.git (push)
+```
+
+If you're using GitHub [Personal Access Tokens](#personal-access-token), you'll see `https://`.
 ```console
 $ git remote -v
 origin	https://github.com/japplefield/p1-insta485-static.git (fetch)
 origin	https://github.com/japplefield/p1-insta485-static.git (push)
 ```
+</div>
 
-Push commits already committed on the local repo to the remote repo.
+Push commits already committed on the local repo to the remote repo. If you are using Personal Access Tokens, the password is the token you [copied earlier](#copy-token). You will not see a prompt if you use SSH as it does not require a password.
 ```console
 $ git push -u origin main
 Username for 'https://github.com': japplefield
-Password for 'https://japplefield@github.com': 
+Password for 'https://japplefield@github.com':
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (12/12), done.
@@ -259,6 +358,10 @@ To https://github.com/japplefield/p1-insta485-static.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
+
+<div class="primer-spec-callout warning" markdown="1">
+**MacOS Pitfall:** If you are not prompted for your username and password when using a Personal Access Token, your credentials may be cached on your computer. [Clear your credentials from Keychain Access](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain#updating-your-credentials-via-keychain-access).
+</div>
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Your local `git` may use `master` as the name for the initial branch, whereas GitHub expects it to be named main.
@@ -308,12 +411,41 @@ You should see your first commit show up.
 
 <img src="images/github008.png" width="768px" />
 
-## Add a new file to version control
-Next we'll add a README, which will show up on the front page of our GitHub repository web page.
+## Daily work flow with version control
+This section describes the work flow for a coding session with `git`.
+
+Start with clean files.
 ```console
-$ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+
+nothing to commit, working tree clean
 ```
+
+Retrieve any changes from the server.  For example, you might have pushed changes while working on another computer, like CAEN Linux, or your partners may have made changes, if applicable.
+```console
+$ git fetch
+$ git rebase
+```
+
+Make changes to files.  Add and commit when you're ready.  You can do this several times.
+```console
+$ git add SOME_FILE
+$ git commit -m "Short description goes here"
+```
+
+Push changes to GitHub server.
+```console
+$ git push
+```
+
+If you get a `rejected` error, see [Fixing rejected pushes](#fixing-rejected-pushes), below.
+
+### Add a new file to version control
+Let's practice by adding a README, which will show up on the front page of our GitHub repository web page.
+
+Navigate to the directory containing your source code using the [`cd`](cli.html#cd) command.
 
 We have no modified files and our code is in sync with the code stored on GitHub.  In other words, we haven't changed anything since the last `git commit`, and no changes have happened on the GitHub server.
 ```console
@@ -386,7 +518,7 @@ From the previous `git status` command, we see that we have added code on our lo
 </div>
 
 ```console
-$ git push 
+$ git push
 Counting objects: 3, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
@@ -405,12 +537,13 @@ Browse to your repo's project page on GitHub and you'll see a fancy formatted ve
 
 <img src="images/github009.png" width="768px" />
 
+### Modify a version controlled file
+Let's practice modifying an existing file.  We'll add to the README.
 
-## Modify a version controlled file
-Let's practice modifying an existing file.  We'll add to the README.  Check that our version controlled files are clean and up to date with the remote repo.
+Navigate to the directory containing your source code using the [`cd`](cli.html#cd) command.
+
+Check that our version controlled files are clean and up to date with the remote repo.
 ```console
-$ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
 $ git fetch
 $ git status
 On branch main
@@ -525,38 +658,9 @@ View the diff on GitHub.
 
 <img src="images/github011.png" width="768px" />
 
-## Daily work flow with version control
-This section describes the work flow for a coding session with `git`.
-
-Start with clean files.
-```console
-$ git status
-On branch main
-Your branch is up-to-date with 'origin/main'.
-
-nothing to commit, working tree clean
-```
-
-Retrieve any changes from the server.  For example, you might have pushed changes while working on another computer, like CAEN Linux, or your partners may have made changes, if applicable.
-```console
-$ git fetch
-$ git rebase
-```
-
-Make changes to files.  Add and commit when you're ready.  You can do this several times.
-```console
-$ git add SOME_FILE
-$ git commit -m "Short description goes here"
-```
-
-Push changes to GitHub server.
-```console
-$ git push
-```
-
-If you get a `rejected` error, see [Fixing rejected pushes](#fixing-rejected-pushes), below.
-
 ## Version control for a team
+
+### Add collaborators
 Add your partner as a "Collaborator" on the remote repo by inviting them in the "Collaborators" tab.
 
    <img src="images/github012.png" width="768px" />
@@ -565,7 +669,9 @@ Add your partner as a "Collaborator" on the remote repo by inviting them in the 
 
    <img src="images/github014.png" width="768px" />
 
-   GitHub sends a confirmation email to your partner.  Your partner clicks accept.
+GitHub sends a confirmation email to your partner.  Your partner clicks accept.
+
+Your partner creates an SSH key or a GitHub Personal Access Token using the [GitHub Authentication](#github-authentication) instructions.
 
 Your partner `clone`s the remote repo on their own local machine using the same remote URL that you do.  Notice that `awdeorio` uses a link that has `japplefield` in it, that's because `awdeorio` is a member of the repo that `japplefield` created.
 ```console
@@ -579,7 +685,7 @@ Cloning into 'p1-insta485-static...
 
 Remember, other team members don't need to download the starter files again because those files were already added by the first team member.
 
-## Resolving conflicts
+### Resolving conflicts
 The following text is copied from a [helpful GitHub article](https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/).
 
 When you perform a `git rebase` operation, you're typically moving commits around. Because of this, you might get into a situation where a merge conflict is introduced. That means that two of your commits modified the same line in the same file, and Git doesn't know which change to apply.
@@ -601,7 +707,7 @@ If you did this by mistake, you can undo the `git rebase` with `git rebase --abo
 
 To fix the conflict, follow [this how-to]( https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/).
 
-## Fixing `rejected` pushes
+### Fixing `rejected` pushes
 If you get a `rejected` error when using `git push`, this probably means you (or your partner) changed your repo using another computer (or the GitHub web interface).
 ```console
 $ git push
