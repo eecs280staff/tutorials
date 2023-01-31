@@ -375,6 +375,10 @@ $ g++ -g main.cpp -o main.exe
 ```
 </div>
 
+<div class="primer-spec-callout info" markdown="1">
+Navigate to a specific line number with `M-g M-g`.  This is useful for jumping to a line of code reported as a compiler error.
+</div>
+
 ## Debug
 Some Emacs users run GDB or LLDB at the command line.  Others use Emacs' GDB or LLDB integration.  We'll start at the command line.
 
