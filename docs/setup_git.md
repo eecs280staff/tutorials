@@ -94,11 +94,14 @@ $ ssh-keygen -t ed25519 -C "your_email@example.com"
 Your public key has been saved in /Users/awdeorio/.ssh/id_ed25519.pub
 ```
 
-Copy your SSH public key.  Select and copy the output.  **Your output will be different.**
+Copy your SSH public key (the file ending with `.pub`).  Select and copy the output.  **Your output will be different.**
 ```console
 $ cat ~/.ssh/id_ed25519.pub
 ssh-ed25519 KLBJDjlkaksfadhinoueliwekljhfasdlkjhfdss/asdnfkjlnaksjdfdfnkljdafslF awdeorio@umich.edu.com
 ```
+<div class="primer-spec-callout danger" markdown="1">
+**WARNING:** Do not share your private key with anyone!  It's the file that looks like `id_ed25519`.
+</div>
 
 Navigate to Profile > Settings > Access > SSH and GPG Keys.  Here's a [quick link](https://github.com/settings/keys).  Click New SSH key or Add SSH key.
 
@@ -341,7 +344,7 @@ origin	https://github.com/japplefield/p1-insta485-static.git (push)
 ```
 </div>
 
-Push commits already committed on the local repo to the remote repo. If you are using Personal Access Tokens, the password is the token you [copied earlier](#copy-token).
+Push commits already committed on the local repo to the remote repo. If you are using Personal Access Tokens, the password is the token you [copied earlier](#copy-token). You will not see a prompt if you use SSH as it does not require a password.
 ```console
 $ git push -u origin main
 Username for 'https://github.com': japplefield
@@ -357,7 +360,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**MacOS Pitfall:** If you are not prompted for your username and password, your credentials may be cached on your computer. [Clear your credentials from Keychain Access](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain#updating-your-credentials-via-keychain-access).
+**MacOS Pitfall:** If you are not prompted for your username and password when using a Personal Access Token, your credentials may be cached on your computer. [Clear your credentials from Keychain Access](https://docs.github.com/en/enterprise-server@3.4/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain#updating-your-credentials-via-keychain-access).
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
