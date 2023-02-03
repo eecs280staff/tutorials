@@ -87,9 +87,18 @@ id_ed25519.pub
 ...
 ```
 
-If you don't have an SSH key, generate one.  Accept the default file location.  We recommend entering a passphrase.
+If you don't have an SSH key, generate one.  
 ```console
 $ ssh-keygen -t ed25519 -C "your_email@example.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/<your_username>/.ssh/id_ed25519): 
+```
+Press Enter to save the file to the default location.
+
+We recommend entering a passphrase in the following prompts.
+```console
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
 ...
 Your public key has been saved in /Users/awdeorio/.ssh/id_ed25519.pub
 ```
