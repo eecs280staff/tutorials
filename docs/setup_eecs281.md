@@ -62,11 +62,21 @@ EXECUTABLE = main
 If your project has additional dependencies, update the dependencies section at the bottom of the `Makefile`.
 
 You should be able to compile and run your main file.
+
+If you want to compile a optimized release build use the `make` command:
 ```console
 $ make
 $ ./main
 hello world!
 ```
+
+If you want to compile a debug build use the `make debug` command which includes the debug symbols:
+```console
+$ make debug
+$ ./main
+hello world!
+```
+
 
 ## Arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them.  Copy this sample code.
