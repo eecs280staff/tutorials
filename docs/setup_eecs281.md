@@ -24,6 +24,15 @@ p1-stats/
     ...
 ```
 
+<div class="primer-spec-callout warning" markdown="1">
+**VS Code Pitfall:** Use `main_debug` in your [`launch.json` program](setup_vscode.html#edit-launchjson-program).  Your program name might be different.
+
+Don't forget to compile the debug target.
+```console
+$ make debug
+```
+</div>
+
 ## Makefile
 Next, we'll add the [EECS 281 Makefile](https://github.com/eecs281staff/Makefile).
 
