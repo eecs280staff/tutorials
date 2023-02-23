@@ -11,6 +11,11 @@ This tutorial explains how to check for memory leaks in C/C++ programs on differ
 
 FIXME: which platform do you have?
 
+FIXME: different tools like valgrind
+
+## Quick start
+FIXME
+
 ## Prerequisites
 This tutorial relies on command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
@@ -74,24 +79,63 @@ $ ./main.exe
 Hello Leaks!
 ```
 
-## macOS `arm64`
-Also known as Apple Silicon, M1, M2, etc.
+## macOS
+Verify that your Makefile does *not* enable the address sanitizer.
+```make
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+# primer-spec-highlight-start
+# Should *not* see -fsanitize=address
+# primer-spec-highlight-end
+```
+{: data-title="Makefile" }
 
-FIXME
+Compile and run with the `leaks` program.
+```console
+$ make main.exe
+$ leaks -quiet -atExit -- ./main.exe
+$ leaks -quiet -atExit -- ./main.exe
+main.exe(14025) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint - (null)
+main.exe(14025) MallocStackLogging: recording malloc and VM allocation stacks using lite mode
+Hello Leaks!
+Process 14025 is not debuggable. Due to security restrictions, leaks can only show or save contents of readonly memory of restricted processes.
 
-## macOS `x86_64` 
-Also known as Intel chip.
+leaks Report Version: 4.0, multi-line stacks
+Process 14025: 226 nodes malloced for 17 KB
+Process 14025: 1 leak for 16 total leaked bytes.
 
-FIXME
+STACK OF 1 INSTANCE OF 'ROOT LEAK: <malloc in main>':
+3   dyld                                  0x1aea9be50 start + 2544
+2   main.exe                              0x1001bf220 main + 16  main.cpp:0
+1   libc++abi.dylib                       0x1aed808b0 operator new(unsigned long) + 32
+0   libsystem_malloc.dylib                0x1aec2ec20 _malloc_zone_malloc_instrumented_or_legacy + 128 
+====
+    1 (16 bytes) ROOT LEAK: <malloc in main 0x12e7040f0> [16]
+```
+{: data-highlight="11" }
 
-## WSL
+## WSL and Linux
+Edit your Makefile and enable the address sanitizer by adding `-fsanitize=address`.
+```make
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+# primer-spec-highlight-start
+CXXFLAGS += -fsanitize=address
+# primer-spec-highlight-end
+```
+{: data-title="Makefile" }
 
-FIXME
+Compile and run.
+```console
+$ make main.exe
+$ ./main.exe
+FIXME OUTPUT
+```
 
-## CAEN Linux
-
-FIXME
-
+<div class="primer-spec-callout warning" markdown="1">
+**CAEN Linux Pitfall** On Michigan Engineering CAEN Linux, you may need to load a full-featured GCC with the `module` tool.  You'll need to do this each time you log in.
+```console
+$ module load gcc/9
+```
+</div>
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
