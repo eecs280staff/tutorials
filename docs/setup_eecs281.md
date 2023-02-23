@@ -9,14 +9,12 @@ EECS 281 Project Setup
 
 This tutorial walks through EECS 281 project setup using EECS 280 tutorials.
 
+VS Code works great for EECS 281 projects.  Just ask one of the IAs or GSIs who use VS Code if you need help.
+
 ## Visual debugger
 Set up your project in your visual debugger.  We'll use the project name `p1-stats` in this example, but your project name may be different.  If your project has starter files, you'll need the link from the project spec.
 
 | [VS Code Tutorial](https://eecs280staff.github.io/tutorials/setup_vscode.html)| [Visual Studio Tutorial](https://eecs280staff.github.io/tutorials/setup_visualstudio.html) | [Xcode Tutorial](https://eecs280staff.github.io/tutorials/setup_xcode.html) |
-
-<div class="primer-spec-callout warning" markdown="1">
-VS Code works great for EECS 281 projects.  Just ask one of the IAs or GSIs who use VS Code if you need help.
-</div>
 
 After you're done, you should have a folder with a main file.  Your files may be different.
 ```console
