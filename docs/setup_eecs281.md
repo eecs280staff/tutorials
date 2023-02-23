@@ -77,7 +77,6 @@ $ ./main
 hello world!
 ```
 
-
 ## Arguments and options
 Edit your main program (e.g., `main.cpp`) to parse command line options and print them.  Copy this sample code.
 
