@@ -125,14 +125,14 @@ int main(int argc, char * argv[]) {
 
 Compile and run.
 ```console
-$ make main
-$ ./main --verbose --output output.txt
+$ make debug
+$ ./main_debug --verbose --output output.txt
 verbose = 1
 output = output.txt
-$ ./main -v -o output.txt
+$ ./main_debug -v -o output.txt
 verbose = 1
 output = output.txt
-$ ./main
+$ ./main_debug
 verbose = 0
 output = 
 ```
