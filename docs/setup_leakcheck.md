@@ -23,7 +23,56 @@ We're also assuming you are familiar with a text editor or IDE.  If you haven't 
 Finally, you'll need to be familiar with the command line interface (CLI).  If you haven't seen it yet, take a look at the [Command Line Tutorial](cli.html).
 
 ## Example program
-FIXME
+We'll work in a directory called `leakcheck` just for this tutorial.
+```console
+$ mkdir leakcheck
+```
+
+Create a file called `main.cpp` and copy-paste this leaky Hello World program.
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+  new int;  // Memory leak!
+  cout << "Hello Leaks!\n";
+}
+```
+{: data-title="main.cpp" }
+
+Create a file called `Makefile` and copy-paste this code.
+```make
+CXX ?= g++
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+
+# Run regression test
+test: main.exe
+	./main.exe
+
+# Compile the main executable
+main.exe: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
+
+# Remove automatically generated files
+clean :
+	rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+```
+{: data-title="Makefile" }
+
+Your directory should look like this:
+```console
+$ tree
+.
+├── Makefile
+└── main.cpp
+```
+
+The program should compile and run.
+```console
+$ make main.exe
+$ ./main.exe
+Hello Leaks!
+```
 
 ## macOS `arm64`
 Also known as Apple Silicon, M1, M2, etc.
