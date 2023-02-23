@@ -7,14 +7,28 @@ Leaking Checking
 ========================
 {: .primer-spec-toc-ignore }
 
-This tutorial explains how to check for memory leaks in C/C++ programs on different platforms.
-
-FIXME: which platform do you have?
-
-FIXME: different tools like valgrind
+This tutorial explains how to check for memory leaks in C/C++ programs.  We'll use the [address sanitizer](setup_asan.html) on WSL and Linux and the `leaks` tool on macOS.
 
 ## Quick start
-FIXME
+**WSL or Linux:** Add the compiler flag `-fsanitize=address`.  Compile and run.
+```make
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+# primer-spec-highlight-start
+CXXFLAGS += -fsanitize=address
+# primer-spec-highlight-end
+```
+{: data-title="Makefile" }
+
+```console
+$ make main.exe
+$ ./main.exe
+```
+
+**macOS:** Compile and run with the `leaks` tool.  Not compatible with the address sanitizer (remove compiler flag `-fsanitize=address`).
+```console
+$ make main.exe
+$ leaks -quiet -atExit -- ./main.exe
+```
 
 ## Prerequisites
 This tutorial relies on command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
@@ -93,7 +107,6 @@ Compile and run with the `leaks` program.
 ```console
 $ make main.exe
 $ leaks -quiet -atExit -- ./main.exe
-$ leaks -quiet -atExit -- ./main.exe
 main.exe(14025) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint - (null)
 main.exe(14025) MallocStackLogging: recording malloc and VM allocation stacks using lite mode
 Hello Leaks!
@@ -127,8 +140,19 @@ Compile and run.
 ```console
 $ make main.exe
 $ ./main.exe
-FIXME OUTPUT
+Hello Leaks!
+
+=================================================================
+==1905936==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 4 byte(s) in 1 object(s) allocated from:
+    #0 0x7f54a90ae7b0 in operator new(unsigned long) (/lib64/libasan.so.5+0xf17b0)
+    #1 0x400a73 in main /home/awdeorio/leakcheck/main.cpp:6
+    #2 0x7f54a8303cf2 in __libc_start_main (/lib64/libc.so.6+0x3acf2)
+
+SUMMARY: AddressSanitizer: 4 byte(s) leaked in 1 allocation(s).
 ```
+{: data-highlight="13" }
 
 <div class="primer-spec-callout warning" markdown="1">
 **CAEN Linux Pitfall** On Michigan Engineering CAEN Linux, you may need to load a full-featured GCC with the `module` tool.  You'll need to do this each time you log in.
