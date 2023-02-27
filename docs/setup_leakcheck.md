@@ -10,7 +10,7 @@ Leaking Checking
 This tutorial explains how to check for memory leaks in C/C++ programs.  We'll use the [address sanitizer](setup_asan.html) on WSL and Linux and the `leaks` tool on macOS.
 
 ## Quick start
-**WSL or Linux:** Add the compiler flag `-fsanitize=address`.  Compile and run.
+**WSL or Linux:** Add the compiler flag `-fsanitize=address` in the `Makefile`.  Compile and run.
 ```make
 CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
 # primer-spec-highlight-start
@@ -124,7 +124,7 @@ STACK OF 1 INSTANCE OF 'ROOT LEAK: <malloc in main>':
 ====
     1 (16 bytes) ROOT LEAK: <malloc in main 0x12e7040f0> [16]
 ```
-{: data-highlight="11" }
+{: data-highlight="10" }
 
 ## WSL and Linux
 Edit your Makefile and enable the address sanitizer by adding `-fsanitize=address`.
