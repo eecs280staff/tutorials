@@ -8,7 +8,7 @@ Version Control Tutorial
 ========================
 {: .primer-spec-toc-ignore }
 
-This tutorial will walk you through setting up a Git repository, linking it to GitHub, and using it to collaborate with a partner.  This is the EECS 280 adaptation of the [EECS 485 Version Control Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_git.html).
+This tutorial will walk you through setting up a Git repository, linking it to GitHub, and using it to collaborate with a partner.  This is the EECS 280 adaptation of the [EECS 485 Version Control Tutorial](https://eecs485staff.github.io/p2-cv/setup_git.html).
 
 <div class="primer-spec-callout danger" markdown="1">
 **WARNING:** Do not post any code in a publicly accessible repo!
@@ -187,12 +187,11 @@ $ ls -A
 .gitignore     ...
 ```
 
-
 ### Initialize repo
 Initialize the repo.  You may have more untracked files.
 ```console
 $ git init
-Initialized empty Git repository in /Users/japplefield/Developer/eecs485/p1-insta485-static/.git/
+Initialized empty Git repository in /Users/awdeorio/Developer/eecs280/p2-cv/.git/
 $ git status
 On branch main
 
@@ -295,7 +294,7 @@ Create a new project.
 
 <img src="images/github003.png" width="384px" />
 
-Call the new project `p1-insta485-static`, mark it as "private". Click "Create repository".
+Call the new project `p2-cv`, mark it as "private". Click "Create repository".
 
 <div class="primer-spec-callout danger" markdown="1">
 **Double check that you have selected "private".** Making your project code or test cases publicly available online is a violation of the honor code.
@@ -307,7 +306,7 @@ Triple-check that your new repository is private.  If you made a mistake, you ca
 
 <img src="images/github005a.png" width="768px" />
 
-You now have a project page for your remote repo.  In this example, japplefield's project page is [https://github.com/japplefield/p1-insta485-static](https://github.com/japplefield/p1-insta485-static). You won't have access to it because it's private, but your page should look similar.
+You now have a project page for your remote repo.  In this example, awdeorio's project page is [https://github.com/awdeorio/p2-cv](https://github.com/awdeorio/p2-cv). You won't have access to it because it's private, but your page should look similar.
 
 <img src="images/github005b.png" width="768px" />
 
@@ -322,8 +321,8 @@ Browse to your repository's project page from [https://github.com/](https://gith
 Connect your local repo to your remote repo.
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
-$ git remote add origin https://github.com/japplefield/p1-insta485-static.git  # use your URL
+/Users/awdeorio/Developer/eecs485/p2-cv
+$ git remote add origin https://github.com/awdeorio/p2-cv.git  # use your URL
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -332,29 +331,29 @@ $ git remote add origin https://github.com/japplefield/p1-insta485-static.git  #
 If you're using [SSH Keys](#ssh-keys-recommended), you'll see `git@github.com`.
 ```console
 $ git remote -v
-origin	git@github.com:japplefield/p1-insta485-static.git (fetch)
-origin	git@github.com:japplefield/p1-insta485-static.git (push)
+origin	git@github.com:awdeorio/p2-cv.git (fetch)
+origin	git@github.com:awdeorio/p2-cv.git (push)
 ```
 
 If you're using GitHub [Personal Access Tokens](#personal-access-token), you'll see `https://`.
 ```console
 $ git remote -v
-origin	https://github.com/japplefield/p1-insta485-static.git (fetch)
-origin	https://github.com/japplefield/p1-insta485-static.git (push)
+origin	https://github.com/awdeorio/p2-cv.git (fetch)
+origin	https://github.com/awdeorio/p2-cv.git (push)
 ```
 </div>
 
 Push commits already committed on the local repo to the remote repo. If you are using Personal Access Tokens, the password is the token you [copied earlier](#copy-token). You will not see a prompt if you use SSH as it does not require a password.
 ```console
 $ git push -u origin main
-Username for 'https://github.com': japplefield
-Password for 'https://japplefield@github.com':
+Username for 'https://github.com': awdeorio
+Password for 'https://awdeorio@github.com':
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (12/12), done.
 Writing objects: 100% (14/14), 6.97 KiB | 3.48 MiB/s, done.
 Total 14 (delta 0), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
@@ -369,7 +368,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```console
 $ git push -u origin main
 error: src refspec main does not match any
-error: failed to push some refs to 'github.com:japplefield/p1-insta485-static.git'
+error: failed to push some refs to 'github.com:awdeorio/p2-cv.git'
 ```
 
 You can rename your local branch to `main` to resolve this.
@@ -524,7 +523,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 361 bytes | 361.00 KiB/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
    350f38e..7fa8093  main -> main
 $ git status
 On branch main
@@ -624,7 +623,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 348 bytes | 348.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
    a80db0b..2fac8d1  main -> main
 ```
 
@@ -673,14 +672,14 @@ GitHub sends a confirmation email to your partner.  Your partner clicks accept.
 
 Your partner creates an SSH key or a GitHub Personal Access Token using the [GitHub Authentication](#github-authentication) instructions.
 
-Your partner `clone`s the remote repo on their own local machine using the same remote URL that you do.  Notice that `awdeorio` uses a link that has `japplefield` in it, that's because `awdeorio` is a member of the repo that `japplefield` created.
+Your partner `clone`s the remote repo on their own local machine using the same remote URL that you do.  Notice that `awdeorio` uses a link that has `awdeorio` in it, that's because `awdeorio` is a member of the repo that `awdeorio` created.
 ```console
 $ whoami
 awdeorio
 $ pwd
 /Users/awdeorio/src/eecs485/
-$ git clone https://github.com/japplefield/p1-insta485-static.git
-Cloning into 'p1-insta485-static...
+$ git clone https://github.com/awdeorio/p2-cv.git
+Cloning into 'p2-cv...
 ```
 
 Remember, other team members don't need to download the starter files again because those files were already added by the first team member.
@@ -711,9 +710,9 @@ To fix the conflict, follow [this how-to]( https://help.github.com/articles/reso
 If you get a `rejected` error when using `git push`, this probably means you (or your partner) changed your repo using another computer (or the GitHub web interface).
 ```console
 $ git push
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
  ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/japplefield/p1-insta485-static.git'
+error: failed to push some refs to 'https://github.com/awdeorio/p2-cv.git'
 ```
 
 Fetch changes from the remote repo.
@@ -723,7 +722,7 @@ remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 2), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
-From https://github.com/japplefield/p1-insta485-static
+From https://github.com/awdeorio/p2-cv
    4d375b4..2b9bea7  main     -> origin/main
 ```
 
@@ -759,7 +758,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 318 bytes | 318.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
    2b9bea7..63a5d0b  main -> main
 $ git status
 On branch main
