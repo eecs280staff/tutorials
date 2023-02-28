@@ -171,7 +171,7 @@ Only one team member creates the first local repository.
 Navigate to your project directory.  Your directory might be different.
 ```console
 $ pwd
-/Users/awdeorio/Developer/eecs485/p2-cv
+/Users/awdeorio/Developer/eecs280/p2-cv
 ```
 
 ### Add a `.gitignore` file
@@ -208,8 +208,6 @@ First, double-check that you have a `.gitignore` file.  Your gitignore might be 
 ```console
 $ head .gitignore
 This is a sample .gitignore file that's useful for C++ projects.
-... OR ...
-This is a sample .gitignore file that's useful for EECS 485 projects.
 ```
 
 Add your `.gitignore` file and any additional starter files.  See that your existing files are ready to be committed.  You may have more files.
@@ -321,7 +319,7 @@ Browse to your repository's project page from [https://github.com/](https://gith
 Connect your local repo to your remote repo.
 ```console
 $ pwd
-/Users/awdeorio/Developer/eecs485/p2-cv
+/Users/awdeorio/Developer/eecs280/p2-cv
 $ git remote add origin https://github.com/awdeorio/p2-cv.git  # use your URL
 ```
 
@@ -465,11 +463,11 @@ README.md
 
 Now, using the text editor or IDE of your choosing, edit `README.md` to look like the following example.  Be sure to change the name :)
 ```markdown
-EECS 485 Project 1 Solution
+EECS 280 Project 2
 ===========================
-Templated Static Site Generator
+Image Resizing Program using a Seam-Carving Algorithm
 
-By Andrew DeOrio <jmapple@umich.edu>
+By Andrew DeOrio <awdeorio@umich.edu>
 ```
 {: data-title="README.md" }
 
@@ -557,7 +555,7 @@ EECS 485 Project 1 Solution
 ===========================
 Templated Static Site Generator
 
-By Andrew DeOrio <jmapple@umich.edu>
+By Andrew DeOrio <awdeorio@umich.edu>
 
 ## Quick start
 ```console
@@ -589,10 +587,10 @@ diff --git a/README.md b/README.md
 index 4641b12..b1dde51 100644
 --- a/README.md
 +++ b/README.md
-@@ -3,3 +3,9 @@ EECS 485 Project 1 Solution
+@@ -3,3 +3,9 @@ EECS 280 Project 2
  Templated Static Site Generator
  
- By Andrew DeOrio <jmapple@umich.edu>
+ By Andrew DeOrio <awdeorio@umich.edu>
 +
 +## Quick start
 +```console
@@ -677,7 +675,7 @@ Your partner `clone`s the remote repo on their own local machine using the same 
 $ whoami
 awdeorio
 $ pwd
-/Users/awdeorio/src/eecs485/
+/Users/awdeorio/src/eecs280/
 $ git clone https://github.com/awdeorio/p2-cv.git
 Cloning into 'p2-cv...
 ```
@@ -768,6 +766,6 @@ nothing to commit, working tree clean
 ```
 
 ## Acknowledgments
-Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Andrew DeOrio <jmapple@umich.edu>.
+Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Andrew DeOrio <awdeorio@umich.edu>.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You're free to copy and share this document, but not to sell it.  You may not share source code provided with this document.
