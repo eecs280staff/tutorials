@@ -19,10 +19,10 @@ If you've used version control before on your computer, skip to the [Create a lo
 </div>
 
 ## Prerequisites
-We're assuming that you already have a folder, e.g., `p1-insta485-static/` or `p2-cv/`. Your folder name may be different. It's OK if there aren't any files in it yet.
+We're assuming that you already have a folder, e.g.,  `p2-cv/` or `p1-stats`. Your folder name may be different. It's OK if there aren't any files in it yet.
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+/Users/awdeorio/Developer/eecs280/p2-cv
 ```
 
 You have installed `git`.  Your version might be different.
@@ -34,9 +34,9 @@ git version 2.37.2
 You have configured your name and email address.
 ```console
 $ git config --global user.name
-Justin Applefield
+Andrew DeOrio
 $ git config --global user.email
-jmapple@umich.edu
+awdeorio@umich.edu
 ```
 
 If you need to set your name and email, here's how.
@@ -59,7 +59,7 @@ First, remove your GitHub repository.  Browse to your repository's project page 
 Next, remove the hidden files created by `git`.  Remember, hidden files start with a dot (`.`).
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+/Users/awdeorio/Developer/eecs280/p2-cv
 $ rm -rf .git/ .gitignore
 $ ls -A
 ```
@@ -246,7 +246,7 @@ View the commit log and see our first commit.
 ```console
 $ git log
 commit cefd2227510fa5e16e357198be19832b952d314e (HEAD -> main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:29:52 2022 -0400
 
     Initial commit
@@ -406,7 +406,7 @@ Verify the commit log.
 ```console
 $ git log
 commit cefd2227510fa5e16e357198be19832b952d314e (HEAD -> main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:29:52 2022 -0400
 
     Initial commit
@@ -479,7 +479,7 @@ EECS 485 Project 1 Solution
 ===========================
 Templated Static Site Generator
 
-By Justin Applefield <jmapple@umich.edu>
+By Andrew DeOrio <jmapple@umich.edu>
 ```
 {: data-title="README.md" }
 
@@ -567,7 +567,7 @@ EECS 485 Project 1 Solution
 ===========================
 Templated Static Site Generator
 
-By Justin Applefield <jmapple@umich.edu>
+By Andrew DeOrio <jmapple@umich.edu>
 
 ## Quick start
 ```console
@@ -602,7 +602,7 @@ index 4641b12..b1dde51 100644
 @@ -3,3 +3,9 @@ EECS 485 Project 1 Solution
  Templated Static Site Generator
  
- By Justin Applefield <jmapple@umich.edu>
+ By Andrew DeOrio <jmapple@umich.edu>
 +
 +## Quick start
 +```console
@@ -641,19 +641,19 @@ View the commit history from the command line.
 ```console
 $ git log
 commit 6fce59386afd9c85b6de8953b1bd5e3fdbe9fcd3 (HEAD -> main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:40:40 2022 -0400
 
     Added quick start to README
 
 commit bfc9dc8341ca3999b7aad2775b625b6ddce63caf (origin/main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:35:21 2022 -0400
 
     Added README
 
 commit cefd2227510fa5e16e357198be19832b952d314e
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:29:52 2022 -0400
 
     Initial commit
@@ -778,6 +778,6 @@ nothing to commit, working tree clean
 ```
 
 ## Acknowledgments
-Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Justin Applefield <jmapple@umich.edu>.
+Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Andrew DeOrio <jmapple@umich.edu>.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You're free to copy and share this document, but not to sell it.  You may not share source code provided with this document.
