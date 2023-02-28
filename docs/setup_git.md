@@ -19,7 +19,7 @@ If you've used version control before on your computer, skip to the [Create a lo
 </div>
 
 ## Prerequisites
-We're assuming that you already have a folder, e.g.,  `p2-cv/` or `p1-stats`. Your folder name may be different. It's OK if there aren't any files in it yet.
+We're assuming that you already have a folder, e.g.,  `p2-cv/` or `p1-stats/`. Your folder name may be different. It's OK if there aren't any files in it yet.
 ```console
 $ pwd
 /Users/awdeorio/Developer/eecs280/p2-cv
@@ -171,7 +171,7 @@ Only one team member creates the first local repository.
 Navigate to your project directory.  Your directory might be different.
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+/Users/awdeorio/Developer/eecs485/p2-cv
 ```
 
 ### Add a `.gitignore` file
