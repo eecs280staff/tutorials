@@ -187,15 +187,6 @@ $ ls -A
 .gitignore     ...
 ```
 
-#### Web Projects
-This sample is pre-configured to work with most projects that use Python, JavaScript, and React.  Use the same sample file for all EECS 485 projects.
-```console
-$ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
-$ wget https://eecs485staff.github.io/p1-insta485-static/dot_gitignore_sample -O .gitignore
-$ ls -A
-.gitignore
-```
 
 ### Initialize repo
 Initialize the repo.  You may have more untracked files.
