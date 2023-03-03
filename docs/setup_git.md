@@ -19,7 +19,7 @@ If you've used version control before on your computer, skip to the [Create a lo
 </div>
 
 ## Prerequisites
-We're assuming that you already have a folder, e.g.,  `p2-cv/` or `p1-stats/`. Your folder name may be different. It's OK if there aren't any files in it yet.
+We're assuming that you already have a folder, e.g., `p2-cv/` or `p1-stats/`. Your folder name may be different. It's OK if there aren't any files in it yet.
 ```console
 $ pwd
 /Users/awdeorio/Developer/eecs280/p2-cv
@@ -86,6 +86,7 @@ id_ed25519
 id_ed25519.pub
 ...
 ```
+
 
 If you don't have an SSH key, generate one.  
 ```console
@@ -298,7 +299,7 @@ Call the new project `p2-cv`, mark it as "private". Click "Create repository".
 **Double check that you have selected "private".** Making your project code or test cases publicly available online is a violation of the honor code.
 </div>
 
-<img src="images/github004.png" width="768px" />
+<img src="images/github004.png" width="500px" />
 
 Triple-check that your new repository is private.  If you made a mistake, you can change it to private in "Settings".
 
@@ -551,19 +552,20 @@ nothing to commit, working tree clean
 
 Edit `README.md` to add quick start instructions.  We're using [Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/) formatting.  It should look this when you're done:
 ````markdown
-EECS 485 Project 1 Solution
+EECS 280 Project 2 
 ===========================
-Templated Static Site Generator
+Image Resizing Program using a Seam-Carving Algorithm
 
 By Andrew DeOrio <awdeorio@umich.edu>
 
-## Quick start
-```console
-$ python3 -m venv env/
-$ source env/bin/activate
-```
+## Longer Description
+Build an image resizing program using a seam-carving algorithm.
+
+The learning goals of this project include Testing, Debugging, Pointers, Arrays, Strings, Streams, IO, and Abstract Data Types in C. You’ll gain practice with C-style pointers, arrays, and structs.
+
+When you’re done, you’ll have a program that uses seam carving for content-aware resizing of images. The algorithm works by finding and removing “seams” in the image that pass through the least important pixels.
 ````
-{: data-title="README.md" data-highlight="7-11" }
+{: data-title="README.md" data-highlight="7-12" }
 
 We can see that our files are no longer clean.
 ```console
@@ -588,17 +590,19 @@ index 4641b12..b1dde51 100644
 --- a/README.md
 +++ b/README.md
 @@ -3,3 +3,9 @@ EECS 280 Project 2
- Templated Static Site Generator
+Image Resizing Program using a Seam-Carving Algorithm
  
  By Andrew DeOrio <awdeorio@umich.edu>
 +
-+## Quick start
-+```console
-+$ python3 -m venv env/
-+$ source env/bin/activate
-+```
++## Longer Description
++Build an image resizing program using a seam-carving algorithm.
++
++The learning goals of this project include Testing, Debugging, Pointers, Arrays, Strings, Streams, IO, and Abstract Data Types in C. You’ll gain practice with C-style pointers, arrays, and structs.
++
++When you’re done, you’ll have a program that uses seam carving for content-aware resizing of images. The algorithm works by finding and removing “seams” in the image that pass through the least important pixels.
+
 ```
-{: data-highlight="10-15" }
+{: data-highlight="10-16" }
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 **NOTE:** On Windows, you may see lines that end with the `^M` character. This is normal; Windows uses a different convention for line endings than other operating systems.
@@ -612,8 +616,8 @@ Add, commit, and push.
 
 ```console
 $ git add README.md
-$ git commit -m "Added quick start to README"
-[main 2fac8d1] Added quick start to README
+$ git commit -m "Added longer description to README"
+[main 2fac8d1] Added longer description to README
  1 file changed, 6 insertions(+)
 $ git push
 Counting objects: 3, done.
@@ -632,7 +636,7 @@ commit 6fce59386afd9c85b6de8953b1bd5e3fdbe9fcd3 (HEAD -> main)
 Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:40:40 2022 -0400
 
-    Added quick start to README
+    Added longer description to README
 
 commit bfc9dc8341ca3999b7aad2775b625b6ddce63caf (origin/main)
 Author: Andrew DeOrio <awdeorio@umich.edu>
@@ -766,6 +770,6 @@ nothing to commit, working tree clean
 ```
 
 ## Acknowledgments
-Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Andrew DeOrio <awdeorio@umich.edu>.
+Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Justin Applefield <jmapple@umich.edu>. Adapted for EECS 280 by Zachary Weiss <zjweiss@umich.edu>
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You're free to copy and share this document, but not to sell it.  You may not share source code provided with this document.
