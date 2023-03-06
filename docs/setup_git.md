@@ -8,7 +8,7 @@ Version Control Tutorial
 ========================
 {: .primer-spec-toc-ignore }
 
-This tutorial will walk you through setting up a Git repository, linking it to GitHub, and using it to collaborate with a partner.  This is the EECS 280 adaptation of the [EECS 485 Version Control Tutorial](https://eecs485staff.github.io/p2-cv/setup_git.html).
+This tutorial will walk you through setting up a Git repository, linking it to GitHub, and using it to collaborate with a partner.
 
 <div class="primer-spec-callout danger" markdown="1">
 **WARNING:** Do not post any code in a publicly accessible repo!
