@@ -770,6 +770,6 @@ nothing to commit, working tree clean
 ```
 
 ## Acknowledgments
-Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Justin Applefield <jmapple@umich.edu>. Adapted for EECS 280 by Zachary Weiss <zjweiss@umich.edu>
+Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Justin Applefield <jmapple@umich.edu> and Zachary Weiss <zjweiss@umich.edu>.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You're free to copy and share this document, but not to sell it.  You may not share source code provided with this document.
