@@ -8,7 +8,7 @@ Version Control Tutorial
 ========================
 {: .primer-spec-toc-ignore }
 
-This tutorial will walk you through setting up a Git repository, linking it to GitHub, and using it to collaborate with a partner.  This is the EECS 280 adaptation of the [EECS 485 Version Control Tutorial](https://eecs485staff.github.io/p1-insta485-static/setup_git.html).
+This tutorial will walk you through setting up a Git repository, linking it to GitHub, and using it to collaborate with a partner.  This is the EECS 280 adaptation of the [EECS 485 Version Control Tutorial](https://eecs485staff.github.io/p2-cv/setup_git.html).
 
 <div class="primer-spec-callout danger" markdown="1">
 **WARNING:** Do not post any code in a publicly accessible repo!
@@ -19,10 +19,10 @@ If you've used version control before on your computer, skip to the [Create a lo
 </div>
 
 ## Prerequisites
-We're assuming that you already have a folder, e.g., `p1-insta485-static/` or `p2-cv/`. Your folder name may be different. It's OK if there aren't any files in it yet.
+We're assuming that you already have a folder, e.g., `p2-cv/` or `p1-stats/`. Your folder name may be different. It's OK if there aren't any files in it yet.
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+/Users/awdeorio/Developer/eecs280/p2-cv
 ```
 
 You have installed `git`.  Your version might be different.
@@ -34,9 +34,9 @@ git version 2.37.2
 You have configured your name and email address.
 ```console
 $ git config --global user.name
-Justin Applefield
+Andrew DeOrio
 $ git config --global user.email
-jmapple@umich.edu
+awdeorio@umich.edu
 ```
 
 If you need to set your name and email, here's how.
@@ -59,7 +59,7 @@ First, remove your GitHub repository.  Browse to your repository's project page 
 Next, remove the hidden files created by `git`.  Remember, hidden files start with a dot (`.`).
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+/Users/awdeorio/Developer/eecs280/p2-cv
 $ rm -rf .git/ .gitignore
 $ ls -A
 ```
@@ -86,6 +86,7 @@ id_ed25519
 id_ed25519.pub
 ...
 ```
+
 
 If you don't have an SSH key, generate one.  
 ```console
@@ -171,7 +172,7 @@ Only one team member creates the first local repository.
 Navigate to your project directory.  Your directory might be different.
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
+/Users/awdeorio/Developer/eecs280/p2-cv
 ```
 
 ### Add a `.gitignore` file
@@ -187,21 +188,11 @@ $ ls -A
 .gitignore     ...
 ```
 
-#### Web Projects
-This sample is pre-configured to work with most projects that use Python, JavaScript, and React.  Use the same sample file for all EECS 485 projects.
-```console
-$ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
-$ wget https://eecs485staff.github.io/p1-insta485-static/dot_gitignore_sample -O .gitignore
-$ ls -A
-.gitignore
-```
-
 ### Initialize repo
 Initialize the repo.  You may have more untracked files.
 ```console
 $ git init
-Initialized empty Git repository in /Users/japplefield/Developer/eecs485/p1-insta485-static/.git/
+Initialized empty Git repository in /Users/awdeorio/Developer/eecs280/p2-cv/.git/
 $ git status
 On branch main
 
@@ -218,8 +209,6 @@ First, double-check that you have a `.gitignore` file.  Your gitignore might be 
 ```console
 $ head .gitignore
 This is a sample .gitignore file that's useful for C++ projects.
-... OR ...
-This is a sample .gitignore file that's useful for EECS 485 projects.
 ```
 
 Add your `.gitignore` file and any additional starter files.  See that your existing files are ready to be committed.  You may have more files.
@@ -246,7 +235,7 @@ View the commit log and see our first commit.
 ```console
 $ git log
 commit cefd2227510fa5e16e357198be19832b952d314e (HEAD -> main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:29:52 2022 -0400
 
     Initial commit
@@ -304,19 +293,19 @@ Create a new project.
 
 <img src="images/github003.png" width="384px" />
 
-Call the new project `p1-insta485-static`, mark it as "private". Click "Create repository".
+Call the new project `p2-cv`, mark it as "private". Click "Create repository".
 
 <div class="primer-spec-callout danger" markdown="1">
 **Double check that you have selected "private".** Making your project code or test cases publicly available online is a violation of the honor code.
 </div>
 
-<img src="images/github004.png" width="768px" />
+<img src="images/github004.png" width="500px" />
 
 Triple-check that your new repository is private.  If you made a mistake, you can change it to private in "Settings".
 
 <img src="images/github005a.png" width="768px" />
 
-You now have a project page for your remote repo.  In this example, japplefield's project page is [https://github.com/japplefield/p1-insta485-static](https://github.com/japplefield/p1-insta485-static). You won't have access to it because it's private, but your page should look similar.
+You now have a project page for your remote repo.  In this example, awdeorio's project page is [https://github.com/awdeorio/p2-cv](https://github.com/awdeorio/p2-cv). You won't have access to it because it's private, but your page should look similar.
 
 <img src="images/github005b.png" width="768px" />
 
@@ -331,8 +320,8 @@ Browse to your repository's project page from [https://github.com/](https://gith
 Connect your local repo to your remote repo.
 ```console
 $ pwd
-/Users/japplefield/Developer/eecs485/p1-insta485-static
-$ git remote add origin https://github.com/japplefield/p1-insta485-static.git  # use your URL
+/Users/awdeorio/Developer/eecs280/p2-cv
+$ git remote add origin https://github.com/awdeorio/p2-cv.git  # use your URL
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -341,29 +330,29 @@ $ git remote add origin https://github.com/japplefield/p1-insta485-static.git  #
 If you're using [SSH Keys](#ssh-keys-recommended), you'll see `git@github.com`.
 ```console
 $ git remote -v
-origin	git@github.com:japplefield/p1-insta485-static.git (fetch)
-origin	git@github.com:japplefield/p1-insta485-static.git (push)
+origin	git@github.com:awdeorio/p2-cv.git (fetch)
+origin	git@github.com:awdeorio/p2-cv.git (push)
 ```
 
 If you're using GitHub [Personal Access Tokens](#personal-access-token), you'll see `https://`.
 ```console
 $ git remote -v
-origin	https://github.com/japplefield/p1-insta485-static.git (fetch)
-origin	https://github.com/japplefield/p1-insta485-static.git (push)
+origin	https://github.com/awdeorio/p2-cv.git (fetch)
+origin	https://github.com/awdeorio/p2-cv.git (push)
 ```
 </div>
 
 Push commits already committed on the local repo to the remote repo. If you are using Personal Access Tokens, the password is the token you [copied earlier](#copy-token). You will not see a prompt if you use SSH as it does not require a password.
 ```console
 $ git push -u origin main
-Username for 'https://github.com': japplefield
-Password for 'https://japplefield@github.com':
+Username for 'https://github.com': awdeorio
+Password for 'https://awdeorio@github.com':
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (12/12), done.
 Writing objects: 100% (14/14), 6.97 KiB | 3.48 MiB/s, done.
 Total 14 (delta 0), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
@@ -378,7 +367,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```console
 $ git push -u origin main
 error: src refspec main does not match any
-error: failed to push some refs to 'github.com:japplefield/p1-insta485-static.git'
+error: failed to push some refs to 'github.com:awdeorio/p2-cv.git'
 ```
 
 You can rename your local branch to `main` to resolve this.
@@ -406,7 +395,7 @@ Verify the commit log.
 ```console
 $ git log
 commit cefd2227510fa5e16e357198be19832b952d314e (HEAD -> main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:29:52 2022 -0400
 
     Initial commit
@@ -475,11 +464,11 @@ README.md
 
 Now, using the text editor or IDE of your choosing, edit `README.md` to look like the following example.  Be sure to change the name :)
 ```markdown
-EECS 485 Project 1 Solution
+EECS 280 Project 2
 ===========================
-Templated Static Site Generator
+Image Resizing Program using a Seam-Carving Algorithm
 
-By Justin Applefield <jmapple@umich.edu>
+By Andrew DeOrio <awdeorio@umich.edu>
 ```
 {: data-title="README.md" }
 
@@ -533,7 +522,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 361 bytes | 361.00 KiB/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
    350f38e..7fa8093  main -> main
 $ git status
 On branch main
@@ -563,19 +552,20 @@ nothing to commit, working tree clean
 
 Edit `README.md` to add quick start instructions.  We're using [Markdown](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/) formatting.  It should look this when you're done:
 ````markdown
-EECS 485 Project 1 Solution
+EECS 280 Project 2 
 ===========================
-Templated Static Site Generator
+Image Resizing Program using a Seam-Carving Algorithm
 
-By Justin Applefield <jmapple@umich.edu>
+By Andrew DeOrio <awdeorio@umich.edu>
 
-## Quick start
-```console
-$ python3 -m venv env/
-$ source env/bin/activate
-```
+## Longer Description
+Build an image resizing program using a seam-carving algorithm.
+
+The learning goals of this project include Testing, Debugging, Pointers, Arrays, Strings, Streams, IO, and Abstract Data Types in C. You’ll gain practice with C-style pointers, arrays, and structs.
+
+When you’re done, you’ll have a program that uses seam carving for content-aware resizing of images. The algorithm works by finding and removing “seams” in the image that pass through the least important pixels.
 ````
-{: data-title="README.md" data-highlight="7-11" }
+{: data-title="README.md" data-highlight="7-12" }
 
 We can see that our files are no longer clean.
 ```console
@@ -599,18 +589,20 @@ diff --git a/README.md b/README.md
 index 4641b12..b1dde51 100644
 --- a/README.md
 +++ b/README.md
-@@ -3,3 +3,9 @@ EECS 485 Project 1 Solution
- Templated Static Site Generator
+@@ -3,3 +3,9 @@ EECS 280 Project 2
+Image Resizing Program using a Seam-Carving Algorithm
  
- By Justin Applefield <jmapple@umich.edu>
+ By Andrew DeOrio <awdeorio@umich.edu>
 +
-+## Quick start
-+```console
-+$ python3 -m venv env/
-+$ source env/bin/activate
-+```
++## Longer Description
++Build an image resizing program using a seam-carving algorithm.
++
++The learning goals of this project include Testing, Debugging, Pointers, Arrays, Strings, Streams, IO, and Abstract Data Types in C. You’ll gain practice with C-style pointers, arrays, and structs.
++
++When you’re done, you’ll have a program that uses seam carving for content-aware resizing of images. The algorithm works by finding and removing “seams” in the image that pass through the least important pixels.
+
 ```
-{: data-highlight="10-15" }
+{: data-highlight="10-16" }
 
 <div class="primer-spec-callout info icon-info" markdown="1">
 **NOTE:** On Windows, you may see lines that end with the `^M` character. This is normal; Windows uses a different convention for line endings than other operating systems.
@@ -624,8 +616,8 @@ Add, commit, and push.
 
 ```console
 $ git add README.md
-$ git commit -m "Added quick start to README"
-[main 2fac8d1] Added quick start to README
+$ git commit -m "Added longer description to README"
+[main 2fac8d1] Added longer description to README
  1 file changed, 6 insertions(+)
 $ git push
 Counting objects: 3, done.
@@ -633,7 +625,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 348 bytes | 348.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
    a80db0b..2fac8d1  main -> main
 ```
 
@@ -641,19 +633,19 @@ View the commit history from the command line.
 ```console
 $ git log
 commit 6fce59386afd9c85b6de8953b1bd5e3fdbe9fcd3 (HEAD -> main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:40:40 2022 -0400
 
-    Added quick start to README
+    Added longer description to README
 
 commit bfc9dc8341ca3999b7aad2775b625b6ddce63caf (origin/main)
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:35:21 2022 -0400
 
     Added README
 
 commit cefd2227510fa5e16e357198be19832b952d314e
-Author: Justin Applefield <jmapplef@gmail.com>
+Author: Andrew DeOrio <awdeorio@umich.edu>
 Date:   Tue Aug 30 19:29:52 2022 -0400
 
     Initial commit
@@ -682,14 +674,14 @@ GitHub sends a confirmation email to your partner.  Your partner clicks accept.
 
 Your partner creates an SSH key or a GitHub Personal Access Token using the [GitHub Authentication](#github-authentication) instructions.
 
-Your partner `clone`s the remote repo on their own local machine using the same remote URL that you do.  Notice that `awdeorio` uses a link that has `japplefield` in it, that's because `awdeorio` is a member of the repo that `japplefield` created.
+Your partner `clone`s the remote repo on their own local machine using the same remote URL that you do.  Notice that `awdeorio` uses a link that has `awdeorio` in it, that's because `awdeorio` is a member of the repo that `awdeorio` created.
 ```console
 $ whoami
 awdeorio
 $ pwd
-/Users/awdeorio/src/eecs485/
-$ git clone https://github.com/japplefield/p1-insta485-static.git
-Cloning into 'p1-insta485-static...
+/Users/awdeorio/src/eecs280/
+$ git clone https://github.com/awdeorio/p2-cv.git
+Cloning into 'p2-cv...
 ```
 
 Remember, other team members don't need to download the starter files again because those files were already added by the first team member.
@@ -720,9 +712,9 @@ To fix the conflict, follow [this how-to]( https://help.github.com/articles/reso
 If you get a `rejected` error when using `git push`, this probably means you (or your partner) changed your repo using another computer (or the GitHub web interface).
 ```console
 $ git push
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
  ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/japplefield/p1-insta485-static.git'
+error: failed to push some refs to 'https://github.com/awdeorio/p2-cv.git'
 ```
 
 Fetch changes from the remote repo.
@@ -732,7 +724,7 @@ remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 2), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
-From https://github.com/japplefield/p1-insta485-static
+From https://github.com/awdeorio/p2-cv
    4d375b4..2b9bea7  main     -> origin/main
 ```
 
@@ -768,7 +760,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 318 bytes | 318.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/japplefield/p1-insta485-static.git
+To https://github.com/awdeorio/p2-cv.git
    2b9bea7..63a5d0b  main -> main
 $ git status
 On branch main
@@ -778,6 +770,6 @@ nothing to commit, working tree clean
 ```
 
 ## Acknowledgments
-Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Justin Applefield <jmapple@umich.edu>.
+Original document written by Andrew DeOrio <awdeorio@umich.edu>. Updates made to use GitHub by Justin Applefield <jmapple@umich.edu> and Zachary Weiss <zjweiss@umich.edu>.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You're free to copy and share this document, but not to sell it.  You may not share source code provided with this document.
