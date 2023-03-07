@@ -27,7 +27,7 @@ $ ./main.exe
 **macOS:** Compile and run with the `leaks` tool.  Not compatible with the address sanitizer (remove compiler flag `-fsanitize=address`).
 ```console
 $ make main.exe
-$ leaks -quiet -atExit -- ./main.exe
+$ MallocStackLogging=1 leaks -quiet -atExit -- ./main.exe
 ```
 
 ## Prerequisites
@@ -106,7 +106,7 @@ CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-commen
 Compile and run with the `leaks` program.
 ```console
 $ make main.exe
-$ leaks -quiet -atExit -- ./main.exe
+$ MallocStackLogging=1 leaks -quiet -atExit -- ./main.exe
 main.exe(14025) MallocStackLogging: could not tag MSL-related memory as no_footprint, so those pages will be included in process footprint - (null)
 main.exe(14025) MallocStackLogging: recording malloc and VM allocation stacks using lite mode
 Hello Leaks!
