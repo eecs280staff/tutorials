@@ -266,10 +266,7 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ## Compile and Run
 VS Code uses an executable you build at the command line.
 
-### Compile
-{: .primer-spec-toc-ignore }
-
-Compile and run your executable at the command line.
+First, compile and run your executable at the command line.
 ```console
 $ touch stats.cpp  # Needed for EECS 280 P1
 $ make main.exe
@@ -310,8 +307,27 @@ Hello World!
 ```
 </div>
 
-### Create `launch.json`
-{: .primer-spec-toc-ignore }
+### macOS create `launch.json`
+
+Select the file you would like to run.  Navigate to the debugging pane.
+
+<img src="images/vscode030.png" width="768px" />
+
+Click "create a launch.json file".
+
+<img src="images/vscode031.png" width="768px" />
+
+Select LLDB.
+
+<img src="images/vscode031b.png" width="768px" />
+
+FIXME: check for incoming link to "Edit `launch.json` program"
+
+Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
+
+<img src="images/vscode034b.png" width="768px" />
+
+### Windows/WSL create `launch.json`
 
 <div class="primer-spec-callout warning" markdown="1">
 **WSL Pitfall:** Make sure you're in WSL mode.
@@ -331,53 +347,25 @@ Click "create a launch.json file".
 
 <img src="images/vscode031.png" width="768px" />
 
-**macOS:** Select LLDB.
+Select C++ (GDB/LLDB).
 
-<img src="images/vscode031b.png" width="768px" />
+<img src="images/vscode031a.png" width="768px" />
 
-You may need to click "Add Configuration".
+Click "Add Configuration".
 
 <img src="images/vscode032.png" width="768px" />
 
-You may need to select a "Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
-- macOS: "C/C++ (lldb) Launch"
-- WSL orLinux: "C/C++ (gdb) Launch"
+Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 
 <img src="images/vscode033.png" width="768px" />
 
-#### Edit `launch.json` program
-{: .primer-spec-toc-ignore }
+FIXME: check for incoming links to `#edit-launchjson-program`
 
 Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
-```json
-{
-    "name": "(lldb) Launch",
-    ...
-    "program": "${workspaceFolder}/main.exe",
-    ...
-    "cwd": "${workspaceFolder}",
-    ...
-}
-```
-{: data-highlight="4,6" }
-
-Your `launch.json` might be different.
 
 <img src="images/vscode034.png" width="768px" />
 
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** VS Code puts its configuration files in a hidden directory called `.vscode`.  You can see hidden files with `ls -A`.
-```console
-$ ls -A
-.vscode
-main.cpp
-...
-```
-{: data-highlight="2" }
-</div>
-
 ### Run
-{: .primer-spec-toc-ignore }
 
 Click the triangle to run.  You'll see your program's output in the debug console.
 
@@ -513,7 +501,6 @@ Run the program until it returns from the current function (or until the next br
 Run the program until the next breakpoint.
 
 ### Example code
-{: .primer-spec-toc-ignore }
 
 To get started, copy this example `main.cpp` into your editor.
 ```c++
