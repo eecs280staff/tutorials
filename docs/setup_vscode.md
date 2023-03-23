@@ -321,8 +321,6 @@ Select LLDB.
 
 <img src="images/vscode031b.png" width="768px" />
 
-FIXME: check for incoming link to "Edit `launch.json` program"
-
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
 <img src="images/vscode034b.png" width="768px" />
@@ -359,11 +357,22 @@ Select the "C/C++ (gdb) Launch" configuration.  This will create a default `laun
 
 <img src="images/vscode033.png" width="768px" />
 
-FIXME: check for incoming links to `#edit-launchjson-program`
-
 Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
 <img src="images/vscode034.png" width="768px" />
+
+### Edit `launch.json` program
+
+If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceFolder}"`.
+```json
+{
+    "program": "${workspaceFolder}/main.exe",
+    ...
+    "cwd": "${workspaceFolder}",
+}
+```
+{: data-highlight="2,4" }
+
 
 ### Run
 
