@@ -258,6 +258,7 @@ Xcode does not support input redirection.  We'll use a work-around that connects
 Add these lines to the top of your `main` function.  Your input filename may be different.
 ```c++
 // primer-spec-highlight-start
+#include <cassert>
 #include <cstdio>
 // primer-spec-highlight-end
 //...
@@ -265,7 +266,7 @@ Add these lines to the top of your `main` function.  Your input filename may be 
 int main() {
   // primer-spec-highlight-start
   #ifdef __APPLE__
-  freopen("main_test.in", "r", stdin);
+  assert(freopen("main_test.in", "r", stdin));
   #endif
   // primer-spec-highlight-end
   //...
