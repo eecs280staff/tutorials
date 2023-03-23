@@ -418,7 +418,7 @@ If you're unfamiliar with input redirection, first read the CLI tutorial section
 
 #### Windows/WSL or Linux `launch.json` changes
 
-To configure input redirection, edit `launch.json`.
+To configure input redirection, edit `launch.json`.  These changes are for the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 ```json
 {
     "configurations": [
@@ -435,7 +435,7 @@ To configure input redirection, edit `launch.json`.
 
 #### macOS `launch.json` changes
 
-To configure input redirection, edit `launch.json` ([docs](https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md#stdio-redirection)).
+To configure input redirection, edit `launch.json` ([docs](https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md#stdio-redirection)).  These instructions are for the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).
 ```json
 {
     "configurations": [
