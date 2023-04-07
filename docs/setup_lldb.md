@@ -1,6 +1,6 @@
 ---
 layout: spec
-title: Setup LLDB (MacOS)
+title: Setup LLDB
 excludeFromSitemap: true
 ---
 
@@ -8,12 +8,13 @@ LLDB Tutorial
 =============
 {: .primer-spec-toc-ignore }
 
-[LLDB](https://lldb.llvm.org/) is a command line debugger.  It is the default debugger on macOS, and is used by Xcode behind the scenes.  The basic commands are almost identical to [GDB](https://lldb.llvm.org/use/map.html), and you might want to check out the [GDB Tutorial](setup_gdb.html) too.
+[LLDB](https://lldb.llvm.org/) is a command line debugger.  It is the default debugger on macOS, and is used by Xcode behind the scenes.
 
-Similar to GDB, LLDB is harder to learn than most visual debuggers.  However, you might want to use LLDB instead of GDB or Xcode for several reasons:
-- On macOS, LLDB is more reliable than GDB
+LLDB is harder to learn than most visual debuggers.  However, you might want to use LLDB instead of VS Code or Xcode for several reasons:
 - Zero setup.  Fast and easy debugging once you've learned.
-- Integration with Vim and Emacs (used in EECS 280, optional)
+- Integration with Vim and Emacs
+- Support for threads
+- Support for connecting to a remote target like an operating system that has crashed so badly you can't use the keyboard or monitor
 
 LLDB uses text-based commands, as opposed to the clickable user interface of a visual debugger.  Here's a handy list of LLDB and GDB [commands](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-command-examples.html).
 
