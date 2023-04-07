@@ -171,19 +171,57 @@ Start GDB.  The `-tui` option makes it easier to see your code (optional).
 
 ```console
 $ gdb -tui main.exe
-FIXME show example output
 ```
 
-**Pro-tip:** If the user interface ever starts to look messed up, just `refresh` it. 
+```
+   ┌──main.cpp─────────────────────────────────────────────────────────────────┐
+   │13      int main() {                                                       │
+   │14        vector<double> data;                                             │
+   │15        data.push_back(10);                                              │
+   │16        data.push_back(20);                                              │
+   │17        data.push_back(30);                                              │
+   │18        cout << "sum(data) = " << sum(data) << endl;                     │
+   │19      }                                                                  │
+   │20                                                                         │
+   │21                                                                         │
+   │22                                                                         │
+   │23                                                                         │
+   │24                                                                         │
+   │25                                                                         │
+   └───────────────────────────────────────────────────────────────────────────┘
+exec No process In:                                                L??   PC: ?? 
+
+(gdb) 
+```
+{: data-variant="no-line-numbers" }
+
+**Pro-tip:** If the user interface ever starts to look messed up, just `refresh` it.  FIXME move this
 
 ### Breakpoint
 Set a breakpoint on the main function.
 
 ```
-(gdb) b main
-FIXME
+   ┌──main.cpp─────────────────────────────────────────────────────────────────┐
+   │13      int main() {                                                       │
+b+ │14        vector<double> data;                                             │
+   │15        data.push_back(10);                                              │
+   │16        data.push_back(20);                                              │
+   │17        data.push_back(30);                                              │
+   │18        cout << "sum(data) = " << sum(data) << endl;                     │
+   │19      }                                                                  │
+   │20                                                                         │
+   │21                                                                         │
+   │22                                                                         │
+   │23                                                                         │
+   │24                                                                         │
+   │25                                                                         │
+   └───────────────────────────────────────────────────────────────────────────┘
+exec No process In:                                                L??   PC: ?? 
+
+(gdb) b	main
+Breakpoint 1 at 0x400c66: file main.cpp, line 14.
 ```
-{: data-highlight="1" }
+{: data-highlight="3,18" }
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip**: There are several ways to set breakpoints.
@@ -195,13 +233,31 @@ FIXME
 </div>
 
 ### Run
-Run the program being debugged.  The program pauses at the breakpoint.
+Run the program being debugged.  The program pauses at the breakpoint.  Ignore any error about "Missing separate debuginfos".
 
 ```
+   ┌──main.cpp─────────────────────────────────────────────────────────────────┐
+   │13      int main() {                                                       │
+B+>│14        vector<double> data;                                             │
+   │15        data.push_back(10);                                              │
+   │16        data.push_back(20);                                              │
+   │17        data.push_back(30);                                              │
+   │18        cout << "sum(data) = " << sum(data) << endl;                     │
+   │19      }                                                                  │
+   │20                                                                         │
+   │21                                                                         │
+   │22                                                                         │
+   │23                                                                         │
+   │24                                                                         │
+   │25                                                                         │
+   └───────────────────────────────────────────────────────────────────────────┘
+native process 95465 In: main                                L14   PC: 0x400c66 
+Breakpoint 1 at 0x400c66: file main.cpp, line 14.
 (gdb) r
-FIXME
+Starting program: /n/higgins/z/awdeorio/gdbeg/main.exe
+Breakpoint 1, main () at main.cpp:14
 ```
-{: data-highlight="1" }
+{: data-highlight="3,18" }
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip**: `start` is a shortcut for `b main` followed by `r`.
@@ -214,7 +270,6 @@ FIXME
 List a few lines of surrounding code with `l` (that's a lowercase `L`).  This command is only useful when you're not using TUI mode.
 ```
 (gdb) l
-FIXME including highlighting
 ```
 
 ### Step over
@@ -222,9 +277,29 @@ Enter `n` AKA "Next" AKA "Step Over" a few times until you reach the highlighted
 
 ```
 (gdb) n
-FIXME including highlighting
+   ┌──main.cpp─────────────────────────────────────────────────────────────────┐
+   │10        return total;                                                    │
+   │11      }                                                                  │
+   │12                                                                         │
+   │13      int main() {                                                       │
+B+ │14        vector<double> data;                                             │
+   │15        data.push_back(10);                                              │
+   │16        data.push_back(20);                                              │
+   │17        data.push_back(30);                                              │
+  >│18        cout << "sum(data) = " << sum(data) << endl;                     │
+   │19      }                                                                  │
+   │20                                                                         │
+   │21                                                                         │
+   │22                                                                         │
+   └───────────────────────────────────────────────────────────────────────────┘
+native process 95465 In: main                                L18   PC: 0x400cd2 
+
+(gdb) n
+(gdb) n
+(gdb) n
+(gdb) n
 ```
-{: data-highlight="1,8" }
+{: data-highlight="11,19-22" }
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Hit Return to repeat your previous command.
@@ -235,7 +310,7 @@ Print the value of a variable with `p`.  If you have trouble viewing the content
 
 ```
 (gdb) p data
-FIXME including highlighting
+$1 = std::vector of length 3, capacity 4 = {10,	20, 30}
 ```
 {: data-highlight="1" }
 
@@ -243,26 +318,60 @@ FIXME including highlighting
 Enter `s` AKA "Step" AKA "Step Into".  The cursor enters the `sum()` function.
 
 ```
+   ┌──main.cpp─────────────────────────────────────────────────────────────────┐
+   │1       #include <iostream>                                                │
+   │2       #include <vector>                                                  │
+   │3       using namespace std;                                               │
+   │4                                                                          │
+   │5       double sum (const vector<double> &data) {                          │
+  >│6         double total = 0;                                                │
+   │7         for (size_t i=0; i<data.size(); ++i) {                           │
+   │8           total += data[i];                                              │
+   │9         }                                                                │
+   │10        return total;                                                    │
+   │11      }                                                                  │
+   │12                                                                         │
+   │13      int main() {                                                       │
+   └───────────────────────────────────────────────────────────────────────────┘
+native process 95465 In: sum                                 L6    PC: 0x400c02 
+
 (gdb) s
-FIXME including highlighting
 ```
-{: data-highlight="1,7-8" }
+{: data-highlight="7,18" }
 
 ### Step out
 Enter `up` AKA "Step Out".  The `sum()` function completes, and the program pauses again.
 
 ```
+   ┌──main.cpp─────────────────────────────────────────────────────────────────┐
+   │13      int main() {                                                       │
+B+ │14        vector<double> data;                                             │
+   │15        data.push_back(10);                                              │
+   │16        data.push_back(20);                                              │
+   │17        data.push_back(30);                                              │
+  >│18        cout << "sum(data) = " << sum(data) << endl;                     │
+   │19      }                                                                  │
+   │20                                                                         │
+   │21                                                                         │
+   │22                                                                         │
+   │23                                                                         │
+   │24                                                                         │
+   │25                                                                         │
+   └───────────────────────────────────────────────────────────────────────────┘
+native process 95465 In: main                                L18   PC: 0x400cf0 
+
 (gdb) up
-FIXME including highlighting
 ```
-{: data-highlight="1,9" }
+{: data-highlight="7,18" }
 
 ### Continue
 Enter `c` AKA "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
 ```
 (gdb) c
-FIXME including highlighting
+Continuing.
+sum(data) = 60
+[Inferior 1 (process 95465) exited normally]
 ```
 {: data-highlight="1" }
 
