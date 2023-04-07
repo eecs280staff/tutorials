@@ -39,6 +39,7 @@ $ gdb -tui main.exe
 | `c` | continue |
 | `p myvar` | print variable `myvar` |
 | `refresh` | refresh TUI view |
+| `bt` | backtrace, useful for segfaults |
 | `q` | quit |
 
 
@@ -61,7 +62,7 @@ $ ./main.exe
 Hello World!
 ```
 
-<div class="primer-spec-callout warning icon-warning" markdown="1">
+<div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** GDB debugging will be very hard to understand if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g`.
 </div>
 
@@ -85,8 +86,6 @@ Quit with `q`.  **Pro-tip:** `Control-D` will also quit at any time.
 (gdb) q
 ```
 {: data-highlight="1" }
-
-FIXME `bt` example.
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
@@ -115,7 +114,7 @@ $ ./main.exe train_small.csv test_small.csv --debug
 - `train_small.csv` and `test_small.csv` are arguments
 - `--debug` is an option
 
-To run a program with options or arguments in LLDB, include them after `r`.
+To run a program with options or arguments in LLDB, inc
 ```console
 $ gdb main.exe
 (gdb) r train_small.csv test_small.csv --debug
@@ -195,7 +194,12 @@ exec No process In:                                                L??   PC: ??
 ```
 {: data-variant="no-line-numbers" }
 
-**Pro-tip:** If the user interface ever starts to look messed up, just `refresh` it.  FIXME move this
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** If the user interface looks messed up, try
+```
+(gdb) refresh
+```
+</div>
 
 ### Breakpoint
 Set a breakpoint on the main function.
