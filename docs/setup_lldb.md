@@ -18,7 +18,7 @@ Similar to GDB, LLDB is harder to learn than most visual debuggers.  However, yo
 LLDB uses text-based commands, as opposed to the clickable user interface of a visual debugger.  Here's a handy list of LLDB and GDB [commands](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-command-examples.html).
 
 
-# Quick Start
+## Quick Start
 If you're a first time user, skip this section.
 
 Compile your program with the `-g` flag and start LLDB.  EECS 281 students: remove optimization flags like `-O3`.
@@ -41,7 +41,7 @@ $ lldb stats_tests.exe
 
 
 
-# Prerequisites
+## Prerequisites
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
@@ -69,7 +69,7 @@ If you're not sure how to do this, you might find one of our IDE tutorials helpf
 ```
 
 
-# Install
+## Install
 This tutorial focuses on LLDB for macOS.  Your versions might be different.  You should already have `g++` and `lldb` installed from the main [macOS tutorial](setup_macos.html).
 ```console
 $ g++ --version
@@ -79,7 +79,7 @@ lldb-1200.0.44.2
 ```
 
 
-# Compile
+## Compile
 LLDB debugs a compiled executable.  Compile the executable you plan to debug.
 ```console
 $ pwd
@@ -103,7 +103,7 @@ Abort trap: 6
 ```
 
 
-# Run
+## Run
 LLDB is run like any other command line program, with its name (`lldb`). Add the name of your executable as an argument.  You now see the LLDB prompt.  LLDB's interface is similar to your command line shell, where you enter commands and press Enter (Return).
 ```console
 $ lldb stats_tests.exe
@@ -153,7 +153,7 @@ Quitting LLDB will kill one or more processes. Do you really want to proceed: [Y
 ```
 
 
-## Input redirection
+### Input redirection
 Skip this subsection on your first time through the tutorial.  Without input redirection, you can type input into LLDB after running your program.
 ```
 $ lldb main.exe
@@ -175,7 +175,7 @@ $ lldb main.exe
 ...
 ```
 
-## Arguments and options
+### Arguments and options
 Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
 
 *Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
@@ -195,7 +195,7 @@ $ lldb main.exe
 ```
 
 
-# Debug
+## Debug
 Start LLDB with your executable.
 ```console
 $ lldb stats_tests.exe
@@ -316,7 +316,7 @@ Quitting LLDB will kill one or more processes. Do you really want to proceed: [Y
 ```
 
 
-# Pro-tips
+## Pro-tips
 Use the up and down arrow keys to cycle through previous commands similar to your command line.
 
 Use TAB completion to automatically complete the name of a command or a variable.
@@ -324,7 +324,7 @@ Use TAB completion to automatically complete the name of a command or a variable
 Use [Emacs](setup_emacs.html) keyboard shortcuts to enter and edit your current command.
 
 
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
