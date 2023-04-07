@@ -180,11 +180,14 @@ Breakpoint 1: where = main.exe`main + 20 at main.cpp:14:18, address = 0x00000001
 ```
 {: data-highlight="1" }
 
-**Pro-tip**: Other ways to set breakpoints:
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip**: There are several ways to set breakpoints.
 
 | `b main` | breakpoint on main function |
 | `b 13` | breakpoint on line 13 of current file |
 | `b main.cpp:13` | breakpoint on line 16 of stats.cpp |
+
+</div>
 
 ### Run
 Run the program being debugged.  The program pauses at the breakpoint.
@@ -222,7 +225,9 @@ Process 72957 stopped
 ```
 {: data-highlight="1,8" }
 
+<div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Hit Return to repeat your previous command.
+</div>
 
 ### Inspect
 Print the value of a variable with `p`.
