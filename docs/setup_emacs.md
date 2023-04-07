@@ -406,7 +406,7 @@ $ make main.exe
 
 Start Emacs.
 ```console
-$ emacs main.cpp
+ emacs main.cpp
 ```
 
 Start debug mode.  Emacs runs GDB or LLDB behind the scenes.
@@ -483,25 +483,17 @@ $ e stats.cpp
 ### Editing remotely with TRAMP
 Emacs [TRAMP](https://www.emacswiki.org/emacs/TrampMode) mode lets you edit a file on a remote server using a local GUI window.
 
-First, make sure you have a copy of your code on CAEN Linux ([CAEN Linux Tutorial](setup_caen.html)).  In particular, make sure you set up SSH multiplexing to avoid repeated 2FA ([Avoiding repeated 2FA Tutorial](setup_caen.html#avoiding-repeated-2fa)).
-```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
-```
-
-Next, configure Emacs TRAMP mode to use SSH multiplexing.  Add this to your `~/.emacs.d/init.el`.
+Configure Emacs TRAMP mode to use SSH multiplexing.  Add this to your `~/.emacs.d/init.el`.
 ```elisp
-;; Remote file editing with TRAMP.  Configure TRAMP to use the same SSH
-;; multiplexing that I configure in ~/.ssh/config.  By default, TRAMP ignore my
-;; SSH config's multiplexing configuration, so configure the same settings here.
-;; https://www.emacswiki.org/emacs/TrampMode
-;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
 (use-package tramp
   :config
   (setq tramp-default-method "ssh")
   (setq tramp-ssh-controlmaster-options
         (concat
-         "-o ControlPath=~/.ssh/master-%%r@%%h:%%p "
-         "-o ControlMaster=auto -o ControlPersist=yes"))
+         "-o ControlMaster auto "
+         "-o ControlPath ~/.ssh/socket-%%C "
+         ))
+  (setq tramp-use-ssh-controlmaster-options nil)
   :defer 1  ; lazy loading
 )
 ```
@@ -511,37 +503,13 @@ Open an Emacs GUI window on your local machine.  It doesn't matter what director
 $ emacs
 ```
 
-SSH into your remote server, CAEN Linux in this example.
+SSH into your remote server, CAEN Linux in this example.  This will set up an SSH multiplexing connection.
 ```console
 $ ssh login.engin.umich.edu
 ...
-awdeorio@caen-vnc-vm05 ~
 ```
 
-Open the file `/ssh:login.engin.umich.edu:p1-stats-copy/main.cpp`.  Recall `C-x C-f` is `find-file`.  Tab completion works in the minibuffer.
-
-<img src="images/emacs105.png" width="512px" />
-
-Edit the file and save.
-
-<img src="images/emacs106.png" width="512px" />
-
-On the remote server, change directory into your project.  Compile and run.
-```console
-$ pwd
-/home/awdeorio/p1-stats-copy
-$ make main.exe
-g++ --std=c++11 -Wall -Werror -pedantic -g main.cpp stats.cpp p1_library.cpp -o main.exe
-$ ./main.exe
-Hello World!
-Added this line from TRAMP mode
-```
-
-**Pro-tip:** Debug on the remote machine with `gud-gdb` ([Tutorial](setup_gdb.html)).
-
-<div class="primer-spec-callout warning icon-warning" markdown="1">
-**Warning:** Your changes on the remote server will be clobbered when you run `rsync` again.
-</div>
+In Emacs, open the file `/ssh:login.engin.umich.edu:main.cpp`.  Recall `C-x C-f` is `find-file`.  Tab completion works in the minibuffer.  You're now editing a file `main.cpp` on a remote server.
 
 ### Pair programming with tmux
 Pair program on a remote machine with two people inside the same Emacs instance.  We'll use tmux, which is a terminal multiplexer.
@@ -561,8 +529,6 @@ Bob connects to the same remote server that Alice did.  He connects to Alice's t
 $ ssh caen-vnc-vm05.engin.umich.edu
 $ tmux attach -t shared
 ```
-
-**Pro-tip:** Debug inside the tmux session so everyone on the team can see what's going on.  You can debug with GDB at the command line ([Tutorial](setup_gdb.html)) or inside Emacs.
 
 ### Text-only Emacs
 If you're on a remote server without a GUI, you can use Emacs in text-only mode.  The `-nw` option stands for "no window".
