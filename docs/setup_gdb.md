@@ -73,9 +73,12 @@ Reading symbols from main.exe...
 (gdb)
 ```
 
-The `r` command runs the program.
+The `r` command runs the program.  You can ignore any warnings about "separate debuginfos".
 ```
 (gdb) r
+Starting program: /n/higgins/z/awdeorio/gdbeg/main.exe
+Hello World!
+[Inferior 1 (process 95933) exited normally]
 ```
 
 Quit with `q`.
