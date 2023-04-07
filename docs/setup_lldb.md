@@ -165,6 +165,7 @@ int main() {
 
 ### Breakpoint
 Start LLDB.
+
 ```console
 $ lldb main.exe
 (lldb) target create "main.exe"
@@ -172,7 +173,8 @@ Current executable set to '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64
 ```
 
 Set a breakpoint on the main function.
-```GDB
+
+```
 (lldb) b main
 Breakpoint 1: where = main.exe`main + 20 at main.cpp:14:18, address = 0x0000000100003e48
 ```
@@ -206,6 +208,7 @@ Target 0: (main.exe) stopped.
 
 ### Step over
 Enter `n` AKA "Next" AKA "Step Over" a few times until you reach the highlighted line of code.
+
 ```
 (lldb) n
 Process 72957 stopped
@@ -223,6 +226,7 @@ Process 72957 stopped
 
 ### Inspect
 Print the value of a variable with `p`.
+
 ```
 (lldb) p data
 (std::vector<double, std::allocator<double> >) $0 = size=3 {
@@ -281,6 +285,7 @@ Process 72957 exited with status = 0 (0x00000000)
 
 ### Quit
 Quit LLDB.  **Pro-tip:** `Control-D` will quit.
+
 ```
 (lldb) q
 ```
