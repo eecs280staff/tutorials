@@ -28,11 +28,13 @@ $ lldb main.exe
 ```
 
 | `b main` | breakpoint on main function |
-| `b 13` | breakpoint on line 29 of current file |
-| `b main.cpp:13` | breakpoint on line 16 of main.cpp |
+| `b 13` | breakpoint on line 13 of current file |
+| `b main.cpp:13` | breakpoint on line 13 of main.cpp |
 | `r` | run or rerun |
-| `s` | step into |
 | `n` | step over (AKA next) |
+| `s` | step into |
+| `up` | step out |
+| `c` | continue |
 | `p myvar` | print variable `myvar` |
 | `q` | quit |
 
@@ -164,7 +166,7 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-### Breakpoint
+### Start LLDB
 Start LLDB.
 
 ```console
@@ -173,6 +175,7 @@ $ lldb main.exe
 Current executable set to '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64).
 ```
 
+### Breakpoint
 Set a breakpoint on the main function.
 
 ```
@@ -208,7 +211,7 @@ Process 72957 stopped
    17  	  data.push_back(30);
 Target 0: (main.exe) stopped.
 ```
-{: data-highlight="1" }
+{: data-highlight="1,9" }
 
 ### Step over
 Enter `n` AKA "Next" AKA "Step Over" a few times until you reach the highlighted line of code.
@@ -259,7 +262,7 @@ Process 72957 stopped
    8   	    total += data[i];
    9   	  }
 ```
-{: data-highlight="1,7-8" }
+{: data-highlight="1,8" }
 
 ### Step out
 Enter `up` AKA "Step Out".  The `sum()` function completes, and the program pauses again.
