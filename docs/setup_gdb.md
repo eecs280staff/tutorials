@@ -8,11 +8,11 @@ GDB Tutorial
 ============
 {: .primer-spec-toc-ignore }
 
-[GDB](https://www.gnu.org/software/gdb/) is a command line debugger.  It runs primarily on Linux.  On Windows, you can use GDB via WSL.  On macOS, GDB is [unreliable](https://sourceware.org/bugzilla/show_bug.cgi?id=24069), so we recommend using LLDB instead ([LLDB Tutorial](setup_lldb.html)).
+[GDB](https://www.gnu.org/software/gdb/) is a command line debugger.  It is a good choice on Linux or WSL.  On macOS, use LLDB instead ([LLDB Tutorial](setup_lldb.html)).
 
 GDB is harder to learn compared to most visual debuggers.  However, you might want to use GDB in situations like these:
 - Zero setup compared to Visual Studio or VS Code.  Fast and easy debugging once you've learned.
-- Integration with Vim and Emacs (used in EECS 280, optional)
+- Integration with Vim and Emacs
 - Command line only, work on a remote server without a GUI
 - Support for threads (used in EECS 482 Operating Systems)
 - Support for connecting to a remote target like an operating system that has crashed so badly you can't use the keyboard or monitor
@@ -20,7 +20,7 @@ GDB is harder to learn compared to most visual debuggers.  However, you might wa
 GDB uses commands.  Here's a handy [reference card](http://users.ece.utexas.edu/~adnan/gdb-refcard.pdf).
 
 
-# Quick Start
+## Quick Start
 <div class="primer-spec-callout info icon-info" markdown="1">
 If you're a first time user, skip this section.
 </div>
@@ -45,7 +45,7 @@ $ gdb -tui stats_tests.exe
 | `q` | quit |
 
 
-# Prerequisites
+## Prerequisites
 This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
 
 | [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
@@ -73,7 +73,7 @@ If you're not sure how to do this, you might find one of our IDE tutorials helpf
 
 
 
-# Install
+## Install
 GDB works best on Linux, including WSL.  If you're running macOS, use [LLDB](setup_lldb.html) instead.  If you're on CAEN Linux, GDB and GCC are already installed.  Your versions might be different.
 ```console
 $ sudo apt-get install g++ gdb
@@ -84,7 +84,7 @@ GNU gdb (Ubuntu 9.2-0ubuntu1~20.04) 9.2
 ```
 
 
-# Compile
+## Compile
 GDB debugs a compiled executable.  Compile the executable you plan to debug.
 ```console
 $ pwd
@@ -108,7 +108,7 @@ Aborted (core dumped)
 ```
 
 
-# Run
+## Run
 To run inside GDB, prefix your executable name with `gdb`.
 ```console
 $ gdb stats_tests.exe
@@ -150,7 +150,7 @@ A debugging session is active.
 Quit anyway? (y or n) y
 ```
 
-## Input redirection
+### Input redirection
 Skip this subsection on your first time through the tutorial.  You can use input redirection to avoid typing program input each time you run (for debugging) a program.
 
 Without input redirection, you can type input into GDB after running your program.
@@ -173,7 +173,7 @@ $ gdb main.exe
 (gdb) r < main_test.in
 ```
 
-## Arguments and options
+### Arguments and options
 Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
 
 *Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
@@ -193,7 +193,7 @@ $ gdb main.exe
 ```
 
 
-# Debug
+## Debug
 Start GDB with your executable.
 ```console
 $ gdb stats_tests.exe
@@ -302,7 +302,7 @@ Quit anyway? (y or n) y
 ```
 
 
-# Debug with TUI mode
+## Debug with TUI mode
 Start GDB in TUI mode with your executable and hit Enter a few times until you see the `(gdb)` prompt.  TUI mode shows your source code at the top with a GDB prompt at the bottom.  It uses the [ncurses](https://en.wikipedia.org/wiki/Ncurses) library for text-based user interfaces.
 ```
 $ gdb -tui stats_tests.exe
@@ -513,7 +513,7 @@ Quit anyway? (y or n) y
 ```
 
 
-# Pro-tips
+## Pro-tips
 Use the up arrow key to cycle through previously used commands.
 
 Use TAB completion to automatically complete the name of a command or a variable.
@@ -521,7 +521,7 @@ Use TAB completion to automatically complete the name of a command or a variable
 Use Emacs keyboard shortcuts to enter and edit your current command.
 
 
-# Pretty-printing STL Containers with `gdb`
+## Pretty-printing STL Containers with `gdb`
 Some installations of `gdb` don't ship with pretty printing support for STL containers like `vector`.
 
 If you have this problem, you'll see something like this when you try to view the contents of a `vector` while debugging in GDB or VS Code (some VS Code configurations use GDB under the hood).
@@ -571,7 +571,7 @@ Finally, restart GDB or VS Code and try to check the contents of vector
 again.
 
 
-# Acknowledgments
+## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
