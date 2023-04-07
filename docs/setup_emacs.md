@@ -401,12 +401,12 @@ Emacs provides a user interface for GDB or LLDB.  Make sure you already know how
 
 Compile the executable you wish to debug.
 ```console
-$ make stats_tests.exe
+$ make main.exe
 ```
 
 Start Emacs.
 ```console
-$ emacs stats_tests.cpp
+$ emacs main.cpp
 ```
 
 Start debug mode.  Emacs runs GDB or LLDB behind the scenes.
