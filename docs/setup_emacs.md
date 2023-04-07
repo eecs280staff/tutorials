@@ -467,7 +467,7 @@ Configure Company Mode by adding this to your `init.el`.
 ```
 
 ### Emacs launch shortcut
-Add this to your `.bash_profile` (`.bashrc` on some machines) to start Emacs in the background with `e`.  Close your terminal and open it again.
+Add this to your `~/.bash_profile` or `~/.zshrc` to start Emacs in the background with `e`.  Close your terminal and open it again.
 ```bash
 e ()
 {
