@@ -70,22 +70,19 @@ $ lldb main.exe
 (lldb) target create "./main.exe"
 Current executable set to '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64).
 ```
-{: data-highlight="1" }
 
 The `r` command runs the program.
 ```
 (lldb) r
-Process 72801 launched: '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64)
+Process 76550 launched: '/Users/awdeorio/gdbeg/main.exe' (arm64)
 Hello World!
-Process 72801 exited with status = 0 (0x00000000)
+Process 76550 exited with status = 0 (0x00000000)
 ```
-{: data-highlight="1" }
 
 Quit with `q`.  **Pro-tip:** `Control-D` will also quit at any time.
 ```
 (lldb) q
 ```
-{: data-highlight="1" }
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
