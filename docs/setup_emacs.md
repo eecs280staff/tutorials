@@ -169,7 +169,7 @@ You'll use the control key a lot in Emacs.  Some users find it more ergonomic to
 
 
 ### macOS
-On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super.  Add this to your `init.el`.
+On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super.  Add this to your `~/emacs.d/init.el`.
 ```elisp
 ;; macOS modifier keys
 (setq mac-command-modifier 'meta) ; Command == Meta
