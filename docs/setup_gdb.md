@@ -166,23 +166,17 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-### Breakpoint
-Start GDB.
+### Start GDB
+Start GDB.  The `-tui` option makes it easier to see your code (optional).
 
 ```console
-$ gdb main.exe
-(gdb) target create "main.exe"
-Current executable set to '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64).
-```
-
-FIXME Start GDB in TUI mode with your executable and hit Enter a few times until you see the `(gdb)` prompt.  TUI mode shows your source code at the top with a GDB prompt at the bottom.  It uses the [ncurses](https://en.wikipedia.org/wiki/Ncurses) library for text-based user interfaces.
-```
-$ gdb -tui stats_tests.exe
+$ gdb -tui main.exe
 FIXME show example output
 ```
 
-FIXME If the user interface ever starts to look messed up, just `refresh` it. 
+**Pro-tip:** If the user interface ever starts to look messed up, just `refresh` it. 
 
+### Breakpoint
 Set a breakpoint on the main function.
 
 ```
@@ -190,8 +184,6 @@ Set a breakpoint on the main function.
 FIXME
 ```
 {: data-highlight="1" }
-
-**Pro-tip**: `start` is a shortcut for `b main` followed by `r`.
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip**: There are several ways to set breakpoints.
@@ -211,8 +203,15 @@ FIXME
 ```
 {: data-highlight="1" }
 
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip**: `start` is a shortcut for `b main` followed by `r`.
+```
+(gdb) start
+```
+</div>
+
 ### List
-List a few lines of surrounding code with `l` (that's a lowercase `L`).
+List a few lines of surrounding code with `l` (that's a lowercase `L`).  This command is only useful when you're not using TUI mode.
 ```
 (gdb) l
 FIXME including highlighting
