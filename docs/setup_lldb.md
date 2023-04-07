@@ -36,6 +36,7 @@ $ lldb main.exe
 | `up` | step out |
 | `c` | continue |
 | `p myvar` | print variable `myvar` |
+| `bt` | backtrace, useful for segfaults |
 | `q` | quit |
 
 
@@ -85,8 +86,6 @@ Quit with `q`.  **Pro-tip:** `Control-D` will also quit at any time.
 (lldb) q
 ```
 {: data-highlight="1" }
-
-FIXME `bt` example.
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
