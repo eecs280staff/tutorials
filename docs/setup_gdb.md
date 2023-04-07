@@ -41,88 +41,89 @@ $ gdb -tui main.exe
 | `q` | quit |
 
 
-## Prerequisites
-This tutorial uses command line tools.  If you haven't installed CLI tools on your machine yet, follow one of these tutorials first.
-
-| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
-
-We presume you've created a folder for your project, downloaded and unpacked the starter files, and created any new files with appropriate function stubs.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ ls
-Makefile     main_test.in           p1_library.cpp  stats.h
-launch.json  main_test.out.correct  p1_library.h    stats_public_test.cpp
-main.cpp     main_test_data.tsv     stats.cpp       stats_tests.cpp
-```
-
-You should have function stubs in `stats.h` and `main.cpp`.  If you simply want to download a copy with the stubs already in place, use these commands.
-```console
-$ wget --no-clobber https://eecs280staff.github.io/tutorials/stats.cpp -O stats.cpp
-$ wget --no-clobber https://eecs280staff.github.io/tutorials/main.cpp -O main.cpp
-```
-
-If you're not sure how to do this, you might find one of our IDE tutorials helpful. Walk through the tutorial up through the "Create a project" section.
-
-| [VS Code](setup_vscode.html) | [Visual Studio](setup_visualstudio.html) | [Xcode](setup_xcode.html) | [Emacs](setup_emacs.html) |
-
-
-
 ## Install
-GDB works best on Linux, including WSL.  If you're running macOS, use [LLDB](setup_lldb.html) instead.  If you're on CAEN Linux, GDB and GCC are already installed.  Your versions might be different.
+You should already have `g++` and `gdb` installed from the [WSL tutorial](setup_wsl.html).  Your versions might be different.
 ```console
-$ sudo apt-get install g++ gdb
 $ g++ --version
 g++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
 $ gdb --version
 GNU gdb (Ubuntu 9.2-0ubuntu1~20.04) 9.2
 ```
 
+## Compile and Run
+GDB uses an executable you build at the command line.
 
-## Compile
-GDB debugs a compiled executable.  Compile the executable you plan to debug.
+First, compile and run your executable at the command line.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+$ make main.exe
+$ ./main.exe
+Hello World!
 ```
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
-**PITFALL:** GDB debugging will be very hard to understand if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+**Pitfall:** GDB debugging will be very hard to understand if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g`.
 </div>
 
-Optionally run your executable at the command line before debugging.  With EECS 280 project 1 starter files and functions stubs in `stats_tests.cpp`, we get an assertion failure.
-```console
-$ ./stats_tests.exe
-test_sum_small_data_set
-stats_tests.exe: stats.cpp:16: double sum(std::vector<double>): Assertion `false' failed.
-Aborted (core dumped)
+Run with GDB.  You now see the GDB prompt.  GDB's interface is similar to your command line shell, where you enter commands and press Enter (Return).
 ```
-
-
-## Run
-To run inside GDB, prefix your executable name with `gdb`.
-```console
-$ gdb stats_tests.exe
-...
-Reading symbols from stats_tests.exe...
+$ gdb main.exe
+Reading symbols from main.exe...
 (gdb)
 ```
+{: data-highlight="1" }
 
-The `r` command runs the program.  You can ignore any error about "raise.c: No such file or directory.".
+The `r` command runs the program.
 ```
 (gdb) r
-Starting program: /vagrant/src/eecs280/p1-stats-awdeorio/stats_tests.exe
-test_sum_small_data_set
-stats_tests.exe: stats.cpp:16: double sum(std::vector<double>): Assertion `false' failed.
+FIXME
+```
+{: data-highlight="1" }
 
-Program received signal SIGABRT, Aborted.
+Quit with `q`.  **Pro-tip:** `Control-D` will also quit at any time.
+```
+(gdb) q
+```
+{: data-highlight="1" }
+
+FIXME `bt` example.
+
+### Sanitizers
+We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
+
+First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
+
+### Input redirection
+If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
+
+Run with input redirection.  Make sure to add the name of your input file (`main_test.in` in this example).
+```
+$ gdb main.exe
+...
+(gdb) r < main_test.in
+...
 ```
 
+### Arguments and options
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
+```console
+$ ./main.exe train_small.csv test_small.csv --debug
+```
+{: data-variant="no-line-numbers" data-highlight="1" }
+
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
+
+To run a program with options or arguments in LLDB, include them after `r`.
+```console
+$ gdb main.exe
+(gdb) r train_small.csv test_small.csv --debug
+```
+{: data-highlight="2" }
+
+
+FIXME BOOKMARK
+-------------------------------------------------------------------------------
 Use the back trace command (`bt`) to see the stack at the time of failure.  You can ignore all the standard library functions.  Just pay attention to functions that you wrote.  This is a great way to get a quick look at the root cause of a segfault.
 ```
 (gdb) bt
@@ -135,59 +136,6 @@ Use the back trace command (`bt`) to see the stack at the time of failure.  You 
 #5  0x0000555555557a5c in test_sum_small_data_set () at stats_tests.cpp:47
 #6  0x0000555555557996 in main () at stats_tests.cpp:30
 ```
-
-Quit.  **Pro-tip:** `Control-D` will quit, and a second `Control-D` will confirm the `y or n` prompt.
-```
-(gdb) q
-A debugging session is active.
-
-  Inferior 1 [process 1090] will be killed.
-
-Quit anyway? (y or n) y
-```
-
-### Input redirection
-Skip this subsection on your first time through the tutorial.  You can use input redirection to avoid typing program input each time you run (for debugging) a program.
-
-Without input redirection, you can type input into GDB after running your program.
-```
-$ gdb main.exe
-...
-(gdb) r
-Starting program: /vagrant/src/eecs280/p1-stats-awdeorio/main.exe
-enter a filename
-main_test_data.tsv
-enter a column name
-B
-...
-```
-
-With input redirection, use a run command like this `r < main_test.in`.
-```
-$ gdb main.exe
-...
-(gdb) r < main_test.in
-```
-
-### Arguments and options
-Skip this subsection for EECS 280 project 1.  You'll need it for project 2 and beyond.
-
-*Arguments* and *options* are inputs to a program typed at the command line.  Arguments are often required.  Options (AKA *flags* or *switches*) start with a hyphen (`-`), and are typically optional.
-
-**Arguments example** from project 2:  `resize.exe` is the name of the program, and the arguments are `horses.ppm`,  `horses_400x250.ppm`, `400`, and `250`.
-```console
-$ ./resize.exe horses.ppm horses_400x250.ppm 400 250
-$ gdb resize.exe
-(gdb) r horses.ppm horses_400x250.ppm 400 250
-```
-
-**Options example** from project 5:  `main.exe` is the name of the program.  `train_small.csv` and  `test_small.csv` are arguments.  `--debug` is an option.
-```console
-$ ./main.exe train_small.csv test_small.csv --debug
-$ gdb main.exe
-(gdb) r train_small.csv test_small.csv --debug
-```
-
 
 ## Debug
 Start GDB with your executable.
