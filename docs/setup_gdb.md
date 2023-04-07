@@ -68,24 +68,20 @@ Hello World!
 
 Run with GDB.  You now see the GDB prompt.  GDB's interface is similar to your command line shell, where you enter commands and press Enter (Return).
 ```
-$ gdb main.exe
+$ gdb -tui main.exe
 Reading symbols from main.exe...
 (gdb)
 ```
-{: data-highlight="1" }
 
 The `r` command runs the program.
 ```
 (gdb) r
-FIXME
 ```
-{: data-highlight="1" }
 
-Quit with `q`.  **Pro-tip:** `Control-D` will also quit at any time.
+Quit with `q`.
 ```
 (gdb) q
 ```
-{: data-highlight="1" }
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
