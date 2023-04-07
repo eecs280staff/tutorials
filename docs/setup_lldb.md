@@ -71,7 +71,7 @@ Current executable set to '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64
 The `r` command runs the program.
 ```
 (lldb) r
-Process 72801 launched: '/Users/awdeorio/src/eecs280/p1-stats-vscode/main.exe' (arm64)
+Process 72801 launched: '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64)
 Hello World!
 Process 72801 exited with status = 0 (0x00000000)
 ```
@@ -194,7 +194,7 @@ Run the program being debugged.  The program pauses at the breakpoint.
 
 ```
 (lldb) r
-Process 72957 launched: '/Users/awdeorio/src/eecs280/p1-stats-vscode/main.exe' (arm64)
+Process 72957 launched: '/Users/awdeorio/src/eecs280/p1-stats/main.exe' (arm64)
 Process 72957 stopped
 * thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
     frame #0: 0x0000000100003e48 main.exe`main at main.cpp:14:18
