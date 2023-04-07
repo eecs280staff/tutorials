@@ -21,27 +21,23 @@ GDB uses commands.  Here's a handy [reference card](http://users.ece.utexas.edu/
 
 
 ## Quick Start
-<div class="primer-spec-callout info icon-info" markdown="1">
-If you're a first time user, skip this section.
-</div>
-
-Compile your program with the `-g` flag and start GDB in text user interface (TUI) mode.  EECS 281 students: remove optimization flags like `-O3`.
+Compile your program with the `-g` flag and start GDB in text user interface (TUI) mode.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ make stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-$ gdb -tui stats_tests.exe
+$ make main.exe
+g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp -o main.exe
+$ gdb -tui main.exe
 ```
 
 | `b main` | breakpoint on main function |
-| `b 29` | breakpoint on line 29 of current file |
-| `b stats.cpp:16` | breakpoint on line 16 of stats.cpp |
+| `b 13` | breakpoint on line 13 of current file |
+| `b main.cpp:13` | breakpoint on line 13 of main.cpp |
 | `r` | run or rerun |
-| `s` | step into |
 | `n` | step over (AKA next) |
-| `refresh` | refresh TUI view |
+| `s` | step into |
+| `up` | step out |
+| `c` | continue |
 | `p myvar` | print variable `myvar` |
+| `refresh` | refresh TUI view |
 | `q` | quit |
 
 
