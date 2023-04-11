@@ -270,7 +270,6 @@ Of course Emacs has a dark mode. Add the following to your `init.el`.
     :ensure spacemacs-theme
     :config (load-theme 'spacemacs-dark t)
     )
-
 ```
 
 ### Hide menu bars
