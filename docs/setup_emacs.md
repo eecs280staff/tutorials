@@ -152,7 +152,7 @@ You'll use the control key a lot in Emacs.  Some users find it more ergonomic to
 
 
 ### macOS
-On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super.  Add this to your `~/emacs.d/init.el`.
+On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super.  Add this to your `~/.emacs.d/init.el`.
 ```elisp
 ;; macOS modifier keys
 (setq mac-command-modifier 'meta) ; Command == Meta
@@ -164,14 +164,14 @@ On Apple laptops, it's more ergonomic to map Command to Meta and Option to Super
 The out-of-the-box Emacs configuration is terrible.  Some users start with *Spacemacs* or *Doom Emacs*, which are just Emacs shipped with a bunch of customizations.  Many of these users later graduate to vanilla Emacs with their own customizations.  Here's [awdeorio's init.el](https://github.com/awdeorio/dotfiles/blob/main/.emacs.d/init.el).
 
 ### Basic
-Edit `~/emacs.d/init.el` with Emacs.  Yours will probably be blank.
+Edit `~/.emacs.d/init.el` with Emacs.  Yours will probably be blank.
 ```console
 $ emacs ~/.emacs.d/init.el
 ```
 
 <img src="images/emacs015.png" width="512px" />
 
-Here are a few basic customizations that you might like.  Paste with `C-y`
+Here are a few basic customizations that you might like.  Paste with `C-y`.
 ```elisp
 ;; Don't show a startup message
 (setq inhibit-startup-message t)
@@ -400,7 +400,7 @@ $ make main.exe
 
 Start Emacs.
 ```console
- emacs main.cpp
+ $ emacs main.cpp
 ```
 
 Start debug mode.  Emacs runs GDB or LLDB behind the scenes.
