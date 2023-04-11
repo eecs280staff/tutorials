@@ -141,23 +141,6 @@ Learn a few more keyboard shortcuts with this [Emacs Cheat Sheet for beginners](
 **Pro-tip:** Keep your hands on the keyboard's home row.  Don't use the mouse or the arrow keys.
 </div>
 
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Remove the menu bars, tool bars and scroll bars by adding this to your `~/emacs.d/init.el`.  You'll get a nice clean look.  Move to end of buffer with `M->`, then paste with `C-y`.  Save and quit (`C-x C-s C-x C-c`).  Restart Emacs to see the changes.
-```elisp
-;; Remove scrollbars, menu bars, and toolbars
-(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; Dialog settings.  No more typing the whole yes or no. Just y or n
-;; will do. Disable GUI dialogs and use emacs text interface.
-(fset 'yes-or-no-p 'y-or-n-p)
-(setq use-dialog-box nil)
-```
-
-<img src="images/emacs020.png" width="512px" />
-</div>
-
 <div class="primer-spec-callout warning icon-warning" markdown="1">
 **Warning:** You might be tempted to remap Emacs keyboard shortcuts to be more familiar, `M-c` for copy, etc.  Don't do this!  There are thousands of keybindings, and changing them can cause a chain reaction.  For example, `C-c` is already used a prefix for many other commands.
 </div>
@@ -289,6 +272,18 @@ Of course Emacs has a dark mode. Add the following to your `init.el`.
     )
 
 ```
+
+### Hide menu bars
+After you learn the keyboard shortcuts really well, you might not need the menu bars any more.  You can remove tool bars and scroll bars like this.
+```elisp
+;; Remove scrollbars, menu bars, and toolbars
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+```
+
+<img src="images/emacs020.png" width="512px" />
+
 
 ## Create a project
 Emacs doesn't require any special setup for a project.
