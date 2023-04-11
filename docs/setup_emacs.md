@@ -138,7 +138,7 @@ In Emacs documentation, `M` means <kbd>Meta</kbd> (AKA <kbd>Alt</kbd> on Windows
 Learn a few more keyboard shortcuts with this [Emacs Cheat Sheet for beginners](http://sachachua.com/blog/wp-content/uploads/2013/05/How-to-Learn-Emacs-v2-Large.png) and keep around an [Emacs Reference Card](https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf).
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Keep your hands on the keyboard's home row.  Don't use the mouse or the arrow keys.
+**Pro-tip:** Keep your hands on the keyboard's home row.  Avoid the mouse and arrow keys.
 </div>
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
