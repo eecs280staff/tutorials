@@ -205,18 +205,15 @@ Here are a few basic customizations that you might like.  Paste with `C-y`.
 Set up [`use-package`](https://github.com/jwiegley/use-package), which automates package installation and configuration.
 
 ```elisp
-;; Package Management.  Configure the built-in emacs package manager to use
-;; several publicly available repositories.
+;; Configure built in package manager
 (require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (package-initialize)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 
-;; Bootstrap 'use-package' and enable it.  Later, 'use-package- will
-;; download and install third-party packages automatically.
-;; http://cachestocaches.com/2015/8/getting-started-use-package/
-(unless (package-installed-p 'use-package)
+;; Install use-package
+;; https://github.com/jwiegley/use-package
+(when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile
