@@ -90,46 +90,37 @@ $ code --version
 1.52.1
 ```
 
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+#### macOS
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
 ```console
 $ code --install-extension ms-vscode.cpptools
+$ code --install-extension vadimcn.vscode-lldb
 ```
+
+Restart VS Code.
+
+Verify that the extensions are installed.  It's OK if you have other extensions installed.
+```console
+$ code --list-extensions
+ms-vscode.cpptools
+vadimcn.vscode-lldb
+```
+
+#### Windows
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [WSL extension](https://code.visualstudio.com/docs/remote/wsl).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
+```console
+$ code --install-extension ms-vscode.cpptools
+$ code --install-extension ms-vscode-remote.remote-wsl
+```
+
+Restart VS Code.
 
 Verify that the extension is installed.  It's OK if you have other extensions installed.
 ```console
 $ code --list-extensions
 ms-vscode.cpptools
-```
-
-#### macOS
-Install the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).
-```console
-$ code --install-extension vadimcn.vscode-lldb
-```
-
-Verify that the extension is installed.  It's OK if you have other extensions installed.
-```console
-$ code --list-extensions
-vadimcn.vscode-lldb
-```
-
-#### Windows
-Install the [WSL extension](https://code.visualstudio.com/docs/remote/wsl) to develop with Linux-based utilities like the `g++` compiler.
-```console
-$ code --install-extension ms-vscode-remote.remote-wsl
-```
-
-Quit VS Code and start it again.
-
-Verify that the extension is installed.  It's OK if you have other extensions installed.
-```console
-$ code --list-extensions
 ms-vscode-remote.remote-wsl
 ```
-
-You'll know that VS Code is running in remote mode when you see the remote mode indicator in the bottom left corner.
-
-<img src="images/vscode069.png" width="768px">
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
@@ -628,6 +619,7 @@ There are multiple options for C/C++ extensions.
 
 [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) provides intellisense and requires the `clangd` language server, which is related to the LLVM compiler.  We do not recommend installing the `clangd` extension with the Microsoft C/C++ extension because multiple intellisense providers can produce confusing results.
 
+[WSL](https://code.visualstudio.com/docs/remote/wsl) lets us develop with Linux-based utilities like the `g++` compiler.
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
