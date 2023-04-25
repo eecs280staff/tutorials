@@ -196,7 +196,7 @@ Avoid doing everyday coding as the `root` user in WSL.  Some programs don't work
 
 **Bad example:** If the default is a root login, here's how to [change your linux username and password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password).  For the same reasons, avoid using `su` or `su root`.
 ```console
-# whoami
+$ whoami
 root
 ```
 
