@@ -43,6 +43,27 @@ $ cp -a p1-stats p1-stats.bak  # Backup
 $ rm -rf p1-stats              # Delete
 ```
 
+### Reinstall
+If you tried [restarting](#restart) and still face issues, you may need to uninstall VSCode.
+
+After uninstalling, you will need to [reinstall](#install) and [reconfigure](#extensions) VSCode.
+
+#### macOS
+To uninstall VSCode, open Terminal and run the following commands.
+
+```console
+$ rm -rf ./Library/Application Support/Code
+$ rm -rf ~/.vscode
+```
+
+#### Windows
+To uninstall VSCode, open PowerShell and run the following commands.
+
+```powershell
+C:\WINDOWS\system32> Remove-Item %APPDATA%\Code -Recurse -Force
+C:\WINDOWS\system32> Remove-Item %USERPROFILE%\.vscode -Recurse -Force
+```
+
 ## Install
 Choose your platform below. Also make sure to install extensions.
 
