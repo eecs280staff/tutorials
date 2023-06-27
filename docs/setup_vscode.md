@@ -34,7 +34,7 @@ GNU gdb (GDB)
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Restart
-To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
+To start clean, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
 
 ```console
 $ pwd
@@ -43,25 +43,19 @@ $ cp -a p1-stats p1-stats.bak  # Backup
 $ rm -rf p1-stats              # Delete
 ```
 
-### Reinstall
-If you tried [restarting](#restart) and still face issues, you may need to uninstall VSCode.
+Next, remove all VS Code configuration files and extensions (based on [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall)).
 
-After uninstalling, you will need to [reinstall](#install) and [reconfigure](#extensions) VSCode.
-
-#### macOS
-To uninstall VSCode, open Terminal and run the following commands.
-
+**macOS:**
 ```console
-$ rm -rf ./Library/Application Support/Code
 $ rm -rf ~/.vscode
+$ rm -rf ~/Library/Application\ Support/Code
 ```
 
-#### Windows
-To uninstall VSCode, open PowerShell and run the following commands.
-
-```powershell
-C:\WINDOWS\system32> Remove-Item %APPDATA%\Code -Recurse -Force
-C:\WINDOWS\system32> Remove-Item %USERPROFILE%\.vscode -Recurse -Force
+**Windows:**  Be sure to use your Windows username.
+```console
+$ rm -rf ~/.vscode
+$ rm -rf /mnt/c/<windows username>/.vscode
+$ rm -rf /mn/c/<windows username>/AppData/Code
 ```
 
 ## Install
