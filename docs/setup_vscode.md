@@ -43,7 +43,8 @@ $ cp -a p1-stats p1-stats.bak  # Backup
 $ rm -rf p1-stats              # Delete
 ```
 
-Next, remove all VS Code configuration files and extensions (based on [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall)).
+### Remove all extensions and configuration
+If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
 
 **macOS:**
 ```console
