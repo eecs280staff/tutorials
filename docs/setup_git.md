@@ -314,7 +314,7 @@ Browse to your repository's project page from [https://github.com/](https://gith
 
 | SSH Keys | Personal Access Tokens |
 | - | - |
-| Copy the URL from the `SSH` tab. [SSH Keys](#ssh-keys-recommended) | Copy the URL from the `HTTPS` tab. [Personal Access Tokens](#personal-access-token) |
+| Copy the URL from the `SSH` tab. [SSH Keys](#ssh-keys) | Copy the URL from the `HTTPS` tab. [Personal Access Tokens](#personal-access-token) |
 | <img src="images/github_clone_ssh.png" width="384px" /> | <img src="images/github_clone_https.png" width="384px" /> |
 
 Connect your local repo to your remote repo.
@@ -327,7 +327,7 @@ $ git remote add origin https://github.com/awdeorio/p2-cv.git  # use your URL
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Double-check that your local repo is connected to your remote repo.
 
-If you're using [SSH Keys](#ssh-keys-recommended), you'll see `git@github.com`.
+If you're using [SSH Keys](#ssh-keys), you'll see `git@github.com`.
 ```console
 $ git remote -v
 origin	git@github.com:awdeorio/p2-cv.git (fetch)
