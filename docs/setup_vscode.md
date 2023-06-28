@@ -410,7 +410,11 @@ Then, edit the `"environment"` property in your `launch.json`.  If there's alrea
 ```
 {: data-highlight="3-4" }
 
-When ASan detects an error, VSCode will stop so that you can see the stack trace and inspect the current state of the program.  This configuration also turns off leak-checking (LSan), which can't run simultaneously with the visual debugger. If you do want to check for leaks, just run from the terminal with sanitizers enabled.
+Finally, open Settings on VSCode (**macOS:** Code > Preferences > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+
+<img src="images/vscode037.png" width="768px" />
+
+When ASAN detects an error, VSCode will stop so that you can see the stack trace and inspect the current state of the program.  This configuration also turns off leak-checking (LSan), which can't run simultaneously with the visual debugger. If you do want to check for leaks, just run from the terminal with sanitizers enabled.
 
 If you're debugging something else in your program and don't want it to terminate on ASAN errors, you can change to `abort_on_error=0`.
 
@@ -636,6 +640,38 @@ There are multiple options for C/C++ extensions.
 [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) provides intellisense and requires the `clangd` language server, which is related to the LLVM compiler.  We do not recommend installing the `clangd` extension with the Microsoft C/C++ extension because multiple intellisense providers can produce confusing results.
 
 [WSL](https://code.visualstudio.com/docs/remote/wsl) lets us develop with Linux-based utilities like the `g++` compiler.
+
+### ASAN error shows assembly code
+When the Address Sanitizer detects an error, VSCode may stop in an assembly file that does not help you find where the error was caused. For example, consider the following code with a use-after-free error.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int * p = new int;
+    delete p;
+    cout << *p << endl;  // use-after-free
+}
+```
+{: data-title="main.cpp" data-highlight="7" }
+
+Running the debugger with the ASAN sanitizer will display a confusing assembly file.
+
+<img src="images/vscode036.png" width="768px" />
+
+To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
+
+First, open Settings on VSCode (**macOS:** Code > Preferences > Settings, **Windows:** File > Preferences > Settings).
+
+Next, search for "lldb: show disassembly" and set the option to `never`.
+
+<img src="images/vscode037.png" width="768px" />
+
+Now, running the debugger will not display the assembly file. However, it will not yet highlight the erroneous line. To find the erroneous line, look through the Call Stack on the debugging panel and click on your source file.
+
+<img src="images/vscode038.png" width="768px" />
+
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
