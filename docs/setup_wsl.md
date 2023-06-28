@@ -17,7 +17,7 @@ We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will al
 
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
-## Install Windows Subsystem for Linux (WSL)
+## Install WSL
 Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".  (Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).)
 
 <img src="images/wsl010.png" width="240px" />
@@ -166,6 +166,52 @@ Click on the properties option in the dropdown.
 Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
 
 <img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
+
+
+## Pitfalls
+
+### Spaces in paths
+Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
+
+### Project folder in Windows home directory
+Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns because WSL uses a network file share to communicate the files between Windows and Linux.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `/c/mnt/Users/awdeorio ...` | `/home/awdeorio ...` |
+
+Here's how to [access your Linux files from Windows](#accessing-linux-files-from-windows).
+
+### Root user
+Avoid doing everyday coding as the `root` user in WSL.  Some programs don't work correctly when run as `root`.  When you first installed Ubuntu, you should have been prompted to create a Linux username and password.
+
+<table>
+  <tr>
+  <td markdown="1">
+
+**Bad example:** If the default is a root login, here's how to [change your linux username and password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password).  For the same reasons, avoid using `su` or `su root`.
+```console
+$ whoami
+root
+```
+
+  </td>
+  <td markdown="1">
+
+**Good example:** When you start a Bash shell (not a Windows PowerShell), you should have a non-root username.
+```console
+$ whoami
+awdeorio
+```
+
+  </td>
+  </tr>
+</table>
 
 
 ## Acknowledgments
