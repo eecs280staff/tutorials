@@ -56,7 +56,7 @@ $ rm -rf ~/Library/Application\ Support/Code
 ```console
 $ rm -rf ~/.vscode
 $ rm -rf /mnt/c/<windows username>/.vscode
-$ rm -rf /mn/c/<windows username>/AppData/Code
+$ rm -rf /mnt/c/<windows username>/AppData/Code
 ```
 
 ## Install
