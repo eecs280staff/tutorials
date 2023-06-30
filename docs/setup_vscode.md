@@ -55,8 +55,8 @@ $ rm -rf ~/Library/Application\ Support/Code
 **Windows:**  Be sure to use your Windows username.
 ```console
 $ rm -rf ~/.vscode
-$ rm -rf /mnt/c/<windows username>/.vscode
-$ rm -rf /mnt/c/<windows username>/AppData/Code
+$ rm -rf /mnt/c/Users/<windows username>/.vscode
+$ rm -rf /mnt/c/Users/<windows username>/AppData/Roaming/Code
 ```
 
 ## Install
