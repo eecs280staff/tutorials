@@ -97,7 +97,8 @@ Run with input redirection.  Make sure to add the name of your input file (`main
 ```
 $ lldb main.exe
 ...
-(lldb) process launch -i main_test.in
+(lldb) settings set target.input-path main_test.in
+(lldb) r
 ...
 ```
 
