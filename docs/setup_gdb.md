@@ -310,7 +310,7 @@ native process 95465 In: main                                L18   PC: 0x400cd2
 </div>
 
 ### Inspect
-Print the value of a variable with `p`.  If you have trouble viewing the contents of a `vector`, see the [Pretty Printing STL Containers with `gdb`](#pretty-printing-stl-containers-with-gdb) section.
+Print the value of a variable with `p`.  If you have trouble viewing the contents of a `vector`, see the [Pretty Printing STL Containers with `gdb`](#pretty-printing-stl-containers-with-gdb) section.  (Here's an explanation of why the [capacity](https://cplusplus.com/reference/vector/vector/capacity/) is 4 when the length is 3.)
 
 ```
 (gdb) p data
