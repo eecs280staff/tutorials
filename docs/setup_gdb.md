@@ -12,19 +12,19 @@ GDB Tutorial
 
 GDB is harder to learn compared to most visual debuggers.  However, you might want to use GDB in situations like these:
 - Zero setup compared to Visual Studio or VS Code.  Fast and easy debugging once you've learned.
-- Integration with Vim and Emacs
 - Command line only, work on a remote server without a GUI
-- Support for threads (used in EECS 482 Operating Systems)
+- Support for threads
 - Support for connecting to a remote target like an operating system that has crashed so badly you can't use the keyboard or monitor
+- Integration with Vim and Emacs
 
 GDB uses commands.  Here's a handy [reference card](http://users.ece.utexas.edu/~adnan/gdb-refcard.pdf).
 
 
 ## Quick Start
-Compile your program with the `-g` flag and start GDB in text user interface (TUI) mode.
+Compile your program with the `-g` flag and start GDB in text user interface (TUI) mode.  EECS 280 project Makefiles include `-g` by default.
 ```console
-$ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp -o main.exe
+$ g++ -g --std=c++11 main.cpp -o main.exe
+$ make main.exe  # If you have a Makefile
 $ gdb -tui main.exe
 ```
 
@@ -33,9 +33,9 @@ $ gdb -tui main.exe
 | `b main.cpp:13` | breakpoint on line 13 of main.cpp |
 | `r` | run or rerun |
 | `l` | list a few lines of code |
-| `n` | step over (AKA next) |
+| `n` | step over (next) |
 | `s` | step into |
-| `up` | step out |
+| `up` | step out (up) |
 | `c` | continue |
 | `p myvar` | print variable `myvar` |
 | `refresh` | refresh TUI view |
@@ -57,13 +57,14 @@ GDB uses an executable you build at the command line.
 
 First, compile and run your executable at the command line.
 ```console
-$ make main.exe
+$ g++ -g --std=c++11 main.cpp -o main.exe
+$ make main.exe  # If you have a Makefile
 $ ./main.exe
 Hello World!
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** GDB debugging will be very hard to understand if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g`.
+**Pitfall:** GDB debugging will be very hard to understand if there are no debugging symbols.  If you're using a Makefile, double check the output of `make` and verify that you see `-g`.
 </div>
 
 Run with GDB.  You now see the GDB prompt.  GDB's interface is similar to your command line shell, where you enter commands and press Enter (Return).
