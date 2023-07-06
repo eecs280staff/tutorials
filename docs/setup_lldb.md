@@ -123,7 +123,7 @@ $ lldb main.exe
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
-`n` **Next AKA Step Over**
+`n` **Next / Step Over:**
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
 `s` **Step AKA Step Into**
@@ -132,10 +132,10 @@ Run one line of code, stepping _into_ any function calls to execute them line-by
 `up` **Up AKA Step Out**
 Run the program until it returns from the current function (or until the next breakpoint).
 
-`c` **Continue**
+`c` **Continue:**
 Run the program until the next breakpoint.
 
-`q` **Quit**
+`q` **Quit:**
 Quit LLDB.
 
 ### Example code
@@ -148,7 +148,7 @@ using namespace std;
 
 double sum (const vector<double> &data) {
   double total = 0;
-  for (size_t i=0; i<data.size(); ++i) {
+  for (size_t i = 0; i < data.size(); ++i) {
     total += data[i];
   }
   return total;
@@ -187,7 +187,7 @@ Breakpoint 1: where = main.exe`main + 20 at main.cpp:14:18, address = 0x00000001
 
 | `b main` | breakpoint on main function |
 | `b 13` | breakpoint on line 13 of current file |
-| `b main.cpp:13` | breakpoint on line 16 of stats.cpp |
+| `b main.cpp:13` | breakpoint on line 13 of main.cpp |
 
 </div>
 
@@ -212,7 +212,7 @@ Target 0: (main.exe) stopped.
 {: data-highlight="1,9" }
 
 ### Step over
-Enter `n` AKA "Next" AKA "Step Over" a few times until you reach the highlighted line of code.
+Enter `n` (Next / Step Over) a few times until you reach the highlighted line of code.
 
 ```
 (lldb) n
@@ -228,7 +228,7 @@ Process 72957 stopped
 {: data-highlight="1,8" }
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Hit Return to repeat your previous command.
+**Pro-tip:** Hit <kbd>Return</kbd> to repeat your previous command.
 </div>
 
 ### Inspect
@@ -245,7 +245,7 @@ Print the value of a variable with `p`.
 {: data-highlight="1" }
 
 ### Step into
-Enter `s` AKA "Step" AKA "Step Into".  The cursor enters the `sum()` function.
+Enter `s` (Step / Step Into).  The cursor enters the `sum()` function.
 
 ```
 (lldb) s
@@ -256,14 +256,14 @@ Process 72957 stopped
    4   	
    5   	double sum (const vector<double> &data) {
 -> 6   	  double total = 0;
-   7   	  for (size_t i=0; i<data.size(); ++i) {
+   7   	  for (size_t i = 0; i < data.size(); ++i) {
    8   	    total += data[i];
    9   	  }
 ```
 {: data-highlight="1,8" }
 
 ### Step out
-Enter `up` AKA "Step Out".  The `sum()` function completes, and the program pauses again.
+Enter `up` (Step Out).  The `sum()` function completes, and the program pauses again.
 
 ```
 (lldb) up
@@ -301,7 +301,7 @@ Quit LLDB.  **Pro-tip:** `Control-D` will quit.
 ## Pro-tips
 Use the up and down arrow keys to cycle through previous commands similar to your command line.
 
-Use TAB completion to automatically complete the name of a command or a variable.
+Use <kbd>TAB</kbd> completion to automatically complete the name of a command or a variable.
 
 Use [Emacs](setup_emacs.html) keyboard shortcuts to enter and edit your current command.
 
