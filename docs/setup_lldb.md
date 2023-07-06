@@ -10,13 +10,14 @@ LLDB Tutorial
 
 [LLDB](https://lldb.llvm.org/) is a command line debugger.  It is the default debugger on macOS, and is used by Xcode behind the scenes.
 
-LLDB is harder to learn than most visual debuggers.  However, you might want to use LLDB instead of VS Code or Xcode for several reasons:
+LLDB is harder to learn compared to most visual debuggers.  However, you might want to use LLDB instead of VS Code or Xcode for several reasons:
 - Zero setup.  Fast and easy debugging once you've learned.
-- Integration with Vim and Emacs
+- Command line only, work on a remote server without a GUI
 - Support for threads
 - Support for connecting to a remote target like an operating system that has crashed so badly you can't use the keyboard or monitor
+- Integration with Vim and Emacs
 
-LLDB uses text-based commands, as opposed to the clickable user interface of a visual debugger.  Here's a handy list of LLDB and GDB [commands](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-command-examples.html).
+LLDB uses commands.  Here's a handy list of LLDB and GDB [commands](https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-command-examples.html).
 
 
 ## Quick Start
