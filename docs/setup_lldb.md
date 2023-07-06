@@ -20,10 +20,10 @@ LLDB uses text-based commands, as opposed to the clickable user interface of a v
 
 
 ## Quick Start
-Compile your program with the `-g` flag and start LLDB.
+Compile your program with the `-g` flag and start LLDB.  EECS 280 project Makefiles include `-g` by default.
 ```console
-$ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp -o main.exe
+$ g++ -g --std=c++11 main.cpp -o main.exe
+$ make main.exe  # If you have a Makefile
 $ lldb main.exe
 ```
 
@@ -55,13 +55,14 @@ LLDB uses an executable you build at the command line.
 
 First, compile and run your executable at the command line.
 ```console
-$ make main.exe
+$ g++ -g --std=c++11 main.cpp -o main.exe
+$ make main.exe  # If you have a Makefile
 $ ./main.exe
 Hello World!
 ```
 
 <div class="primer-spec-callout warning icon-warning" markdown="1">
-**Pitfall:** LLDB debugging will be very hard to understand if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g`.
+**Pitfall:** LLDB debugging will be very hard to understand if there are no debugging symbols.  If you're using a Makefile, double check the output of `make` and verify that you see `-g`.
 </div>
 
 Run with LLDB.  You now see the LLDB prompt.  LLDB's interface is similar to your command line shell, where you enter commands and press Enter (Return).
