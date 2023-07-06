@@ -127,10 +127,10 @@ In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll
 `n` **Next / Step Over:**
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
-`s` **Step AKA Step Into**
+`s` **Step / Step Into:**
 Run one line of code, stepping _into_ any function calls to execute them line-by-line.
 
-`up` **Up AKA Step Out**
+`up` **Up / Step Out:**
 Run the program until it returns from the current function (or until the next breakpoint).
 
 `c` **Continue:**
@@ -277,7 +277,7 @@ List a few lines of surrounding code with `l` (that's a lowercase `L`).  This co
 ```
 
 ### Step over
-Enter `n` AKA "Next" AKA "Step Over" a few times until you reach the highlighted line of code.
+Enter `n` (Next / Step Over) a few times until you reach the highlighted line of code.
 
 ```
 (gdb) n
