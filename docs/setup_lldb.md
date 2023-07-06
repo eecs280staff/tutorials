@@ -31,9 +31,9 @@ $ lldb main.exe
 | `b 13` | breakpoint on line 13 of current file |
 | `b main.cpp:13` | breakpoint on line 13 of main.cpp |
 | `r` | run or rerun |
-| `n` | step over (AKA next) |
+| `n` | step over (next) |
 | `s` | step into |
-| `up` | step out |
+| `up` | step out (up) |
 | `c` | continue |
 | `p myvar` | print variable `myvar` |
 | `bt` | backtrace, useful for segfaults |
@@ -126,10 +126,10 @@ In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll
 `n` **Next / Step Over:**
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
-`s` **Step AKA Step Into**
+`s` **Step / Step Into:**
 Run one line of code, stepping _into_ any function calls to execute them line-by-line.
 
-`up` **Up AKA Step Out**
+`up` **Up / Step Out:**
 Run the program until it returns from the current function (or until the next breakpoint).
 
 `c` **Continue:**
@@ -280,7 +280,7 @@ frame #1: 0x0000000100003eb8 main.exe`main at main.cpp:18:29
 {: data-highlight="1,9" }
 
 ### Continue
-Enter `c` AKA "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
+Enter `c` (Continue) to run the program to the next breakpoint, or the end, whichever comes first.
 
 ```
 (lldb) c
