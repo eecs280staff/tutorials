@@ -124,7 +124,7 @@ $ gdb main.exe
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
-`n` **Next AKA Step Over**
+`n` **Next / Step Over:**
 Run one line of code, stepping _over_ any function calls by running the whole function in one step.
 
 `s` **Step AKA Step Into**
@@ -133,10 +133,10 @@ Run one line of code, stepping _into_ any function calls to execute them line-by
 `up` **Up AKA Step Out**
 Run the program until it returns from the current function (or until the next breakpoint).
 
-`c` **Continue**
+`c` **Continue:**
 Run the program until the next breakpoint.
 
-`q` **Quit**
+`q` **Quit:**
 Quit GDB.
 
 ### Example code
@@ -149,7 +149,7 @@ using namespace std;
 
 double sum (const vector<double> &data) {
   double total = 0;
-  for (size_t i=0; i<data.size(); ++i) {
+  for (size_t i = 0; i < data.size(); ++i) {
     total += data[i];
   }
   return total;
@@ -232,7 +232,7 @@ Breakpoint 1 at 0x400c66: file main.cpp, line 14.
 
 | `b main` | breakpoint on main function |
 | `b 13` | breakpoint on line 13 of current file |
-| `b main.cpp:13` | breakpoint on line 16 of stats.cpp |
+| `b main.cpp:13` | breakpoint on line 13 of main.cpp |
 
 </div>
 
@@ -306,7 +306,7 @@ native process 95465 In: main                                L18   PC: 0x400cd2
 {: data-highlight="11,19-22" }
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Hit Return to repeat your previous command.
+**Pro-tip:** Hit <kbd>Enter</kbd> to repeat your previous command.
 </div>
 
 ### Inspect
@@ -319,7 +319,7 @@ $1 = std::vector of length 3, capacity 4 = {10,	20, 30}
 {: data-highlight="1" }
 
 ### Step into
-Enter `s` AKA "Step" AKA "Step Into".  The cursor enters the `sum()` function.
+Enter `s` (Step / Step Into).  The cursor enters the `sum()` function.
 
 ```
    ┌──main.cpp─────────────────────────────────────────────────────────────────┐
@@ -329,7 +329,7 @@ Enter `s` AKA "Step" AKA "Step Into".  The cursor enters the `sum()` function.
    │4                                                                          │
    │5       double sum (const vector<double> &data) {                          │
   >│6         double total = 0;                                                │
-   │7         for (size_t i=0; i<data.size(); ++i) {                           │
+   │7         for (size_t i = 0; i < data.size(); ++i) {                       │
    │8           total += data[i];                                              │
    │9         }                                                                │
    │10        return total;                                                    │
@@ -344,7 +344,7 @@ native process 95465 In: sum                                 L6    PC: 0x400c02
 {: data-highlight="7,18" }
 
 ### Step out
-Enter `up` AKA "Step Out".  The `sum()` function completes, and the program pauses again.
+Enter `up` (Step Out).  The `sum()` function completes, and the program pauses again.
 
 ```
    ┌──main.cpp─────────────────────────────────────────────────────────────────┐
@@ -369,7 +369,7 @@ native process 95465 In: main                                L18   PC: 0x400cf0
 {: data-highlight="7,18" }
 
 ### Continue
-Enter `c` AKA "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
+Enter `c` (Continue) to run the program to the next breakpoint, or the end, whichever comes first.
 
 ```
 (gdb) c
@@ -391,9 +391,9 @@ Quit GDB.  **Pro-tip:** `Control-D` will quit.
 ## Pro-tips
 Use the up arrow key to cycle through previously used commands.
 
-Use TAB completion to automatically complete the name of a command or a variable.
+Use <kbd>TAB</kbd> completion to automatically complete the name of a command or a variable.
 
-Use Emacs keyboard shortcuts to enter and edit your current command.
+Use [Emacs](setup_emacs.html) keyboard shortcuts to enter and edit your current command.
 
 
 ## Pretty-printing STL Containers with `gdb`
