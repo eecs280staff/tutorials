@@ -201,7 +201,7 @@ Alternatively, create your `main.cpp` file from the command line using [`touch`]
 $ touch main.cpp
 ```
 
-Copy-paste this Hello World program into your `main.cpp`.
+Copy-paste this Hello World program into your `main.cpp`.  Save the updated file.
 
 ```c++
 #include <iostream>
@@ -398,7 +398,7 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-Then, edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.
+Then, edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
 
 ```json
   "environment": [
@@ -406,11 +406,11 @@ Then, edit the `"environment"` property in your `launch.json`.  If there's alrea
       "name": "ASAN_OPTIONS",
       "value": "abort_on_error=1:detect_leaks=0"
     }
-  ]
+  ],
 ```
 {: data-highlight="3-4" }
 
-Finally, open Settings on VSCode (**macOS:** Code > Preferences > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+Finally, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
 
 <img src="images/vscode037.png" width="768px" />
 
@@ -662,7 +662,7 @@ Running the debugger with the ASAN sanitizer will display a confusing assembly f
 
 To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
 
-First, open Settings on VSCode (**macOS:** Code > Preferences > Settings, **Windows:** File > Preferences > Settings).
+First, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings).
 
 Next, search for "lldb: show disassembly" and set the option to `never`.
 

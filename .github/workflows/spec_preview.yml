@@ -36,6 +36,9 @@ jobs:
           # We won't be using GitHub Pages for the spec previews.
           configure_github_pages: false
 
+          # Reduce GitHub Actions minutes consumed
+          generate_pdfs: false
+
       # Upload the site to Primer Spec Preview and comment on the PR.
       # The Primer Spec Preview secret is stored as an encrypted repo or
       # organization secret named `PRIMER_SPEC_PREVIEW_SECRET`.
