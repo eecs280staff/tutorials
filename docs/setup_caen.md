@@ -36,9 +36,9 @@ main_test.in  p1_library.cpp         stats.h
 $ make clean
 rm -rvf *.exe *~ *.out *.dSYM *.stackdump
 $ make test
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 main.cpp stats.cpp p1_library.cpp -o main.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
 ./stats_public_test.exe
 Assertion failed: (false), function count, file stats.cpp, line 12.
 countmake: *** [test] Abort trap: 6
@@ -167,9 +167,9 @@ hello from main!
 Run the regression test.  It fails on the assertion we added, just like it did on our local machine.
 ```console
 $ make test
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 main.cpp stats.cpp p1_library.cpp -o main.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
 ./stats_public_test.exe
 stats_public_test.exe: stats.cpp:12: int count(std::vector<double>): Assertion `false' failed.
 make: *** [test] Aborted

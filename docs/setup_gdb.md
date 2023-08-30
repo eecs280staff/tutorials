@@ -23,7 +23,7 @@ GDB uses commands.  Here's a handy [reference card](http://users.ece.utexas.edu/
 ## Quick Start
 Compile your program with the `-g` flag and start GDB in text user interface (TUI) mode.  EECS 280 project Makefiles include `-g` by default.
 ```console
-$ g++ -g --std=c++11 main.cpp -o main.exe
+$ g++ -g --std=c++17 main.cpp -o main.exe
 $ make main.exe  # If you have a Makefile
 $ gdb -tui main.exe
 ```
@@ -57,7 +57,7 @@ GDB uses an executable you build at the command line.
 
 First, compile and run your executable at the command line.
 ```console
-$ g++ -g --std=c++11 main.cpp -o main.exe
+$ g++ -g --std=c++17 main.cpp -o main.exe
 $ make main.exe  # If you have a Makefile
 $ ./main.exe
 Hello World!

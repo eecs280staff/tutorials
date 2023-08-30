@@ -78,7 +78,7 @@ $ oclint \
     -max-priority-2 0 \
     -max-priority-3 0 \
     test.cpp \
-    -- -xc++ --std=c++11
+    -- -xc++ --std=c++17
 
 OCLint Report
 

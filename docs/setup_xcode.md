@@ -207,7 +207,7 @@ We need to avoid multiple `main()` functions by including the right files in our
 ```console
 $ make clean
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 main.cpp stats.cpp p1_library.cpp -o main.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 main.cpp stats.cpp p1_library.cpp -o main.exe
 ```
 {: data-highlight="3" }
 </div>

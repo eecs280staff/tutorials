@@ -18,13 +18,13 @@ To enable the address sanitizer, add these compiler flags to add to your `Makefi
 
 **WSL or Linux:** Add compiler flags `-fsanitize=address`, `-fsanitize=undefined`, and `-D_GLIBCXX_DEBUG`.  For example:
 ```make
-CXXFLAGS = --std=c++11 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
+CXXFLAGS = --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
 ```
 {: data-variant="no-line-numbers" }
 
 **macOS:**  Add compiler flags `-fsanitize=address` and `-fsanitize=undefined`.  For example:
 ```make
-CXXFLAGS = --std=c++11 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined
+CXXFLAGS = --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined
 ```
 {: data-variant="no-line-numbers" }
 
@@ -53,7 +53,7 @@ int main() {
 
 Clean, build and run.  Notice that the output of `v[2]` is `0`, however, this operation is undefined because it's off the end of the vector!  Because the output is undefined, your output might be different.
 ```console
-$ g++ --std=c++11 -Wall -Werror -pedantic -g asan.cpp -o asan.exe
+$ g++ --std=c++17 -Wall -Werror -pedantic -g asan.cpp -o asan.exe
 $ ./asan.exe
 hello from main!
 0
@@ -70,7 +70,7 @@ We'll now recompile with the address sanitizer enabled.  If you're using GCC, yo
 
 Compile with the address sanitizer flags.
 ```console
-$ g++ --std=c++11 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined asan.cpp -o asan.exe
+$ g++ --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined asan.cpp -o asan.exe
 ```
 
 Run.  The sanitizer detects the problem and prints a stack trace.
@@ -105,7 +105,7 @@ Update your `Makefile` using the instructions in the [Quick Start](#quick-start)
 Here's a way to automatically add the correct compiler flags on macOS or Windows/WSL/Linux.  Edit the top of your `Makefile` with the following code, which will figure out the OS and append the correct compiler flags.  
 ```make
 CXX ?= g++
-CXXFLAGS ?= --std=c++11 -Wall -Werror -pedantic -g
+CXXFLAGS ?= --std=c++17 -Wall -Werror -pedantic -g
 
 # Add sanitizer flags for identifying undefined behavior.  The flags are
 # different on macOS (AKA Darwin) and Windows/WSL/Linux.

@@ -23,7 +23,7 @@ LLDB uses commands.  Here's a handy list of LLDB and GDB [commands](https://deve
 ## Quick Start
 Compile your program with the `-g` flag and start LLDB.  EECS 280 project Makefiles include `-g` by default.
 ```console
-$ g++ -g --std=c++11 main.cpp -o main.exe
+$ g++ -g --std=c++17 main.cpp -o main.exe
 $ make main.exe  # If you have a Makefile
 $ lldb main.exe
 ```
@@ -56,7 +56,7 @@ LLDB uses an executable you build at the command line.
 
 First, compile and run your executable at the command line.
 ```console
-$ g++ -g --std=c++11 main.cpp -o main.exe
+$ g++ -g --std=c++17 main.cpp -o main.exe
 $ make main.exe  # If you have a Makefile
 $ ./main.exe
 Hello World!

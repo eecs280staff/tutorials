@@ -42,7 +42,7 @@ int main() {
 Create a file called `Makefile` and copy-paste this code.
 ```make
 CXX ?= g++
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
 
 # Run regression test
 test: main.exe
@@ -72,7 +72,7 @@ $ tree
 ## Compile
 Compile manually, then remove the executable.
 ```console
-$ g++ -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
+$ g++ -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
 $ ./main.exe
 Hello World!
 $ rm main.exe
@@ -81,7 +81,7 @@ $ rm main.exe
 Compile using `make`.  Notice that it automated the long compile command.
 ```console
 $ make main.exe
-g++ -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
+g++ -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment main.cpp -o main.exe
 ```
 
 Run the executable created by the previous `make` command.
@@ -165,7 +165,7 @@ A *variable* is helpful for avoiding duplication, like the compiler flags.
 ```make
 CXX ?= g++
 # primer-spec-highlight-start
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
 # primer-spec-highlight-end
 
 main.exe: main.cpp

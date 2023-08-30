@@ -12,7 +12,7 @@ This tutorial explains how to check for memory leaks in C/C++ programs.  We'll u
 ## Quick start
 **WSL or Linux:** Add the compiler flag `-fsanitize=address` in the `Makefile`.  Compile and run.
 ```make
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
 # primer-spec-highlight-start
 CXXFLAGS += -fsanitize=address
 # primer-spec-highlight-end
@@ -62,7 +62,7 @@ int main() {
 Create a file called `Makefile` and copy-paste this code.
 ```make
 CXX ?= g++
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
 
 # Run regression test
 test: main.exe
@@ -96,7 +96,7 @@ Hello Leaks!
 ## macOS
 Verify that your Makefile does *not* enable the address sanitizer.
 ```make
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
 # primer-spec-highlight-start
 # Should *not* see -fsanitize=address
 # primer-spec-highlight-end
@@ -129,7 +129,7 @@ STACK OF 1 INSTANCE OF 'ROOT LEAK: <malloc in main>':
 ## WSL and Linux
 Edit your Makefile and enable the address sanitizer by adding `-fsanitize=address`.
 ```make
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++11 -Wno-sign-compare -Wno-comment
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
 # primer-spec-highlight-start
 CXXFLAGS += -fsanitize=address
 # primer-spec-highlight-end
