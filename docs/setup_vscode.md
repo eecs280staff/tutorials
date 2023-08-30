@@ -382,7 +382,12 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-Then, edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
+Open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+
+<img src="images/vscode037.png" width="768px" />
+
+#### Windows/WSL or Linux `launch.json` changes
+Edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
 
 ```json
   "environment": [
@@ -394,13 +399,15 @@ Then, edit the `"environment"` property in your `launch.json`.  If there's alrea
 ```
 {: data-highlight="3-4" }
 
-Finally, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+#### macOS `launch.json` changes
+Edit the `"env"` property in your `launch.json`.  If there's already an empty `"env": {}`, replace it.  If there isn't one, add it after the `"args"` property.
 
-<img src="images/vscode037.png" width="768px" />
-
-When ASAN detects an error, VSCode will stop so that you can see the stack trace and inspect the current state of the program.  This configuration also turns off leak-checking (LSan), which can't run simultaneously with the visual debugger. If you do want to check for leaks, just run from the terminal with sanitizers enabled.
-
-If you're debugging something else in your program and don't want it to terminate on ASAN errors, you can change to `abort_on_error=0`.
+```json
+  "env": {
+      "ASAN_OPTIONS": "abort_on_error=1:detect_leaks=0"
+  },
+```
+{: data-highlight="2" }
 
 ### Input redirection
 <div class="primer-spec-callout info" markdown="1">
