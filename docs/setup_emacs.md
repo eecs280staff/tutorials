@@ -243,8 +243,8 @@ Here are some optional packages that you might like for C/C++ programming.
   :config
   ;; enable in all modes
   (global-flycheck-mode)
-  ;; C++11
-  (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+  ;; C++17
+  (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++17")))
   :ensure t
   :defer t
 )
