@@ -33,6 +33,14 @@ GNU gdb (GDB)
 
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you have installed CLI tools for your OS before continuing.
+
+| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+
+</div>
+
+
 ## Restart
 To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
 
@@ -650,7 +658,7 @@ int main() {
 Running the debugger with the ASAN sanitizer will display a confusing assembly file.
 
 <img src="images/vscode036.png" width="768px" />
-
+p
 To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
 
 First, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings).
