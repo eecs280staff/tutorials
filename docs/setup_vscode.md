@@ -658,7 +658,7 @@ int main() {
 Running the debugger with the ASAN sanitizer will display a confusing assembly file.
 
 <img src="images/vscode036.png" width="768px" />
-p
+
 To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
 
 First, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings).
