@@ -17,7 +17,7 @@ If you already have Xcode installed, skip to the [Create a project](#create-a-pr
 ## Prerequisites
 Xcode runs on macOS only.  There are no other prerequisites for Xcode.
 
-This tutorial recommends command line tools.  To install CLI tools, follow the [Windows command line tools tutorial](setup_macos.html).
+This tutorial recommends command line tools.  To install CLI tools, follow the [macOS command line tools tutorial](setup_macos.html).
 
 Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 
