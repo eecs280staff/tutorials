@@ -334,11 +334,11 @@ Click "create a launch.json file".
 
 <img src="images/vscode031.png" width="768px" />
 
-Select C++ (GDB/LLDB).
+If you are prompted to select a debugger, select C++ (GDB/LLDB).
 
 <img src="images/vscode031a.png" width="768px" />
 
-Click "Add Configuration".
+Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration".
 
 <img src="images/vscode032.png" width="768px" />
 
@@ -365,7 +365,7 @@ If you already have a working `launch.json` and want to debug a different progra
 
 ### Run
 
-Click the triangle to run.  You'll see your program's output in the debug console.
+Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
 
 <img src="images/vscode035.png" width="768px" />
 
@@ -382,10 +382,6 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-Open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
-
-<img src="images/vscode037.png" width="768px" />
-
 #### Windows/WSL or Linux `launch.json` changes
 Edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
 
@@ -399,7 +395,7 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
 ```
 {: data-highlight="3-4" }
 
-#### macOS `launch.json` changes
+#### macOS `launch.json` and settings changes
 Edit the `"env"` property in your `launch.json`.  If there's already an empty `"env": {}`, replace it.  If there isn't one, add it after the `"args"` property.
 
 ```json
@@ -408,6 +404,10 @@ Edit the `"env"` property in your `launch.json`.  If there's already an empty `"
   },
 ```
 {: data-highlight="2" }
+
+Open Settings on VSCode (**macOS:** Code > Settings > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+
+<img src="images/vscode037.png" width="768px" />
 
 ### Input redirection
 <div class="primer-spec-callout info" markdown="1">
