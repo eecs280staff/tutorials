@@ -328,11 +328,11 @@ If you accidentally open VS Code from Windows mode, click on the green icon in t
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
-<img src="images/vscode030.png" width="768px" />
+<img src="images/vscode030w.png" width="768px" />
 
 Click "create a launch.json file".
 
-<img src="images/vscode031.png" width="768px" />
+<img src="images/vscode031w.png" width="768px" />
 
 If you are prompted to select a debugger, select C++ (GDB/LLDB).
 
@@ -340,7 +340,7 @@ If you are prompted to select a debugger, select C++ (GDB/LLDB).
 
 Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration".
 
-<img src="images/vscode032.png" width="768px" />
+<img src="images/vscode032w.png" width="768px" />
 
 Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 
