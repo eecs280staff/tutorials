@@ -171,7 +171,6 @@ $ brew install tree      # macOS
 
 <div id="pitfall-install-wslview" class="primer-spec-callout warning" markdown="1">
 **Warning:** Files deleted by `rm` are gone forever.  You cannot recover them from the Trash.
-
 </div>
 
 ### `cd`
