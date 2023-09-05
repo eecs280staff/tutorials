@@ -33,6 +33,14 @@ GNU gdb (GDB)
 
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you have installed CLI tools for your OS before continuing.
+
+| [macOS](setup_macos.html#install-cli-tools)| [Windows](setup_wsl.html#install-cli-tools) | [Linux](setup_wsl.html#install-cli-tools)
+
+</div>
+
+
 ## Restart
 To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
 
