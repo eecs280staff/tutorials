@@ -353,6 +353,7 @@ zsh
 
 Edit your shell customization file
 ```console
+$ touch ~/.zshrc  # Create file if it doesn't exist
 $ open ~/.zshrc
 ```
 {: data-variant="no-line-numbers" }
