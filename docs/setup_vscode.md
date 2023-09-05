@@ -33,6 +33,14 @@ GNU gdb (GDB)
 
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you have installed CLI tools for your OS before continuing.
+
+| [macOS](setup_macos.html#install-cli-tools)| [Windows](setup_wsl.html#install-cli-tools) | [Linux](setup_wsl.html#install-cli-tools)
+
+</div>
+
+
 ## Restart
 To start clean, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
 
@@ -344,19 +352,19 @@ If you accidentally open VS Code from Windows mode, click on the green icon in t
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
-<img src="images/vscode030.png" width="768px" />
+<img src="images/vscode030w.png" width="768px" />
 
 Click "create a launch.json file".
 
-<img src="images/vscode031.png" width="768px" />
+<img src="images/vscode031w.png" width="768px" />
 
-Select C++ (GDB/LLDB).
+If you are prompted to select a debugger, select C++ (GDB/LLDB).
 
 <img src="images/vscode031a.png" width="768px" />
 
-Click "Add Configuration".
+Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration".
 
-<img src="images/vscode032.png" width="768px" />
+<img src="images/vscode032w.png" width="768px" />
 
 Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 
@@ -381,7 +389,7 @@ If you already have a working `launch.json` and want to debug a different progra
 
 ### Run
 
-Click the triangle to run.  You'll see your program's output in the debug console.
+Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
 
 <img src="images/vscode035.png" width="768px" />
 
@@ -398,7 +406,8 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-Then, edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
+#### Windows/WSL or Linux `launch.json` changes
+Edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
 
 ```json
   "environment": [
@@ -410,13 +419,19 @@ Then, edit the `"environment"` property in your `launch.json`.  If there's alrea
 ```
 {: data-highlight="3-4" }
 
-Finally, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+#### macOS `launch.json` and settings changes
+Edit the `"env"` property in your `launch.json`.  If there's already an empty `"env": {}`, replace it.  If there isn't one, add it after the `"args"` property.
+
+```json
+  "env": {
+      "ASAN_OPTIONS": "abort_on_error=1:detect_leaks=0"
+  },
+```
+{: data-highlight="2" }
+
+Open Settings on VSCode (**macOS:** Code > Settings > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
 
 <img src="images/vscode037.png" width="768px" />
-
-When ASAN detects an error, VSCode will stop so that you can see the stack trace and inspect the current state of the program.  This configuration also turns off leak-checking (LSan), which can't run simultaneously with the visual debugger. If you do want to check for leaks, just run from the terminal with sanitizers enabled.
-
-If you're debugging something else in your program and don't want it to terminate on ASAN errors, you can change to `abort_on_error=0`.
 
 ### Input redirection
 <div class="primer-spec-callout info" markdown="1">
