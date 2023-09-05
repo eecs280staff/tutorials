@@ -50,29 +50,12 @@ $ rm -rf p1-stats              # Delete
 ### Remove all extensions and configuration
 If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
 
-**macOS:**
 ```console
 $ rm -rf ~/.vscode
 $ rm -rf ~/Library/Application\ Support/Code
 ```
 
-**Windows:**  Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
-```console
-$ rm -rf ~/.vscode
-$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
-$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
-```
-
 ## Install
-Choose your platform below. Also make sure to install extensions.
-
-### Linux
-Install the .deb package from the web [https://code.visualstudio.com/docs/setup/linux](https://code.visualstudio.com/docs/setup/linux).
-
-### CAEN Linux
-VS Code is already installed on CAEN Linux desktop environment.  You can use it while sitting at a CAEN Linux computer, or through a [VNC connection to CAEN Linux](https://teamdynamix.umich.edu/TDClient/76/Portal/KB/ArticleDet?ID=4999).
-
-### macOS
 Make sure you have macOS 11.1 or later.
 ```console
 $ sw_vers
@@ -85,24 +68,6 @@ Use the homebrew package manager to install VS Code.  You can run this command f
 $ brew install --cask visual-studio-code
 ```
 
-### Windows
-Make sure you have updated Windows and WSL installations according to the [WSL tutorial](setup_wsl.html).
-
-Then, Install VS Code from the web [https://code.visualstudio.com/](https://code.visualstudio.com/).
-
-Select "Add to PATH".
-
-<img src="images/vscode005.png" width="480px" />
-
-Reboot.  Open a terminal again (WSL/Ubuntu) and verify your installation.  Your version might be different.
-
-```console
-$ code --version
-1.74.1
-1ad8d514439d5077d2b0b7ee64d2ce82a9308e5a
-x64
-```
-
 ### Extensions
 Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
 ```console
@@ -110,7 +75,6 @@ $ code --version
 1.52.1
 ```
 
-#### macOS
 Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
 ```console
 $ code --install-extension ms-vscode.cpptools
@@ -126,26 +90,10 @@ ms-vscode.cpptools
 vadimcn.vscode-lldb
 ```
 
-#### Windows
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [WSL extension](https://code.visualstudio.com/docs/remote/wsl).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
-```console
-$ code --install-extension ms-vscode.cpptools
-$ code --install-extension ms-vscode-remote.remote-wsl
-```
-
-Restart VS Code.
-
-Verify that the extension is installed.  It's OK if you have other extensions installed.
-```console
-$ code --list-extensions
-ms-vscode.cpptools
-ms-vscode-remote.remote-wsl
-```
-
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
-Open the Terminal ([macOS](cli.html#open-terminal-macos)) or Ubuntu Bash Shell ([Windows](cli.html#open-terminal-windows)).
+Open the Terminal ([help](cli.html#open-terminal-macos)).
 
 Navigate to your home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 
@@ -166,19 +114,6 @@ $ cd p1-stats
 
 </div>
   
-<div class="primer-spec-callout warning" markdown="1">
-**Windows Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
-
-```console
-$ pwd
-/home/awdeorio ...         # Good, Linux home
-/c/mnt/Users/awdeorio ...  # Bad, Windows home
-```
-
-Here's how to [access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
-
-</div>
-
 Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
 <div class="primer-spec-callout info" markdown="1">
@@ -316,7 +251,7 @@ $ g++ -g main.cpp -o main.exe
 ```
 </div>
 
-### macOS create `launch.json`
+### Create `launch.json`
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
@@ -333,42 +268,6 @@ Select LLDB.
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
 <img src="images/vscode034b.png" width="768px" />
-
-### Windows/WSL create `launch.json`
-
-<div class="primer-spec-callout warning" markdown="1">
-**WSL Pitfall:** Make sure you're in WSL mode.
-
-<img src="images/vscode069.png" width="768px">
-
-If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
-
-<img src="images/vscode070.png" width="720">
-</div>
-
-Select the file you would like to run.  Navigate to the debugging pane.
-
-<img src="images/vscode030w.png" width="768px" />
-
-Click "create a launch.json file".
-
-<img src="images/vscode031w.png" width="768px" />
-
-If you are prompted to select a debugger, select C++ (GDB/LLDB).
-
-<img src="images/vscode031a.png" width="768px" />
-
-Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration".
-
-<img src="images/vscode032w.png" width="768px" />
-
-Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
-
-<img src="images/vscode033.png" width="768px" />
-
-Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
-
-<img src="images/vscode034.png" width="768px" />
 
 ### Edit `launch.json` program
 
@@ -402,20 +301,6 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-#### Windows/WSL or Linux `launch.json` changes
-Edit the `"environment"` property in your `launch.json`.  If there's already an empty `"environment": []`, replace it.  If there isn't one, add it after the `"args"` property.
-
-```json
-  "environment": [
-    {
-      "name": "ASAN_OPTIONS",
-      "value": "abort_on_error=1:detect_leaks=0"
-    }
-  ],
-```
-{: data-highlight="3-4" }
-
-#### macOS `launch.json` and settings changes
 Edit the `"env"` property in your `launch.json`.  If there's already an empty `"env": {}`, replace it.  If there isn't one, add it after the `"args"` property.
 
 ```json
@@ -425,7 +310,7 @@ Edit the `"env"` property in your `launch.json`.  If there's already an empty `"
 ```
 {: data-highlight="2" }
 
-Open Settings on VSCode (**macOS:** Code > Settings > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
+Open Settings on VSCode (Code > Settings > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
 
 <img src="images/vscode037.png" width="768px" />
 
@@ -435,25 +320,6 @@ Skip this subsection your first time through the tutorial.  You can come back to
 </div>
 
 If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
-
-#### Windows/WSL or Linux `launch.json` changes
-
-To configure input redirection, edit `launch.json`.  These changes are for the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-```json
-{
-    "configurations": [
-        {
-            ...
-            "program": "${workspaceFolder}/main.exe",
-            "args": ["<", "main_test.in"],
-            ...
-        }
-    ]
-}
-```
-{: data-title="launch.json" data-highlight="6" }
-
-#### macOS `launch.json` changes
 
 To configure input redirection, edit `launch.json` ([docs](https://github.com/vadimcn/vscode-lldb/blob/master/MANUAL.md#stdio-redirection)).  These instructions are for the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).
 ```json
@@ -621,7 +487,7 @@ Intellisense is the feature that indicates compiler errors with red squiggly lin
 
 First, you should already have the `C/C++` extension installed ([Instructions](#extensions)).
 
-Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `ctrl + shift + P` on Windows or `cmd + shift + P` on macOS.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
+Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `cmd + shift + P`.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
 
 <img src="images/vscode150.png" width="480px" />
 
@@ -673,7 +539,7 @@ Running the debugger with the ASAN sanitizer will display a confusing assembly f
 
 To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
 
-First, open Settings on VSCode (**macOS:** Code > Settings > Settings, **Windows:** File > Preferences > Settings).
+First, open Settings on VSCode (Code > Settings > Settings).
 
 Next, search for "lldb: show disassembly" and set the option to `never`.
 
