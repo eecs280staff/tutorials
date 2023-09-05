@@ -22,9 +22,8 @@ This tutorial recommends command line tools.  To install CLI tools, follow the [
 Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you have installed CLI tools for your OS before continuing.
+**Pitfall:** Make sure you have installed [CLI tools for Windows](setup_wsl.html#install-cli-tools) before continuing.
 
-| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
 
 </div>
 

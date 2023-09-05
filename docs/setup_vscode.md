@@ -36,7 +36,7 @@ Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you have installed CLI tools for your OS before continuing.
 
-| [macOS](setup_macos.html)| [Windows](setup_wsl.html) | [Linux](setup_wsl.html#install-cli-tools)
+| [macOS](setup_macos.html#install-cli-tools)| [Windows](setup_wsl.html#install-cli-tools) | [Linux](setup_wsl.html#install-cli-tools)
 
 </div>
 
