@@ -42,13 +42,29 @@ Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
 
 ## Restart
-To start clean, first quit VS Code.  Back up your files, and then delete your project directory.  Your project directory might be different.
+To start clean, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
 
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280
 $ cp -a p1-stats p1-stats.bak  # Backup
 $ rm -rf p1-stats              # Delete
+```
+
+### Remove all extensions and configuration
+If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
+
+**macOS:**
+```console
+$ rm -rf ~/.vscode
+$ rm -rf ~/Library/Application\ Support/Code
+```
+
+**Windows:**  Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
+```console
+$ rm -rf ~/.vscode
+$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
+$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
 ```
 
 ## Install
