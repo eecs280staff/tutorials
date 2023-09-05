@@ -60,11 +60,11 @@ $ rm -rf ~/.vscode
 $ rm -rf ~/Library/Application\ Support/Code
 ```
 
-**Windows:**  Be sure to use your Windows username.
+**Windows:**  Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
 ```console
 $ rm -rf ~/.vscode
-$ rm -rf /mnt/c/Users/<windows username>/.vscode
-$ rm -rf /mnt/c/Users/<windows username>/AppData/Roaming/Code
+$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
+$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
 ```
 
 ## Install
