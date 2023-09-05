@@ -21,14 +21,10 @@ VS Code relies on external command line tools.  To install CLI tools, follow the
 
 Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos.html#install-cli-tools).
 ```console
-$ g++ --version  # macOS
+$ g++ --version
 Apple clang version 13.1.6 (clang-1316.0.21.2.5)
-$ lldb --version # macOS
+$ lldb --version
 Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
-$ g++ --version  # WSL/Linux
-g++ (GCC) 8.5.0 20210514
-$ gdb --version  # WSL/Linux
-GNU gdb (GDB)
 ```
 
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
@@ -93,7 +89,7 @@ vadimcn.vscode-lldb
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
-Open the Terminal ([help](cli.html#open-terminal-macos)).
+Open the Terminal ([Terminal on macOS](cli.html#open-terminal-macos)).
 
 Navigate to your home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
 
@@ -161,10 +157,6 @@ If you have starter files, add them to your project directory.  This example is 
 $ ls
 main.cpp
 ```
-</div>
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** [Copy/paste instructions](setup_wsl.html#copy-paste) for WSL.
 </div>
 
 We'll use the terminal to download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
