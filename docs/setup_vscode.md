@@ -40,33 +40,6 @@ Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
 </div>
 
-
-## Restart
-To start clean, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280
-$ cp -a p1-stats p1-stats.bak  # Backup
-$ rm -rf p1-stats              # Delete
-```
-
-### Remove all extensions and configuration
-If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
-
-**macOS:**
-```console
-$ rm -rf ~/.vscode
-$ rm -rf ~/Library/Application\ Support/Code
-```
-
-**Windows:**  Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
-```console
-$ rm -rf ~/.vscode
-$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
-$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
-```
-
 ## Install
 Choose your platform below. Also make sure to install extensions.
 
@@ -615,10 +588,38 @@ Press "Continue" to run the program to the next breakpoint, or the end, whicheve
 ## Troubleshooting
 This section is for common problems and solutions.
 
+### Restart
+To reset VS Code project settings and starter files, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
+
+```console
+$ pwd
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
+```
+
+Then, return to the [Create a project](#create-a-project) section.
+
 ### Compile and run
 If you have trouble with the [compile and run](#compile-and-run) section, a good first step is to delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
 
 <img src="images/vscode160.png" width="768px" />
+
+#### Remove all extensions and configuration
+If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
+
+**macOS:**
+```console
+$ rm -rf ~/.vscode
+$ rm -rf ~/Library/Application\ Support/Code
+```
+
+**Windows:**  Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
+```console
+$ rm -rf ~/.vscode
+$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
+$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
+```
 
 ### Intellisense C++ Standard
 Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  If the C++ standard is out-of-date, you'll see squiggles where you shouldn't.
