@@ -55,12 +55,6 @@ GNU gdb (GDB)
 
 Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 
-## Restart
-Here's how to delete all Emacs configuration files.  This will not delete your code.  First, quit Emacs.
-```console
-$ rm -rf ~/.emacs ~/.emacs.d/
-```
-
 ## Install
 Choose your platform below.
 
@@ -539,6 +533,12 @@ $ sudo apt-get install emacs-nox
 Many servers have two text editors installed by default: `vi` and `nano`.  Because Nano navigation keyboard shortcuts are similar to Emacs, it's a nice alternative for environments where you need to edit some configuration files, but don't want to install anything.
 ```console
 $ nano main.cpp
+```
+
+## Troubleshootings
+To reset all Emacs configuration, plugins, and settings:
+```console
+$ rm -rf ~/.emacs ~/.emacs.d/
 ```
 
 ## Acknowledgments
