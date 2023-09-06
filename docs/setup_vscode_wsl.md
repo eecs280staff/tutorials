@@ -34,26 +34,6 @@ Next, follow our [Command line interface (CLI)](cli.html) tutorial.
 **Pitfall:** Make sure you have installed [CLI tools for Windows](setup_wsl.html#install-cli-tools) before continuing.
 </div>
 
-## Restart
-To start clean, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
-
-```console
-$ pwd
-/Users/awdeorio/src/eecs280
-$ cp -a p1-stats p1-stats.bak  # Backup
-$ rm -rf p1-stats              # Delete
-```
-
-### Remove all extensions and configuration
-If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
-
-Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
-```console
-$ rm -rf ~/.vscode
-$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
-$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
-```
-
 ## Install
 Make sure you have updated Windows and WSL installations according to the [WSL tutorial](setup_wsl.html).
 
@@ -328,6 +308,11 @@ $ make main.exe
 ```
 </div>
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you're having trouble running your program, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+
+<img src="images/vscode160.png" width="768px" />
+</div>
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
@@ -495,10 +480,26 @@ Press "Continue" to run the program to the next breakpoint, or the end, whicheve
 ## Troubleshooting
 This section is for common problems and solutions.
 
-### Compile and run
-If you have trouble with the [compile and run](#compile-and-run) section, a good first step is to delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+### Reset
+To reset VS Code project settings and starter files, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
 
-<img src="images/vscode160.png" width="768px" />
+```console
+$ pwd
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
+```
+
+VS Code has a *lot* of settings and extensions.   You can reset the entire user interface and remove all extensions using these commands (Based on [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall)).  This is optional.
+
+Replace `awdeorio` with your Windows username.  List the usernames with `ls /mnt/c/Users/`.
+```console
+$ rm -rf ~/.vscode
+$ rm -rf "/mnt/c/Users/awdeorio/.vscode"
+$ rm -rf "/mnt/c/Users/awdeorio/AppData/Roaming/Code"
+```
+
+Then, return to the [Create a project](#create-a-project) section.
 
 ### Intellisense C++ Standard
 Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  If the C++ standard is out-of-date, you'll see squiggles where you shouldn't.

@@ -25,22 +25,6 @@ Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 **Pitfall:** Make sure you have installed [CLI tools for macOS](setup_macos.html#install-cli-tools) before continuing.
 </div>
 
-## Restart
-To start clean, first quit Xcode.  Back up your files, and then delete your project directory.  Your project directory might be different.
-```console
-$ pwd
-/Users/awdeorio/src/eecs280
-$ cp -a p1-stats p1-stats.bak  # Backup
-$ rm -rf p1-stats              # Delete
-```
-
-Xcode has a *lot* of settings.  You can reset the entire user interface to the default settings using this command.  This is optional.
-```console
-$ defaults delete com.apple.dt.Xcode
-```
-{: data-variant="no-line-numbers" }
-
-
 ## Install
 Install Xcode using the App Store.  Your version might be different.
 
@@ -381,6 +365,25 @@ Click "Step Out".  The `sum()` function completes, and the program pauses again.
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
 <img src="images/xcode320.png" width="768px" />
+
+
+## Troubleshooting
+To reset Xcode project settings and starter files, first quit Xcode.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
+
+```console
+$ pwd
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
+```
+
+Xcode has a *lot* of settings.  You can reset the entire user interface to the default settings using this command.  This is optional.
+```console
+$ defaults delete com.apple.dt.Xcode
+```
+{: data-variant="no-line-numbers" }
+
+Then, return to the [Create a project](#create-a-project) section.
 
 
 ## Acknowledgments

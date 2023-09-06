@@ -159,7 +159,7 @@ $ brew install tree      # macOS
 
   ```console
   $ rm euchre.cpp
-  $ rm -r stuff2/
+  $ rm -rf stuff2/
   ```
 
   </td>
@@ -168,6 +168,10 @@ $ brew install tree      # macOS
   </td>
   </tr>
 </table>
+
+<div id="pitfall-install-wslview" class="primer-spec-callout warning" markdown="1">
+**Warning:** Files deleted by `rm` are gone forever.  You cannot recover them from the Trash.
+</div>
 
 ### `cd`
 `cd` changes directory.
