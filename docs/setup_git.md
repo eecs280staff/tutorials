@@ -45,31 +45,6 @@ $ git config --global user.name "YOUR NAME HERE"
 $ git config --global user.email "YOUR EMAIL HERE"
 ```
 
-## Restarting this tutorial
-If you tried using this tutorial in the past and want to start over, here's how to delete the files created by `git` and how to remove your repository from GitHub.
-
-First, remove your GitHub repository.  Browse to your repository's project page from [https://github.com/](https://github.com/).  Select "Settings", scroll to the bottom and select "Delete this repository" under the "Danger Zone" heading.
-
-<img src="images/github001.png" width="768px" />
-
-...
-
-<img src="images/github002.png" width="768px" />
-
-Next, remove the hidden files created by `git`.  Remember, hidden files start with a dot (`.`).
-```console
-$ pwd
-/Users/awdeorio/Developer/eecs280/p2-cv
-$ rm -rf .git/ .gitignore
-$ ls -A
-```
-
-Confirm that this is no longer a git repository.
-```console
-$ git status
-fatal: Not a git repository (or any of the parent directories): .git
-```
-
 ## GitHub Authentication
 There are two ways to connect to GitHub: SSH Keys and GitHub Personal Access Tokens Keys.  An SSH Key is a special file that you can use to connect to remote terminals.  A Personal Access Token works like a separate password used just for GitHub.
 
@@ -767,6 +742,31 @@ On branch main
 Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
+```
+
+## Troubleshooting
+If you tried using this tutorial in the past and want to start over, here's how to delete the files created by `git` and how to remove your repository from GitHub.
+
+First, remove your GitHub repository.  Browse to your repository's project page from [https://github.com/](https://github.com/).  Select "Settings", scroll to the bottom and select "Delete this repository" under the "Danger Zone" heading.
+
+<img src="images/github001.png" width="768px" />
+
+...
+
+<img src="images/github002.png" width="768px" />
+
+Next, remove the hidden files created by `git`.  Remember, hidden files start with a dot (`.`).
+```console
+$ pwd
+/Users/awdeorio/Developer/eecs280/p2-cv
+$ rm -rf .git/ .gitignore
+$ ls -A
+```
+
+Confirm that this is no longer a git repository.
+```console
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git
 ```
 
 ## Acknowledgments
