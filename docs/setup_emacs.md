@@ -535,7 +535,7 @@ Many servers have two text editors installed by default: `vi` and `nano`.  Becau
 $ nano main.cpp
 ```
 
-## Troubleshootings
+## Troubleshooting
 To reset all Emacs configuration, plugins, and settings:
 ```console
 $ rm -rf ~/.emacs ~/.emacs.d/
