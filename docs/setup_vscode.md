@@ -373,6 +373,11 @@ $ make main.exe
 ```
 </div>
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you're having trouble running your program, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+
+<img src="images/vscode160.png" width="768px" />
+</div>
 
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
@@ -599,11 +604,6 @@ $ rm -rf p1-stats              # Delete
 ```
 
 Then, return to the [Create a project](#create-a-project) section.
-
-### Compile and run
-If you have trouble with the [compile and run](#compile-and-run) section, a good first step is to delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
-
-<img src="images/vscode160.png" width="768px" />
 
 #### Remove all extensions and configuration
 If you tried recreating your project directory and are still having trouble, try removing all VS Code extensions and configuration.  These instructions are based on the [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall).
