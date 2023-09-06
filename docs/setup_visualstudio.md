@@ -23,20 +23,7 @@ Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you have installed [CLI tools for Windows](setup_wsl.html#install-cli-tools) before continuing.
-
-
 </div>
-
-## Restart
-To start clean, first quit Visual Studio.  Back up your files, and then delete your project directory.  Your project directory might be different.
-```console
-/Users/awdeorio/src/eecs280
-$ cp -a p1-stats p1-stats.bak  # Backup
-$ rm -rf p1-stats              # Delete
-```
-
-Visual Studio has a *lot* of settings.  You can reset the entire user interface to the default settings by selecting "Tools" -> "Import" and Export Settings" -> "Reset all settings".  This is optional.
-
 
 ## Install
 Install Visual Studio Community edition from [Microsoft's website](https://www.visualstudio.com/vs/community/).
@@ -354,6 +341,17 @@ Click "Step Out".  The `sum()` function completes, and the program pauses again.
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
 <img src="images/visualstudio210.png" width="768px" />
+
+## Troubleshooting
+To reset Visual Studio project settings and starter files, first quit Visual Studio.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
+
+```console
+/Users/awdeorio/src/eecs280
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
+```
+
+Visual Studio has a *lot* of settings.  You can reset the entire user interface to the default settings by selecting "Tools" -> "Import" and Export Settings" -> "Reset all settings".  This is optional.
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
