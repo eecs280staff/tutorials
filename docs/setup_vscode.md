@@ -593,7 +593,7 @@ Press "Continue" to run the program to the next breakpoint, or the end, whicheve
 ## Troubleshooting
 This section is for common problems and solutions.
 
-### Restart
+### Reset
 To reset VS Code project settings and starter files, first quit VS Code.  Make a backup copy of your files, and then delete your project directory.  Your project directory might be different.
 
 ```console
