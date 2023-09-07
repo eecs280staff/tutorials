@@ -65,7 +65,6 @@ Verify that the C++ extension is installed.  It's OK if you have other extension
 ```console
 $ code --list-extensions
 ms-vscode.cpptools
-ms-vscode-remote.remote-wsl
 ```
 
 ## Create a project
