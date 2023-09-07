@@ -53,16 +53,10 @@ x64
 ```
 
 ### Extensions
-Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [WSL extension](https://code.visualstudio.com/docs/remote/wsl).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.  **Pitfall:** the install order matters.
 ```console
-$ code --version
-1.52.1
-```
-
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [WSL extension](https://code.visualstudio.com/docs/remote/wsl).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
-```console
-$ code --install-extension ms-vscode.cpptools
 $ code --install-extension ms-vscode-remote.remote-wsl
+$ code --install-extension ms-vscode.cpptools
 ```
 
 Restart VS Code.
@@ -111,7 +105,7 @@ Here's how to [access your Linux files from Windows](setup_wsl.html#accessing-li
 
 </div>
 
-Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
+Start VS Code and open your project folder. `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`.
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.  First make sure you're in the directory that contains your source code.
@@ -506,7 +500,7 @@ Intellisense is the feature that indicates compiler errors with red squiggly lin
 
 First, you should already have the `C/C++` extension installed ([Instructions](#extensions)).
 
-Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `ctrl + shift + P`.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
+Next, open VS Code's Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>).  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
 
 <img src="images/vscode150.png" width="480px" />
 

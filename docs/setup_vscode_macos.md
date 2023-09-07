@@ -47,12 +47,6 @@ $ brew install --cask visual-studio-code
 ```
 
 ### Extensions
-Make sure VS Code is installed correctly by checking the version.  You need version 1.52.1 or higher.
-```console
-$ code --version
-1.52.1
-```
-
 Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
 ```console
 $ code --install-extension ms-vscode.cpptools
