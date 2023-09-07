@@ -61,11 +61,10 @@ $ code --install-extension ms-vscode.cpptools
 
 Restart VS Code.
 
-Verify that the extension is installed.  It's OK if you have other extensions installed.
+Verify that the C++ extension is installed.  It's OK if you have other extensions installed.
 ```console
 $ code --list-extensions
 ms-vscode.cpptools
-ms-vscode-remote.remote-wsl
 ```
 
 ## Create a project
@@ -119,7 +118,7 @@ $ code .
 <img src="images/vscode020.png" width="768px" />
 
 ### Add new files
-Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
+Start VS Code and open your project folder. `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`.
 
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
