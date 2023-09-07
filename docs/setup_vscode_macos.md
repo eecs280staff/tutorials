@@ -69,7 +69,7 @@ vadimcn.vscode-lldb
 ```
 
 ## Create a project
-To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
+To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
 Open the Terminal ([Terminal on macOS](cli.html#open-terminal-macos)).
 
@@ -427,12 +427,6 @@ Click "Step Over" a few times until you reach the highlighted line of code
 Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
 <img src="images/vscode110.png" width="768px" />
-
-<div class="primer-spec-callout warning" markdown="1">
-If you have trouble viewing the contents of a container like this screenshot, see [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
-
-<img src="images/vscode140.png" width="480px" />
-</div>
 
 ### Step into
 Click "Step Into".  The cursor enters the `sum()` function.

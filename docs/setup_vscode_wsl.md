@@ -75,7 +75,7 @@ ms-vscode-remote.remote-wsl
 ```
 
 ## Create a project
-To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder AKA File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
+To create a VS Code project, create a folder (directory).  There are many ways to create folders: File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
 Open the Terminal ([Ubuntu Bash Shell](cli.html#open-terminal-windows)).
 
@@ -536,38 +536,6 @@ There are multiple options for C/C++ extensions.
 [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) provides intellisense and requires the `clangd` language server, which is related to the LLVM compiler.  We do not recommend installing the `clangd` extension with the Microsoft C/C++ extension because multiple intellisense providers can produce confusing results.
 
 [WSL](https://code.visualstudio.com/docs/remote/wsl) lets us develop with Linux-based utilities like the `g++` compiler.
-
-### ASAN error shows assembly code
-When the Address Sanitizer detects an error, VSCode may stop in an assembly file that does not help you find where the error was caused. For example, consider the following code with a use-after-free error.
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main() {
-    int * p = new int;
-    delete p;
-    cout << *p << endl;  // use-after-free
-}
-```
-{: data-title="main.cpp" data-highlight="7" }
-
-Running the debugger with the ASAN sanitizer will display a confusing assembly file.
-
-<img src="images/vscode036.png" width="768px" />
-
-To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
-
-First, open Settings on VSCode (File > Preferences > Settings).
-
-Next, search for "lldb: show disassembly" and set the option to `never`.
-
-<img src="images/vscode037.png" width="768px" />
-
-Now, running the debugger will not display the assembly file. However, it will not yet highlight the erroneous line. To find the erroneous line, look through the Call Stack on the debugging panel and click on your source file.
-
-<img src="images/vscode038.png" width="768px" />
-
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
