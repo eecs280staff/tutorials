@@ -61,7 +61,7 @@ $ code --install-extension ms-vscode.cpptools
 
 Restart VS Code.
 
-Verify that the extension is installed.  It's OK if you have other extensions installed.
+Verify that the C++ extension is installed.  It's OK if you have other extensions installed.
 ```console
 $ code --list-extensions
 ms-vscode.cpptools
