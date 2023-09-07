@@ -41,7 +41,7 @@ Install VS Code from the web [https://code.visualstudio.com/](https://code.visua
 
 Select "Add to PATH".
 
-<img src="images/vscode005.png" width="480px" />
+<img src="images/vscode_wsl_005.png" width="480px" />
 
 Reboot.  Open the Terminal ([Ubuntu Bash Shell](cli.html#open-terminal-windows)) and verify your installation.  Your version might be different.
 
@@ -115,14 +115,14 @@ $ code .
 ```
 </div>
 
-<img src="images/vscode020.png" width="768px" />
+<img src="images/vscode_wsl_020.png" width="768px" />
 
 ### Add new files
 Start VS Code and open your project folder. `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`.
 
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
-<img src="images/vscode023.png" width="768px" />
+<img src="images/vscode_wsl_023.png" width="768px" />
 
 Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
 
@@ -183,14 +183,14 @@ $ tree
 
 You should see your new files appear in VS Code.
 
-<img src="images/vscode026.png" width="768px" />
+<img src="images/vscode_wsl_026.png" width="768px" />
 
 #### Rename files
 If you need to rename any files, you can do this from VS Code or from the command line.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
 Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
-| <img src="images/vscode027.png" height="512px" /> | <img src="images/vscode028.png" height="512px" /> |
+| <img src="images/vscode_wsl_027.png" height="512px" /> | <img src="images/vscode_wsl_028.png" height="512px" /> |
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** You can also rename files the command line, for example:
@@ -244,36 +244,36 @@ $ g++ -g main.cpp -o main.exe
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in WSL mode.
 
-<img src="images/vscode069.png" width="768px">
+<img src="images/vscode_wsl_069.png" width="768px">
 
 If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
 
-<img src="images/vscode070.png" width="720">
+<img src="images/vscode_wsl_070.png" width="720">
 </div>
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
-<img src="images/vscode030w.png" width="768px" />
+<img src="images/vscode_wsl_030w.png" width="768px" />
 
 Click "create a launch.json file".
 
-<img src="images/vscode031w.png" width="768px" />
+<img src="images/vscode_wsl_031w.png" width="768px" />
 
 If you are prompted to select a debugger, select C++ (GDB/LLDB).
 
-<img src="images/vscode031a.png" width="768px" />
+<img src="images/vscode_wsl_031a.png" width="768px" />
 
 Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration".
 
-<img src="images/vscode032w.png" width="768px" />
+<img src="images/vscode_wsl_032w.png" width="768px" />
 
 Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 
-<img src="images/vscode033.png" width="768px" />
+<img src="images/vscode_wsl_033.png" width="768px" />
 
 Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
-<img src="images/vscode034.png" width="768px" />
+<img src="images/vscode_wsl_034.png" width="768px" />
 
 ### Edit `launch.json` program
 
@@ -292,7 +292,7 @@ If you already have a working `launch.json` and want to debug a different progra
 
 Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
 
-<img src="images/vscode035.png" width="768px" />
+<img src="images/vscode_wsl_035.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to build your executable at the command line first.
@@ -304,7 +304,7 @@ $ make main.exe
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you're having trouble running your program, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
 
-<img src="images/vscode160.png" width="768px" />
+<img src="images/vscode_wsl_160.png" width="768px" />
 </div>
 
 ### Sanitizers
@@ -420,12 +420,12 @@ int main() {
 ### Breakpoint
 Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
-<img src="images/vscode080.png" width="768px" />
+<img src="images/vscode_wsl_080.png" width="768px" />
 
 ### Run
 Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
-<img src="images/vscode090.png" width="768px" />
+<img src="images/vscode_wsl_090.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Don't forget to compile!
@@ -438,37 +438,37 @@ $ g++ -g main.cpp -o main.exe  # Without a Makefile
 ### Step over
 Click "Step Over" a few times until you reach the highlighted line of code
 
-<img src="images/vscode100.png" width="768px" />
+<img src="images/vscode_wsl_100.png" width="768px" />
 
 ### Inspect
 Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
-<img src="images/vscode110.png" width="768px" />
+<img src="images/vscode_wsl_110.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 If you have trouble viewing the contents of a container like this screenshot, see [Pretty Printing STL Containers with `gdb`](setup_gdb.html#pretty-printing-stl-containers-with-gdb).
 
-<img src="images/vscode140.png" width="480px" />
+<img src="images/vscode_wsl_140.png" width="480px" />
 </div>
 
 ### Step into
 Click "Step Into".  The cursor enters the `sum()` function.
 
-<img src="images/vscode115.png" width="768px" />
+<img src="images/vscode_wsl_115.png" width="768px" />
 
-<img src="images/vscode120.png" width="768px" />
+<img src="images/vscode_wsl_120.png" width="768px" />
 
 ### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
 
-<img src="images/vscode125.png" width="768px" />
+<img src="images/vscode_wsl_125.png" width="768px" />
 
-<img src="images/vscode130.png" width="768px" />
+<img src="images/vscode_wsl_130.png" width="768px" />
 
 ### Continue
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-<img src="images/vscode135.png" width="768px" />
+<img src="images/vscode_wsl_135.png" width="768px" />
 
 ## Troubleshooting
 This section is for common problems and solutions.
@@ -501,7 +501,7 @@ First, you should already have the `C/C++` extension installed ([Instructions](#
 
 Next, open VS Code's Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>).  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
 
-<img src="images/vscode150.png" width="480px" />
+<img src="images/vscode_wsl_150.png" width="480px" />
 
 Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  Don't change any other settings.  Save the file.
 ```json
