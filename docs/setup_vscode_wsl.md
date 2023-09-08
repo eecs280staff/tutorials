@@ -275,9 +275,11 @@ $ g++ -g main.cpp -o main.exe
 
 If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
 
+<img src="images/vscode_wsl_070.png" width="768">
+
 Open the Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `Reopen Folder in WSL` (or `Open Folder in WSL` if you hadn't opened anything yet).
 
-<img src="images/vscode_wsl_070.png" width="768">
+<img src="images/vscode_wsl_071.png" width="768">
 </div>
 
 Select the file you would like to run.  Navigate to the debugging pane.
