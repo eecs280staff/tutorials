@@ -338,6 +338,25 @@ $ make main.exe
 <img src="images/vscode_wsl_160.png" width="768px" />
 </div>
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you encounter an error like the one below, it is likely that VS Code is in Windows mode rather than WSL. Follow the instructions in [compile and run](#compile-and-run) to reopen the folder in WSL mode.
+
+<img src="images/vscode_wsl_170.png" width="600px" />
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you see output like the following in the terminal:
+
+<img src="images/vscode_wsl_180.png" width="600px" />
+
+And an error like this in the debug console:
+
+<img src="images/vscode_wsl_181.png" width="600px" />
+
+The likely cause is that you have WSL 1 rather than WSL 2. Follow the instructions in the [WSL tutorial](setup_wsl.html#install-wsl) to upgrade to WSL 2, install the [CLI tools](setup_wsl.html#install-cli-tools), and then restart this tutorial.
+
+</div>
+
 ### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
 
