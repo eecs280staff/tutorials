@@ -18,9 +18,13 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 </div>
 
 ## Prerequisites
-VS Code relies on external command line tools.  To install CLI tools, follow the [Windows command line tools tutorial](setup_wsl.html).
 
-Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [Windows/WSL/Linux](setup_wsl.html#install-cli-tools).
+Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
+
+Review our [Command Line Interface (CLI)](cli.html) tutorial.
+
+Make sure you have a compiler and a debugger [installed](setup_wsl.html#install-cli-tools).  Your version might be different.
+
 ```console
 $ g++ --version
 g++ (GCC) 8.5.0 20210514
@@ -28,44 +32,65 @@ $ gdb --version
 GNU gdb (GDB)
 ```
 
-Next, follow our [Command line interface (CLI)](cli.html) tutorial.
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you have installed [CLI tools for Windows](setup_wsl.html#install-cli-tools) before continuing.
-</div>
-
 ## Install
-Make sure you have updated Windows and WSL installations according to the [WSL tutorial](setup_wsl.html).
 
-Install VS Code from the web [https://code.visualstudio.com/](https://code.visualstudio.com/).
+Ensure the prerequisites above are satisfied, then install VS Code from the web [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
-Select "Add to PATH".
+Select each of the options below during installation.
 
 <img src="images/vscode_wsl_005.png" width="480px" />
 
-Reboot.  Open the Terminal ([Ubuntu Bash Shell](cli.html#open-terminal-windows)) and verify your installation.  Your version might be different.
+Open VS Code. You can skip the welcome screen.
 
-```console
-$ code --version
-1.74.1
-1ad8d514439d5077d2b0b7ee64d2ce82a9308e5a
-x64
-```
+<img src="images/vscode_wsl_007.png" width="768px" />
 
-### Extensions
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [WSL extension](https://code.visualstudio.com/docs/remote/wsl).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.  **Pitfall:** the install order matters.
-```console
-$ code --install-extension ms-vscode-remote.remote-wsl
-$ code --install-extension ms-vscode.cpptools
-```
 
-Restart VS Code.
+### WSL Extension
 
-Verify that the C++ extension is installed.  It's OK if you have other extensions installed.
-```console
-$ code --list-extensions
-ms-vscode.cpptools
-```
+Install the WSL Extension, which allows the VS Code backend to run in WSL where the C++ compiler lives.
+
+1. Open the extensions panel from the left sidebar.
+2. Search for WSL.
+3. Click "Install".
+
+<img src="images/vscode_wsl_008.png" width="768px" />
+
+Next, connect to WSL:
+1. Click the button in the bottom left corner.
+2. Select "Connect to WSL" from the menu.
+
+<img src="images/vscode_wsl_012.png" width="768px" />
+
+Now, the button in the bottom left should say "WSL: Ubuntu". For any C++ development, make sure VS code is always connected to WSL.
+
+<img src="images/vscode_wsl_013.png" width="768px" />
+
+
+### C++ Extension
+
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're connected to WSL before installing the C++ Extension. Check the button in the bottom left.
+
+<img src="images/vscode_wsl_013a.png" width="200px" />
+
+</div>
+
+Install the C++ Extension to run in WSL.
+
+1. Open the extensions panel from the left sidebar.
+2. Search for C++.
+3. Click "Install".
+
+<img src="images/vscode_wsl_014.png" width="768px" />
+
+Note that you need the "C/C++" extension. You do *not* need the "C/C++ Extension Pack".
+
+Clear out the search bar in the extensions panel. You should see:
+- WSL installed locally
+- C/C++ installed in WSL: Ubuntu
+
+<img src="images/vscode_wsl_015.png" width="768px" />
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
@@ -113,6 +138,8 @@ $ ls
 main.cpp ...
 $ code .
 ```
+
+**Note:** If you've just installed VS Code, you'll need to restart your terminal before the `code` command will work. 
 </div>
 
 <img src="images/vscode_wsl_020.png" width="768px" />
@@ -246,9 +273,13 @@ $ g++ -g main.cpp -o main.exe
 
 <img src="images/vscode_wsl_069.png" width="768px">
 
-If you accidentally open VS Code from Windows mode, click on the green icon in the lower left hand corner and then select "Reopen Folder in WSL".
+If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
 
-<img src="images/vscode_wsl_070.png" width="720">
+<img src="images/vscode_wsl_070.png" width="768">
+
+Open the Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `Reopen Folder in WSL` (or `Open Folder in WSL` if you hadn't opened anything yet).
+
+<img src="images/vscode_wsl_071.png" width="768">
 </div>
 
 Select the file you would like to run.  Navigate to the debugging pane.
