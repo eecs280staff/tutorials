@@ -19,9 +19,6 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 
 ## Prerequisites
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Double check these prerequisites before continuing!
-
 Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
 
 Review our [Command Line Interface (CLI)](cli.html) tutorial.
@@ -34,8 +31,6 @@ g++ (GCC) 8.5.0 20210514
 $ gdb --version
 GNU gdb (GDB)
 ```
-
-</div>
 
 ## Install
 
