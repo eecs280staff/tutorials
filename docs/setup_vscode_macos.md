@@ -97,14 +97,14 @@ $ code .
 ```
 </div>
 
-<img src="images/vscode020.png" width="768px" />
+<img src="images/vscode_macos_020.png" width="768px" />
 
 ### Add new files
 Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
 Select the add file icon and give it a name, e.g., `main.cpp`.
 
-<img src="images/vscode023.png" width="768px" />
+<img src="images/vscode_macos_023.png" width="768px" />
 
 Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
 
@@ -161,14 +161,14 @@ $ tree
 
 You should see your new files appear in VS Code.
 
-<img src="images/vscode026.png" width="768px" />
+<img src="images/vscode_macos_026.png" width="768px" />
 
 #### Rename files
 If you need to rename any files, you can do this from VS Code or from the command line.  In EECS 280, you'll need to rename any files that end in `.starter`.
 
 Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
-| <img src="images/vscode027.png" height="512px" /> | <img src="images/vscode028.png" height="512px" /> |
+| <img src="images/vscode_macos_027.png" height="512px" /> | <img src="images/vscode_macos_028.png" height="512px" /> |
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** You can also rename files the command line, for example:
@@ -223,19 +223,19 @@ $ g++ -g main.cpp -o main.exe
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
-<img src="images/vscode030.png" width="768px" />
+<img src="images/vscode_macos_030.png" width="768px" />
 
 Click "create a launch.json file".
 
-<img src="images/vscode031.png" width="768px" />
+<img src="images/vscode_macos_031.png" width="768px" />
 
 Select LLDB.
 
-<img src="images/vscode031b.png" width="768px" />
+<img src="images/vscode_macos_031b.png" width="768px" />
 
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
-<img src="images/vscode034b.png" width="768px" />
+<img src="images/vscode_macos_034b.png" width="768px" />
 
 ### Edit `launch.json` program
 
@@ -254,7 +254,7 @@ If you already have a working `launch.json` and want to debug a different progra
 
 Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
 
-<img src="images/vscode035.png" width="768px" />
+<img src="images/vscode_macos_035.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Remember to build your executable at the command line first.
@@ -266,7 +266,7 @@ $ make main.exe
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you're having trouble running your program, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
 
-<img src="images/vscode160.png" width="768px" />
+<img src="images/vscode_macos_160.png" width="768px" />
 </div>
 
 ### Sanitizers
@@ -285,7 +285,7 @@ Edit the `"env"` property in your `launch.json`.  If there's already an empty `"
 
 Open Settings on VSCode (Code > Settings > Settings). Search for "lldb: show disassembly" (without the quotes) and set the option to `never`.  (See [ASAN error shows assembly code](#asan-error-shows-assembly-code) for an explanation.)
 
-<img src="images/vscode037.png" width="768px" />
+<img src="images/vscode_macos_037.png" width="768px" />
 
 ### Input redirection
 <div class="primer-spec-callout info" markdown="1">
@@ -397,12 +397,12 @@ int main() {
 ### Breakpoint
 Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
-<img src="images/vscode080.png" width="768px" />
+<img src="images/vscode_macos_080.png" width="768px" />
 
 ### Run
 Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
-<img src="images/vscode090.png" width="768px" />
+<img src="images/vscode_macos_090.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Don't forget to compile!
@@ -415,31 +415,31 @@ $ g++ -g main.cpp -o main.exe  # Without a Makefile
 ### Step over
 Click "Step Over" a few times until you reach the highlighted line of code
 
-<img src="images/vscode100.png" width="768px" />
+<img src="images/vscode_macos_100.png" width="768px" />
 
 ### Inspect
 Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
-<img src="images/vscode110.png" width="768px" />
+<img src="images/vscode_macos_110.png" width="768px" />
 
 ### Step into
 Click "Step Into".  The cursor enters the `sum()` function.
 
-<img src="images/vscode115.png" width="768px" />
+<img src="images/vscode_macos_115.png" width="768px" />
 
-<img src="images/vscode120.png" width="768px" />
+<img src="images/vscode_macos_120.png" width="768px" />
 
 ### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
 
-<img src="images/vscode125.png" width="768px" />
+<img src="images/vscode_macos_125.png" width="768px" />
 
-<img src="images/vscode130.png" width="768px" />
+<img src="images/vscode_macos_130.png" width="768px" />
 
 ### Continue
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
-<img src="images/vscode135.png" width="768px" />
+<img src="images/vscode_macos_135.png" width="768px" />
 
 ## Troubleshooting
 This section is for common problems and solutions.
@@ -466,7 +466,7 @@ Then, return to the [Create a project](#create-a-project) section.
 ### Compile and run
 If you have trouble with the [compile and run](#compile-and-run) section, a good first step is to delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
 
-<img src="images/vscode160.png" width="768px" />
+<img src="images/vscode_macos_160.png" width="768px" />
 
 ### Intellisense C++ Standard
 Intellisense is the feature that indicates compiler errors with red squiggly lines and suggests code completions.  If the C++ standard is out-of-date, you'll see squiggles where you shouldn't.
@@ -475,7 +475,7 @@ First, you should already have the `C/C++` extension installed ([Instructions](#
 
 Next, open VS Code's Command Palette with `View > Command Palette` or with the keyboard shortcut `cmd + shift + P`.  Search for and select `C/C++: Edit Configurations (JSON)`.  This will open the file `c_cpp_properties.json`.
 
-<img src="images/vscode150.png" width="480px" />
+<img src="images/vscode_macos_150.png" width="480px" />
 
 Modify the `cStandard` and `cppStandard` settings in `c_cpp_properties.json`.  Don't change any other settings.  Save the file.
 ```json
@@ -502,8 +502,6 @@ There are multiple options for C/C++ extensions.
 
 [clangd](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd) provides intellisense and requires the `clangd` language server, which is related to the LLVM compiler.  We do not recommend installing the `clangd` extension with the Microsoft C/C++ extension because multiple intellisense providers can produce confusing results.
 
-[WSL](https://code.visualstudio.com/docs/remote/wsl) lets us develop with Linux-based utilities like the `g++` compiler.
-
 ### ASAN error shows assembly code
 When the Address Sanitizer detects an error, VSCode may stop in an assembly file that does not help you find where the error was caused. For example, consider the following code with a use-after-free error.
 
@@ -521,7 +519,7 @@ int main() {
 
 Running the debugger with the ASAN sanitizer will display a confusing assembly file.
 
-<img src="images/vscode036.png" width="768px" />
+<img src="images/vscode_macos_036.png" width="768px" />
 
 To disable this pop up, you can set the `lldb.showDisassembly` option to `never`.
 
@@ -529,11 +527,11 @@ First, open Settings on VSCode (Code > Settings > Settings).
 
 Next, search for "lldb: show disassembly" and set the option to `never`.
 
-<img src="images/vscode037.png" width="768px" />
+<img src="images/vscode_macos_037.png" width="768px" />
 
 Now, running the debugger will not display the assembly file. However, it will not yet highlight the erroneous line. To find the erroneous line, look through the Call Stack on the debugging panel and click on your source file.
 
-<img src="images/vscode038.png" width="768px" />
+<img src="images/vscode_macos_038.png" width="768px" />
 
 
 ## Acknowledgments

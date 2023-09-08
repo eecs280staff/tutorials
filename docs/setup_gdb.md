@@ -401,7 +401,7 @@ Some installations of `gdb` don't ship with pretty printing support for STL cont
 
 If you have this problem, you'll see something like this when you try to view the contents of a `vector` while debugging in GDB or VS Code (some VS Code configurations use GDB under the hood).
 
-<img src="images/vscode140.png" width="480px" />
+<img src="images/vscode_wsl_140.png" width="480px" />
 
 
 Install Subversion and Python.
