@@ -145,8 +145,8 @@ $ tree
 ├── p1-stats.vcxproj.filters
 ├── p1-stats.vcxproj.user
 ├── p1_library.cpp
-├── p1_library.h
-├── stats.h
+├── p1_library.hpp
+├── stats.hpp
 ├── stats_public_test.cpp
 └── stats_tests.cpp.starter
 ```

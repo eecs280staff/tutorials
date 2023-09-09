@@ -202,8 +202,8 @@ $ tree
 ├── main_test.out.correct
 ├── main_test_data.tsv
 ├── p1_library.cpp
-├── p1_library.h
-├── stats.h
+├── p1_library.hpp
+├── stats.hpp
 ├── stats_public_test.cpp
 └── stats_tests.cpp.starter
 ```

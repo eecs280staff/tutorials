@@ -149,8 +149,8 @@ $ tree
 ├── p1-stats.xcodeproj
 │   ├── ...
 ├── p1_library.cpp
-├── p1_library.h
-├── stats.h
+├── p1_library.hpp
+├── stats.hpp
 ├── stats_public_test.cpp
 └── stats_tests.cpp.starter
 ```
@@ -187,9 +187,9 @@ We need to avoid multiple `main()` functions by including the right files in our
 <img src="images/xcode130.png" width="768px" />
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** In future projects, you'll have to figure out which files to include in a build.  Never include `.h` files.
+**Pro-tip:** In future projects, you'll have to figure out which files to include in a build.  Never include header (`.h` or `.hpp`) files.
 
-**Method 1:** Include `myfile.cpp` each time you see `#include "myfile.h"`.
+**Method 1:** Include `myfile.cpp` each time you see `#include "myfile.hpp"`.
 
 **Method 2:** Include `.cpp` files used by your `Makefile`.  In this example, `main.cpp`, `stats.cpp`, and `p1_library.cpp`.
 ```console
