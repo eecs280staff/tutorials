@@ -268,7 +268,7 @@ $ g++ -g main.cpp -o main.exe
 ```
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
+<div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in WSL mode.
 
 <img src="images/vscode_wsl_069.png" width="768px">
@@ -339,7 +339,7 @@ $ make main.exe
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you encounter an error like the one below, it is likely that VS Code is in Windows mode rather than WSL. Follow the instructions in [compile and run](#compile-and-run) to reopen the folder in WSL mode.
+**Pitfall:** If you encounter an error like the one below, it is likely that VS Code is in Windows mode rather than WSL. Follow the instructions in [WSL Mode Pitfall](#pitfall-wsl-mode) to reopen the folder in WSL mode.
 
 <img src="images/vscode_wsl_170.png" width="600px" />
 </div>
