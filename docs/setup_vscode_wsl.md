@@ -268,7 +268,7 @@ $ g++ -g main.cpp -o main.exe
 ```
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
+<div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in WSL mode.
 
 <img src="images/vscode_wsl_069.png" width="768px">
@@ -336,6 +336,25 @@ $ make main.exe
 **Pitfall:** If you're having trouble running your program, delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
 
 <img src="images/vscode_wsl_160.png" width="768px" />
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you encounter an error like the one below, it is likely that VS Code is in Windows mode rather than WSL. Follow the instructions in [WSL Mode Pitfall](#pitfall-wsl-mode) to reopen the folder in WSL mode.
+
+<img src="images/vscode_wsl_170.png" width="600px" />
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you see output like the following in the terminal:
+
+<img src="images/vscode_wsl_180.png" width="600px" />
+
+And an error like this in the debug console:
+
+<img src="images/vscode_wsl_181.png" width="600px" />
+
+The likely cause is that you have WSL 1 rather than WSL 2. Follow the instructions in the [WSL tutorial](setup_wsl.html#install-wsl) to upgrade to WSL 2, install the [CLI tools](setup_wsl.html#install-cli-tools), and then restart this tutorial.
+
 </div>
 
 ### Sanitizers
