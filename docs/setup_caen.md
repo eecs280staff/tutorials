@@ -78,6 +78,14 @@ If you're still having trouble accessing your account, see the [CAEN Help Desk](
 ## Copy files with `rsync`
 Next, we will copy our source code to CAEN Linux using the `rsync` command line program.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
+```console
+$ ls
+main.cpp
+```
+</div>
+
 We don't want to copy any compiled binary files, so clean up first.
 ```console
 $ make clean
