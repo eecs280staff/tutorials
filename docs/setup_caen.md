@@ -27,7 +27,7 @@ You'll need a two factor authentication app set up on your mobile device.  Make 
 <img src="images/caen010.png" width="480px" />
 
 ## Install VPN
-To access CAEN Linux from off campus, you'll first need to be connect to the UM VPN Service.  Follow the ITS [instructions](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
+To access CAEN Linux from off campus, you'll first need to connect to the UM VPN Service.  Follow the ITS [instructions](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 
 ## Test log in
 Everyone who registers for an EECS class (like EECS 280) should receive a CAEN account automatically by the first day class.  If you register after the first day of class, you should get your account within 24 hours of registration.
@@ -66,7 +66,7 @@ Connection to login-course.engin.umich.edu closed.
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you see an error like this, request a home directory at the [IFS Storage Request page](https://ifsprovisioning.its.umich.edu/ifs_storage/request). It may take a few hours to take effect. If you already have a home directory one, you should see "You already have IFS Storage!".
+**Pitfall:** If you see an error like this, request a home directory at the [IFS Storage Request page](https://ifsprovisioning.its.umich.edu/ifs_storage/request). It may take a few hours to take effect. If you already have a home directory, you should see "You already have IFS Storage!".
 ```
 Could not chdir to home directory /home/awdeorio: No such file or directory
 ```
