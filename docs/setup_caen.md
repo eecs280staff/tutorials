@@ -13,6 +13,7 @@ This tutorial will show you how to copy source code from your Laptop to CAEN Lin
 <img src="images/caen005.excalidraw.png" width="768px" class="invert-colors-in-dark-mode" />
 
 ## Install
+Everyone who registers for an EECS class (like EECS 280) should receive a CAEN account automatically by the first day class.  If you register after the first day of class, you should get your account within 24 hours of registration.
 
 ### `ssh` and `rsync`
 Make sure you have `ssh` and `rsync` installed.  Your versions might be different.  They are install by default on macOS and Windows/WSL users may have already followed [these instructions](setup_wsl.html#install-cli-tools).
@@ -32,8 +33,6 @@ You'll need a two factor authentication app set up on your mobile device.  Make 
 To access CAEN Linux from off campus, you'll first need to connect to the UM VPN Service.  Follow the ITS [instructions](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 
 ### Test log in
-Everyone who registers for an EECS class (like EECS 280) should receive a CAEN account automatically by the first day class.  If you register after the first day of class, you should get your account within 24 hours of registration.
-
 Test an SSH connection.  Be sure to change `awdeorio` to your own uniqname.
 
 ```console
@@ -120,7 +119,7 @@ total size is 8818  speedup is 0.90
 </div>
 
 ## Login with `ssh`
-Now log in to CAEN Linux.  Your terminal is now a shell on a *different computer*. Don't forget to change `awdeorio` to your own uniqname.
+Now log in to CAEN Linux.  Your terminal is now a shell on a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.  Don't forget to change `awdeorio` to your own uniqname.
 ```console
 $ ssh awdeorio@login-course.engin.umich.edu
 $ hostname
@@ -131,7 +130,7 @@ caen-vnc-vm16.engin.umich.edu
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-Notice that the folder we copied is there on the CAEN Linux machine.
+Notice that the folder copied earlier.
 ```console
 $ ls
 p1-stats-copy
@@ -143,11 +142,11 @@ $ cd p1-stats-copy
 $ make clean
 ```
 
-Compile and run main, just like we did before using the shell on our local machine.
+Compile and run main.
 ```console
 $ make main.exe
 $ ./main.exe
-hello from main!
+Hello world!
 ```
 
 A good practice is to run a regression test on CAEN Linux.  In EECS 280, that's `make test`.  Your results on CAEN Linux should match the Autograder and your own computer.
@@ -155,20 +154,17 @@ A good practice is to run a regression test on CAEN Linux.  In EECS 280, that's 
 $ make test
 ```
 
-Log out.
+Log out.  Notice that after logging out, you are back to using a shell on your laptop.
 ```console
-$ hostname
-caen-vnc-vm16.engin.umich.edu
 $ exit
 $ hostname
 your-laptop-name
 ```
 
-
 ## Avoiding repeated 2FA
-CAEN requires two factor authentication (2FA) with every `rsync` copy or `ssh` login.  You can configure SSH to share one connection and only authenticate once.  This will work for both `ssh` and `rsync`.
+CAEN requires two factor authentication (2FA) with every `rsync` copy or `ssh` login.  Avoid repeated 2FA by configuring SSH to share a connection.
 
-Add some lines to the SSH config file, which lives in `~/.ssh/config`.  Alternatively, you can use a text editor to make the changes.
+Add some lines to the SSH config file, which lives in `~/.ssh/config`.
 ```console
 $ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPersist yes\n   ControlPath ~/.ssh/socket-%C\n  ServerAliveInterval 60\n  ServerAliveCountMax 5' >> ~/.ssh/config
 $ chmod 600 ~/.ssh/config
@@ -204,7 +200,7 @@ Success. Logging you in...
 $
 ```
 
-Open a second terminal and run an `rsync` command, which uses `ssh` and our new configuration.  Notice that no authentication is required.  Cool!
+Open a second terminal and run an `rsync` command, which uses the new configuration.  No authentication is required!
 ```console
 $ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
 building file list ... done
@@ -227,9 +223,7 @@ main.cpp
 
 
 ## Version control on CAEN Linux
-If you're working on EECS 280 Project 1, you can skip this section.
-
-We can also check out a copy of our committed code on CAEN Linux.
+An alternative to copying code to CAEN Linux is checking out a your code from GitHub.
 
 SSH to a CAEN Linux machine and see the copy we made earlier using `rsync`.
 ```console
