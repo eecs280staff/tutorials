@@ -16,7 +16,7 @@ This tutorial will show you how to copy source code from your Laptop to CAEN Lin
 Everyone who registers for an EECS class (like EECS 280) should receive a CAEN account automatically by the first day class.  If you register after the first day of class, you should get your account within 24 hours of registration.
 
 ### `ssh` and `rsync`
-Make sure you have `ssh` and `rsync` installed.  Your versions might be different.  They are install by default on macOS and Windows/WSL users may have already followed [these instructions](setup_wsl.html#install-cli-tools).
+Make sure you have `ssh` and `rsync` installed.  Your versions might be different.  They are installed by default on macOS and Windows/WSL users may have already followed [these instructions](setup_wsl.html#install-cli-tools).
 ```console
 $ ssh -V
 OpenSSH_7.4p1, LibreSSL 2.5.0
