@@ -36,11 +36,11 @@ To access CAEN Linux from off campus, you'll first need to connect to the UM VPN
 Test an SSH connection.  Be sure to change `awdeorio` to your own uniqname.
 
 ```console
-$ ssh -T awdeorio@login-course.engin.umich.edu
-The authenticity of host 'login-course.engin.umich.edu (141.213.74.65)' can't be established.
+$ ssh -T awdeorio@login.engin.umich.edu
+The authenticity of host 'login.engin.umich.edu (141.213.74.65)' can't be established.
 ECDSA key fingerprint is SHA256:LL0GPTtaVGa6gvv2kVpGq4ZULA1l5pw2wXC4dK3ymIk.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'login-course.engin.umich.edu,141.213.74.65' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'login.engin.umich.edu,141.213.74.65' (ECDSA) to the list of known hosts.
 Password: 
 Duo two-factor login for awdeorio
 
@@ -59,7 +59,7 @@ Success. Logging you in...
 Exit as soon as your test is successful.
 ```console
 $ exit
-Connection to login-course.engin.umich.edu closed.
+Connection to login.engin.umich.edu closed.
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -84,7 +84,7 @@ $ make clean
 
 Next, copy files using `rsync`.  Remember to change `awdeorio` to your username.
 ```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 building file list ... done
 created directory p1-stats-copy
 ./
@@ -111,7 +111,7 @@ total size is 8818  speedup is 0.90
 ## Login with `ssh`
 Now log in to CAEN Linux.  Your terminal is now a shell on a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.  Don't forget to change `awdeorio` to your own uniqname.
 ```console
-$ ssh awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login.engin.umich.edu
 $ hostname
 caen-vnc-vm16.engin.umich.edu
 ```
@@ -174,7 +174,7 @@ Host *
 
 SSH into CAEN Linux.
 ```console
-$ ssh awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login.engin.umich.edu
 Password:
 Duo two-factor login for awdeorio
 
@@ -192,7 +192,7 @@ $
 
 Open a second terminal and run an `rsync` command, which uses the new configuration.  No authentication is required!
 ```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 building file list ... done
 
 sent 273 bytes  received 20 bytes  586.00 bytes/sec
@@ -217,7 +217,7 @@ An alternative to copying code to CAEN Linux is checking out a your code from Gi
 
 SSH to a CAEN Linux machine and see the copy we made earlier using `rsync`.
 ```console
-$ ssh awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login.engin.umich.edu
 $ ls
 p1-stats-copy  # this is from our rsync'ed copy earlier
 ```
@@ -242,14 +242,14 @@ p1-stats p1-stats-copy
 ### Synchronizing deleted files
 Tell `rsync` to synchronize deleted files.  In other words, if it's gone on your laptop, delete it on CAEN.
 ```console
-$ rsync -rtv --delete --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --delete --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
 {: data-variant="no-line-numbers" }
 
 ### Don't synchronize Git-ignored files
 Tell `rsync` not to synchronize files ignored by Git.  You can also combine this option with `--delete`.
 ```console
-$ rsync -rtv --exclude '.git*' --filter=':- .gitignore' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' --filter=':- .gitignore' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
 {: data-variant="no-line-numbers" }
 
@@ -264,7 +264,7 @@ sync :
   --exclude '.git*' \
   --filter=':- .gitignore' \
   ../p1-stats/ \
-  awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+  awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
 
 Now you can type `make sync` as a short cut.
@@ -276,7 +276,7 @@ rsync \
   --exclude '.git*' \
   --filter=':- .gitignore' \
   ../p1-stats/ \
-  awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+  awdeorio@login.engin.umich.edu:p1-stats-copy/
 building file list ... done
 ./
 Makefile
