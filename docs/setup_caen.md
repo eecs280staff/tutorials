@@ -66,16 +66,6 @@ Connection to login-course.engin.umich.edu closed.
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you see an error like this, request a home directory at the [IFS Storage Request page](https://ifsprovisioning.its.umich.edu/ifs_storage/request). It may take a few hours to take effect. If you already have a home directory, you should see "You already have IFS Storage!".
-```
-Could not chdir to home directory /home/awdeorio: No such file or directory
-```
-
-If you're still having trouble accessing your account, see the [CAEN Help Desk](https://caen.engin.umich.edu/contact/).
-</div>
-
-
 ## Copy with `rsync`
 Next, we will copy our source code to CAEN Linux using the `rsync` command line program.
 
