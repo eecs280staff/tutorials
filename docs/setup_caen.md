@@ -25,7 +25,7 @@ rsync  version 2.6.9  protocol version 29
 ```
 
 ### Duo Mobile
-You'll need a two factor authentication app set up on your mobile device.  Make sure that you have the Duo Mobile app installed and configured according the [ITCS documentation](http://documentation.its.umich.edu/2fa/enroll-smartphone-or-tablet-duo).
+You should already have the Duo Mobile two factor authentication app installed and configured according the [ITS documentation](http://documentation.its.umich.edu/2fa/enroll-smartphone-or-tablet-duo).
 
 <img src="images/caen010.png" width="480px" />
 
