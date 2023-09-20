@@ -12,8 +12,11 @@ This tutorial will show you how to copy source code from your Laptop to CAEN Lin
 
 <img src="images/caen005.excalidraw.png" width="768px" class="invert-colors-in-dark-mode" />
 
-## Prerequisites
-You have installed `ssh` and `rsync`.  Your versions might be different.
+## Install
+Everyone who registers for an EECS class (like EECS 280) should receive a CAEN account automatically by the first day class.  If you register after the first day of class, you should get your account within 24 hours of registration.
+
+### `ssh` and `rsync`
+Make sure you have `ssh` and `rsync` installed.  Your versions might be different.  They are installed by default on macOS and Windows/WSL users may have already followed [these instructions](setup_wsl.html#install-cli-tools).
 ```console
 $ ssh -V
 OpenSSH_7.4p1, LibreSSL 2.5.0
@@ -21,25 +24,23 @@ $ rsync --version
 rsync  version 2.6.9  protocol version 29
 ```
 
-## Install Duo Mobile
-You'll need a two factor authentication app set up on your mobile device.  Make sure that you have the Duo Mobile app installed and configured according the [ITCS documentation](http://documentation.its.umich.edu/2fa/enroll-smartphone-or-tablet-duo).
+### Duo Mobile
+You should already have the Duo Mobile two factor authentication app installed and configured according the [ITS documentation](http://documentation.its.umich.edu/2fa/enroll-smartphone-or-tablet-duo).
 
 <img src="images/caen010.png" width="480px" />
 
-## Install VPN
+### VPN
 To access CAEN Linux from off campus, you'll first need to connect to the UM VPN Service.  Follow the ITS [instructions](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 
-## Test log in
-Everyone who registers for an EECS class (like EECS 280) should receive a CAEN account automatically by the first day class.  If you register after the first day of class, you should get your account within 24 hours of registration.
-
+### Test log in
 Test an SSH connection.  Be sure to change `awdeorio` to your own uniqname.
 
 ```console
-$ ssh -T awdeorio@login-course.engin.umich.edu
-The authenticity of host 'login-course.engin.umich.edu (141.213.74.65)' can't be established.
+$ ssh -T awdeorio@login.engin.umich.edu
+The authenticity of host 'login.engin.umich.edu (141.213.74.65)' can't be established.
 ECDSA key fingerprint is SHA256:LL0GPTtaVGa6gvv2kVpGq4ZULA1l5pw2wXC4dK3ymIk.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'login-course.engin.umich.edu,141.213.74.65' (ECDSA) to the list of known hosts.
+Warning: Permanently added 'login.engin.umich.edu,141.213.74.65' (ECDSA) to the list of known hosts.
 Password: 
 Duo two-factor login for awdeorio
 
@@ -58,40 +59,32 @@ Success. Logging you in...
 Exit as soon as your test is successful.
 ```console
 $ exit
-Connection to login-course.engin.umich.edu closed.
+Connection to login.engin.umich.edu closed.
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you see an error like this, request a home directory at the [IFS Storage Request page](https://ifsprovisioning.its.umich.edu/ifs_storage/request). It may take a few hours to take effect. If you already have a home directory, you should see "You already have IFS Storage!".
-```
-Could not chdir to home directory /home/awdeorio: No such file or directory
-```
-
-If you're still having trouble accessing your account, see the [CAEN Help Desk](https://caen.engin.umich.edu/contact/).
-</div>
-
-
-## Copy files with `rsync`
+## Copy with `rsync`
 Next, we will copy our source code to CAEN Linux using the `rsync` command line program.
 
-We don't want to copy any compiled binary files, so clean up first.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
+```console
+$ ls
+main.cpp
+```
+</div>
+
+Clean up first to avoid copying binary files.
 ```console
 $ make clean
-rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-removed 'main.exe'
-removed 'stats_tests.exe'
-removed 'stats_public_test.exe'
 ```
 
 Next, copy files using `rsync`.  Remember to change `awdeorio` to your username.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 building file list ... done
 created directory p1-stats-copy
 ./
@@ -111,21 +104,23 @@ sent 9557 bytes  received 268 bytes  19650.00 bytes/sec
 total size is 8818  speedup is 0.90
 ```
 
-## Connect with `ssh`
-Now connect to CAEN Linux.  We're going to get a shell on a remote computer.  Don't forget to change `awdeorio` to your own uniqname.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
+</div>
+
+## Login with `ssh`
+Now log in to CAEN Linux.  Your terminal is now a shell on a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.  Don't forget to change `awdeorio` to your own uniqname.
 ```console
-$ pwd                                  # folder on awdeorio's laptop
-/Users/awdeorio/src/eecs280/p1-stats
-$ hostname                             # name of awdeorio's laptop
-manzana.local
-$ ssh awdeorio@login-course.engin.umich.edu   # connect to CAEN
-$ pwd                                  # folder on CAEN computer
-/home/awdeorio
-$ hostname                             # name of a CAEN computer
+$ ssh awdeorio@login.engin.umich.edu
+$ hostname
 caen-vnc-vm16.engin.umich.edu
 ```
 
-Notice that the folder we copied is there on the CAEN Linux machine.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
+</div>
+
+Notice that the folder copied earlier.
 ```console
 $ ls
 p1-stats-copy
@@ -137,44 +132,35 @@ $ cd p1-stats-copy
 $ make clean
 ```
 
-Compile and run main, just like we did before using the shell on our local machine.
+Compile and run main.
 ```console
 $ make main.exe
 $ ./main.exe
-hello from main!
+Hello world!
 ```
 
-Run the regression test.  It fails on the assertion we added, just like it did on our local machine.
+A good practice is to run a regression test on CAEN Linux.  In EECS 280, that's `make test`.  Your results on CAEN Linux should match the Autograder and your own computer.
 ```console
 $ make test
-g++ -Wall -Werror -pedantic -g --std=c++17 main.cpp stats.cpp p1_library.cpp -o main.exe
-g++ -Wall -Werror -pedantic -g --std=c++17 stats_tests.cpp stats.cpp p1_library.cpp -o stats_tests.exe
-g++ -Wall -Werror -pedantic -g --std=c++17 stats_public_test.cpp stats.cpp p1_library.cpp -o stats_public_test.exe
-./stats_public_test.exe
-stats_public_test.exe: stats.cpp:12: int count(std::vector<double>): Assertion `false' failed.
-make: *** [test] Aborted
 ```
 
-Log out.
+Log out.  Notice that after logging out, you are back to using a shell on your laptop.
 ```console
-$ hostname
-caen-vnc-vm16.engin.umich.edu
 $ exit
 $ hostname
-manzana.local
+your-laptop-name
 ```
 
-
 ## Avoiding repeated 2FA
-You've noticed that each time we use `ssh` or `rsync`, CAEN requires us to re-authenticate with 2FA (two factor authentication, using our phone).  You can configure SSH to share one connection and only authenticate once.  Note that `rsync` uses SSH under the hood.
+CAEN requires two factor authentication (2FA) with every `rsync` copy or `ssh` login.  Avoid repeated 2FA by configuring SSH to share a connection.
 
-Add some lines to the SSH config file, which lives in `~/.ssh/config`.  Alternatively, you can use a text editor to make the changes.
+Add some lines to the SSH config file, which lives in `~/.ssh/config`.
 ```console
 $ echo -e '# SSH multiplexing\nHost *\n  ControlMaster auto\n  ControlPersist yes\n   ControlPath ~/.ssh/socket-%C\n  ServerAliveInterval 60\n  ServerAliveCountMax 5' >> ~/.ssh/config
 $ chmod 600 ~/.ssh/config
 ```
 
-Let's double-check and make sure you see this chunk in your `~/.ssh/config` file.
+Check your `~/.ssh/config` file.
 ```console
 $ cat ~/.ssh/config
 # SSH multiplexing
@@ -186,9 +172,9 @@ Host *
   ServerAliveCountMax 5
 ```
 
-SSH into CAEN Linux.  You'll need to use 2FA.
+SSH into CAEN Linux.
 ```console
-$ ssh awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login.engin.umich.edu
 Password:
 Duo two-factor login for awdeorio
 
@@ -204,25 +190,34 @@ Success. Logging you in...
 $
 ```
 
-Now, open a second terminal.  We're going to use SSH again, this time via `rsync`.  Notice that no authentication is required.  Cool!
+Open a second terminal and run an `rsync` command, which uses the new configuration.  No authentication is required!
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/p1-stats
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 building file list ... done
 
 sent 273 bytes  received 20 bytes  586.00 bytes/sec
 total size is 13015  speedup is 44.42
 ```
 
-## Version control on CAEN Linux
-If you're working on EECS 280 Project 1, you can skip this section.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in the directory containing your source code.
+```console
+$ ls
+main.cpp
+```
+</div>
 
-We can also check out a copy of our committed code on CAEN Linux.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
+</div>
+
+
+## Version control on CAEN Linux
+An alternative to copying code to CAEN Linux is checking out a your code from GitHub.
 
 SSH to a CAEN Linux machine and see the copy we made earlier using `rsync`.
 ```console
-$ ssh awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login.engin.umich.edu
 $ ls
 p1-stats-copy  # this is from our rsync'ed copy earlier
 ```
@@ -247,14 +242,14 @@ p1-stats p1-stats-copy
 ### Synchronizing deleted files
 Tell `rsync` to synchronize deleted files.  In other words, if it's gone on your laptop, delete it on CAEN.
 ```console
-$ rsync -rtv --delete --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --delete --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
 {: data-variant="no-line-numbers" }
 
 ### Don't synchronize Git-ignored files
 Tell `rsync` not to synchronize files ignored by Git.  You can also combine this option with `--delete`.
 ```console
-$ rsync -rtv --exclude '.git*' --filter=':- .gitignore' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' --filter=':- .gitignore' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
 {: data-variant="no-line-numbers" }
 
@@ -269,7 +264,7 @@ sync :
   --exclude '.git*' \
   --filter=':- .gitignore' \
   ../p1-stats/ \
-  awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+  awdeorio@login.engin.umich.edu:p1-stats-copy/
 ```
 
 Now you can type `make sync` as a short cut.
@@ -281,7 +276,7 @@ rsync \
   --exclude '.git*' \
   --filter=':- .gitignore' \
   ../p1-stats/ \
-  awdeorio@login-course.engin.umich.edu:p1-stats-copy/
+  awdeorio@login.engin.umich.edu:p1-stats-copy/
 building file list ... done
 ./
 Makefile
