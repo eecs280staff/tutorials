@@ -8,7 +8,7 @@ Setup Xcode (macOS)
 ===================
 {: .primer-spec-toc-ignore }
 
-[Xcode](https://developer.apple.com/xcode/) is a feature-rich integrated debugging environment (IDE) that runs on macOS.
+[Xcode](https://developer.apple.com/xcode/) is a feature-rich integrated development environment (IDE) that runs on macOS.
 
 <div class="primer-spec-callout info" markdown="1">
 If you already have Xcode installed, skip to the [Create a project](#create-a-project) section.

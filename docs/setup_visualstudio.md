@@ -8,7 +8,7 @@ Setting up Visual Studio
 ========================
 {: .primer-spec-toc-ignore }
 
-[Visual Studio](https://www.visualstudio.com/) is a feature-rich integrated debugging environment (IDE) that runs on Windows.
+[Visual Studio](https://www.visualstudio.com/) is a feature-rich integrated development environment (IDE) that runs on Windows.
 
 <div class="primer-spec-callout info" markdown="1">
 If you already have Visual Studio installed, skip to the [Create a project](#create-a-project) section.
