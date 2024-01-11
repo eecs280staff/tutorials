@@ -7,16 +7,16 @@ assignees: ''
 
 ---
 
-** What **
+**What**  
 A clear and concise description of the error.
 
-** Where **
+**Where**  
 Which tutorial and which section contain the error?  Include a link if possible.
 
-** Current language **
+**Current language**  
 Include a quote from the tutorial
 
 > EDIT ME sample quote
 
-** Proposed **
+**Proposed**  
 Any suggestions of how we should fix it?
