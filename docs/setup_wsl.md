@@ -71,6 +71,21 @@ Start an Ubuntu Bash shell.
 
 | <img src="images/wsl020.png" width="240px" /> | <img src="images/wsl030.png" width="480px" /> |
 
+The first time you open Ubuntu, you will be prompted to create a Linux username and password. Follow the prompts to create one.
+- Choose a username that is all lowercase characters (could be your uniqname).
+- While typing your password, the characters are not shown. This is fine.
+- You can press <kbd>Enter</kbd> to skip fields other than username and password (e.g. "room number").
+
+Double check that your user has been created.
+```console
+$ whoami
+awdeorio  // this should NOT say root
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you are signed in as [root](#root-user), something has gone wrong. We recommend that you [uninstall](https://www.minitool.com/news/uninstall-wsl.html) and [reinstall](#install-wsl) WSL to try again.
+</div>
+
 ## Install CLI tools
 Use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
 ```console
