@@ -76,6 +76,8 @@ The first time you open Ubuntu, you will be prompted to create a Linux username 
 - While typing your password, the characters are not shown. This is fine.
 - You can press <kbd>Enter</kbd> to skip fields other than username and password (e.g. "room number").
 
+<img src="images/wsl035.png" width=768px>
+
 Double check that your user has been created.
 ```console
 $ whoami
