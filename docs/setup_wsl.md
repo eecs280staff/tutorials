@@ -83,7 +83,7 @@ awdeorio  // this should NOT say root
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you are signed in as [root](#root-user), something has gone wrong. We recommend that you [uninstall](https://www.minitool.com/news/uninstall-wsl.html) and [reinstall](#install-wsl) WSL to try again.
+**Pitfall:** If you are signed in as [root](#root-user), something has gone wrong. We recommend that you [uninstall](https://www.makeuseof.com/uninstall-wsl-windows/) and [reinstall](#install-wsl) WSL to try again.
 </div>
 
 ## Install CLI tools
