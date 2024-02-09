@@ -92,10 +92,28 @@ $ whoami
 root  # SOMEthiNG IS WRONG
 ```
 
+We recommend you completely reinstall Ubuntu. (Note this will _delete all of the data associated with Ubuntu_. If you've just installed it, that's fine.)
+
+Open PowerShell and run it as administrator. Run the commands below. You'll be prompted to create a user account.
+
+```console
+PS C:\Users\awdeorio> wsl --unregister Ubuntu
+Unregistering.
+The operation completed successfully.
+
+PS C:\Users\awdeorio> wsl --install -d Ubuntu
+Ubuntu is already installed.
+Launching Ubuntu...
+Installing, this may take a few minutes...
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For more information visit: https://aka.ms/wslusers
+Enter a new UNIX username:
+```
+
 </div>
 
 ## Install CLI tools
-Use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
+From an Ubuntu terminal, use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
 ```console
 $ sudo apt update
 $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
