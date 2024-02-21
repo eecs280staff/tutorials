@@ -66,8 +66,7 @@ Now, the button in the bottom left should say "WSL: Ubuntu". For any C++ develop
 <img src="images/vscode_wsl_013.png" width="768px" />
 
 
-### C++ Extension
-
+### Microsoft C++ Extension
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're connected to WSL before installing the C++ Extension. Check the button in the bottom left.

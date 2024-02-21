@@ -51,11 +51,13 @@ Open VS Code. You can find it in your applications folder or, alternatively, you
 $ code
 ```
 
-### Extensions
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
+<img src="images/vscode_macos_001.png" width="768px" />
 
 
-Install the C++ Extension. Note that you need the "C/C++" extension. You do *not* need the "C/C++ Extension Pack".
+### Microsoft C++ Extension
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).  On macOS, this extension provides Intellisense.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
+
+Note that you need the "C/C++" extension. You do *not* need the "C/C++ Extension Pack".
 
 1. Open the extensions panel from the left sidebar.
 2. Search for C++.
@@ -63,7 +65,8 @@ Install the C++ Extension. Note that you need the "C/C++" extension. You do *not
 
 <img src="images/vscode_macos_001.png" width="768px" />
 
-Install the CodeLLDB Extension.
+### CodeLLDB Extension
+Install the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  On macOS, this extension provides debugging support.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
 
 1. Open the extensions panel from the left sidebar.
 2. Search for CodeLLDB.
@@ -71,10 +74,11 @@ Install the CodeLLDB Extension.
 
 <img src="images/vscode_macos_002.png" width="768px" />
 
-Clear out the search bar in the extensions panel. Verify that the extensions are installed. It's OK if you have other extensions installed. 
+Clear out the search bar in the extensions panel. You should see:
+- C/C++
+- CodeLLDB
 
 <img src="images/vscode_macos_003.png" width="768px" />
-
 
 
 ## Create a project
