@@ -46,13 +46,10 @@ Use the homebrew package manager to install VS Code.  You can run this command f
 $ brew install --cask visual-studio-code
 ```
 
-Open VS Code. You can find it in your applications folder or, alternatively, you can run it using the command line.
+Open VS Code. You can find it in your applications (look for "Visual Studio Code") or, alternatively, you can run it using the command line.
 ```console
 $ code
 ```
-
-<img src="images/vscode_macos_001.png" width="768px" />
-
 
 ### Microsoft C++ Extension
 Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).  On macOS, this extension provides Intellisense.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
@@ -74,7 +71,7 @@ Install the [CodeLLDB extension](https://marketplace.visualstudio.com/items?item
 
 <img src="images/vscode_macos_002.png" width="768px" />
 
-Clear out the search bar in the extensions panel. You should see:
+Clear out the search bar in the extensions panel. Under the "Installed" section, you should see:
 - C/C++
 - CodeLLDB
 
