@@ -46,21 +46,37 @@ Use the homebrew package manager to install VS Code.  You can run this command f
 $ brew install --cask visual-studio-code
 ```
 
-### Extensions
-Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) and the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about why we recommend these extensions.
+Open VS Code. You can find it in your applications (look for "Visual Studio Code") or, alternatively, you can run it using the command line.
 ```console
-$ code --install-extension ms-vscode.cpptools
-$ code --install-extension vadimcn.vscode-lldb
+$ code
 ```
 
-Restart VS Code.
+### Microsoft C++ Extension
+Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).  On macOS, this extension provides Intellisense.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
 
-Verify that the extensions are installed.  It's OK if you have other extensions installed.
-```console
-$ code --list-extensions
-ms-vscode.cpptools
-vadimcn.vscode-lldb
-```
+Note that you need the "C/C++" extension. You do *not* need the "C/C++ Extension Pack".
+
+1. Open the extensions panel from the left sidebar.
+2. Search for C++.
+3. Click "Install".
+
+<img src="images/vscode_macos_001.png" width="768px" />
+
+### CodeLLDB Extension
+Install the [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb).  On macOS, this extension provides debugging support.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
+
+1. Open the extensions panel from the left sidebar.
+2. Search for CodeLLDB.
+3. Click "Install".
+
+<img src="images/vscode_macos_002.png" width="768px" />
+
+Clear out the search bar in the extensions panel. Under the "Installed" section, you should see:
+- C/C++
+- CodeLLDB
+
+<img src="images/vscode_macos_003.png" width="768px" />
+
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
