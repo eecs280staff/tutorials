@@ -17,7 +17,9 @@ If you're interested, here is more information about the [Address Sanitizer](htt
 To enable the address sanitizer, add these compiler flags to add to your `Makefile`.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Note:** If you enable sanitizers in your `Makefile` and change nothing else in your code, you will need to do a `make clean` to recompile with the sanitizers on.
+**Pitfall:** If you enable sanitizers in your `Makefile` and change nothing else in your code, you will need to do a `make clean` to recompile with the sanitizers on.
+```console
+$ make clean
 </div>
 
 **WSL or Linux:** Add compiler flags `-fsanitize=address`, `-fsanitize=undefined`, and `-D_GLIBCXX_DEBUG`.  For example:
