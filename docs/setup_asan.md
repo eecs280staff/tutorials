@@ -32,6 +32,12 @@ CXXFLAGS = --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=
 
 **Xcode:** Enable the address sanitizer and undefined behavior sanitizer with this ([tutorial](setup_xcode.html#sanitizers)).
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you enable sanitizers in your `Makefile` and change nothing else in your code, you will need to do a `make clean` to recompile with the sanitizers on.
+```console
+$ make clean
+```
+</div>
 
 ## Example without Address Sanitizer
 Let's do an example without an address sanitizer.  We'll make a mistake on purpose in `asan.cpp`, going off the end of a `vector`.
