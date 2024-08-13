@@ -231,7 +231,7 @@ Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.
 
 ### Forgot Password
 
-If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution".
+If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution:".
 
 ### Manual Installation
 If you are running an older version of Windows 10 and unable to update to build 19041 or higher, you may be able to perform a [manual installation](https://learn.microsoft.com/en-us/windows/wsl/install-manual). Use this only as a last resort option.
