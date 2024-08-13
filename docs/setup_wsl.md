@@ -27,7 +27,7 @@ Start PowerShell and run it as administrator.  Search for PowerShell in the star
 
 PowerShell is a command-line interface for Windows. Its command prompt ends with a `>` (e.g. `C:\WINDOWS\system32>`). To follow the steps below, type the commands that appear after the `>` and hit enter.
 
-Check if is already installed by running the command `wsl -l -v`. If you see a list like below, WSL is already installed.
+Check if WSL is already installed by running the command `wsl -l -v`. If you see a list like below, WSL is already installed.
 ```console
 C:\WINDOWS\system32> wsl -l -v
   NAME      STATE       VERSION
