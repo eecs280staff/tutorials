@@ -27,7 +27,7 @@ Start PowerShell and run it as administrator.  Search for PowerShell in the star
 
 PowerShell is a command-line interface for Windows. Its command prompt ends with a `>` (e.g. `C:\WINDOWS\system32>`). To follow the steps below, type the commands that appear after the `>` and hit enter.
 
-Check if WSL was already installed by running the command `wsl -l -v`. If you see this, WSL is already installed.
+Check if is already installed by running the command `wsl -l -v`. If you see a list like below, WSL is already installed.
 ```console
 C:\WINDOWS\system32> wsl -l -v
   NAME      STATE       VERSION
@@ -35,7 +35,9 @@ C:\WINDOWS\system32> wsl -l -v
 ```
 {: data-highlight="3"}
 
-If you see the WSL help text, WSL is not installed.
+If the `VERSION` is 1, you must [upgrade to WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
+
+Otherwise, WSL is not installed and you'll see help text similar to the following. (This is expected for most students.)
 ```console
 C:\WINDOWS\system32> wsl -l -v
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -54,7 +56,7 @@ C:\WINDOWS\system32> wsl --install
 
 Restart your computer.
 
-Start PowerShell as administrator, and check that the  `VERSION` is 2.
+Start PowerShell as administrator, and check that WSL Ubuntu is now installed with version 2.
 
 ```console
 C:\WINDOWS\system32> wsl -l -v
@@ -63,16 +65,14 @@ C:\WINDOWS\system32> wsl -l -v
 ```
 {: data-highlight="3"}
 
-If the `VERSION` is 1, you must [upgrade to WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
-
 ## Setup Ubuntu
 From the previous section, you have installed WSL and an Ubuntu Linux distribution. You'll do most C++ development in Ubuntu rather than Windows. Let's get it set up.
 
-Start an Ubuntu Bash shell. Bash is a command-line interface for Linux. (This is NOT the same as PowerShell.) Search for "Ubuntu" or "bash" in the start menu.
+Start an Ubuntu Bash shell. Bash is a command-line interface for Linux. Search for "Ubuntu" or "bash" in the start menu.
 
 <img src="images/wsl020.png" width="240px" /> | <img src="images/wsl030.png" width="480px" />
 
-The bash prompt ends with a `$`. To follow the steps below, enter commands that appear after the prompt into bash and hit enter.
+The bash command prompt ends with a `$`. To follow the steps below, type commands that appear after the `$` and hit enter.
 
 ### First time: create account
 The first time you open Ubuntu, you will be prompted to create a Linux username and password. Follow the prompts to create one.
@@ -96,6 +96,8 @@ $ whoami
 root  # SOMEthiNG IS WRONG
 ```
 
+This can happen, for example, if you accidentally closed the terminal window before creating a user account.
+
 We recommend you completely reinstall Ubuntu. (Note this will _delete all of the data associated with Ubuntu_. If you've just installed it, that's fine.)
 
 Open PowerShell and run it as administrator. Run the commands below. You'll be prompted to create a user account.
@@ -117,7 +119,7 @@ Enter a new UNIX username:
 </div>
 
 ### Install CLI tools
-From an Ubuntu terminal, use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
+From an Ubuntu bash terminal, use the `apt` package manager to install a few command line programs.
 ```console
 $ sudo apt update
 $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
@@ -155,6 +157,8 @@ We highly recommend you store all coding work for EECS 280 projects and labs her
 
 </div>
 
+#### Access via File Explorer
+
 Even though the files are stored in the Linux filesystem, you can still access them from the Windows file explorer. Run `explorer.exe .` to open an explorer window in bash's current directory (Note the extra `.` at the end, which means "current directory".)
 
 ```console
@@ -168,6 +172,8 @@ You can also open a bash terminal in the current directory of your file explorer
 <img src="images/wsl037.png" width=768px>
 
 <img src="images/wsl038.png" width=768px>
+
+This will open a new bash terminal in the same directory as the file explorer.
 
 ### CLI Tutorial
 Now would be a great time to take a look at our [CLI Tutorial](cli.html).
