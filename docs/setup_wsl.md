@@ -10,53 +10,24 @@ Windows Command line tools (WSL)
 
 The Windows Subsystem for Linux (WSL) runs an Ubuntu Linux guest virtual machine on your Windows host machine.
 
-When you see `$` in this tutorial, you should type into your shell the command that comes after the `$`.
-
 ## Upgrade Windows
 We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will also work.  Here's how to [check your Windows version](https://support.microsoft.com/en-us/help/4027391/windows-10-see-which-version-you-have).
 
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure Windows Update is enabled and your machine is up-to-date. Search for "Windows Update" in the start menu.
+</div>
+
 ## Install WSL
-Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".  (Note: these instructions are based on the [instructions from Microsoft](https://docs.microsoft.com/en-us/windows/wsl/install).)
+Start PowerShell and run it as administrator.  Search for PowerShell in the start menu, then right-click and select "Run as administrator".
 
 <img src="images/wsl010.png" width="240px" />
 
-Check if WSL was already installed.  If you see this, WSL is already installed.
-```console
-C:\WINDOWS\system32> wsl -l -v
-  NAME      STATE       VERSION
-* Ubuntu    Stopped     2
-```
-{: data-highlight="3"}
+PowerShell is a command-line interface for Windows. Its command prompt ends with a `>` (e.g. `C:\WINDOWS\system32>`). To follow the steps below, type the commands that appear after the `>` and hit enter.
 
-If you see the WSL help text, WSL is not installed.
-```console
-C:\WINDOWS\system32> wsl -l -v
-Copyright (c) Microsoft Corporation. All rights reserved.
-Usage: wsl.exe [Argument]
-...
-```
-
-Install WSL.
-```console
-C:\WINDOWS\system32> wsl --install
-```
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure Windows Update is enabled and your machine is up-to-date.  Settings > Update and Security > Windows Update.
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you still get an error from `wsl --install`, try the [Manual installation steps](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
-
-For the Linux distribution, choose the latest version of Ubuntu LTS.  At the time of this writing, that's Ubuntu 22.04 LTS.
-</div>
-
-Restart your computer.
-
-Start PowerShell as administrator, and check that the  `VERSION` is 2.
-
+Check if WSL is already installed by running the command `wsl -l -v`. If you see a list like below, WSL is already installed.
 ```console
 C:\WINDOWS\system32> wsl -l -v
   NAME      STATE       VERSION
@@ -66,10 +37,42 @@ C:\WINDOWS\system32> wsl -l -v
 
 If the `VERSION` is 1, you must [upgrade to WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
 
-## Open terminal
-Start an Ubuntu Bash shell.
+Otherwise, WSL is not installed and you'll see help text similar to the following. (This is expected for most students.)
+```console
+C:\WINDOWS\system32> wsl -l -v
+Copyright (c) Microsoft Corporation. All rights reserved.
+Usage: wsl.exe [Argument]
+...
+```
 
-| <img src="images/wsl020.png" width="240px" /> | <img src="images/wsl030.png" width="480px" /> |
+Install WSL by running the command `wsl --install`.
+```console
+C:\WINDOWS\system32> wsl --install
+```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you get an error from `wsl --install`, see the [Troubleshooting](#troubleshooting) section below.
+</div>
+
+Restart your computer.
+
+Start PowerShell as administrator, and check that WSL Ubuntu is now installed with version 2.
+
+```console
+C:\WINDOWS\system32> wsl -l -v
+  NAME      STATE       VERSION
+* Ubuntu    Stopped     2
+```
+{: data-highlight="3"}
+
+## Setup Ubuntu
+From the previous section, you have installed WSL and an Ubuntu Linux distribution. You'll do most C++ development in Ubuntu rather than Windows. Let's get it set up.
+
+Start an Ubuntu Bash shell. Bash is a command-line interface for Linux. Search for "Ubuntu" or "bash" in the start menu.
+
+<img src="images/wsl020.png" width="240px" /> | <img src="images/wsl030.png" width="480px" />
+
+The bash command prompt ends with a `$`. To follow the steps below, type commands that appear after the `$` and hit enter.
 
 ### First time: create account
 The first time you open Ubuntu, you will be prompted to create a Linux username and password. Follow the prompts to create one.
@@ -93,16 +96,18 @@ $ whoami
 root  # SOMEthiNG IS WRONG
 ```
 
+This can happen, for example, if you accidentally closed the terminal window before creating a user account.
+
 We recommend you completely reinstall Ubuntu. (Note this will _delete all of the data associated with Ubuntu_. If you've just installed it, that's fine.)
 
 Open PowerShell and run it as administrator. Run the commands below. You'll be prompted to create a user account.
 
 ```console
-PS C:\Users\awdeorio> wsl --unregister Ubuntu
+C:\WINDOWS\system32> wsl --unregister Ubuntu
 Unregistering.
 The operation completed successfully.
 
-PS C:\Users\awdeorio> wsl --install -d Ubuntu
+C:\WINDOWS\system32> wsl --install -d Ubuntu
 Ubuntu is already installed.
 Launching Ubuntu...
 Installing, this may take a few minutes...
@@ -113,42 +118,74 @@ Enter a new UNIX username:
 
 </div>
 
-## Install CLI tools
-From an Ubuntu terminal, use the `apt` package manager to install a few command line programs.  Linux users will run this same command.
+### Install CLI tools
+From an Ubuntu bash terminal, use the `apt` package manager to install a few command line programs.
 ```console
 $ sudo apt update
 $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ```
 {: data-variant="no-line-numbers" }
 
-## Use CLI tools
-Now would be a great time to take a look at our [CLI Tutorial](cli.html).
+### Home Directory
+You'll generally want to store your coding projects in the Linux filesystem, which is separate from your Windows filesystem.
 
-## Pro-tips
+Open an Ubuntu bash terminal and run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location.
 
-### Accessing Linux files from Windows
-To access Linux files from the Windows File Explorer, click the Linux icon.  You may need to scroll down.
+```console
+$ cd ~
+$ pwd
+/home/jjuett
+```
 
-Navigate to your home directory: Linux > Ubuntu > home > awdeorio.  Your username will be different.
+Create an EECS 280 folder by running `mkdir eecs280`. Running `ls` afterward confirms the folder has been created.
 
-<img src="images/wsl080.png" width=768px>
+```console
+$ mkdir ~/eecs280
+$ ls
+eecs280
+```
 
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:**  Right click your Linux home directory and choose "Pin to Quick access". 
+We highly recommend you store all coding work for EECS 280 projects and labs here.
 
-It should now show up under "Quick access" in the left sidebar.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Avoid file or folder names that contain spaces. Spaces cause problems with some command line tools.
 
-| <img src="images/wsl090.png" width=512px> | <img src="images/wsl100.png" width=512px> |
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 
-To open the File Explorer in any directory at the WSL (Ubuntu) Terminal:
+#### Access via File Explorer
+
+Even though the files are stored in the Linux filesystem, you can still access them from the Windows file explorer. Run `explorer.exe .` to open an explorer window in bash's current directory (Note the extra `.` at the end, which means "current directory".)
+
 ```console
 $ explorer.exe .
 ```
 
+Right-click on the `eecs280` folder and select "Pin to Quick Access". This adds a shortcut to the left sidebar, which is useful for e.g. finding and submitting your files to the autograder via a web browser.
+
+You can also open a bash terminal in the current directory of your file explorer. Click the blank area to the right of where the directory path is shown. Then, type "bash" (replacing the text already there) and hit enter.
+
+<img src="images/wsl037.png" width=768px>
+
+<img src="images/wsl038.png" width=768px>
+
+This will open a new bash terminal in the same directory as the file explorer.
+
+### CLI Tutorial
+Now would be a great time to take a look at our [CLI Tutorial](cli.html).
+
+## Pro-tips
+
+
+
 ### Accessing Windows files from Linux
 To access Windows files from Linux, navigate to `/mnt/c/`.
+
+```console
 
 For example, here's how to access your Windows Desktop.  Your username will be different.
 ```console
@@ -161,99 +198,43 @@ $ ls
 $ cd Desktop
 ```
 
-### CLI open file
-Opens a file or directory with the default application, like a double click.  See the [`wslview` command](cli.html#open--wslview) in the CLI tutorial.
+### Copy/Paste in Terminal
+Copy/Paste functionality in your bash terminal may be enabled by default with the usual <kbd>ctrl</kbd> + <kbd>c</kbd> and <kbd>ctrl</kbd> + <kbd>v</kbd> keyboard shortcuts.
 
-### Copy paste
-Copy: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
+Or, try <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd> and <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>.
 
-Paste: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
+If these do not work, right click on the terminal window header. If you see option for "Settings", go to "Settings" -> "Actions" and add your desired keybindings for copy/paste. If you see an option for "Properties", go to "Properties" -> "Options" and ensure "Use Ctrl+Shift+C/V as Copy/Paste" box is checked.
 
-If Copy/Paste doesn't work, read on to enable it.
+## Troubleshooting
 
-#### Enable copy paste
-{: .primer-spec-toc-ignore }
+### Enable Virtualization
 
-These instructions show how to enable WSL Copy/Paste on Windows 11 H2 or newer.
+WSL2 requires virtualization support. Follow the steps below to ensure it is enabled.
 
-Right click on the window pane header of your Ubuntu WSL terminal. Click on the Settings option in the drop down menu.
+**Step 1**  
+Launch the task manager by pressing <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>esc</kbd>. Click on the "Performance" tab.
 
-<img src="images/wsl050.png" width=480px>
+<img src="images/wsl110.png" width=768px>
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If your dropdown contains the option "Properties" follow the instructions for [Older versions of windows](#enable-copy-paste-on-older-windows).
-<img src="images/wsl040.png" width=480px>
+If you see "Virtualization: Enabled", proceed to step 2. If you don't see "Virtualization" at all, your computer may not support WSL. (This should only be the case for very old machines.)
 
-</div>
+If you see "Virtualization: Disabled", you need to enable virtualization in BIOS settings. The method for doing this varies depending on your computer's manufacturer, but instructions are generally available online, e.g. [here](https://www.tomshardware.com/reviews/bios-keys-to-access-your-firmware,5732.html). Once you have restarted into BIOS, navigate the options with your keyboard to find and enable virtualization. Save your changes and restart your computer.
 
-Click on the Actions tab on the left side of the settings window.
+**Step 2**  
+Once virtualization is enabled, ensure the "Virtual Machine Platform" feature is enabled in Windows. Search for "Turn Windows features on or off" in the start menu. Scroll down and ensure that "Virtual Machine Platform" is checked. If it is not, check the box and click "OK". You may be asked to restart your computer.
 
-<img src="images/wsl060.png" width=512px>
+Attempt to install WSL again, following the instructions at the top of this guide.
 
-Confirm that the "Copy text" and "Paste text" bindings exist.  You may need to scroll down.  Add them if needed using the "Add new" button.
-- Copy text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd>
-- Paste text: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>
+### Microsoft Troubleshooting
 
-<img src="images/wsl070.png" width=512px>
+Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues) for WSL installation. If you're getting a specific error code/message, you may be able to match it with a resolution here.
 
-#### Enable copy paste on older Windows
-{: .primer-spec-toc-ignore }
+### Forgot Password
 
-These instructions show how to enable WSL Copy/Paste on version of Windows older than 11 H2.
+If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution:".
 
-Click on the properties option in the dropdown.
-
-<img src="https://defragged.org/wp-content/uploads/2020/10/Defragged-LinuxSubsytem-Properties.png" width=480px>
-
-Enable "Use Ctrl+Shift+C/V Copy/Paste" option in the Console "Options" properties page 
-
-<img src="https://devblogs.microsoft.com/wp-content/uploads/sites/33/2019/04/copy-paste.png" width=480px>
-
-
-## Pitfalls
-
-### Spaces in paths
-Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
-
-| Bad Example     | Good Example   |
-|-----------------|----------------|
-| `EECS 280/` | `eecs280/` |
-| `Project 1 Stats/` | `p1-stats/` |
-
-### Project folder in Windows home directory
-Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns because WSL uses a network file share to communicate the files between Windows and Linux.
-
-| Bad Example     | Good Example   |
-|-----------------|----------------|
-| `/c/mnt/Users/awdeorio ...` | `/home/awdeorio ...` |
-
-Here's how to [access your Linux files from Windows](#accessing-linux-files-from-windows).
-
-### Root user
-Avoid doing everyday coding as the `root` user in WSL.  Some programs don't work correctly when run as `root`.  When you first installed Ubuntu, you should have been prompted to create a Linux username and password.
-
-<table>
-  <tr>
-  <td markdown="1">
-
-**Bad example:** If the default is a root login, here's how to [change your linux username and password](https://docs.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password).  For the same reasons, avoid using `su` or `su root`.
-```console
-$ whoami
-root
-```
-
-  </td>
-  <td markdown="1">
-
-**Good example:** When you start a Bash shell (not a Windows PowerShell), you should have a non-root username.
-```console
-$ whoami
-awdeorio
-```
-
-  </td>
-  </tr>
-</table>
+### Manual Installation
+If you are running an older version of Windows 10 and unable to update to build 19041 or higher, you may be able to perform a [manual installation](https://learn.microsoft.com/en-us/windows/wsl/install-manual). Use this only as a last resort option.
 
 
 ## Acknowledgments
