@@ -140,7 +140,7 @@ $ pwd
 Create an EECS 280 folder by running `mkdir eecs280`. Running `ls` afterward confirms the folder has been created.
 
 ```console
-$ mkdir eecs280
+$ mkdir ~/eecs280
 $ ls
 eecs280
 ```
