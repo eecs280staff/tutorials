@@ -34,10 +34,8 @@ Success. Logging you in...
 
 You have some source code you want to check.  Our example contains a long line.
 ```c++
-int main() {
 #include <iostream>
 using namespace std;
-
 
 int main() {
   // primer-spec-highlight-start
