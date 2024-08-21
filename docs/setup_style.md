@@ -81,7 +81,7 @@ OCLint Report
 
 Summary: TotalFiles=1 FilesWithViolations=1 P1=0 P2=0 P3=1
 
-/home/jjuett/temp/test.cpp:6:1: long line [size|P3] Line with 104 characters exceeds limit of 90
+/home/awdeorio/test.cpp:6:1: long line [size|P3] Line with 104 characters exceeds limit of 90
 
 [OCLint (https://oclint.org) v22.02]
 
