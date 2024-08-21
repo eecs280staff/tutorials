@@ -63,7 +63,6 @@ $ hostname
 caen-vnc-vm16.engin.umich.edu
 $ module load oclint
 $ oclint \
-    -no-analytics \
     -rule=LongLine \
     -rule=HighNcssMethod \
     -rule=DeepNestedBlock \
@@ -82,9 +81,9 @@ OCLint Report
 
 Summary: TotalFiles=1 FilesWithViolations=1 P1=0 P2=0 P3=1
 
-/home/awdeorio/test.cpp:6:1: long line [size|P3] Line with 104 characters exceeds limit of 90
+/home/jjuett/temp/test.cpp:6:1: long line [size|P3] Line with 104 characters exceeds limit of 90
 
-[OCLint (http://oclint.org) v0.13]
+[OCLint (https://oclint.org) v22.02]
 
 oclint: error: violations exceed threshold
 P1=0[0] P2=0[0] P3=1[0]
