@@ -37,6 +37,8 @@ C:\WINDOWS\system32> wsl -l -v
 
 If the `VERSION` is 1, you must [upgrade to WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
 
+If you already have a distribution (e.g. Ubuntu) with `VERSION` 2, skip to [Install CLI Tools](#install-cli-tools) below.
+
 Otherwise, WSL is not installed and you'll see help text similar to the following. (This is expected for most students.)
 ```console
 C:\WINDOWS\system32> wsl -l -v
@@ -45,7 +47,7 @@ Usage: wsl.exe [Argument]
 ...
 ```
 
-Install WSL.  We recommend the most recent Ubuntu LTS version from the [Microsoft App Store](https://apps.microsoft.com/search?query=ubuntu+lts).
+Install WSL.  We recommend the most recent Ubuntu LTS version from the [Microsoft App Store](https://apps.microsoft.com/search?query=ubuntu+lts), currently Ubuntu 24.04.
 ```console
 C:\WINDOWS\system32> wsl --install -d Ubuntu-24.04
 ```
