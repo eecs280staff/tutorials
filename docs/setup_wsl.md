@@ -37,7 +37,7 @@ C:\WINDOWS\system32> wsl -l -v
 
 If the `VERSION` is 1, you must [upgrade to WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
 
-If you already have a distribution (e.g. Ubuntu) with `VERSION` 2, skip to [Install CLI Tools](#install-cli-tools) below.
+If you already have a distribution (e.g. Ubuntu) with `VERSION` 2, skip to [Setup Ubuntu](#setup-ubuntu) below.
 
 Otherwise, WSL is not installed and you'll see help text similar to the following. (This is expected for most students.)
 ```console
