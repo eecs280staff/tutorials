@@ -49,7 +49,7 @@ Usage: wsl.exe [Argument]
 
 Install WSL.  We recommend the most recent Ubuntu LTS version from the [Microsoft App Store](https://apps.microsoft.com/search?query=ubuntu+lts), currently Ubuntu 24.04.
 ```console
-C:\WINDOWS\system32> wsl --install -d Ubuntu-24.04
+C:\WINDOWS\system32> wsl --install Ubuntu-24.04
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
