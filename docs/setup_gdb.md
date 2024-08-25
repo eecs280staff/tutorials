@@ -92,17 +92,6 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-### Input redirection
-If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
-
-Run with input redirection.  Make sure to add the name of your input file (`main_test.in` in this example).
-```
-$ gdb main.exe
-...
-(gdb) r < main_test.in
-...
-```
-
 ### Arguments and options
 Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
 ```console
@@ -120,6 +109,17 @@ $ gdb main.exe
 (gdb) r train_small.csv test_small.csv --debug
 ```
 {: data-highlight="2" }
+
+### Input redirection
+If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
+
+Run with input redirection.  Make sure to add the name of your input file (`main_test.in` in this example).
+```
+$ gdb main.exe
+...
+(gdb) r < main_test.in
+...
+```
 
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.

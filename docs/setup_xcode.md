@@ -229,9 +229,32 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 
 <img src="images/xcode170.png" width="768px" />
 
-### Input redirection
+### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
+
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
+```console
+$ ./main.exe train_small.csv test_small.csv --debug
+```
+{: data-variant="no-line-numbers" data-highlight="1" }
+
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
+
+Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
+
+| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
+
+Add each option or argument separately.
+
+<img src="images/xcode259.png" width="576px" />
+
+### Input redirection
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection for EECS 280 project 1.
 </div>
 
 If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
@@ -261,29 +284,6 @@ int main() {
 ```
 
 To stop input redirection, comment or delete these lines.
-
-### Arguments and options
-<div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.
-</div>
-
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
-```console
-$ ./main.exe train_small.csv test_small.csv --debug
-```
-{: data-variant="no-line-numbers" data-highlight="1" }
-
-- `main.exe` is the name of the program
-- `train_small.csv` and `test_small.csv` are arguments
-- `--debug` is an option
-
-Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
-
-| <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
-
-Add each option or argument separately.
-
-<img src="images/xcode259.png" width="576px" />
 
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
