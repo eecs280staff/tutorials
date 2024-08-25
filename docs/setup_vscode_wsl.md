@@ -378,7 +378,7 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 4:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```

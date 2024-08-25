@@ -92,7 +92,7 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
 ### Arguments and options
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 4:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
