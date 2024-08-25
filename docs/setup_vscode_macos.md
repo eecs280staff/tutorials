@@ -175,14 +175,14 @@ $ tree
 └── two_sample.cpp.starter
 ```
 
-You should see your new files appear in VS Code.
+You should see your new files appear in VS Code. Your specific files may not match the image below.
 
 <img src="images/vscode_macos_026.png" width="768px" />
 
 #### Rename files
-If you need to rename any files, you can do this from VS Code or from the command line.  In EECS 280, you'll need to rename any files that end in `.starter`.
+If you need to rename any files, you can do this in VS Code by right clicking a file and selecting "rename".
 
-Right click a file and select "rename".  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
+In EECS 280, you'll do this to any file that ends in `.starter`.
 
 | <img src="images/vscode_macos_027.png" height="512px" /> | <img src="images/vscode_macos_028.png" height="512px" /> |
 

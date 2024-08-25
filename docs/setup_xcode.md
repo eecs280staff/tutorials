@@ -161,7 +161,7 @@ Right-click `p1-stats` in the sidebar.  Select "Add Files".
 
 <img src="images/xcode080.png" width="256px" />
 
-Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>).  Do *not* select "Copy items if needed".  Click "Add".
+Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>). Your specific files may not match the image below. Do *not* select "Copy items if needed". Do *not* select any targets. Click "Add".
 
 <img src="images/xcode100.png" width="384px" />
 

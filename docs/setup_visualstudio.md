@@ -155,7 +155,7 @@ Right-click "Source Files", then select "Add" > "Existing Item".
 
 <img src="images/visualstudio105.png" width="768px" />
  
-Navigate to your project directory.  Select your files by holding <kbd>Control</kbd> and clicking each one.  Do *not* select any `.sln` or `.vcxproj` files.  Click "Add".
+Navigate to your project directory.  Select your files by holding <kbd>Control</kbd> and clicking each one.  Your specific files may not match the image below. Do *not* select any `.sln` or `.vcxproj` files.  Click "Add". 
 
 <img src="images/visualstudio106.png" width="512px" />
 
