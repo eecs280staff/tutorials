@@ -136,10 +136,9 @@ You should see your new files in the `src` subdirectory.
 $ tree
 .
 ├── Makefile
+├── cats.csv
+├── cats.out.correct
 ├── main.cpp
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
 ├── p1-stats.sln
 ├── p1-stats.vcxproj
 ├── p1-stats.vcxproj.filters
@@ -147,8 +146,9 @@ $ tree
 ├── p1_library.cpp
 ├── p1_library.hpp
 ├── stats.hpp
-├── stats_public_test.cpp
-└── stats_tests.cpp.starter
+├── stats_public_tests.cpp
+├── stats_tests.cpp.starter
+└── two_sample.cpp.starter
 ```
 
 Right-click "Source Files", then select "Add" > "Existing Item".

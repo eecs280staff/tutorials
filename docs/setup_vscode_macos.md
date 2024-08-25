@@ -164,15 +164,15 @@ You should see your new files in your project directory.
 $ tree
 .
 ├── Makefile
+├── cats.csv
+├── cats.out.correct
 ├── main.cpp
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
 ├── p1_library.cpp
 ├── p1_library.hpp
 ├── stats.hpp
-├── stats_public_test.cpp
-└── stats_tests.cpp.starter
+├── stats_public_tests.cpp
+├── stats_tests.cpp.starter
+└── two_sample.cpp.starter
 ```
 
 You should see your new files appear in VS Code.
