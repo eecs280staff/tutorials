@@ -227,6 +227,9 @@ Once virtualization is enabled, ensure the "Virtual Machine Platform" feature is
 
 Attempt to install WSL again, following the instructions at the top of this guide.
 
+### Enable Windows Subsystem for Linux
+If you're running commands like `wsl -l -v` or `wsl --install Ubuntu-24.04`, but it just prints out a generic help message, you may need to enable the Windows Subsystem for Linux feature. Search for "Turn Windows features on or off" in the start menu. Scroll down and ensure that "Windows Subsystem for Linux" is checked. If it is not, check the box and click "OK". You may be asked to restart your computer.
+
 ### Microsoft Troubleshooting
 
 Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues) for WSL installation. If you're getting a specific error code/message, you may be able to match it with a resolution here.
