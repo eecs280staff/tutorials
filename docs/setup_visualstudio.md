@@ -136,10 +136,9 @@ You should see your new files in the `src` subdirectory.
 $ tree
 .
 ├── Makefile
+├── cats.csv
+├── cats.out.correct
 ├── main.cpp
-├── main_test.in
-├── main_test.out.correct
-├── main_test_data.tsv
 ├── p1-stats.sln
 ├── p1-stats.vcxproj
 ├── p1-stats.vcxproj.filters
@@ -147,15 +146,16 @@ $ tree
 ├── p1_library.cpp
 ├── p1_library.hpp
 ├── stats.hpp
-├── stats_public_test.cpp
-└── stats_tests.cpp.starter
+├── stats_public_tests.cpp
+├── stats_tests.cpp.starter
+└── two_sample.cpp.starter
 ```
 
 Right-click "Source Files", then select "Add" > "Existing Item".
 
 <img src="images/visualstudio105.png" width="768px" />
  
-Navigate to your project directory.  Select your files by holding <kbd>Control</kbd> and clicking each one.  Do *not* select any `.sln` or `.vcxproj` files.  Click "Add".
+Navigate to your project directory.  Select your files by holding <kbd>Control</kbd> and clicking each one.  Your specific files may not match the image below. Do *not* select any `.sln` or `.vcxproj` files.  Click "Add". 
 
 <img src="images/visualstudio106.png" width="512px" />
 
@@ -209,9 +209,32 @@ Visual Studio provides an address sanitizer with bounds checking automatically w
 
 </div>
 
-### Input redirection
+### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection your first time through the tutorial.  You can come back to it.
+</div>
+
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 4:
+```console
+$ ./main.exe train_small.csv test_small.csv --debug
+```
+{: data-variant="no-line-numbers" data-highlight="1" }
+
+- `main.exe` is the name of the program
+- `train_small.csv` and `test_small.csv` are arguments
+- `--debug` is an option
+
+Right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
+
+<img src="images/visualstudio148.png" width="320px" />
+
+Edit "Command Arguments" and click "OK".
+
+<img src="images/visualstudio149.png" width="768px" />
+
+### Input redirection
+<div class="primer-spec-callout info" markdown="1">
+Skip this subsection for EECS 280 project 1.
 </div>
 
 If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
@@ -233,30 +256,6 @@ Edit "Command Arguments" and click "OK".
 
 Set a breakpoint on the last line of `main` to keep the output window open.
 </div>
-
-
-### Arguments and options
-<div class="primer-spec-callout info" markdown="1">
-Skip this subsection for EECS 280 project 1.
-</div>
-
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
-```console
-$ ./main.exe train_small.csv test_small.csv --debug
-```
-{: data-variant="no-line-numbers" data-highlight="1" }
-
-- `main.exe` is the name of the program
-- `train_small.csv` and `test_small.csv` are arguments
-- `--debug` is an option
-
-Right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
-
-<img src="images/visualstudio148.png" width="320px" />
-
-Edit "Command Arguments" and click "OK".
-
-<img src="images/visualstudio149.png" width="768px" />
 
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.

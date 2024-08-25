@@ -91,20 +91,8 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-### Input redirection
-If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
-
-Run with input redirection.  Make sure to add the name of your input file (`main_test.in` in this example).
-```
-$ lldb main.exe
-...
-(lldb) settings set target.input-path main_test.in
-(lldb) r
-...
-```
-
 ### Arguments and options
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 5:
+Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 4:
 ```console
 $ ./main.exe train_small.csv test_small.csv --debug
 ```
@@ -120,6 +108,18 @@ $ lldb main.exe
 (lldb) r train_small.csv test_small.csv --debug
 ```
 {: data-highlight="2" }
+
+### Input redirection
+If you're unfamiliar with input redirection, first read the CLI tutorial section on [input redirection](cli.html#input-redirection-).
+
+Run with input redirection.  Make sure to add the name of your input file (`main_test.in` in this example).
+```
+$ lldb main.exe
+...
+(lldb) settings set target.input-path main_test.in
+(lldb) r
+...
+```
 
 ## Debug
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
