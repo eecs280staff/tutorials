@@ -210,6 +210,10 @@ Visual Studio provides an address sanitizer with bounds checking automatically w
 </div>
 
 ### Command-Line Arguments
+
+<!-- Preserve links to old section heading "Arguments and Options" -->
+<a id="arguments-and-options"></a>
+
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>

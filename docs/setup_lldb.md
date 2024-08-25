@@ -92,6 +92,10 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
 ### Command-Line Arguments
+
+<!-- Preserve links to old section heading "Arguments and Options" -->
+<a id="arguments-and-options"></a>
+
 Inputs to a program may be provided when it is initailly run via command-line arguments. Here's an example from EECS 280 Project 1:
 
 ```console

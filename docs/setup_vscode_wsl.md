@@ -374,6 +374,10 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
 {: data-highlight="3-4" }
 
 ### Command-Line Arguments
+
+<!-- Preserve links to old section heading "Arguments and Options" -->
+<a id="arguments-and-options"></a>
+
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
