@@ -229,20 +229,21 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 
 <img src="images/xcode170.png" width="768px" />
 
-### Arguments and options
+### Command-Line Arguments
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 4:
-```console
-$ ./main.exe train_small.csv test_small.csv --debug
-```
-{: data-variant="no-line-numbers" data-highlight="1" }
+Inputs to a program may be provided when it is initailly run via command-line arguments. Here's an example from EECS 280 Project 1:
 
-- `main.exe` is the name of the program
-- `train_small.csv` and `test_small.csv` are arguments
-- `--debug` is an option
+```console
+$ ./two_sample.exe HCMST_ver_3.04.tsv q24_met_online 1 0 ppage
+```
+
+- `./two_sample.exe` is used to run the program
+- Each of `HCMST_ver_3.04.tsv`, `q24_met_online`, `1`, `0`, `ppage` are passed to it as arguments
+
+The arguments above specify the name of a data file, coulumns, and filter values for the program to use.
 
 Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme > Edit Scheme.
 

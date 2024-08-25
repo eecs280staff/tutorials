@@ -91,21 +91,22 @@ We recommend enabling the address sanitizer and undefined behavior sanitizer. Th
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
 
-### Arguments and options
-Arguments and options are inputs to a program typed at the command line.  Here's an example from EECS 280 Project 4:
-```console
-$ ./main.exe train_small.csv test_small.csv --debug
-```
-{: data-variant="no-line-numbers" data-highlight="1" }
+### Command-Line Arguments
+Inputs to a program may be provided when it is initailly run via command-line arguments. Here's an example from EECS 280 Project 1:
 
-- `main.exe` is the name of the program
-- `train_small.csv` and `test_small.csv` are arguments
-- `--debug` is an option
+```console
+$ ./two_sample.exe HCMST_ver_3.04.tsv q24_met_online 1 0 ppage
+```
+
+- `./two_sample.exe` is used to run the program
+- Each of `HCMST_ver_3.04.tsv`, `q24_met_online`, `1`, `0`, `ppage` are passed to it as arguments
+
+The arguments above specify the name of a data file, coulumns, and filter values for the program to use.
 
 To run a program with options or arguments in LLDB, include them after `r`.
 ```console
 $ lldb main.exe
-(lldb) r train_small.csv test_small.csv --debug
+(lldb) r HCMST_ver_3.04.tsv q24_met_online 1 0 ppage
 ```
 {: data-highlight="2" }
 
