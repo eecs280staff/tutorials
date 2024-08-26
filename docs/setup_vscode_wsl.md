@@ -27,7 +27,7 @@ Make sure you have a compiler and a debugger [installed](setup_wsl.html#install-
 
 ```console
 $ g++ --version
-g++ (GCC) 8.5.0 20210514
+g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
 $ gdb --version
 GNU gdb (GDB)
 ```
