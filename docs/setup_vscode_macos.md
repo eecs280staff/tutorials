@@ -19,6 +19,8 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 ## Prerequisites
 VS Code relies on external command line tools.  To install CLI tools, follow the [macOS command line tools tutorial](setup_macos.html).
 
+Review our [Command line interface (CLI)](cli.html) tutorial.
+
 Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos.html#install-cli-tools).
 ```console
 $ g++ --version
@@ -26,12 +28,6 @@ Apple clang version 13.1.6 (clang-1316.0.21.2.5)
 $ lldb --version
 Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 ```
-
-Next, follow our [Command line interface (CLI)](cli.html) tutorial.
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you have installed [CLI tools for macOS](setup_macos.html#install-cli-tools) before continuing.
-</div>
 
 ## Install
 Make sure you have macOS 11.1 or later.
@@ -83,14 +79,14 @@ To create a VS Code project, create a folder (directory).  There are many ways t
 
 Open the Terminal ([Terminal on macOS](cli.html#open-terminal-macos)).
 
-Navigate to your home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
+Create a new folder for your project.
 
 ```console
-$ mkdir ~/eecs280
-$ cd ~/eecs280
-$ mkdir p1-stats
-$ cd p1-stats
+$ mkdir -p ~/eecs280/p1-stats
+$ cd ~/eecs280/p1-stats
 ```
+
+This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
@@ -101,58 +97,32 @@ $ cd p1-stats
 | `Project 1 Stats/` | `p1-stats/` |
 
 </div>
-  
-Start VS Code and open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
 
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.  First make sure you're in the directory that contains your source code.
+Now, verify you're in the project directory with `pwd` and launch VS code with `code .`:
 ```console
-$ ls
-main.cpp ...
+$ pwd
+/home/awdeorio/eecs280/p1-stats
 $ code .
 ```
-</div>
+
+The `.` in `code .` means "current working directory". It would also be fine to use an absolute path, for example, `code ~/eecs280/p1-stats`.
+
+You can also open your project folder through the VS Code interface. Go to `File` > `Open Folder...`, then find your project folder.
+
+You should see your project open in VS Code.
 
 <img src="images/vscode_macos_020.png" width="768px" />
 
-### Add new files
-Open your project folder by selecting `File` > `Open Folder...` > navigate to the `p1-stats` folder.
-
-Select the add file icon and give it a name, e.g., `main.cpp`.
-
-<img src="images/vscode_macos_023.png" width="768px" />
-
-Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
-
-```console
-$ touch main.cpp
-```
-
-Copy-paste this Hello World program into your `main.cpp`.  Save the updated file.
-
-```c++
-#include <iostream>
-using namespace std;
-
-int main() {
-  cout << "Hello World!\n";
-}
-```
-{: data-title="main.cpp" }
+Finally, open the integrated terminal within VS Code. Go to `Terminal` > `New Terminal`. The integrated terminal will automatically use your project directory as its working directory, and using it is easier than switching back and forth to your separate terminal window.
 
 ### Add existing files
-If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+If you have starter files, add them to your project directory.  We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example, downloading an archive of starter files from the provided URL.
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
-```console
-$ ls
-main.cpp
-```
-</div>
+We'll run several commands to get the starter file (see below). First, verify you're in the correct project directory (`pwd`). Use the terminal to download (`wget`), unpack (`tar -xvzf`), and move (`mv`) the starter files into our project directory. Finally, clean up the downloaded archive (`rm`). Your URL or folder might be different.
 
-We'll use the terminal to download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
 ```console
+$ pwd
+/Users/awdeorio/eecs280/p1-stats
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
@@ -193,49 +163,48 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
 </div>
 
+### Add new files
+We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example.
+
+Select the add file icon and give it a name, for example, `stats.cpp`.
+
+<img src="images/vscode_macos_023.png" width="768px" />
+
+Alternatively, create your `stats.cpp` file from the command line using [`touch`](cli.html#touch). 
+
+```console
+$ touch stats.cpp
+```
+
 ## Compile and Run
-VS Code uses an executable you build at the command line.
+VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project.
 
-First, compile and run your executable at the command line.
+Identify your desired compilation target, for example, `stats_public_tests.exe` from EECS 280 project 1. (Note that this may not compile/run successfully if you haven't started the project yet.) Compile with:
+
 ```console
-$ touch stats.cpp  # Needed for EECS 280 P1
-$ make main.exe
-$ ./main.exe
-Hello World!
+$ make stats_public_tests.exe
+```
+
+And run with:
+
+```console
+$ ./stats_public_tests.exe
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
+**Pitfall:** If something doesn't seem to be working, you can always check your current directory with `pwd` or `ls` to verify your terminal is in the correct place with the correct files.
 ```console
+$ pwd
+/Users/awdeorio/eecs280/p1-stats
 $ ls
-main.cpp ...
-```
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you're in EECS 280 and get an error like this, [add a new file](#add-new-files) `stats.cpp`.  It's OK if the file is empty for now.
-```console
-$ make main.exe
-make: *** No rule to make target `stats.cpp', needed by `main.exe'.  Stop.
-```
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
-```console
-$ make main.exe
-g++ ... -g main.cpp ...
-```
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-If you don't have a `Makefile`, you can compile manually.  We don't recommend this for EECS 280 students.
-```console
-$ g++ -g main.cpp -o main.exe
+Makefile  cats.out.correct  p1_library.hpp  stats.hpp               stats_tests.cpp
+cats.csv  p1_library.cpp    stats.cpp       stats_public_tests.cpp  two_sample.cpp
 ```
 </div>
 
 ### Create `launch.json`
+
+Running and debugging code through VS Code requires a `launch.json` configuration file. The examples below assume a source file `main.cpp` compiled to `main.exe`. Your filenames may be different.
 
 Select the file you would like to run.  Navigate to the debugging pane.
 
@@ -252,18 +221,6 @@ Select LLDB.
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
 <img src="images/vscode_macos_034b.png" width="768px" />
-
-### Edit `launch.json` program
-
-If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceFolder}"`.
-```json
-{
-    "program": "${workspaceFolder}/main.exe",
-    ...
-    "cwd": "${workspaceFolder}",
-}
-```
-{: data-highlight="2,4" }
 
 
 ### Run
@@ -285,7 +242,23 @@ $ make main.exe
 <img src="images/vscode_macos_160.png" width="768px" />
 </div>
 
-### Sanitizers
+### Configure Debugger
+
+Depending on your program, its inputs, and how you want to debug it, you'll need to adjust `launch.json`.
+
+#### Edit `launch.json` program
+
+If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceFolder}"`.
+```json
+{
+    "program": "${workspaceFolder}/main.exe",
+    ...
+    "cwd": "${workspaceFolder}",
+}
+```
+{: data-highlight="2,4" }
+
+#### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
@@ -303,7 +276,7 @@ Open Settings on VSCode (Code > Settings > Settings). Search for "lldb: show dis
 
 <img src="images/vscode_macos_037.png" width="768px" />
 
-### Arguments and options
+#### Arguments and options
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
@@ -333,7 +306,7 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
 ```
 {: data-title="launch.json" data-highlight="6" }
 
-### Input redirection
+#### Input redirection
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection for EECS 280 project 1.
 </div>
@@ -369,7 +342,7 @@ To configure input redirection, edit `launch.json` ([docs](https://github.com/va
 
 </div>
 
-## Debug
+### Run Debugger
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
 <img src="images/vscode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
@@ -384,10 +357,24 @@ Run the program until it returns from the current function (or until the next br
 <img src="images/vscode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
 Run the program until the next breakpoint.
 
-### Example code
+#### Example code
 
-To get started, copy this example `main.cpp` into your editor.
+The examples below presume you have the sample `main.cpp` and `Makefile` files below.
+
+Download them from your terminal with:
+
+```console
+$ pwd
+/home/awdeorio/eecs280/p1-stats
+$ wget -nc https://eecs280staff.github.io/tutorials/main.cpp
+$ wget -nc https://eecs280staff.github.io/tutorials/Makefile
+```
+
+These commands will not overwrite existing files. If you already have a Makefile for your project and it doesn't have a target for `main.exe`, copy the `main.exe` target below into it.
+
 ```c++
+// Sample main.cpp for EECS 280 Setup Tutorials
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -410,12 +397,32 @@ int main() {
 ```
 {: data-title="main.cpp" }
 
-### Breakpoint
+```make
+# Sample makefile for EECS 280 Setup Tutorials
+
+CXX ?= g++
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
+
+# Compile the main executable
+main.exe: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
+
+
+# Remove automatically generated files
+clean :
+	rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+
+# Disable built-in rules
+.SUFFIXES:
+```
+{: data-title="Makefile" }
+
+#### Set Breakpoints
 Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/vscode_macos_080.png" width="768px" />
 
-### Run
+#### Run
 Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
 <img src="images/vscode_macos_090.png" width="768px" />
@@ -428,31 +435,39 @@ $ g++ -g main.cpp -o main.exe  # Without a Makefile
 ```
 </div>
 
-### Step over
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check your compilation command or the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+```console
+$ make main.exe
+g++ ... -g main.cpp ...
+```
+</div>
+
+#### Step over
 Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/vscode_macos_100.png" width="768px" />
 
-### Inspect
+#### Inspect
 Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
 <img src="images/vscode_macos_110.png" width="768px" />
 
-### Step into
+#### Step into
 Click "Step Into".  The cursor enters the `sum()` function.
 
 <img src="images/vscode_macos_115.png" width="768px" />
 
 <img src="images/vscode_macos_120.png" width="768px" />
 
-### Step out
+#### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
 
 <img src="images/vscode_macos_125.png" width="768px" />
 
 <img src="images/vscode_macos_130.png" width="768px" />
 
-### Continue
+#### Continue
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
 <img src="images/vscode_macos_135.png" width="768px" />
