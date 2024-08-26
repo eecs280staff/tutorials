@@ -16,6 +16,35 @@ Open the Terminal application which comes with macOS.
 
 <img src="images/macos010.png" width="480px" />
 
+## Home Directory
+Run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
+
+```console
+$ cd ~
+$ pwd
+/Users/jjuett
+```
+
+Create an EECS 280 folder by running `mkdir eecs280`. Running `ls` afterward confirms the folder has been created.
+
+```console
+$ mkdir ~/eecs280
+$ ls
+eecs280
+```
+
+We highly recommend you store all coding work for EECS 280 projects and labs here.
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Avoid file or folder names that contain spaces. Spaces cause problems with some command line tools.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
+
+</div>
+
 ## Install compiler
 Install a compiler.
 ```console

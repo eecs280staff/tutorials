@@ -131,7 +131,7 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ### Home Directory
 You'll generally want to store your coding projects in the Linux filesystem, which is separate from your Windows filesystem.
 
-Open an Ubuntu bash terminal and run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location.
+Open an Ubuntu bash terminal and run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
 
 ```console
 $ cd ~
