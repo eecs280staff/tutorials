@@ -202,6 +202,10 @@ cats.csv  p1_library.cpp    stats.cpp       stats_public_tests.cpp  two_sample.c
 ```
 </div>
 
+## Debug
+
+You can also run your compiled executable through the VS Code visual debugger to diagnose runtime errors, inspect the state of your program at a breakpoint, or step line-by-line through your code.
+
 ### Create `launch.json`
 
 Running and debugging code through VS Code requires a `launch.json` configuration file. The examples below assume a source file `main.cpp` compiled to `main.exe`. Your filenames may be different.
@@ -494,8 +498,8 @@ $ rm -rf ~/Library/Application\ Support/Code
 
 Then, return to the [Create a project](#create-a-project) section.
 
-### Compile and run
-If you have trouble with the [compile and run](#compile-and-run) section, a good first step is to delete your `launch.json` and try the [compile and run](#compile-and-run) section again.
+### Debug
+If you have trouble with the [Debug](#debug) section, a good first step is to delete your `launch.json` and try the [Debug](#debug) section again.
 
 <img src="images/vscode_macos_160.png" width="768px" />
 
