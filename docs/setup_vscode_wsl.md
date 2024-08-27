@@ -373,7 +373,7 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
 ```
 {: data-highlight="3-4" }
 
-### Command-Line Arguments
+### Command-Line Arguments and Options
 
 <!-- Preserve links to old section heading "Arguments and Options" -->
 <a id="arguments-and-options"></a>
@@ -382,7 +382,7 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
 Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Inputs to a program may be provided when it is initially run via command-line arguments. Here's an example from EECS 280 Project 1:
+Inputs to a program may be provided when it is initially run via command-line arguments or options. Here's an example from EECS 280 Project 1:
 
 ```console
 $ ./two_sample.exe HCMST_ver_3.04.tsv q24_met_online 1 0 ppage
