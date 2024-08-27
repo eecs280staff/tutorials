@@ -49,7 +49,7 @@ Usage: wsl.exe [Argument]
 
 Install WSL.  We recommend the most recent Ubuntu LTS version from the [Microsoft App Store](https://apps.microsoft.com/search?query=ubuntu+lts), currently Ubuntu 24.04.
 ```console
-C:\WINDOWS\system32> wsl --install Ubuntu-24.04
+C:\WINDOWS\system32> wsl --install -d Ubuntu-24.04
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -226,6 +226,9 @@ If you see "Virtualization: Disabled", you need to enable virtualization in BIOS
 Once virtualization is enabled, ensure the "Virtual Machine Platform" feature is enabled in Windows. Search for "Turn Windows features on or off" in the start menu. Scroll down and ensure that "Virtual Machine Platform" is checked. If it is not, check the box and click "OK". You may be asked to restart your computer.
 
 Attempt to install WSL again, following the instructions at the top of this guide.
+
+### Enable Windows Subsystem for Linux
+If you're running commands like `wsl -l -v` or `wsl --install -d Ubuntu-24.04`, but it just prints out a generic help message, you may need to enable the Windows Subsystem for Linux feature. Search for "Turn Windows features on or off" in the start menu. Scroll down and ensure that "Windows Subsystem for Linux" is checked. If it is not, check the box and click "OK". You may be asked to restart your computer.
 
 ### Microsoft Troubleshooting
 
