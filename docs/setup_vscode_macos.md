@@ -118,7 +118,7 @@ Finally, open the integrated terminal within VS Code. Go to `Terminal` > `New Te
 ### Add existing files
 If you have starter files, add them to your project directory.  We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example, downloading an archive of starter files from the provided URL.
 
-We'll run several commands to get the starter file (see below). First, verify you're in the correct project directory (`pwd`). Use the terminal to download (`wget`), unpack (`tar -xvzf`), and move (`mv`) the starter files into our project directory. Finally, clean up the downloaded archive (`rm`). Your URL or folder might be different.
+We'll run several commands to get the starter file (see below). We recommend using the integrated terminal in VS Code. First, verify you're in the correct project directory (`pwd`). Use the terminal to download (`wget`), unpack (`tar -xvzf`), and move (`mv`) the starter files into our project directory. Finally, clean up the downloaded archive (`rm`). Your URL or folder might be different.
 
 ```console
 $ pwd
@@ -179,7 +179,9 @@ $ touch stats.cpp
 ## Compile and Run
 VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project.
 
-Identify your desired compilation target, for example, `stats_public_tests.exe` from EECS 280 project 1. (Note that this may not compile/run successfully if you haven't started the project yet.) Compile with:
+Identify your desired compilation target, for example, `stats_public_tests.exe` from EECS 280 project 1. (Note that this may not compile/run successfully if you haven't started the project yet.)
+
+Compile with:
 
 ```console
 $ make stats_public_tests.exe
