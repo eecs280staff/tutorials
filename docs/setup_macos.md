@@ -9,7 +9,7 @@ macOS command line tools
 
 macOS comes with a Terminal and can run UNIX command-line tools directly.
 
-When you see `$` in this tutorial, you should type into your shell the command that comes after the `$`.
+The macOS terminal command prompt ends with a `$`. To follow the steps below, type commands that appear after the `$` and hit enter.
 
 ## Open terminal
 Open the Terminal application which comes with macOS.
@@ -51,7 +51,7 @@ Close your terminal and reopen your terminal.
 Check your install.  Your version might be different.
 ```console
 $ brew --version
-Homebrew 3.6.14
+Homebrew 4.3.18
 ```
 
 ## Install CLI tools
@@ -69,12 +69,13 @@ $ pwd
 /Users/jjuett
 ```
 
-Create an EECS 280 folder by running `mkdir eecs280`. Running `ls` afterward confirms the folder has been created.
+Create an EECS 280 folder by running `mkdir ~/eecs280`. Running `ls` afterward confirms the folder has been created.
 
 ```console
 $ mkdir ~/eecs280
 $ ls
-eecs280
+Desktop		Downloads	Movies		Pictures	eecs280
+Documents	Library		Music		Public
 ```
 
 We highly recommend you store all coding work for EECS 280 projects and labs here.
