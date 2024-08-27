@@ -346,7 +346,7 @@ To configure input redirection, edit `launch.json` ([docs](https://github.com/va
 
 </div>
 
-### Run Debugger
+### Step Through Code
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
 <img src="images/vscode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**

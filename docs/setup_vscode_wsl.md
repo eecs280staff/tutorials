@@ -420,7 +420,7 @@ To configure input redirection, edit `launch.json`.  These changes are for the M
 
 
 
-### Run Debugger
+### Step Through Code
 
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
