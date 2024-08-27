@@ -285,7 +285,7 @@ Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Y
 <img src="images/vscode_wsl_034.png" width="768px" />
 
 
-### Run
+### Launch Debugger
 Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
 
 <img src="images/vscode_wsl_035.png" width="768px" />

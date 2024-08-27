@@ -227,7 +227,7 @@ Edit the `program` field in `launch.json`.  Save the updated file.  Your `progra
 <img src="images/vscode_macos_034b.png" width="768px" />
 
 
-### Run
+### Launch Debugger
 
 Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
 
