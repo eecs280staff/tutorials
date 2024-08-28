@@ -133,7 +133,11 @@ The `.` in `code .` means "current working directory". It would also be fine to 
 
 You should see your project open in VS Code, with "WSL: Ubuntu-24.04" in the lower left corner.
 
+### Integrated Terminal
+
 Finally, open the **integrated terminal** within VS Code. Go to `Terminal` > `New Terminal` (or press <kbd>ctrl</kbd> + <kbd>`</kbd>). The integrated terminal will automatically use your project directory as its working directory, and using it is easier than switching back and forth to your separate terminal window.
+
+<img src="images/vscode_wsl_017.png" width="768px">
 
 <div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in WSL mode. Double check that the lower left corner says "WSL: Ubuntu-24.04".
