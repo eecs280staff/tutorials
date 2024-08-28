@@ -101,7 +101,7 @@ This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` fold
 Now, verify you're in the project directory with `pwd` and launch VS code with `code .`:
 ```console
 $ pwd
-/home/awdeorio/eecs280/p1-stats
+/Users/awdeorio/eecs280/p1-stats
 $ code .
 ```
 
@@ -372,7 +372,7 @@ Download them from your terminal with:
 
 ```console
 $ pwd
-/home/awdeorio/eecs280/p1-stats
+/Users/awdeorio/eecs280/p1-stats
 $ wget -nc https://eecs280staff.github.io/tutorials/main.cpp
 $ wget -nc https://eecs280staff.github.io/tutorials/Makefile
 ```
