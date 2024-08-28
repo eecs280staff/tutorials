@@ -113,7 +113,7 @@ You should see your project open in VS Code.
 
 <img src="images/vscode_macos_020.png" width="768px" />
 
-Finally, open the integrated terminal within VS Code. Go to `Terminal` > `New Terminal`. The integrated terminal will automatically use your project directory as its working directory, and using it is easier than switching back and forth to your separate terminal window.
+Finally, open the **integrated terminal** within VS Code. Go to `Terminal` > `New Terminal` (or press <kbd>ctrl</kbd> + <kbd>`</kbd>). The integrated terminal will automatically use your project directory as its working directory, and using it is easier than switching back and forth to your separate terminal window.
 
 ### Add existing files
 If you have starter files, add them to your project directory.  We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example, downloading an archive of starter files from the provided URL.
