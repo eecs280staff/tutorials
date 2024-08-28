@@ -17,17 +17,17 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 </div>
 
 ## Prerequisites
-VS Code relies on external command line tools.  To install CLI tools, follow the [macOS command line tools tutorial](setup_macos.html).
+1. VS Code relies on external command line tools.  To install CLI tools, follow the [macOS command line tools tutorial](setup_macos.html).
 
-Review our [Command line interface (CLI)](cli.html) tutorial.
+2. Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos.html#install-cli-tools).
+    ```console
+    $ g++ --version
+    Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+    $ lldb --version
+    Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+    ```
 
-Make sure you have a compiler and a debugger installed.  Your version might be different.  Instructions for installation on [macOS](setup_macos.html#install-cli-tools).
-```console
-$ g++ --version
-Apple clang version 13.1.6 (clang-1316.0.21.2.5)
-$ lldb --version
-Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
-```
+3. Review our [Command line interface (CLI)](cli.html) tutorial.
 
 ## Install
 Make sure you have macOS 11.1 or later.

@@ -19,18 +19,17 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 
 ## Prerequisites
 
-Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
+1. Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
 
-Review our [Command Line Interface (CLI)](cli.html) tutorial.
+2. Make sure you have a compiler and a debugger [installed](setup_wsl.html#install-cli-tools).  Your version might be different.
+  ```console
+  $ g++ --version
+  g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+  $ gdb --version
+  GNU gdb (GDB)
+  ```
 
-Make sure you have a compiler and a debugger [installed](setup_wsl.html#install-cli-tools).  Your version might be different.
-
-```console
-$ g++ --version
-g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
-$ gdb --version
-GNU gdb (GDB)
-```
+3. Review our [Command Line Interface (CLI)](cli.html) tutorial.
 
 ## Install
 
