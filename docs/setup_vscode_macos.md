@@ -73,6 +73,8 @@ Clear out the search bar in the extensions panel. Under the "Installed" section,
 
 <img src="images/vscode_macos_003.png" width="768px" />
 
+Go ahead and close the VS Code window for now. We'll open it back up in a moment.
+
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: Finder, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
@@ -236,10 +238,7 @@ Click the triangle to run.  You'll see your program's output in the terminal win
 <img src="images/vscode_macos_035.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Remember to build your executable at the command line first.
-```console
-$ make main.exe
-```
+**Pitfall:** Remember to build your executable at the command line first, for example via `make main.exe`.
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">

@@ -93,6 +93,8 @@ Clear out the search bar in the extensions panel. You should see:
 
 <img src="images/vscode_wsl_015.png" width="768px" />
 
+Go ahead and close the VS Code window for now. We'll open it back up in a moment.
+
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
