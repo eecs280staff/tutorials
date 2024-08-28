@@ -109,6 +109,15 @@ $ cd ~/eecs280/p1-stats
 
 This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Avoid file or folder names that contain spaces. Spaces cause problems with some command line tools.
+
+| Bad Example     | Good Example   |
+|-----------------|----------------|
+| `EECS 280/` | `eecs280/` |
+| `Project 1 Stats/` | `p1-stats/` |
+</div>
+
 Now, verify you're in the project directory with `pwd` and launch VS code with `code .`:
 ```console
 $ pwd
