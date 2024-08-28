@@ -52,15 +52,18 @@ Install the WSL Extension, which allows the VS Code backend to run in WSL where 
 2. Search for WSL.
 3. Click "Install".
 
+VS Code might attempt to install this one automatically - if so, you may "Installing" followed by a "Reload Window" option. Click that instead of "Install".
+
 <img src="images/vscode_wsl_008.png" width="768px" />
 
 Next, connect to WSL:
 1. Click the button in the bottom left corner.
-2. Select "Connect to WSL" from the menu.
+2. Select "Connect to WSL using Distro..." from the menu.
+3. Choose "Ubuntu 24.04" from the list.
 
 <img src="images/vscode_wsl_012.png" width="768px" />
 
-Now, the button in the bottom left should say "WSL: Ubuntu". For any C++ development, make sure VS code is always connected to WSL.
+Now, the button in the bottom left should say "WSL: Ubuntu-24.04". For any C++ development, make sure VS code is always connected to WSL. Depending on your version of VS Code and Windows, your button might be blue instead of green, and you might not have the purple bar at the bottom of your window - that's fine.
 
 <img src="images/vscode_wsl_013.png" width="768px" />
 
@@ -70,7 +73,7 @@ Now, the button in the bottom left should say "WSL: Ubuntu". For any C++ develop
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're connected to WSL before installing the C++ Extension. Check the button in the bottom left.
 
-<img src="images/vscode_wsl_013a.png" width="200px" />
+<img src="images/vscode_wsl_013a.png" width="400px" />
 
 </div>
 
@@ -86,7 +89,7 @@ Note that you need the "C/C++" extension. You do *not* need the "C/C++ Extension
 
 Clear out the search bar in the extensions panel. You should see:
 - WSL installed locally
-- C/C++ installed in WSL: Ubuntu
+- C/C++ installed in WSL: Ubuntu-24.04
 
 <img src="images/vscode_wsl_015.png" width="768px" />
 
@@ -141,16 +144,16 @@ The `.` in `code .` means "current working directory". It would also be fine to 
 
 You can also open your project folder through the VS Code interface. Go to `View` > `Command Palette` (or press <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`, then find your project folder.
 
-You should see your project open in VS Code, with "WSL: Ubuntu" in the lower left corner.
+You should see your project open in VS Code, with "WSL: Ubuntu-24.04" in the lower left corner.
 
 Finally, open the integrated terminal within VS Code. Go to `Terminal` > `New Terminal` (or press <kbd>ctrl</kbd> + <kbd>`</kbd>). The integrated terminal will automatically use your project directory as its working directory, and using it is easier than switching back and forth to your separate terminal window.
 
 <div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in WSL mode. Double check that the lower left corner says "WSL: Ubuntu".
+**Pitfall:** Make sure you're in WSL mode. Double check that the lower left corner says "WSL: Ubuntu-24.04".
 
 <img src="images/vscode_wsl_069.png" width="768px">
 
-If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
+If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu-24.04" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
 
 <img src="images/vscode_wsl_070.png" width="768">
 
