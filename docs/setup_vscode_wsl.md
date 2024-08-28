@@ -151,7 +151,7 @@ Finally, open the integrated terminal within VS Code. Go to `Terminal` > `New Te
 <div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in WSL mode. Double check that the lower left corner says "WSL: Ubuntu-24.04".
 
-<img src="images/vscode_wsl_069.png" width="768px">
+<img src="images/vscode_wsl_013a.png" width="768px">
 
 If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu-24.04" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
 
