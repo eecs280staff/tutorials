@@ -107,28 +107,6 @@ $ cd ~/eecs280/p1-stats
 
 This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
-
-| Bad Example     | Good Example   |
-|-----------------|----------------|
-| `EECS 280/` | `eecs280/` |
-| `Project 1 Stats/` | `p1-stats/` |
-
-</div>
-  
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
-
-```console
-$ pwd
-/home/awdeorio ...         # Good, Linux home
-/c/mnt/Users/awdeorio ...  # Bad, Windows home
-```
-
-Here's how to [access your Linux files from Windows](setup_wsl.html#access-via-file-explorer).
-</div>
-
 Now, verify you're in the project directory with `pwd` and launch VS code with `code .`:
 ```console
 $ pwd
@@ -141,8 +119,6 @@ The `.` in `code .` means "current working directory". It would also be fine to 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you've just installed VS Code, you may need to restart your terminal before the `code` command will work.
 </div>
-
-You can also open your project folder through the VS Code interface. Go to `View` > `Command Palette` (or press <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`, then find your project folder.
 
 You should see your project open in VS Code, with "WSL: Ubuntu-24.04" in the lower left corner.
 
@@ -161,6 +137,13 @@ Open the Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd
 
 <img src="images/vscode_wsl_071.png" width="768">
 </div>
+
+
+<div class="primer-spec-callout info" markdown="1">
+You can also open project folders through the VS Code interface. Go to `View` > `Command Palette` (or press <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`, then find your project folder.
+</div>
+
+
 
 ### Add existing files
 If you have starter files, add them to your project directory. We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example, downloading an archive of starter files from the provided URL.
@@ -208,7 +191,7 @@ In EECS 280, you'll do this to any file that ends in `.starter`.
 | <img src="images/vscode_wsl_027.png" height="512px" /> | <img src="images/vscode_wsl_028.png" height="512px" /> |
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** You can also rename files the command line, for example:
+**Pro-tip:** You can also rename files from the command line, for example:
 ```console
 $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
@@ -229,7 +212,7 @@ $ touch stats.cpp
 ```
 
 ## Compile and Run
-VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project.
+VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project. You can open the Makefile in VS Code to take a look.
 
 Identify your desired compilation target, for example, `stats_public_tests.exe` from EECS 280 project 1. (Note that this may not compile/run successfully if you haven't started the project yet.)
 
@@ -295,10 +278,7 @@ Click the triangle to run.  You'll see your program's output in the terminal win
 <img src="images/vscode_wsl_035.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Remember to build your executable at the command line first.
-```console
-$ make main.exe
-```
+**Pitfall:** Remember to build your executable at the command line first, for example via `make main.exe`.
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">

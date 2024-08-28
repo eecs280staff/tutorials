@@ -158,6 +158,16 @@ We highly recommend you store all coding work for EECS 280 projects and labs her
 | `Project 1 Stats/` | `p1-stats/` |
 
 </div>
+  
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
+
+```console
+$ pwd
+/home/awdeorio ...         # Good, Linux home
+/c/mnt/Users/awdeorio ...  # Bad, Windows home
+```
+</div>
 
 #### Access via File Explorer
 
