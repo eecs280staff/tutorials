@@ -30,14 +30,14 @@ PowerShell is a command-line interface for Windows. Its command prompt ends with
 Check if WSL is already installed by running the command `wsl -l -v`. If you see a list like below, WSL is already installed.
 ```console
 C:\WINDOWS\system32> wsl -l -v
-  NAME      STATE       VERSION
-* Ubuntu    Stopped     2
+  NAME                   STATE           VERSION
+* Ubuntu-24.04           Running         2
 ```
 {: data-highlight="3"}
 
 If the `VERSION` is 1, you must [upgrade to WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install-manual).
 
-If you already have a distribution (e.g. Ubuntu) with `VERSION` 2, skip to [Setup Ubuntu](#setup-ubuntu) below.
+If you already have an Ubuntu distribution with `VERSION` 2, skip to [Setup Ubuntu](#setup-ubuntu) below.
 
 Otherwise, WSL is not installed and you'll see help text similar to the following. (This is expected for most students.)
 ```console
@@ -62,15 +62,15 @@ Start PowerShell as administrator, and check that WSL Ubuntu is now installed wi
 
 ```console
 C:\WINDOWS\system32> wsl -l -v
-  NAME      STATE       VERSION
-* Ubuntu    Stopped     2
+  NAME                   STATE           VERSION
+* Ubuntu-24.04           Running         2
 ```
 {: data-highlight="3"}
 
 ## Setup Ubuntu
 From the previous section, you have installed WSL and an Ubuntu Linux distribution. You'll do most C++ development in Ubuntu rather than Windows. Let's get it set up.
 
-Start an Ubuntu Bash shell. Bash is a command-line interface for Linux. Search for "Ubuntu" or "bash" in the start menu.
+Start an Ubuntu Bash shell. Bash is a command-line interface for Linux. Search for "Ubuntu" (or "Ubuntu 24.04 LTS") or "bash" in the start menu.
 
 <img src="images/wsl020.png" width="240px" /> | <img src="images/wsl030.png" width="480px" />
 
@@ -105,13 +105,13 @@ We recommend you completely reinstall Ubuntu. (Note this will _delete all of the
 Open PowerShell and run it as administrator. Run the commands below. You'll be prompted to create a user account.
 
 ```console
-C:\WINDOWS\system32> wsl --unregister Ubuntu
+C:\WINDOWS\system32> wsl --unregister Ubuntu-24.04
 Unregistering.
 The operation completed successfully.
 
-C:\WINDOWS\system32> wsl --install -d Ubuntu
-Ubuntu is already installed.
-Launching Ubuntu...
+C:\WINDOWS\system32> wsl --install -d Ubuntu-24.04
+Ubuntu 24.04 LTS is already installed.
+Launching Ubuntu 24.04 LTS...
 Installing, this may take a few minutes...
 Please create a default UNIX user account. The username does not need to match your Windows username.
 For more information visit: https://aka.ms/wslusers
