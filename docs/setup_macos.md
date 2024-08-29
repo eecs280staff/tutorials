@@ -81,7 +81,7 @@ Documents	Library		Music		Public
 We highly recommend you store all coding work for EECS 280 projects and labs here.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Avoid paths names that contain spaces. Spaces cause problems with some command line tools.
+**Pitfall:** Avoid paths that contain spaces. Spaces cause problems with some command line tools.
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
