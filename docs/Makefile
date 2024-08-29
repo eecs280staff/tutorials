@@ -7,7 +7,6 @@ CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-commen
 main.exe: main.cpp
 	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
 
-
 # Remove automatically generated files
 clean :
 	rm -rvf *.exe *~ *.out *.dSYM *.stackdump

@@ -91,7 +91,7 @@ $ cd ~/eecs280/p1-stats
 This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
+**Pitfall:** Avoid paths names that contain spaces.  Spaces causes problems with some command line tools.
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
@@ -121,7 +121,64 @@ Finally, open the **integrated terminal** within VS Code. Go to `Terminal` > `Ne
 
 <img src="images/vscode_macos_017.png" width="768px" />
 
-### Add existing files
+### Sample Files
+
+This tutorial includes examples for compiling and debugging with a sample `main.cpp` and `Makefile`, shown below. You can download them from your terminal with:
+
+```console
+$ pwd
+/Users/awdeorio/eecs280/p1-stats
+$ wget -nc https://eecs280staff.github.io/tutorials/main.cpp
+$ wget -nc https://eecs280staff.github.io/tutorials/Makefile
+```
+
+```c++
+// Sample main.cpp for EECS 280 Setup Tutorials
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+double sum (const vector<double> &data) {
+  double total = 0;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
+  }
+  return total;
+}
+
+int main() {
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << endl;
+}
+```
+{: data-title="main.cpp" }
+
+```make
+# Sample makefile for EECS 280 Setup Tutorials
+
+CXX ?= g++
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
+
+# Compile the main executable
+main.exe: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
+
+# Remove automatically generated files
+clean :
+	rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+
+# Disable built-in rules
+.SUFFIXES:
+```
+{: data-title="Makefile" }
+
+### Add Starter Files
+<!-- Preserve links to old section heading "Add existing files" -->
+<a id="add-existing-files"></a>
 If you have starter files, add them to your project directory.  We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example, downloading an archive of starter files from the provided URL.
 
 We'll run several commands to get the starter file (see below). We recommend using the integrated terminal in VS Code. First, verify you're in the correct project directory (`pwd`). Use the terminal to download (`wget`), unpack (`tar -xvzf`), and move (`mv`) the starter files into our project directory. Finally, clean up the downloaded archive (`rm`). Your URL or folder might be different.
@@ -135,7 +192,8 @@ $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
 ```
 
-You should see your new files in your project directory.
+You should see your new files in your project directory and in VS Code. Your specific files might be different.
+
 ```console
 $ tree
 .
@@ -150,8 +208,6 @@ $ tree
 ├── stats_tests.cpp.starter
 └── two_sample.cpp.starter
 ```
-
-You should see your new files appear in VS Code. Your specific files may not match the image below.
 
 <img src="images/vscode_macos_026.png" width="768px" />
 
@@ -169,14 +225,14 @@ $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
 </div>
 
-### Add new files
-We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example.
+### Add New Files
+Add files by clicking the add file icon and specifying a filename.
 
-Select the add file icon and give it a name, for example, `stats.cpp`.
+For example, in EECS 280 project 1, you would create a new file called `stats.cpp`.
 
 <img src="images/vscode_macos_023.png" width="768px" />
 
-Alternatively, create your `stats.cpp` file from the command line using [`touch`](cli.html#touch). 
+Alternatively, create new files from the command line using [`touch`](cli.html#touch), for example: 
 
 ```console
 $ touch stats.cpp
@@ -185,19 +241,23 @@ $ touch stats.cpp
 ## Compile and Run
 VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project.
 
-Identify your desired compilation target, for example, `stats_public_tests.exe` from EECS 280 project 1. (Note that this may not compile/run successfully if you haven't started the project yet.)
+Identify your desired compilation target, for example, `main.exe`.
 
 Compile with:
 
 ```console
-$ make stats_public_tests.exe
+$ make main.exe
 ```
 
 And run with:
 
 ```console
-$ ./stats_public_tests.exe
+$ ./main.exe
 ```
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Each time you change source code, you must **save** your files and **compile** before running or debugging the code. Otherwise, you'll be running an old `.exe` compiled from outdated code.
+</div>
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If something doesn't seem to be working, you can always check your current directory with `pwd` or `ls` to verify your terminal is in the correct place with the correct files.
@@ -214,21 +274,25 @@ cats.csv  p1_library.cpp    stats.cpp       stats_public_tests.cpp  two_sample.c
 
 You can also run your compiled executable through the VS Code visual debugger to diagnose runtime errors, inspect the state of your program at a breakpoint, or step line-by-line through your code.
 
+<div class="primer-spec-callout info" markdown="1">
+The examples below assume a source file `main.cpp` compiled to `main.exe`. Your filenames may be different.
+</div>
+
 ### Create `launch.json`
 
-Running and debugging code through VS Code requires a `launch.json` configuration file. The examples below assume a source file `main.cpp` compiled to `main.exe`. Your filenames may be different.
+Running and debugging code through VS Code requires a `launch.json` configuration file.
 
-Select the file you would like to run.  Navigate to the debugging pane.
+Navigate to the debugging pane and click "create a launch.json file". Or, if you have previous debugging configurations, click the gear icon to edit `launch.json`.
 
-<img src="images/vscode_macos_030.png" width="768px" />
+| <img src="images/vscode_macos_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_macos_031.png" width="360px" /> |
 
-Click "create a launch.json file".
-
-<img src="images/vscode_macos_031.png" width="768px" />
-
-Select LLDB.
+If you are prompted to select a debugger, select "LLDB". (Do NOT select "C++ (GDB/LLDB)".)
 
 <img src="images/vscode_macos_031b.png" width="768px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
+</div>
 
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
@@ -367,65 +431,6 @@ Run the program until it returns from the current function (or until the next br
 <img src="images/vscode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
 Run the program until the next breakpoint.
 
-#### Example code
-
-The examples below presume you have the sample `main.cpp` and `Makefile` files below.
-
-Download them from your terminal with:
-
-```console
-$ pwd
-/Users/awdeorio/eecs280/p1-stats
-$ wget -nc https://eecs280staff.github.io/tutorials/main.cpp
-$ wget -nc https://eecs280staff.github.io/tutorials/Makefile
-```
-
-These commands will not overwrite existing files. If you already have a Makefile for your project and it doesn't have a target for `main.exe`, copy the `main.exe` target below into it.
-
-```c++
-// Sample main.cpp for EECS 280 Setup Tutorials
-
-#include <iostream>
-#include <vector>
-using namespace std;
-
-double sum (const vector<double> &data) {
-  double total = 0;
-  for (size_t i=0; i<data.size(); ++i) {
-    total += data[i];
-  }
-  return total;
-}
-
-int main() {
-  vector<double> data;
-  data.push_back(10);
-  data.push_back(20);
-  data.push_back(30);
-  cout << "sum(data) = " << sum(data) << endl;
-}
-```
-{: data-title="main.cpp" }
-
-```make
-# Sample makefile for EECS 280 Setup Tutorials
-
-CXX ?= g++
-CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
-
-# Compile the main executable
-main.exe: main.cpp
-	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
-
-
-# Remove automatically generated files
-clean :
-	rm -rvf *.exe *~ *.out *.dSYM *.stackdump
-
-# Disable built-in rules
-.SUFFIXES:
-```
-{: data-title="Makefile" }
 
 #### Set Breakpoints
 Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
