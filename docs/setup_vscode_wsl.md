@@ -508,6 +508,7 @@ Select the file you want to debug.  Set a breakpoint by clicking to the left of 
 <img src="images/vscode_wsl_080.png" width="768px" />
 
 
+#### Run
 Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
 <img src="images/vscode_wsl_090.png" width="768px" />
