@@ -131,7 +131,7 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ### Home Directory
 You'll generally want to store your coding projects in the Linux filesystem, which is separate from your Windows filesystem.
 
-Open an Ubuntu bash terminal and run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location.
+Open an Ubuntu bash terminal and run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
 
 ```console
 $ cd ~
@@ -139,7 +139,7 @@ $ pwd
 /home/jjuett
 ```
 
-Create an EECS 280 folder by running `mkdir eecs280`. Running `ls` afterward confirms the folder has been created.
+Create an EECS 280 folder by running `mkdir ~/eecs280`. Running `ls` afterward confirms the folder has been created.
 
 ```console
 $ mkdir ~/eecs280
@@ -150,13 +150,23 @@ eecs280
 We highly recommend you store all coding work for EECS 280 projects and labs here.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Avoid file or folder names that contain spaces. Spaces cause problems with some command line tools.
+**Pitfall:** Avoid paths that contain spaces. Spaces cause problems with some command line tools.
 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
 | `Project 1 Stats/` | `p1-stats/` |
 
+</div>
+  
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
+
+```console
+$ pwd
+/home/awdeorio ...         # Good, Linux home
+/c/mnt/Users/awdeorio ...  # Bad, Windows home
+```
 </div>
 
 #### Access via File Explorer

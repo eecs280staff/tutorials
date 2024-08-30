@@ -1,11 +1,21 @@
-// main.cpp
-// Project UID 5366c7e2b77742d5b2142097e51561a5
+// Sample main.cpp for EECS 280 Setup Tutorials
 
-#include "stats.h"
-#include "p1_library.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
+double sum (const vector<double> &data) {
+  double total = 0;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
+  }
+  return total;
+}
+
 int main() {
-  cout << "hello from main!\n";
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << endl;
 }

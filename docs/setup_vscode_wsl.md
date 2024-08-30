@@ -19,18 +19,17 @@ If you already have VS Code installed with the C/C++ extensions, skip to the [Cr
 
 ## Prerequisites
 
-Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
+1. Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
 
-Review our [Command Line Interface (CLI)](cli.html) tutorial.
+2. Make sure you have a compiler and a debugger [installed](setup_wsl.html#install-cli-tools).  Your version might be different.
+  ```console
+  $ g++ --version
+  g++ (Ubuntu 13.2.0-23ubuntu4) 13.2.0
+  $ gdb --version
+  GNU gdb (GDB)
+  ```
 
-Make sure you have a compiler and a debugger [installed](setup_wsl.html#install-cli-tools).  Your version might be different.
-
-```console
-$ g++ --version
-g++ (GCC) 8.5.0 20210514
-$ gdb --version
-GNU gdb (GDB)
-```
+3. Review our [Command Line Interface (CLI)](cli.html) tutorial.
 
 ## Install
 
@@ -53,15 +52,18 @@ Install the WSL Extension, which allows the VS Code backend to run in WSL where 
 2. Search for WSL.
 3. Click "Install".
 
+VS Code might attempt to install this one automatically - if so, you may "Installing" followed by a "Reload Window" option. Click that instead of "Install".
+
 <img src="images/vscode_wsl_008.png" width="768px" />
 
 Next, connect to WSL:
 1. Click the button in the bottom left corner.
-2. Select "Connect to WSL" from the menu.
+2. Select "Connect to WSL using Distro..." from the menu.
+3. Choose "Ubuntu 24.04" from the list.
 
 <img src="images/vscode_wsl_012.png" width="768px" />
 
-Now, the button in the bottom left should say "WSL: Ubuntu". For any C++ development, make sure VS code is always connected to WSL.
+Now, the button in the bottom left should say "WSL: Ubuntu-24.04". For any C++ development, make sure VS code is always connected to WSL. Depending on your version of VS Code and Windows, your button might be blue instead of green, and you might not have the purple bar at the bottom of your window - that's fine.
 
 <img src="images/vscode_wsl_013.png" width="768px" />
 
@@ -71,7 +73,7 @@ Now, the button in the bottom left should say "WSL: Ubuntu". For any C++ develop
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're connected to WSL before installing the C++ Extension. Check the button in the bottom left.
 
-<img src="images/vscode_wsl_013a.png" width="200px" />
+<img src="images/vscode_wsl_013a.png" width="400px" />
 
 </div>
 
@@ -87,23 +89,25 @@ Note that you need the "C/C++" extension. You do *not* need the "C/C++ Extension
 
 Clear out the search bar in the extensions panel. You should see:
 - WSL installed locally
-- C/C++ installed in WSL: Ubuntu
+- C/C++ installed in WSL: Ubuntu-24.04
 
 <img src="images/vscode_wsl_015.png" width="768px" />
+
+Go ahead and close the VS Code window for now. We'll open it back up in a moment.
 
 ## Create a project
 To create a VS Code project, create a folder (directory).  There are many ways to create folders: File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
 Open the Terminal ([Ubuntu Bash Shell](cli.html#open-terminal-windows)).
 
-Navigate to your home directory, create a new directory, then move into the new directory. Your folder location might be different.  Here's some help with [`cd`](cli.html#cd), the [tilde `~`](cli.html#home-directory-), and [`mkdir`](cli.html#mkdir).
+Create a new folder for your project.
 
 ```console
-$ mkdir ~/eecs280
-$ cd ~/eecs280
-$ mkdir p1-stats
-$ cd p1-stats
+$ mkdir -p ~/eecs280/p1-stats
+$ cd ~/eecs280/p1-stats
 ```
+
+This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
@@ -114,84 +118,125 @@ $ cd p1-stats
 | `Project 1 Stats/` | `p1-stats/` |
 
 </div>
-  
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Linux (Ubuntu) has a separate home directory.  Storing code in your Windows home directory can cause slowdowns.
 
+Now, verify you're in the project directory with `pwd` and launch VS code with `code .`:
 ```console
 $ pwd
-/home/awdeorio ...         # Good, Linux home
-/c/mnt/Users/awdeorio ...  # Bad, Windows home
-```
-
-Here's how to [access your Linux files from Windows](setup_wsl.html#accessing-linux-files-from-windows).
-
-</div>
-
-Start VS Code and open your project folder. `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`.
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Here's a quick way to open VS Code to a specific project folder from the command line.  First make sure you're in the directory that contains your source code.
-```console
-$ ls
-main.cpp ...
+/home/awdeorio/eecs280/p1-stats
 $ code .
 ```
 
-**Note:** If you've just installed VS Code, you'll need to restart your terminal before the `code` command will work. 
+The `.` in `code .` means "current working directory". It would also be fine to use an absolute path, for example, `code ~/eecs280/p1-stats`.
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If you've just installed VS Code, you may need to restart your terminal before the `code` command will work.
 </div>
 
-<img src="images/vscode_wsl_020.png" width="768px" />
+You should see your project open in VS Code, with "WSL: Ubuntu-24.04" in the lower left corner.
 
-### Add new files
-Start VS Code and open your project folder. `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`.
+### Integrated Terminal
 
-Select the add file icon and give it a name, e.g., `main.cpp`.
+Finally, open the **integrated terminal** within VS Code. Go to `Terminal` > `New Terminal` (or press <kbd>ctrl</kbd> + <kbd>`</kbd>). The integrated terminal will automatically use your project directory as its working directory, and using it is easier than switching back and forth to your separate terminal window.
 
-<img src="images/vscode_wsl_023.png" width="768px" />
+<img src="images/vscode_wsl_017.png" width="768px">
 
-Alternatively, create your `main.cpp` file from the command line using [`touch`](cli.html#touch). 
+<div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Make sure you're in WSL mode. Double check that the lower left corner says "WSL: Ubuntu-24.04".
+
+<img src="images/vscode_wsl_013a.png" width="768px">
+
+If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu-24.04" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
+
+<img src="images/vscode_wsl_070.png" width="768">
+
+Open the Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `Reopen Folder in WSL` (or `Open Folder in WSL` if you hadn't opened anything yet).
+
+<img src="images/vscode_wsl_071.png" width="768">
+</div>
+
+
+<div class="primer-spec-callout info" markdown="1">
+You can also open project folders through the VS Code interface. Go to `View` > `Command Palette` (or press <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `WSL: Open Folder in WSL`, then find your project folder.
+</div>
+
+### Sample Files
+
+This tutorial includes examples for compiling and debugging with a sample `main.cpp` and `Makefile`, shown below. You can download them from your terminal with:
 
 ```console
-$ touch main.cpp
+$ pwd
+/home/awdeorio/eecs280/p1-stats
+$ wget -nc https://eecs280staff.github.io/tutorials/main.cpp
+$ wget -nc https://eecs280staff.github.io/tutorials/Makefile
 ```
 
-Copy-paste this Hello World program into your `main.cpp`.  Save the updated file.
-
 ```c++
+// Sample main.cpp for EECS 280 Setup Tutorials
+
 #include <iostream>
+#include <vector>
 using namespace std;
 
+double sum (const vector<double> &data) {
+  double total = 0;
+  for (size_t i=0; i<data.size(); ++i) {
+    total += data[i];
+  }
+  return total;
+}
+
 int main() {
-  cout << "Hello World!\n";
+  vector<double> data;
+  data.push_back(10);
+  data.push_back(20);
+  data.push_back(30);
+  cout << "sum(data) = " << sum(data) << endl;
 }
 ```
 {: data-title="main.cpp" }
 
-### Add existing files
-If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+```make
+# Sample makefile for EECS 280 Setup Tutorials
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
-```console
-$ ls
-main.cpp
+CXX ?= g++
+CXXFLAGS ?= -Wall -Werror -pedantic -g --std=c++17 -Wno-sign-compare -Wno-comment
+
+# Compile the main executable
+main.exe: main.cpp
+	$(CXX) $(CXXFLAGS) main.cpp -o main.exe
+
+# Remove automatically generated files
+clean :
+	rm -rvf *.exe *~ *.out *.dSYM *.stackdump
+
+# Disable built-in rules
+.SUFFIXES:
 ```
-</div>
+{: data-title="Makefile" }
 
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** [Copy/paste instructions](setup_wsl.html#copy-paste) for WSL.
-</div>
+### Add Starter Files
+<!-- Preserve links to old section heading "Add existing files" -->
+<a id="add-existing-files"></a>
 
-We'll use the terminal to download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
+If you have starter files, add them to your project directory. We'll use [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/) as an example, downloading an archive of starter files from the provided URL.
+
+We'll run several commands to get the starter file (see below). We recommend using the integrated terminal in VS Code. First, verify you're in the correct project directory (`pwd`). Use the terminal to download (`wget`), unpack (`tar -xvzf`), and move (`mv`) the starter files into our project directory. Finally, clean up the downloaded archive (`rm`). Your URL or folder might be different.
+
 ```console
+$ pwd
+/home/awdeorio/eecs280/p1-stats
 $ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
 ```
 
-You should see your new files in your project directory.
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** If copy/paste isn't working in the terminal, see our [copy/paste instructions for WSL](setup_wsl.html#copypaste-in-terminal) for WSL.
+</div>
+
+You should see your new files in your project directory and in VS Code. Your specific files might be different.
+
 ```console
 $ tree
 .
@@ -207,8 +252,6 @@ $ tree
 └── two_sample.cpp.starter
 ```
 
-You should see your new files appear in VS Code. Your specific files may not match the image below.
-
 <img src="images/vscode_wsl_026.png" width="768px" />
 
 #### Rename files
@@ -219,116 +262,103 @@ In EECS 280, you'll do this to any file that ends in `.starter`.
 | <img src="images/vscode_wsl_027.png" height="512px" /> | <img src="images/vscode_wsl_028.png" height="512px" /> |
 
 <div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** You can also rename files the command line, for example:
+**Pro-tip:** You can also rename files from the command line, for example:
 ```console
 $ mv stats_tests.cpp.starter stats_tests.cpp
 ```
 </div>
 
+### Add New Files
+
+Add files by clicking the add file icon and specifying a filename.
+
+For example, in EECS 280 project 1, you would create a new file called `stats.cpp`.
+
+<img src="images/vscode_wsl_023.png" width="768px" />
+
+Alternatively, create new files from the command line using [`touch`](cli.html#touch), for example:
+
+```console
+$ touch stats.cpp
+```
+
 ## Compile and Run
-VS Code uses an executable you build at the command line.
+VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project.
 
-First, compile and run your executable at the command line.
+Identify your desired compilation target, for example, `main.exe`.  In this example, we'll compile `main.cpp` using `Makefile` from the [Sample Files](#sample-files) section.
+
+
+Compile with:
+
 ```console
-$ touch stats.cpp  # Needed for EECS 280 P1
 $ make main.exe
+```
+
+And run with:
+
+```console
 $ ./main.exe
-Hello World!
+sum(data) = 60
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
+**Pitfall:** Each time you change source code, you must **save** your files and **compile** before running or debugging the code. Otherwise, you'll be running an old `.exe` compiled from outdated code.
+</div>
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** If something doesn't seem to be working, you can always check your current directory with `pwd` or `ls` to verify your terminal is in the correct place with the correct files.
 ```console
+$ pwd
+/home/awdeorio/eecs280/p1-stats
 $ ls
-main.cpp ...
+Makefile  cats.out.correct  p1_library.hpp  stats.hpp               stats_tests.cpp
+cats.csv  p1_library.cpp    stats.cpp       stats_public_tests.cpp  two_sample.cpp
 ```
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you're in EECS 280 and get an error like this, [add a new file](#add-new-files) `stats.cpp`.  It's OK if the file is empty for now.
-```console
-$ make main.exe
-make: *** No rule to make target `stats.cpp', needed by `main.exe'.  Stop.
-```
+## Debug
+
+You can also run your compiled executable through the VS Code visual debugger to diagnose runtime errors, inspect the state of your program at a breakpoint, or step line-by-line through your code.
+
+<div class="primer-spec-callout info" markdown="1">
+The examples below assume a source file `main.cpp` compiled to `main.exe` ([Sample Files](#sample-files)). Your filenames may be different.
 </div>
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
-```console
-$ make main.exe
-g++ ... -g main.cpp ...
-```
-</div>
 
-<div class="primer-spec-callout warning" markdown="1">
-If you don't have a `Makefile`, you can compile manually.  We don't recommend this for EECS 280 students.
-```console
-$ g++ -g main.cpp -o main.exe
-```
-</div>
+### Create `launch.json`
 
-<div id="pitfall-wsl-mode" class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in WSL mode.
+Running and debugging code through VS Code requires a `launch.json` configuration file.
 
-<img src="images/vscode_wsl_069.png" width="768px">
+Navigate to the debugging pane and click "create a launch.json file". Or, if you have previous debugging configurations, click the gear icon to edit `launch.json`.
 
-If you accidentally open VS Code in Windows mode, you won't see "WSL: Ubuntu" in the lower left corner, your integrated terminal may default to powershell, and compiling/running C++ code won't work correctly.
-
-<img src="images/vscode_wsl_070.png" width="768">
-
-Open the Command Palette with `View` > `Command Palette` (<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>). Search for and select `Reopen Folder in WSL` (or `Open Folder in WSL` if you hadn't opened anything yet).
-
-<img src="images/vscode_wsl_071.png" width="768">
-</div>
-
-Select the file you would like to run.  Navigate to the debugging pane.
-
-<img src="images/vscode_wsl_030.png" width="768px" />
-
-Click "create a launch.json file".
-
-<img src="images/vscode_wsl_031.png" width="768px" />
+| <img src="images/vscode_wsl_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_wsl_031.png" width="360px" /> |
 
 If you are prompted to select a debugger, select C++ (GDB/LLDB).
 
 <img src="images/vscode_wsl_031a.png" width="768px" />
 
-Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration".
-
-<img src="images/vscode_wsl_032.png" width="768px" />
-
-Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
+Click "Add Configuration".  If the button does not appear in the bottom-right corner, select "Run" from the top menu, then select "Add Configuration". Select the "C/C++ (gdb) Launch" configuration.  This will create a default `launch.json` ([Microsoft Reference](https://code.visualstudio.com/docs/cpp/launch-json-reference)).
 
 <img src="images/vscode_wsl_033.png" width="768px" />
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
+</div>
 
 Edit the `program` and `cwd` fields in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
 <img src="images/vscode_wsl_034.png" width="768px" />
 
-### Edit `launch.json` program
 
-If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceFolder}"`.
-```json
-{
-    "program": "${workspaceFolder}/main.exe",
-    ...
-    "cwd": "${workspaceFolder}",
-}
-```
-{: data-highlight="2,4" }
-
-
-### Run
-
-Click the triangle to run.  You'll see your program's output in the terminal window at the bottom.
+### Launch Debugger
+Click the play button in the left debugging panel to run.
+- Do not click the run/debug button at the top right of the window. This only works for single-file programs.
+- The bottom panel may show the "Debug Console" by default. Switch to the "Terminal" to see your program's output.
 
 <img src="images/vscode_wsl_035.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Remember to build your executable at the command line first.
-```console
-$ make main.exe
-```
+**Pitfall:** Remember to build your executable at the command line first, for example via `make main.exe`.
 </div>
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -356,7 +386,23 @@ The likely cause is that you have WSL 1 rather than WSL 2. Follow the instructio
 
 </div>
 
-### Sanitizers
+### Configure Debugger
+
+Depending on your program, its inputs, and how you want to debug it, you'll need to adjust `launch.json`.
+
+#### Edit `launch.json` program
+
+If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceFolder}"`.
+```json
+{
+    "program": "${workspaceFolder}/main.exe",
+    ...
+    "cwd": "${workspaceFolder}",
+}
+```
+{: data-highlight="2,4" }
+
+#### Sanitizers
 We recommend enabling the address sanitizer and undefined behavior sanitizer. These will help you find memory errors like going off the end of an array or vector.
 
 First, edit your `Makefile` and add the `CXXFLAGS` recommended by the [ASAN Quick Start](setup_asan.html#quick-start).
@@ -373,14 +419,10 @@ Edit the `"environment"` property in your `launch.json`.  If there's already an 
 ```
 {: data-highlight="3-4" }
 
-### Command-Line Arguments and Options
+#### Command-Line Arguments and Options
 
 <!-- Preserve links to old section heading "Arguments and Options" -->
 <a id="arguments-and-options"></a>
-
-<div class="primer-spec-callout info" markdown="1">
-Skip this subsection your first time through the tutorial.  You can come back to it.
-</div>
 
 Inputs to a program may be provided when it is initially run via command-line arguments or options. Here's an example from EECS 280 Project 1:
 
@@ -408,7 +450,7 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
 ```
 {: data-title="launch.json" data-highlight="6" }
 
-### Input redirection
+#### Input redirection
 <div class="primer-spec-callout info" markdown="1">
 Skip this subsection for EECS 280 project 1.
 </div>
@@ -444,7 +486,10 @@ To configure input redirection, edit `launch.json`.  These changes are for the M
 
 </div>
 
-## Debug
+
+
+### Step Through Code
+
 In this section, we'll set a breakpoint, which pauses the debugger.  Then, we'll cover some of the options to continue execution.
 
 <img src="images/vscode_icon_step_over.png" style="vertical-align: text-top; height: 1.25em;" /> **Step Over**
@@ -459,38 +504,13 @@ Run the program until it returns from the current function (or until the next br
 <img src="images/vscode_icon_continue.png" style="vertical-align: text-top; height: 1.25em;" /> **Continue**
 Run the program until the next breakpoint.
 
-### Example code
-
-To get started, copy this example `main.cpp` into your editor.
-```c++
-#include <iostream>
-#include <vector>
-using namespace std;
-
-double sum (const vector<double> &data) {
-  double total = 0;
-  for (size_t i=0; i<data.size(); ++i) {
-    total += data[i];
-  }
-  return total;
-}
-
-int main() {
-  vector<double> data;
-  data.push_back(10);
-  data.push_back(20);
-  data.push_back(30);
-  cout << "sum(data) = " << sum(data) << endl;
-}
-```
-{: data-title="main.cpp" }
-
-### Breakpoint
+#### Set Breakpoints
 Select the file you want to debug.  Set a breakpoint by clicking to the left of a line number.  A breakpoint tells the program to pause.
 
 <img src="images/vscode_wsl_080.png" width="768px" />
 
-### Run
+
+#### Run
 Select the debugging pane, then run the debugger.  The program pauses at the breakpoint.  The yellow indicator highlights the next line of code to be run.
 
 <img src="images/vscode_wsl_090.png" width="768px" />
@@ -503,12 +523,20 @@ $ g++ -g main.cpp -o main.exe  # Without a Makefile
 ```
 </div>
 
-### Step over
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code debugging will fail if there are no debugging symbols.  Double check your compilation command or the output of `make` and verify that you see `-g` being used in the commands.  The EECS 280 defaults include `-g`.
+```console
+$ make main.exe
+g++ ... -g main.cpp ...
+```
+</div>
+
+#### Step over
 Click "Step Over" a few times until you reach the highlighted line of code
 
 <img src="images/vscode_wsl_100.png" width="768px" />
 
-### Inspect
+#### Inspect
 Hover over a variable to inspect its value.  You can also see values in the VARIABLES pane.
 
 <img src="images/vscode_wsl_110.png" width="768px" />
@@ -519,21 +547,21 @@ If you have trouble viewing the contents of a container like this screenshot, se
 <img src="images/vscode_wsl_140.png" width="480px" />
 </div>
 
-### Step into
+#### Step into
 Click "Step Into".  The cursor enters the `sum()` function.
 
 <img src="images/vscode_wsl_115.png" width="768px" />
 
 <img src="images/vscode_wsl_120.png" width="768px" />
 
-### Step out
+#### Step out
 Click "Step Out".  The `sum()` function completes, and the program pauses again.
 
 <img src="images/vscode_wsl_125.png" width="768px" />
 
 <img src="images/vscode_wsl_130.png" width="768px" />
 
-### Continue
+#### Continue
 Press "Continue" to run the program to the next breakpoint, or the end, whichever comes first.
 
 <img src="images/vscode_wsl_135.png" width="768px" />
