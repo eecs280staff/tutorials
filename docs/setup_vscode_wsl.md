@@ -283,9 +283,10 @@ $ touch stats.cpp
 ```
 
 ## Compile and Run
-VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project. You can open the Makefile in VS Code to take a look.
+VS Code does not use an internal build system for C++. That means you'll be compiling your code from the terminal. In EECS 280 projects, you compile with the `make` utility and a `Makefile` provided with each project.
 
-Identify your desired compilation target, for example, `main.exe`.
+Identify your desired compilation target, for example, `main.exe`.  In this example, we'll compile `main.cpp` using `Makefile` from the [Sample Files](#sample-files) section.
+
 
 Compile with:
 
@@ -319,7 +320,7 @@ cats.csv  p1_library.cpp    stats.cpp       stats_public_tests.cpp  two_sample.c
 You can also run your compiled executable through the VS Code visual debugger to diagnose runtime errors, inspect the state of your program at a breakpoint, or step line-by-line through your code.
 
 <div class="primer-spec-callout info" markdown="1">
-The examples below assume a source file `main.cpp` compiled to `main.exe`. Your filenames may be different.
+The examples below assume a source file `main.cpp` compiled to `main.exe` ([Sample Files](#sample-files)). Your filenames may be different.
 </div>
 
 
