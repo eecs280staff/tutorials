@@ -253,6 +253,7 @@ And run with:
 
 ```console
 $ ./main.exe
+sum(data) = 60
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
