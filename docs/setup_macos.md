@@ -103,10 +103,17 @@ Opens a file or directory with the default application, like a double click.  Se
 This section is for common problems and solutions.
 
 ### Reinstall Compiler
-You may notice that your compiler stops working or that the C++ standard library is unavailable (i.e. `#include` stops working) after installing other software development tools or after a macOS update. Reinstall your command line tools and compiler to fix this issue:
+You may notice that your compiler stops working or that the C++ standard library is unavailable (i.e. `#include` stops working) after installing other software development tools or after a macOS update. Reinstall your command line tools and compiler to fix this issue.
+
+First, remove the previous command line tools. Be careful to enter this command correctly. You will be prompted to enter your password.
 
 ```console
 $ sudo rm -rf /Library/Developer/CommandLineTools
+```
+
+Next, reinstall the command line tools. A separate window will pop up asking you to confirm. It may take several minutes to install.
+
+```console
 $ xcode-select --install
 ```
 
