@@ -78,14 +78,14 @@ Search for "Flock" and disable the "Use Flock" option.
 
 ## Connect to CAEN
 ### Connect
-Click the remote connection button on the bottom right and then click the "Connect to Host..." option.
+Click the remote connection button on the bottom left and then click the "Connect to Host..." option.
 
 <img src="images/remotessh_03.png" width="768px" />
 
 Click on the "caen" option (this is the SSH host that we set up [earlier](#edit-ssh-config)). 
 
 <div class="primer-spec-callout info" markdown="1">
-If in the future you want to connect to some other host, you can manually specify `user@host` in this box too (e.g. `armaanr@XXXXX.amazonaws.com`).
+If you want to connect to some other host in the future, you can manually specify `user@host` in this box too (e.g. `armaanr@XXXXX.amazonaws.com`).
 </div>
 
 <img src="images/remotessh_04.png" width="768px" />
@@ -116,7 +116,7 @@ Now you should be able to work on CAEN!
 
 
 ## Troubleshooting
-If you are suddenly unable to connect, you can try deleting the VSCode server files. Sometimes the files that VSCode drops onto the remote host don't get cleaned up properly and it tries to reuse an unreachable remote server. SSH into CAEN normally and execute the following:
+If you are suddenly unable to connect, you can try deleting the VSCode server files. Sometimes the files that VSCode drops onto the remote host don't get cleaned up properly and it tries to reuse an unreachable remote server. SSH into CAEN and execute the following:
 
 ```console
 $ ssh armaanr@login.engin.umich.edu
