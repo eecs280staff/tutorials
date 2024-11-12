@@ -99,6 +99,26 @@ Now would be a great time to take a look at our [CLI Tutorial](cli.html).
 Opens a file or directory with the default application, like a double click.  See the [`open` command](cli.html#open--wslview) in the CLI tutorial.
 
 
+## Troubleshooting
+This section is for common problems and solutions.
+
+### Reinstall Compiler
+You may notice that your compiler stops working or that the C++ standard library is unavailable (i.e. `#include` stops working) after installing other software development tools or after a macOS update. Reinstall your command line tools and compiler to fix this issue.
+
+First, remove the previous command line tools. Be careful to enter this command correctly. You will be prompted to enter your password.
+
+```console
+$ sudo rm -rf /Library/Developer/CommandLineTools
+```
+
+Next, reinstall the command line tools. A separate window will pop up asking you to confirm. It may take several minutes to install.
+
+```console
+$ xcode-select --install
+```
+
+If you are working in an IDE like VS Code, you'll need to close and restart it as well.
+
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
