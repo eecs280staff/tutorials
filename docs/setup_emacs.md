@@ -199,19 +199,19 @@ Here are a few basic customizations that you might like.  Paste with `C-y`.
 Set up [`use-package`](https://github.com/jwiegley/use-package), which automates package installation and configuration.
 
 ```elisp
-;; Configure built in package manager
+;; Configure built-in package manager
 (require 'package)
-(package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(package-initialize)
 
-;; Install use-package
-;; https://github.com/jwiegley/use-package
-(when (not (package-installed-p 'use-package))
+;; Install and configure use-package
+(unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(setq use-package-always-defer t)  ; Globally defer package loading
 ```
 
 ### Undo/redo
