@@ -1,17 +1,17 @@
 ---
 layout: spec
-title: Setup VSCode CAEN Access
+title: Setup VS Code CAEN Access
 ---
 
-VSCode CAEN Access
+VS Code CAEN Access
 ==========
 {: .primer-spec-toc-ignore }
 
-This tutorial will show you how to set up VSCode access into CAEN Linux via SSH. It allows you to remotely edit and execute files as if you were using VSCode on the CAEN computers themselves. This may come in handy for those who wish to develop and test their projects directly on CAEN.
+This tutorial will show you how to set up VS Code access into CAEN Linux via SSH. It allows you to remotely edit and execute files as if you were using VS Code on the CAEN computers themselves. This may come in handy for those who wish to develop and test their projects directly on CAEN.
 
 
 ## Prerequisites
-If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so your CAEN environment is ready for VSCode to access. If you need a refresher on VScode, read through the [tutorial](setup_vscode.html).
+If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so your CAEN environment is ready for VS Code to access. If you need a refresher on VS code, read through the [tutorial](setup_vscode.html).
 
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -21,7 +21,7 @@ If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so you
 ## Setup Remote SSH Extension
 
 ### Edit SSH Config
-First, we need to specify CAEN as a host in our SSH config file so VSCode knows where to connect. You can find the file at `~/.ssh/config`.
+First, we need to specify CAEN as a host in our SSH config file so VS Code knows where to connect. You can find the file at `~/.ssh/config`.
 
 Add the following lines to the SSH config file, replacing `<uniqname>` with your own uniqname.
 ```
@@ -55,7 +55,7 @@ $ ssh caen
 </div>
 
 ### Install Extension
-Open up VSCode and install the [Remote - SSH Extension](https://aka.ms/vscode-remote/download/ssh).
+Open up VS Code and install the [Remote - SSH Extension](https://aka.ms/vscode-remote/download/ssh).
 
 <img src="images/remotessh_00.png" width="768px" />
 
@@ -116,7 +116,7 @@ Now you should be able to work on CAEN!
 
 
 ## Troubleshooting
-If you are suddenly unable to connect, you can try deleting the VSCode server files. Sometimes the files that VSCode drops onto the remote host don't get cleaned up properly and it tries to reuse an unreachable remote server. SSH into CAEN and execute the following:
+If you are suddenly unable to connect, you can try deleting the VS Code server files. Sometimes the files that VS Code drops onto the remote host don't get cleaned up properly and it tries to reuse an unreachable remote server. SSH into CAEN and execute the following:
 
 ```console
 $ ssh armaanr@login.engin.umich.edu
@@ -125,7 +125,7 @@ $ mv ~/.vscode-server ~/.vscode-old
 $ rm -rf ~/.vscode-old
 ```
 
-Restart VSCode on your own computer and [try again](#connect-to-caen).
+Restart VS Code on your own computer and [try again](#connect-to-caen).
 
 
 ## Acknowledgments
