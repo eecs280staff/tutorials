@@ -23,6 +23,8 @@ If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so you
 ### Edit SSH Config
 First, we need to specify CAEN as a host in our SSH config file so VS Code knows where to connect. You can find the file at `~/.ssh/config`.
 
+Make sure you set up [SSH multiplexing](setup_caen.html#avoiding-repeated-2fa) from the CAEN Linux Tutorial if you haven't already. This can help you avoid repeated 2FA prompts when connecting.
+
 Add the following lines to the SSH config file, replacing `<uniqname>` with your own uniqname.
 ```
 Host caen #(Can be named anything you like)
