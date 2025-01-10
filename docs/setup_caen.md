@@ -84,17 +84,17 @@ $ make clean
 
 Next, copy files using `rsync`.  Remember to change `awdeorio` to your username.
 ```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' ../stats/ awdeorio@login.engin.umich.edu:stats-copy/
 building file list ... done
-created directory p1-stats-copy
+created directory stats-copy
 ./
 Makefile
 main.cpp
 main_test.in
 main_test.out.correct
 main_test_data.tsv
-p1_library.cpp
-p1_library.hpp
+library.cpp
+library.hpp
 stats.cpp
 stats.hpp
 stats_public_test.cpp
@@ -123,12 +123,12 @@ caen-vnc-vm16.engin.umich.edu
 Notice that the folder copied earlier.
 ```console
 $ ls
-p1-stats-copy
+stats-copy
 ```
 
 Change directory into the copied folder and double-check that all binary files are cleaned up.
 ```console
-$ cd p1-stats-copy
+$ cd stats-copy
 $ make clean
 ```
 
@@ -192,7 +192,7 @@ $
 
 Open a second terminal and run an `rsync` command, which uses the new configuration.  No authentication is required!
 ```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' ../stats/ awdeorio@login.engin.umich.edu:stats-copy/
 building file list ... done
 
 sent 273 bytes  received 20 bytes  586.00 bytes/sec
@@ -219,12 +219,12 @@ SSH to a CAEN Linux machine and see the copy we made earlier using `rsync`.
 ```console
 $ ssh awdeorio@login.engin.umich.edu
 $ ls
-p1-stats-copy  # this is from our rsync'ed copy earlier
+stats-copy  # this is from our rsync'ed copy earlier
 ```
 
 Notice that the copy is *not* under version control.
 ```console
-$ cd p1-stats-copy
+$ cd stats-copy
 $ git status
 fatal: Not a git repository (or any of the parent directories): .git
 ```
@@ -232,9 +232,9 @@ fatal: Not a git repository (or any of the parent directories): .git
 Change directory and `git clone` your repo.
 ```console
 $ cd ~  # This will move to your home directory
-$ git clone https://github.com/awdeorio/p1-stats.git
+$ git clone https://github.com/awdeorio/stats.git
 $ ls
-p1-stats p1-stats-copy
+stats stats-copy
 ```
 
 ## Pro-tips
@@ -242,14 +242,14 @@ p1-stats p1-stats-copy
 ### Synchronizing deleted files
 Tell `rsync` to synchronize deleted files.  In other words, if it's gone on your laptop, delete it on CAEN.
 ```console
-$ rsync -rtv --delete --exclude '.git*' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --delete --exclude '.git*' ../stats/ awdeorio@login.engin.umich.edu:stats-copy/
 ```
 {: data-variant="no-line-numbers" }
 
 ### Don't synchronize Git-ignored files
 Tell `rsync` not to synchronize files ignored by Git.  You can also combine this option with `--delete`.
 ```console
-$ rsync -rtv --exclude '.git*' --filter=':- .gitignore' ../p1-stats/ awdeorio@login.engin.umich.edu:p1-stats-copy/
+$ rsync -rtv --exclude '.git*' --filter=':- .gitignore' ../stats/ awdeorio@login.engin.umich.edu:stats-copy/
 ```
 {: data-variant="no-line-numbers" }
 
@@ -263,8 +263,8 @@ sync :
   --delete \
   --exclude '.git*' \
   --filter=':- .gitignore' \
-  ../p1-stats/ \
-  awdeorio@login.engin.umich.edu:p1-stats-copy/
+  ../stats/ \
+  awdeorio@login.engin.umich.edu:stats-copy/
 ```
 
 Now you can type `make sync` as a short cut.
@@ -275,8 +275,8 @@ rsync \
   --delete \
   --exclude '.git*' \
   --filter=':- .gitignore' \
-  ../p1-stats/ \
-  awdeorio@login.engin.umich.edu:p1-stats-copy/
+  ../stats/ \
+  awdeorio@login.engin.umich.edu:stats-copy/
 building file list ... done
 ./
 Makefile

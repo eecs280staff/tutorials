@@ -480,7 +480,7 @@ This section contains some more useful commands.
 
 For example, download the starter files for EECS 280 project 1:
 ```console
-$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ wget https://eecs280staff.github.io/stats/starter-files.tar.gz
 $ ls
 starter-files.tar.gz
 ```
@@ -500,8 +500,8 @@ $ tree
 │   ├── main_test.in
 │   ├── main_test.out.correct
 │   ├── main_test_data.tsv
-│   ├── p1_library.cpp
-│   ├── p1_library.hpp
+│   ├── library.cpp
+│   ├── library.hpp
 │   ├── stats.hpp
 │   ├── stats_public_test.cpp
 │   └── stats_tests.cpp.starter
@@ -511,7 +511,7 @@ $ tree
 ### `diff`
 `diff` compares two files.
 
-Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/p1-stats/#testing-1)).  No output means the files are identical.
+Here's an example from EECS 280 project 1 ([full example](https://eecs280staff.github.io/stats/#testing-1)).  No output means the files are identical.
 ```console
 $ diff main_test.out main_test.out.correct
 ```

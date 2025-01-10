@@ -47,7 +47,7 @@ Select "Console App".  Click "Next".
 
 <img src="images/visualstudio050.png" width="512x" />
 
-Set a project name, we'll call our example project `p1-stats`.  Pick a location where you'll store your projects.  Check "Place solution and project in the same directory.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  Click "Next".
+Set a project name, we'll call our example project `stats`.  Pick a location where you'll store your projects.  Check "Place solution and project in the same directory.  We recommend this in EECS 280 so that everyone has a one-level structure (`stats/main.cpp`) instead of a two-level structure (`stats/stats/main.cpp`).  Click "Next".
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces cause problems with some command line tools.
@@ -55,13 +55,13 @@ Set a project name, we'll call our example project `p1-stats`.  Pick a location 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `Project 1 Stats/` | `p1-stats/` |
+| `EECS 280 Stats Project/` | `stats/` |
 
 </div>
 
 <img src="images/visualstudio060.png" width="512px" />
 
-You can see the files created by Visual Studio in the File Explorer.  Right-click `p1-stats`, select "Show in Finder".
+You can see the files created by Visual Studio in the File Explorer.  Right-click `stats`, select "Show in Finder".
 
 | <img src="images/visualstudio070.png" height="512px" /> | <img src="images/visualstudio071.png" height="512px" /> |
 
@@ -72,18 +72,18 @@ You can also see the files created by Visual Studio from the WSL command line.  
 ```console
 $ tree
 .
-├── p1-stats.cpp
-├── p1-stats.sln
-├── p1-stats.vcxproj
-├── p1-stats.vcxproj.filters
-└── p1-stats.vcxproj.user
+├── stats.cpp
+├── stats.sln
+├── stats.vcxproj
+├── stats.vcxproj.filters
+└── stats.vcxproj.user
 ```
 
 ### Rename main file
 {: .primer-spec-toc-ignore }
-Rename the default `p1-stats.cpp` to `main.cpp`.  Your main filename may be different.  Use Visual Studio to rename a file, not the command line or File Explorer.
+Rename the default `stats.cpp` to `main.cpp`.  Your main filename may be different.  Use Visual Studio to rename a file, not the command line or File Explorer.
 
-Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
+Right-click `stats.cpp` and select "Rename".  Change the file name.
 
 | <img src="images/visualstudio075.png" width="256px" /> | <img src="images/visualstudio076.png" width="256px" /> | <img src="images/visualstudio077.png" width="256px" /> |
 
@@ -92,7 +92,7 @@ Right-click `p1-stats.cpp` and select "Rename".  Change the file name.
 Visual Studio created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to your project directory (`p1-stats` in this example) and open `p1-stats.sln`.  An alternative is to double-click `p1-stats.sln` in the File Explorer.
+Open your project folder by selecting `File` > `Open` > `Project/Solution`, navigate to your project directory (`stats` in this example) and open `stats.sln`.  An alternative is to double-click `stats.sln` in the File Explorer.
 
 Right-click "Source Files", then select "Add" > "New Item".
 
@@ -107,14 +107,14 @@ You should see your new file under "Source Files".
 <img src="images/visualstudio100.png" width="768px" />
 
 ### Add existing files
-If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the directory containing your source code.
 ```console
 $ ls
 main.cpp
-p1-stats.sln
+stats.sln
 ...
 ```
 </div>
@@ -125,7 +125,7 @@ p1-stats.sln
 
 We'll use the WSL (Ubuntu) terminal to download, unpack, and move starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
 ```console
-$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ wget https://eecs280staff.github.io/stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
@@ -139,12 +139,12 @@ $ tree
 ├── cats.csv
 ├── cats.out.correct
 ├── main.cpp
-├── p1-stats.sln
-├── p1-stats.vcxproj
-├── p1-stats.vcxproj.filters
-├── p1-stats.vcxproj.user
-├── p1_library.cpp
-├── p1_library.hpp
+├── stats.sln
+├── stats.vcxproj
+├── stats.vcxproj.filters
+├── stats.vcxproj.user
+├── library.cpp
+├── library.hpp
 ├── stats.hpp
 ├── stats_public_tests.cpp
 ├── stats_tests.cpp.starter
@@ -229,7 +229,7 @@ $ ./two_sample.exe HCMST_ver_3.04.tsv q24_met_online 1 0 ppage
 
 The arguments above specify the name of a data file, coulumns, and filter values for the program to use.
 
-Right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
+Right-click the project in the Solution Explorer (`stats` in this example).  Select "Properties".
 
 <img src="images/visualstudio148.png" width="320px" />
 
@@ -248,7 +248,7 @@ Without input redirection, here's how to type input in the Visual Studio command
 
 <img src="images/visualstudio145.png" width="768px" />
 
-To configure input redirection, right-click the project in the Solution Explorer (`p1-stats` in this example).  Select "Properties".
+To configure input redirection, right-click the project in the Solution Explorer (`stats` in this example).  Select "Properties".
 
 <img src="images/visualstudio148.png" width="320px" />
 
@@ -351,8 +351,8 @@ To reset Visual Studio project settings and starter files, first quit Visual Stu
 
 ```console
 /Users/awdeorio/src/eecs280
-$ cp -a p1-stats p1-stats.bak  # Backup
-$ rm -rf p1-stats              # Delete
+$ cp -a stats stats.bak  # Backup
+$ rm -rf stats              # Delete
 ```
 
 Visual Studio has a *lot* of settings.  You can reset the entire user interface to the default settings by selecting "Tools" -> "Import" and Export Settings" -> "Reset all settings".  This is optional.

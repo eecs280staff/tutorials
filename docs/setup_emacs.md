@@ -281,8 +281,8 @@ Emacs doesn't require any special setup for a project.
 Create a new directory, then move into the new directory. Your folder location might be different.
 
 ```console
-$ mkdir ~/eecs280/p1-stats
-$ cd ~/eecs280/p1-stats
+$ mkdir ~/eecs280/stats
+$ cd ~/eecs280/stats
 ```
 
 ### Add new files
@@ -310,11 +310,11 @@ int main() {
 ### Add existing files
 Emacs doesn't require any special steps for adding existing files.
 
-If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
 
 Download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
 ```console
-$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ wget https://eecs280staff.github.io/stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
@@ -328,8 +328,8 @@ $ tree
 ├── cats.csv
 ├── cats.out.correct
 ├── main.cpp
-├── p1_library.cpp
-├── p1_library.hpp
+├── library.cpp
+├── library.hpp
 ├── stats.hpp
 ├── stats_public_tests.cpp
 ├── stats_tests.cpp.starter
@@ -504,7 +504,7 @@ Alice connects to a remote server containing her code.  She starts a tmux sessio
 $ ssh login.engin.umich.edu
 $ hostname
 caen-vnc-vm05.engin.umich.edu
-$ cd p1-stats
+$ cd stats
 $ tmux new -s shared
 $ emacs -nw main.cpp
 ```

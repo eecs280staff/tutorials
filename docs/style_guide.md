@@ -342,7 +342,7 @@ using decision you made, and can't override it with their own.
 2. P3 Euchre:
    1. Don't copy paste calls to `deal_one()`. Write a function.
    2. Write moar functions.
-3. P5 Machine Learning: Write moar functions.
+3. P4 Machine Learning: Write moar functions.
 
 
 ## Further reading
