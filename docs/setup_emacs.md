@@ -490,18 +490,18 @@ $ emacs
 
 SSH into your remote server, CAEN Linux in this example.  This will set up an SSH multiplexing connection.
 ```console
-$ ssh login.engin.umich.edu
+$ ssh login-course.engin.umich.edu
 ...
 ```
 
-In Emacs, open the file `/ssh:login.engin.umich.edu:main.cpp`.  Recall `C-x C-f` is `find-file`.  Tab completion works in the minibuffer.  You're now editing a file `main.cpp` on a remote server.
+In Emacs, open the file `/ssh:login-course.engin.umich.edu:main.cpp`.  Recall `C-x C-f` is `find-file`.  Tab completion works in the minibuffer.  You're now editing a file `main.cpp` on a remote server.
 
 ### Pair programming with tmux
 Pair program on a remote machine with two people inside the same Emacs instance.  We'll use tmux, which is a terminal multiplexer.
 
 Alice connects to a remote server containing her code.  She starts a tmux session named `shared`.  Then, she starts Emacs inside that tmux session.
 ```console
-$ ssh login.engin.umich.edu
+$ ssh login-course.engin.umich.edu
 $ hostname
 caen-vnc-vm05.engin.umich.edu
 $ cd stats
