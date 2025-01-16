@@ -27,7 +27,7 @@ We will use several tools to check the style of your code.
 ## Prerequisites
 You can connect to CAEN Linux, where the tools are installed.  See the [CAEN Linux tutorial](setup_caen.html) for help.
 ```console
-$ ssh awdeorio@login.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 ...
 Success. Logging you in...
 ```
@@ -112,7 +112,7 @@ We're going to synchronize our code to CAEN Linux many times.  These shortcuts w
 
 Be sure that you can [avoid repeated two-factor authentication (2FA)](setup_caen.html#avoiding-repeated-2fa).  In a separate terminal, connect to CAEN Linux with SSH so you won't have to enter your password again.
 ```console
-$ ssh awdeorio@login.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 Password:
 Duo two-factor login for awdeorio
 
@@ -135,7 +135,7 @@ Clean up (from your laptop).
 $ hostname
 manzana.local
 $ pwd
-/Users/awdeorio/src/eecs280/p1-stats
+/Users/awdeorio/src/eecs280/stats
 $ make clean
 ```
 
@@ -144,9 +144,9 @@ Copy (from your laptop).
 $ hostname
 manzana.local
 $ pwd
-/Users/awdeorio/src/eecs280/p1-stats
+/Users/awdeorio/src/eecs280/stats
 $ make sync
-rsync -rtv --delete --exclude '.git*' --filter=':- .gitignore' ./  awdeorio@login.engin.umich.edu:p1-stats-copy/
+rsync -rtv --delete --exclude '.git*' --filter=':- .gitignore' ./  awdeorio@login-course.engin.umich.edu:stats-copy/
 ```
 
 ### Connect to CAEN Linux
@@ -154,22 +154,22 @@ Connect to CAEN Linux via `ssh`.  If you're already connected, you don't need to
 ```console
 $ hostname
 manzana.local
-$ ssh awdeorio@login.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 Success. Logging you in...
 ...
 $ hostname
 caen-vnc-vm16.engin.umich.edu
 ```
 
-Change directory to the folder containing your source code.  In this tutorial, we're going to use the copy created by `rsync` via `make sync`.  Note that you might also have a `p1-stats` directory created during the [Version control on CAEN Linux](setup_caen.html#version-control-on-caen-linux) tutorial.
+Change directory to the folder containing your source code.  In this tutorial, we're going to use the copy created by `rsync` via `make sync`.  Note that you might also have a `stats` directory created during the [Version control on CAEN Linux](setup_caen.html#version-control-on-caen-linux) tutorial.
 ``` console
 $ pwd
 /home/awdeorio
 $ ls
-p1-stats p1-stats-copy
-$ cd p1-stats-copy
+stats stats-copy
+$ cd stats-copy
 $ pwd
-/home/awdeorio/p1-stats-copy
+/home/awdeorio/stats-copy
 ```
 
 ### Run style checks
@@ -178,7 +178,7 @@ We've provided a `make style` Makefile target to run all the style checks for yo
 $ hostname
 caen-vnc-vm16.engin.umich.edu
 $ pwd
-/home/awdeorio/p1-stats-copy
+/home/awdeorio/stats-copy
 $ make style
 ...
 EECS 280 style checks PASS

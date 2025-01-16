@@ -12,14 +12,14 @@ This tutorial walks through EECS 281 project setup using EECS 280 tutorials.
 VS Code works great for EECS 281 projects.  Just ask one of the IAs or GSIs who use VS Code if you need help.
 
 ## Visual debugger
-Set up your project in your visual debugger.  We'll use the project name `p1-stats` in this example, but your project name may be different.  If your project has starter files, you'll need the link from the project spec.
+Set up your project in your visual debugger.  We'll use the project name `stats` in this example, but your project name may be different.  If your project has starter files, you'll need the link from the project spec.
 
 | [VS Code Tutorial](https://eecs280staff.github.io/tutorials/setup_vscode.html)| [Visual Studio Tutorial](https://eecs280staff.github.io/tutorials/setup_visualstudio.html) | [Xcode Tutorial](https://eecs280staff.github.io/tutorials/setup_xcode.html) |
 
 After you're done, you should have a folder with a main file.  Your files may be different.
 ```console
-$ tree p1-stats/
-p1-stats/
+$ tree stats/
+stats/
 ├── main.cpp
     ...
 ```
@@ -175,7 +175,7 @@ When you're working alone version control is optional, but it provides benefits:
 - Code backup
 - Easy to try and revert ideas
 
-Set up version control using the [Version control tutorial](https://eecs280staff.github.io/p1-stats/setup_git.html).  If you've used version control before on your computer, you'll probably want to start with the [Create a local repository](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository) section.
+Set up version control using the [Version control tutorial](https://eecs280staff.github.io/stats/setup_git.html).  If you've used version control before on your computer, you'll probably want to start with the [Create a local repository](https://eecs280staff.github.io/stats/setup_git.html#create-a-local-repository) section.
 
 After you're done, you should have a local repository with a "clean" status and your local repository should be connected to a remote GitHub repository.
 ```console
@@ -185,11 +185,11 @@ Your branch is up-to-date with 'origin/main'.
 
 nothing to commit, working tree clean
 $ git remote -v
-origin	https://github.com/awdeorio/p1-stats.git (fetch)
-origin	https://github.com/awdeorio/p1-stats.git (push)
+origin	https://github.com/awdeorio/stats.git (fetch)
+origin	https://github.com/awdeorio/stats.git (push)
 ```
 
-You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/p1-stats/setup_git.html#create-a-local-repository)).
+You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/stats/setup_git.html#create-a-local-repository)).
 ```console
 $ head .gitignore
 This is a sample .gitignore file that's useful for C++ projects.

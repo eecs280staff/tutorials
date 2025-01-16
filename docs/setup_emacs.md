@@ -199,19 +199,19 @@ Here are a few basic customizations that you might like.  Paste with `C-y`.
 Set up [`use-package`](https://github.com/jwiegley/use-package), which automates package installation and configuration.
 
 ```elisp
-;; Configure built in package manager
+;; Configure built-in package manager
 (require 'package)
-(package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(package-initialize)
 
-;; Install use-package
-;; https://github.com/jwiegley/use-package
-(when (not (package-installed-p 'use-package))
+;; Install and configure use-package
+(unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile
   (require 'use-package))
+(setq use-package-always-defer t)  ; Globally defer package loading
 ```
 
 ### Undo/redo
@@ -281,8 +281,8 @@ Emacs doesn't require any special setup for a project.
 Create a new directory, then move into the new directory. Your folder location might be different.
 
 ```console
-$ mkdir ~/eecs280/p1-stats
-$ cd ~/eecs280/p1-stats
+$ mkdir ~/eecs280/stats
+$ cd ~/eecs280/stats
 ```
 
 ### Add new files
@@ -310,11 +310,11 @@ int main() {
 ### Add existing files
 Emacs doesn't require any special steps for adding existing files.
 
-If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/p1-stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
 
 Download, unpack, and move the starter files into the directory that already contains `main.cpp`.  Your URL or folder might be different.
 ```console
-$ wget https://eecs280staff.github.io/p1-stats/starter-files.tar.gz
+$ wget https://eecs280staff.github.io/stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
 $ rm -rf starter-files starter-files.tar.gz
@@ -328,8 +328,8 @@ $ tree
 ├── cats.csv
 ├── cats.out.correct
 ├── main.cpp
-├── p1_library.cpp
-├── p1_library.hpp
+├── library.cpp
+├── library.hpp
 ├── stats.hpp
 ├── stats_public_tests.cpp
 ├── stats_tests.cpp.starter
@@ -490,21 +490,21 @@ $ emacs
 
 SSH into your remote server, CAEN Linux in this example.  This will set up an SSH multiplexing connection.
 ```console
-$ ssh login.engin.umich.edu
+$ ssh login-course.engin.umich.edu
 ...
 ```
 
-In Emacs, open the file `/ssh:login.engin.umich.edu:main.cpp`.  Recall `C-x C-f` is `find-file`.  Tab completion works in the minibuffer.  You're now editing a file `main.cpp` on a remote server.
+In Emacs, open the file `/ssh:login-course.engin.umich.edu:main.cpp`.  Recall `C-x C-f` is `find-file`.  Tab completion works in the minibuffer.  You're now editing a file `main.cpp` on a remote server.
 
 ### Pair programming with tmux
 Pair program on a remote machine with two people inside the same Emacs instance.  We'll use tmux, which is a terminal multiplexer.
 
 Alice connects to a remote server containing her code.  She starts a tmux session named `shared`.  Then, she starts Emacs inside that tmux session.
 ```console
-$ ssh login.engin.umich.edu
+$ ssh login-course.engin.umich.edu
 $ hostname
 caen-vnc-vm05.engin.umich.edu
-$ cd p1-stats
+$ cd stats
 $ tmux new -s shared
 $ emacs -nw main.cpp
 ```
