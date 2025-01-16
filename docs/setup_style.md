@@ -27,7 +27,7 @@ We will use several tools to check the style of your code.
 ## Prerequisites
 You can connect to CAEN Linux, where the tools are installed.  See the [CAEN Linux tutorial](setup_caen.html) for help.
 ```console
-$ ssh awdeorio@login.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 ...
 Success. Logging you in...
 ```
@@ -112,7 +112,7 @@ We're going to synchronize our code to CAEN Linux many times.  These shortcuts w
 
 Be sure that you can [avoid repeated two-factor authentication (2FA)](setup_caen.html#avoiding-repeated-2fa).  In a separate terminal, connect to CAEN Linux with SSH so you won't have to enter your password again.
 ```console
-$ ssh awdeorio@login.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 Password:
 Duo two-factor login for awdeorio
 
@@ -146,7 +146,7 @@ manzana.local
 $ pwd
 /Users/awdeorio/src/eecs280/stats
 $ make sync
-rsync -rtv --delete --exclude '.git*' --filter=':- .gitignore' ./  awdeorio@login.engin.umich.edu:stats-copy/
+rsync -rtv --delete --exclude '.git*' --filter=':- .gitignore' ./  awdeorio@login-course.engin.umich.edu:stats-copy/
 ```
 
 ### Connect to CAEN Linux
@@ -154,7 +154,7 @@ Connect to CAEN Linux via `ssh`.  If you're already connected, you don't need to
 ```console
 $ hostname
 manzana.local
-$ ssh awdeorio@login.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 Success. Logging you in...
 ...
 $ hostname
