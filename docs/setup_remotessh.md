@@ -7,7 +7,7 @@ VS Code CAEN Access
 ==========
 {: .primer-spec-toc-ignore }
 
-This tutorial will show you how to set up VS Code access into CAEN Linux via SSH. It allows you to remotely edit and execute files as if you were using VS Code on the CAEN computers themselves. This may come in handy for those who wish to develop and test their projects directly on CAEN.
+This tutorial will show you how to use VS Code to remotely develop and test on CAEN Linux. This may come in handy for those who wish to develop and test their projects directly on CAEN.
 
 
 ## Prerequisites
@@ -18,7 +18,7 @@ If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so you
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started) before continuing.
 </div>
 
-## Setup Remote SSH Extension
+## Install and Configure Remote SSH Extension
 
 ### Edit SSH Config
 First, we need to specify CAEN as a host in our SSH config file so VS Code knows where to connect. You can find the file at `~/.ssh/config`.
