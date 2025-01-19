@@ -40,7 +40,7 @@ Search for "Exec Server" and disable the "Use Exec Server" option.
 
 <img src="images/remotessh_02.png" width="768px" />
 
-Search for "Flock" and disable the "Use Flock" option.
+Search for "Lockfile" and enable the "Lockfiles in Tmp" option.
 
 <img src="images/remotessh_11.png" width="768px" />
 
@@ -107,13 +107,13 @@ Now you should be able to work on CAEN!
 
 
 ## Troubleshooting
-If you are suddenly unable to connect, you can try deleting the VS Code server files. Sometimes the files that VS Code drops onto the remote host don't get cleaned up properly and it tries to reuse an unreachable remote server. SSH into CAEN and execute the following:
+If you are suddenly unable to connect, you can try killing the VS Code server and/or deleting its files. Sometimes the files that VS Code drops onto the remote host don't get cleaned up properly and it tries to reuse an unreachable remote server. SSH into CAEN and execute the following:
 
 ```console
-$ ssh armaanr@login.engin.umich.edu
+$ ssh armaanr@login-course.engin.umich.edu
 ...
-$ mv ~/.vscode-server ~/.vscode-old
-$ rm -rf ~/.vscode-old
+$ pkill -u $(id -u) -f vscode
+$ rm -rf ~/.vscode-server
 ```
 
 Restart VS Code on your own computer and [try again](#connect-to-caen).
