@@ -11,7 +11,9 @@ This tutorial will show you how to use VS Code to remotely develop and test on C
 
 
 ## Prerequisites
-If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so your CAEN environment is ready for VS Code to access. If you need a refresher on VS code, read through the [tutorial](setup_vscode.html).
+If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) to prepare your CAEN environment for VS Code access. Be sure to set up [SSH multiplexing](setup_caen.html#avoiding-repeated-2fa). This can help you avoid repeated 2FA prompts when connecting.
+
+If you need a refresher on VS code, read through the [tutorial](setup_vscode.html).
 
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -20,41 +22,6 @@ If you haven't already, follow the [CAEN Linux Tutorial](setup_caen.html) so you
 
 ## Install and Configure Remote SSH Extension
 
-### Edit SSH Config
-First, we need to specify CAEN as a host in our SSH config file so VS Code knows where to connect. You can find the file at `~/.ssh/config`.
-
-Make sure you set up [SSH multiplexing](setup_caen.html#avoiding-repeated-2fa) from the CAEN Linux Tutorial if you haven't already. This can help you avoid repeated 2FA prompts when connecting.
-
-Add the following lines to the SSH config file, replacing `<uniqname>` with your own uniqname.
-```
-Host caen #(Can be named anything you like)
-  HostName login.engin.umich.edu
-  User <uniqname>
-```
-
-Verify the contents of your `~/.ssh/config` file.
-```console
-$ cat ~/.ssh/config
-# SSH multiplexing (from CAEN Linux Tutorial)
-Host *
-  ControlMaster auto
-  ControlPersist yes
-  ControlPath ~/.ssh/socket-%C
-  ServerAliveInterval 60
-  ServerAliveCountMax 5
-
-Host caen
-  HostName login.engin.umich.edu
-  User armaanr
-```
-
-<div class="primer-spec-callout info" markdown="1">
-**Pro-tip:** Adding hosts in this manner also gives you an easy way to SSH without needing to remember the hostname. For example:
-```console
-$ ssh caen
-(armaanr@login.engin.umich.edu) Password: 
-```
-</div>
 
 ### Install Extension
 Open up VS Code and install the [Remote - SSH Extension](https://aka.ms/vscode-remote/download/ssh).
@@ -84,20 +51,42 @@ Click the remote connection button on the bottom left and then click the "Connec
 
 <img src="images/remotessh_03.png" width="768px" />
 
-Click on the "caen" option (this is the SSH host that we set up [earlier](#edit-ssh-config)). 
-
-<div class="primer-spec-callout info" markdown="1">
-If you want to connect to some other host in the future, you can manually specify `user@host` in this box too (e.g. `armaanr@XXXXX.amazonaws.com`).
-</div>
+Type in `<uniqname>@login-course.engin.umich.edu` and hit <kbd>Enter</kbd>. 
 
 <img src="images/remotessh_04.png" width="768px" />
 
-Finally, you will be prompted for your CAEN password and Duo 2FA. The Duo 2FA prompt may be cut off. You can hover your mouse over the box and the full prompt will be shown.
+<div class="primer-spec-callout info" markdown="1">
+If you want to connect to some other host in the future, you can follow these steps with any `user@host` (e.g. `armaanr@XXXXX.amazonaws.com`).
+</div>
+
+<div class="primer-spec-callout info" markdown="1">
+**Pro-tip:** If you don't want to type this every single time, you can add the information to your SSH config file. You can find the file at `~/.ssh/config`.
+
+Add the following lines, replacing `<uniqname>` with your own uniqname.
+```
+Host caen
+  HostName login-course.engin.umich.edu
+  User <uniqname>
+```
+
+You should now be able to just click on the "caen" option.
+
+<img src="images/remotessh_12.png" width="768px" />
+
+As an added bonus, adding hosts in this manner also gives you an easy way to SSH when using the terminal. For example:
+```console
+$ ssh caen
+(armaanr@login-course.engin.umich.edu) Password: 
+```
+</div>
+
+
+Finally, you will be prompted for your CAEN password and Duo 2FA. The Duo 2FA prompt may be cut off, but it's the same one you usually see when using SSH in the terminal. You can hover your mouse over the box and the full prompt will be shown.
 
 <img src="images/remotessh_05.png" width="768px" />
 <img src="images/remotessh_06.png" width="768px" />
 
-Now, the button in the bottom left should say "SSH: caen" (or whatever host you specified earlier).
+Now, the button in the bottom left should say "SSH: login-course.engin.umich.edu" (or "SSH: caen" if you used the SSH config file).
 
 <img src="images/remotessh_07.png" width="768px" />
 
