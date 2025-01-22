@@ -36,7 +36,7 @@ Open the command palette by pressing <kbd>Command</kbd> + <kbd>Shift</kbd> + <kb
 <img src="images/remotessh_01.png" width="768px" />
 
 
-Search for "Exec Server" and disable the "Use Exec Server" option.
+Search for "Exec Server" and disable the "Use Exec Server" option. This setting is needed when the remote home directory is on a network share.
 
 <img src="images/remotessh_02.png" width="768px" />
 
@@ -120,6 +120,6 @@ Restart VS Code on your own computer and [try again](#connect-to-caen).
 
 
 ## Acknowledgments
-Original tutorial written by Anish Nyayachavadi for EECS 491.
+Original tutorial written by Anish Nyayachavadi, Fall 2024.
 
 This document is licensed under a [Creative Commons Attribution-NonCommercial 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). You’re free to copy and share this document, but not to sell it. You may not share source code provided with this document.
