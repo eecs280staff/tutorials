@@ -80,11 +80,17 @@ $ ssh caen
 ```
 </div>
 
-
+### Authenticate
 Finally, you will be prompted for your CAEN password and Duo 2FA. The Duo 2FA prompt may be cut off, but it's the same one you usually see when using SSH in the terminal. You can hover your mouse over the box and the full prompt will be shown.
 
 <img src="images/remotessh_05.png" width="768px" />
 <img src="images/remotessh_06.png" width="768px" />
+
+<div class="primer-spec-callout info" markdown="1">
+If you're using Windows, the Duo 2FA prompt may not appear after you type your password. If so, click "details" on the bottom-right corner of your VS Code window and the prompt will appear in the terminal.
+
+<img src="images/remotessh_13.png" width="768px" />
+</div>
 
 Now, the button in the bottom left should say "SSH: login-course.engin.umich.edu" (or "SSH: caen" if you used the SSH config file).
 
