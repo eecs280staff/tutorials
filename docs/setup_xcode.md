@@ -45,7 +45,7 @@ Under "macOS", select "Command Line Tool".  Click "Next".
 
 <img src="images/xcode050.png" width="768px" />
 
-Set a project name, we'll call our example project `stats`.  Ensure that that the Language is set to "C++".  Enter your uniqname in the "Organization Identifier" field. (It's used by the app store which we don't use, so you just need something there.)  Click "Next".
+Set a project name, we'll call our example project `p1-stats`.  Ensure that that the Language is set to "C++".  Enter your uniqname in the "Organization Identifier" field. (It's used by the app store which we don't use, so you just need something there.)  Click "Next".
 
 <img src="images/xcode060.png" width="768px" />
 
@@ -59,11 +59,11 @@ In the File Dialog, navigate to the directory where you store your projects. You
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `EECS 280 Stats Project/` | `stats/` |
+| `EECS 280 Stats Project/` | `p1-stats/` |
 
 </div>
 
-Drag-and-drop `main.cpp` out of the `stats` folder, then delete the `stats` folder.  We recommend this in EECS 280 so that everyone has a one-level structure (`stats/main.cpp`) instead of a two-level structure (`stats/stats/main.cpp`).  This step is optional.
+Drag-and-drop `main.cpp` out of the `p1-stats` folder, then delete the `p1-stats` folder.  We recommend this in EECS 280 so that everyone has a one-level structure (`p1-stats/main.cpp`) instead of a two-level structure (`p1-stats/p1-stats/main.cpp`).  This step is optional.
 
 | <img src="images/xcode075.png" width="192px" /> | <img src="images/xcode076.png" width="192px" /> | <img src="images/xcode077.png" width="192px" /> | <img src="images/xcode078.png" width="192px" /> |
 
@@ -71,13 +71,13 @@ You can see the files created by Xcode in the Finder.  Right-click `main` and se
 
 | <img src="images/xcode079a.png" width="192px" /> | <img src="images/xcode079b.png" width="512px" /> |
 
-You can also see the files created by Xcode from the command line.  Notice that Xcode created a folder with project metadata: `stats.xcodeproj`.
+You can also see the files created by Xcode from the command line.  Notice that Xcode created a folder with project metadata: `p1-stats.xcodeproj`.
 
 ```console
 $ tree
 .
 ├── main.cpp
-└── stats.xcodeproj
+└── p1-stats.xcodeproj
     ├── ...
 
 ```
@@ -87,17 +87,17 @@ $ tree
 Xcode created `main.cpp` by default.  Skip this subsection your first time through the tutorial.  You can come back to it.
 </div>
 
-Open your project folder by selecting `File` > `Open` > navigate to the `stats` folder and open `stats.xcodeproj`.
+Open your project folder by selecting `File` > `Open` > navigate to the `p1-stats` folder and open `p1-stats.xcodeproj`.
 
 <div class="primer-spec-callout info" markdown="1">
 **Pro-tip:** Here's a quick way to open Xcode to a specific project folder from the command line.
 ```console
-$ open stats.xcodeproj
+$ open p1-stats.xcodeproj
 ```
 {: data-variant="no-line-numbers" }
 </div>
 
-Right-click `stats` in the sidebar.  Select "New File".
+Right-click `p1-stats` in the sidebar.  Select "New File".
 
 <img src="images/xcode115.png" width="768px" />
 
@@ -124,7 +124,7 @@ If you have starter files, add them to your project directory.  This example is 
 **Pitfall:** Make sure you're in the directory containing your source code.
 ```console
 $ ls
-main.cpp  stats.xcodeproj
+main.cpp  p1-stats.xcodeproj
 ```
 </div>
 
@@ -145,7 +145,7 @@ $ tree
 ├── cats.csv
 ├── cats.out.correct
 ├── main.cpp
-├── stats.xcodeproj
+├── p1-stats.xcodeproj
 │   ├── ...
 ├── library.cpp
 ├── library.hpp
@@ -157,7 +157,7 @@ $ tree
 
 Start Xcode and open your project.
 
-Right-click `stats` in the sidebar.  Select "Add Files".
+Right-click `p1-stats` in the sidebar.  Select "Add Files".
 
 <img src="images/xcode080.png" width="256px" />
 
@@ -182,7 +182,7 @@ An Xcode target compiles (builds) one executable.
 ### Compile sources
 {: .primer-spec-toc-ignore }
 
-We need to avoid multiple `main()` functions by including the right files in our target.  Click "stats" in the side bar, then "stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the main program.  Remove any other files by selecting them and clicking on the "–" button.
+We need to avoid multiple `main()` functions by including the right files in our target.  Click "p1-stats" in the side bar, then "p1-stats" under TARGETS.  Click "Build Phases", the "Compile Sources".  Include the files needed to compile the main program.  Remove any other files by selecting them and clicking on the "–" button.
 
 <img src="images/xcode130.png" width="768px" />
 
@@ -209,7 +209,7 @@ Select your scheme, then "Edit Scheme".  You can also use menu: Product > Scheme
 
 | <img src="images/xcode149.png" width="384px" /> | <img src="images/xcode150.png" width="384px" /> |
 
-Select "Run", then "Options", then "Use custom working directory".  Use the folder icon to browse to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/stats/src`.  Click "Close".
+Select "Run", then "Options", then "Use custom working directory".  Use the folder icon to browse to the directory containing your project's files.  In this example, that's `/Users/awdeorio/src/eecs280/p1-stats/src`.  Click "Close".
 
 <img src="images/xcode160.png" width="512px" />
 
@@ -378,8 +378,8 @@ To reset Xcode project settings and starter files, first quit Xcode.  Make a bac
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280
-$ cp -a stats stats.bak  # Backup
-$ rm -rf stats              # Delete
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
 ```
 
 Xcode has a *lot* of settings.  You can reset the entire user interface to the default settings using this command.  This is optional.
