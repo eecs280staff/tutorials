@@ -175,7 +175,7 @@ When you're working alone version control is optional, but it provides benefits:
 - Code backup
 - Easy to try and revert ideas
 
-Set up version control using the [Version control tutorial](https://eecs280staff.github.io/stats/setup_git.html).  If you've used version control before on your computer, you'll probably want to start with the [Create a local repository](https://eecs280staff.github.io/stats/setup_git.html#create-a-local-repository) section.
+Set up version control using the [Version control tutorial](https://eecs280staff.github.io/tutorials/setup_git.html).  If you've used version control before on your computer, you'll probably want to start with the [Create a local repository](https://eecs280staff.github.io/tutorials/setup_git.html#create-a-local-repository) section.
 
 After you're done, you should have a local repository with a "clean" status and your local repository should be connected to a remote GitHub repository.
 ```console
@@ -189,7 +189,7 @@ origin	https://github.com/awdeorio/p1-stats.git (fetch)
 origin	https://github.com/awdeorio/p1-stats.git (push)
 ```
 
-You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/stats/setup_git.html#create-a-local-repository)).
+You should have a `.gitignore` file ([instructions](https://eecs280staff.github.io/tutorials/setup_git.html#create-a-local-repository)).
 ```console
 $ head .gitignore
 This is a sample .gitignore file that's useful for C++ projects.
