@@ -19,10 +19,10 @@ If you've used version control before on your computer, skip to the [Create a lo
 </div>
 
 ## Prerequisites
-We're assuming that you already have a folder, e.g., `seam-carving/` or `stats/`. Your folder name may be different. It's OK if there aren't any files in it yet.
+We're assuming that you already have a folder, e.g., `p2-image-processing/` or `p1-stats/`. Your folder name may be different. It's OK if there aren't any files in it yet.
 ```console
 $ pwd
-/Users/awdeorio/Developer/eecs280/seam-carving
+/Users/awdeorio/Developer/eecs280/p2-image-processing
 ```
 
 You have installed `git`.  Your version might be different.
@@ -147,7 +147,7 @@ Only one team member creates the first local repository.
 Navigate to your project directory.  Your directory might be different.
 ```console
 $ pwd
-/Users/awdeorio/Developer/eecs280/seam-carving
+/Users/awdeorio/Developer/eecs280/p2-image-processing
 ```
 
 ### Add a `.gitignore` file
@@ -157,7 +157,7 @@ Add a `.gitignore` file.  This will prevent Git from controlling files like comp
 This sample is pre-configured to work with most C++ projects, so use the same sample file for all EECS 280/281 projects.
 ```console
 $ pwd
-/Users/awdeorio/src/eecs280/seam-carving
+/Users/awdeorio/src/eecs280/p2-image-processing
 $ wget https://eecs280staff.github.io/tutorials/dot_gitignore_sample -O .gitignore
 $ ls -A
 .gitignore     ...
@@ -167,7 +167,7 @@ $ ls -A
 Initialize the repo.  You may have more untracked files.
 ```console
 $ git init
-Initialized empty Git repository in /Users/awdeorio/Developer/eecs280/seam-carving/.git/
+Initialized empty Git repository in /Users/awdeorio/Developer/eecs280/p2-image-processing/.git/
 $ git status
 On branch main
 
@@ -268,7 +268,7 @@ Create a new project.
 
 <img src="images/github003.png" width="384px" />
 
-Call the new project `seam-carving`, mark it as "private". Click "Create repository".
+Call the new project `p2-image-processing`, mark it as "private". Click "Create repository".
 
 <div class="primer-spec-callout danger" markdown="1">
 **Double check that you have selected "private".** Making your project code or test cases publicly available online is a violation of the honor code.
@@ -280,7 +280,7 @@ Triple-check that your new repository is private.  If you made a mistake, you ca
 
 <img src="images/github005a.png" width="768px" />
 
-You now have a project page for your remote repo.  In this example, awdeorio's project page is [https://github.com/awdeorio/seam-carving](https://github.com/awdeorio/seam-carving). You won't have access to it because it's private, but your page should look similar.
+You now have a project page for your remote repo.  In this example, awdeorio's project page is [https://github.com/awdeorio/p2-image-processing](https://github.com/awdeorio/p2-image-processing). You won't have access to it because it's private, but your page should look similar.
 
 <img src="images/github005b.png" width="768px" />
 
@@ -295,8 +295,8 @@ Browse to your repository's project page from [https://github.com/](https://gith
 Connect your local repo to your remote repo.
 ```console
 $ pwd
-/Users/awdeorio/Developer/eecs280/seam-carving
-$ git remote add origin https://github.com/awdeorio/seam-carving.git  # use your URL
+/Users/awdeorio/Developer/eecs280/p2-image-processing
+$ git remote add origin https://github.com/awdeorio/p2-image-processing.git  # use your URL
 ```
 
 <div class="primer-spec-callout warning" markdown="1">
@@ -305,15 +305,15 @@ $ git remote add origin https://github.com/awdeorio/seam-carving.git  # use your
 If you're using [SSH Keys](#ssh-keys), you'll see `git@github.com`.
 ```console
 $ git remote -v
-origin	git@github.com:awdeorio/seam-carving.git (fetch)
-origin	git@github.com:awdeorio/seam-carving.git (push)
+origin	git@github.com:awdeorio/p2-image-processing.git (fetch)
+origin	git@github.com:awdeorio/p2-image-processing.git (push)
 ```
 
 If you're using GitHub [Personal Access Tokens](#personal-access-token), you'll see `https://`.
 ```console
 $ git remote -v
-origin	https://github.com/awdeorio/seam-carving.git (fetch)
-origin	https://github.com/awdeorio/seam-carving.git (push)
+origin	https://github.com/awdeorio/p2-image-processing.git (fetch)
+origin	https://github.com/awdeorio/p2-image-processing.git (push)
 ```
 </div>
 
@@ -327,7 +327,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (12/12), done.
 Writing objects: 100% (14/14), 6.97 KiB | 3.48 MiB/s, done.
 Total 14 (delta 0), reused 0 (delta 0)
-To https://github.com/awdeorio/seam-carving.git
+To https://github.com/awdeorio/p2-image-processing.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
@@ -342,7 +342,7 @@ Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```console
 $ git push -u origin main
 error: src refspec main does not match any
-error: failed to push some refs to 'github.com:awdeorio/seam-carving.git'
+error: failed to push some refs to 'github.com:awdeorio/p2-image-processing.git'
 ```
 
 You can rename your local branch to `main` to resolve this.
@@ -497,7 +497,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 361 bytes | 361.00 KiB/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To https://github.com/awdeorio/seam-carving.git
+To https://github.com/awdeorio/p2-image-processing.git
    350f38e..7fa8093  main -> main
 $ git status
 On branch main
@@ -600,7 +600,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 348 bytes | 348.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/awdeorio/seam-carving.git
+To https://github.com/awdeorio/p2-image-processing.git
    a80db0b..2fac8d1  main -> main
 ```
 
@@ -655,8 +655,8 @@ $ whoami
 awdeorio
 $ pwd
 /Users/awdeorio/src/eecs280/
-$ git clone https://github.com/awdeorio/seam-carving.git
-Cloning into 'seam-carving...
+$ git clone https://github.com/awdeorio/p2-image-processing.git
+Cloning into 'p2-image-processing...
 ```
 
 Remember, other team members don't need to download the starter files again because those files were already added by the first team member.
@@ -687,9 +687,9 @@ To fix the conflict, follow [this how-to]( https://help.github.com/articles/reso
 If you get a `rejected` error when using `git push`, this probably means you (or your partner) changed your repo using another computer (or the GitHub web interface).
 ```console
 $ git push
-To https://github.com/awdeorio/seam-carving.git
+To https://github.com/awdeorio/p2-image-processing.git
  ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/awdeorio/seam-carving.git'
+error: failed to push some refs to 'https://github.com/awdeorio/p2-image-processing.git'
 ```
 
 Fetch changes from the remote repo.
@@ -699,7 +699,7 @@ remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (3/3), done.
 remote: Total 3 (delta 2), reused 0 (delta 0)
 Unpacking objects: 100% (3/3), done.
-From https://github.com/awdeorio/seam-carving
+From https://github.com/awdeorio/p2-image-processing
    4d375b4..2b9bea7  main     -> origin/main
 ```
 
@@ -735,7 +735,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 318 bytes | 318.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-To https://github.com/awdeorio/seam-carving.git
+To https://github.com/awdeorio/p2-image-processing.git
    2b9bea7..63a5d0b  main -> main
 $ git status
 On branch main
@@ -758,7 +758,7 @@ First, remove your GitHub repository.  Browse to your repository's project page 
 Next, remove the hidden files created by `git`.  Remember, hidden files start with a dot (`.`).
 ```console
 $ pwd
-/Users/awdeorio/Developer/eecs280/seam-carving
+/Users/awdeorio/Developer/eecs280/p2-image-processing
 $ rm -rf .git/ .gitignore
 $ ls -A
 ```

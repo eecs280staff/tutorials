@@ -281,8 +281,8 @@ Emacs doesn't require any special setup for a project.
 Create a new directory, then move into the new directory. Your folder location might be different.
 
 ```console
-$ mkdir ~/eecs280/stats
-$ cd ~/eecs280/stats
+$ mkdir ~/eecs280/p1-stats
+$ cd ~/eecs280/p1-stats
 ```
 
 ### Add new files
@@ -504,7 +504,7 @@ Alice connects to a remote server containing her code.  She starts a tmux sessio
 $ ssh login-course.engin.umich.edu
 $ hostname
 caen-vnc-vm05.engin.umich.edu
-$ cd stats
+$ cd p1-stats
 $ tmux new -s shared
 $ emacs -nw main.cpp
 ```

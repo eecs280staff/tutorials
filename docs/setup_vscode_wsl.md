@@ -96,18 +96,18 @@ Clear out the search bar in the extensions panel. You should see:
 Go ahead and close the VS Code window for now. We'll open it back up in a moment.
 
 ## Create a project
-To create a VS Code project, create a folder (directory).  There are many ways to create folders: File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `stats`.
+To create a VS Code project, create a folder (directory).  There are many ways to create folders: File Explorer, VS Code interface, VS Code integrated terminal, and the system terminal.  We'll use the system terminal and call our example project `p1-stats`.
 
 Open the Terminal ([Ubuntu Bash Shell](cli.html#open-terminal-windows)).
 
 Create a new folder for your project.
 
 ```console
-$ mkdir -p ~/eecs280/stats
-$ cd ~/eecs280/stats
+$ mkdir -p ~/eecs280/p1-stats
+$ cd ~/eecs280/p1-stats
 ```
 
-This `mkdir -p` command creates a new `stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `stats` directory.
+This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
@@ -115,18 +115,18 @@ This `mkdir -p` command creates a new `stats` folder within an `eecs280` folder 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `EECS 280 Stats Project/` | `stats/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 
 Now, verify you're in the project directory with `pwd` and launch VS code with `code .`:
 ```console
 $ pwd
-/home/awdeorio/eecs280/stats
+/home/awdeorio/eecs280/p1-stats
 $ code .
 ```
 
-The `.` in `code .` means "current working directory". It would also be fine to use an absolute path, for example, `code ~/eecs280/stats`.
+The `.` in `code .` means "current working directory". It would also be fine to use an absolute path, for example, `code ~/eecs280/p1-stats`.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you've just installed VS Code, you may need to restart your terminal before the `code` command will work.
@@ -165,7 +165,7 @@ This tutorial includes examples for compiling and debugging with a sample `main.
 
 ```console
 $ pwd
-/home/awdeorio/eecs280/stats
+/home/awdeorio/eecs280/p1-stats
 $ wget -nc https://eecs280staff.github.io/tutorials/main.cpp
 $ wget -nc https://eecs280staff.github.io/tutorials/Makefile
 ```
@@ -224,7 +224,7 @@ We'll run several commands to get the starter file (see below). We recommend usi
 
 ```console
 $ pwd
-/home/awdeorio/eecs280/stats
+/home/awdeorio/eecs280/p1-stats
 $ wget https://eecs280staff.github.io/stats/starter-files.tar.gz
 $ tar -xvzf starter-files.tar.gz
 $ mv starter-files/* .
@@ -309,7 +309,7 @@ sum(data) = 60
 **Pitfall:** If something doesn't seem to be working, you can always check your current directory with `pwd` or `ls` to verify your terminal is in the correct place with the correct files.
 ```console
 $ pwd
-/home/awdeorio/eecs280/stats
+/home/awdeorio/eecs280/p1-stats
 $ ls
 Makefile  cats.out.correct  library.hpp  stats.hpp               stats_tests.cpp
 cats.csv  library.cpp    stats.cpp       stats_public_tests.cpp  two_sample.cpp
@@ -575,8 +575,8 @@ To reset VS Code project settings and starter files, first quit VS Code.  Make a
 ```console
 $ pwd
 /Users/awdeorio/src/eecs280
-$ cp -a stats stats.bak  # Backup
-$ rm -rf stats              # Delete
+$ cp -a p1-stats p1-stats.bak  # Backup
+$ rm -rf p1-stats              # Delete
 ```
 
 VS Code has a *lot* of settings and extensions.   You can reset the entire user interface and remove all extensions using these commands (Based on [Microsoft instructions](https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall)).  This is optional.

@@ -135,7 +135,7 @@ Clean up (from your laptop).
 $ hostname
 manzana.local
 $ pwd
-/Users/awdeorio/src/eecs280/stats
+/Users/awdeorio/src/eecs280/p1-stats
 $ make clean
 ```
 
@@ -144,9 +144,9 @@ Copy (from your laptop).
 $ hostname
 manzana.local
 $ pwd
-/Users/awdeorio/src/eecs280/stats
+/Users/awdeorio/src/eecs280/p1-stats
 $ make sync
-rsync -rtv --delete --exclude '.git*' --filter=':- .gitignore' ./  awdeorio@login-course.engin.umich.edu:stats-copy/
+rsync -rtv --delete --exclude '.git*' --filter=':- .gitignore' ./  awdeorio@login-course.engin.umich.edu:p1-stats-copy/
 ```
 
 ### Connect to CAEN Linux
@@ -161,15 +161,15 @@ $ hostname
 caen-vnc-vm16.engin.umich.edu
 ```
 
-Change directory to the folder containing your source code.  In this tutorial, we're going to use the copy created by `rsync` via `make sync`.  Note that you might also have a `stats` directory created during the [Version control on CAEN Linux](setup_caen.html#version-control-on-caen-linux) tutorial.
+Change directory to the folder containing your source code.  In this tutorial, we're going to use the copy created by `rsync` via `make sync`.  Note that you might also have a `p1-stats` directory created during the [Version control on CAEN Linux](setup_caen.html#version-control-on-caen-linux) tutorial.
 ``` console
 $ pwd
 /home/awdeorio
 $ ls
-stats stats-copy
-$ cd stats-copy
+p1-stats p1-stats-copy
+$ cd p1-stats-copy
 $ pwd
-/home/awdeorio/stats-copy
+/home/awdeorio/p1-stats-copy
 ```
 
 ### Run style checks
@@ -178,7 +178,7 @@ We've provided a `make style` Makefile target to run all the style checks for yo
 $ hostname
 caen-vnc-vm16.engin.umich.edu
 $ pwd
-/home/awdeorio/stats-copy
+/home/awdeorio/p1-stats-copy
 $ make style
 ...
 EECS 280 style checks PASS
