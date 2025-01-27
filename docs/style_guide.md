@@ -338,11 +338,11 @@ using decision you made, and can't override it with their own.
 
 
 ## Project-specific ways to make your code better
-1. P2 Image: Respect the interfaces. That includes in your unit tests!
-2. P3 Euchre:
+1. Image Processing: Respect the interfaces. That includes in your unit tests!
+2. Euchre:
    1. Don't copy paste calls to `deal_one()`. Write a function.
    2. Write moar functions.
-3. P4 Machine Learning: Write moar functions.
+3. Machine Learning: Write moar functions.
 
 
 ## Further reading

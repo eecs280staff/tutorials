@@ -96,7 +96,7 @@ This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` fold
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `EECS 280 Stats Project/` | `p1-stats/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 

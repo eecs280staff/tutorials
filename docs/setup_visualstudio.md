@@ -55,7 +55,7 @@ Set a project name, we'll call our example project `p1-stats`.  Pick a location 
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `EECS 280 Stats Project/` | `p1-stats/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 

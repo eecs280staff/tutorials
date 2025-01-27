@@ -86,7 +86,7 @@ We highly recommend you store all coding work for EECS 280 projects and labs her
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `EECS 280 Stats Project/` | `p1-stats/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 

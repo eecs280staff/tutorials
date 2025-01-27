@@ -59,7 +59,7 @@ In the File Dialog, navigate to the directory where you store your projects. You
 | Bad Example     | Good Example   |
 |-----------------|----------------|
 | `EECS 280/` | `eecs280/` |
-| `EECS 280 Stats Project/` | `p1-stats/` |
+| `Project 1 Stats/` | `p1-stats/` |
 
 </div>
 
