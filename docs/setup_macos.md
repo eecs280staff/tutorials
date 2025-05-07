@@ -61,7 +61,7 @@ $ brew install wget git tree
 ```
 
 ## Home Directory
-Run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
+Run `cd ~`. This will take you to your home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
 
 ```console
 $ cd ~
