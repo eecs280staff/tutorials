@@ -88,7 +88,7 @@ $ mkdir -p ~/eecs280/p1-stats
 $ cd ~/eecs280/p1-stats
 ```
 
-This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your Ubuntu home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
+This `mkdir -p` command creates a new `p1-stats` folder within an `eecs280` folder (creating that too, if it doesn't exist), within your home directory (`~`). The `cd` command changes your working directory to the new `p1-stats` directory.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Avoid paths that contain spaces.  Spaces causes problems with some command line tools.
