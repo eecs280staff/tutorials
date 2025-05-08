@@ -121,8 +121,12 @@ You should see your new file in the sidebar.
 
 <img src="images/xcode119.png" width="768px" />
 
-### Add existing files
-If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
+### Add starter files
+This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files. Your URL or files might be different.
+
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Don’t just drag starter files downloaded with your browser directly into Xcode. This may not place them in the correct project folder. If you want to use those files, skip to the [next section](#move-existing-files) for the correct steps. Otherwise, keep following this section without using any previously downloaded files.
+</div>
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the directory containing your source code.
@@ -179,6 +183,25 @@ If you need to rename any files, use Xcode, not the command line or Finder.  In 
 Select a file and press <kbd>Enter</kbd>.  Change the file name.  In EECS 280, you'll do this to any file that ends in `.starter`.
 
 | <img src="images/xcode120.png" width="192px" /> | <img src="images/xcode125.png" width="192px" /> |
+
+### Move existing files
+If you already have existing files elsewhere on your computer, you can also add them to your project. For example, if you want to use any files downloaded with your browser, they were likely saved to your Downloads folder and you'll need to move them into your project folder. 
+
+Use the menu and select: File > Add Files to "p1-stats"... (this will vary depending on your project's name).
+
+<img src="images/xcode340.png" width="384px" />
+
+Navigate to the directory with your existing files and select the ones you want to move. To select multiple files at once, you can hold down <kbd>Command</kbd> while clicking. You can also press <kbd>Command</kbd> + <kbd>a</kbd> to select all files. Once you've made your selection, click "Add".
+
+<img src="images/xcode350.png" width="768px" />
+
+Select "Move files to destination" as the action. You may also select "Copy files to destination" if you wish to leave the original files untouched, but do *not* select "Reference files in place". Do *not* select any targets. Click "Finish".
+
+<img src="images/xcode360.png" width="768px" />
+
+You will now see your files in the sidebar.
+
+<img src="images/xcode110.png" width="256px" />
 
 ## Compile and Run
 An Xcode target compiles (builds) one executable.
