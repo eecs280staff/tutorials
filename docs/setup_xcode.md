@@ -269,22 +269,33 @@ Without input redirection, here's how to type input in the Xcode command line.
 <img src="images/xcode255.png" width="768px" />
 
 #### `main.cpp` changes
-Xcode does not support input redirection.  We'll use a work-around that connects an input file to `cin`  ([source](https://gitlab.eecs.umich.edu/eecs281/wiki/wikis/xcode-file-redirection)).
+Xcode does not support input redirection.  We'll use a work-around that connects an input file to `cin`  ([source](https://github.com/eecs281staff/xcode_redirect)).
 
-Add these lines to the top of your `main` function.  Your input filename may be different.
+Download the `xcode-redirect.hpp` header file to your project folder:
+
+```console
+$ pwd
+/Users/hardyem/src/eecs280/p1-stats
+$ wget https://raw.githubusercontent.com/eecs281staff/xcode_redirect/master/xcode_redirect.hpp
+$ tree
+.
+├── ...
+└── xcode-redirect.hpp
+```
+
+Then, add it to your project (see ["Add existing files"](#add-existing-files)).
+
+Finally, include the following line inside your project's main() function, before you make any reference or use of argc or argv:
+
 ```c++
 // primer-spec-highlight-start
-#include <cassert>
-#include <cstdio>
+#include "xcode_redirect.hpp"   // Add near the top of the file with main()
 // primer-spec-highlight-end
-//...
 
-int main() {
-  // primer-spec-highlight-start
-  #ifdef __APPLE__
-  assert(freopen("main_test.in", "r", stdin));
-  #endif
-  // primer-spec-highlight-end
+// ...
+
+int main(int argc, char *argv[]) {
+  xcode_redirect(argc, argv);   // Be sure to do this!
   //...
 ```
 
