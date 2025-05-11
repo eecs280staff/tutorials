@@ -49,7 +49,7 @@ Set a project name, we'll call our example project `p1-stats`.  Ensure that that
 
 <img src="images/xcode060.png" width="768px" />
 
-In the File Dialog, navigate to the directory where you store your projects. You can press <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to navigate to specific a directory path. If you've been following along with our tutorials, the directory should be located at `~/eecs280`. If you used a different directory, enter the path for that directory instead.
+In the File Dialog, navigate to the directory where you store your projects. You can press <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to navigate to specific a directory path. If you've been following along with our tutorials, the directory should be located at `~/eecs280` (see [macOS tutorial](setup_macos.html#home-directory)). If you used a different directory, enter the path for that directory instead.
 
 <img src="images/xcode330.png" width="768px" />
 
