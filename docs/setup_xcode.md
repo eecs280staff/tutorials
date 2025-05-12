@@ -49,7 +49,11 @@ Set a project name, we'll call our example project `p1-stats`.  Ensure that that
 
 <img src="images/xcode060.png" width="768px" />
 
-In the File Dialog, navigate to the directory where you store your projects. Your folder location might be different. Be sure to uncheck "Create Git repository".  Click "Create".
+In the File Dialog, navigate to the directory where you store your projects. You can press <kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> to navigate to specific a directory path. If you've been following along with our tutorials, the directory should be located at `~/eecs280` (see [macOS tutorial](setup_macos.html#home-directory)). If you used a different directory, enter the path for that directory instead.
+
+<img src="images/xcode330.png" width="768px" />
+
+Once you've navigated to the correct directory, you can create the project. Be sure to uncheck "Create Git repository". Click "Create".
 
 <img src="images/xcode070.png" width="768px" />
 
@@ -123,6 +127,8 @@ If you have starter files, add them to your project directory.  This example is 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the directory containing your source code.
 ```console
+$ pwd
+/Users/awdeorio/eecs280/p1-stats
 $ ls
 main.cpp  p1-stats.xcodeproj
 ```
@@ -161,9 +167,13 @@ Right-click `p1-stats` in the sidebar.  Select "Add Files".
 
 <img src="images/xcode080.png" width="256px" />
 
-Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>). Your specific files may not match the image below. Do *not* select "Copy items if needed". Do *not* select any targets. Click "Add".
+Select all the starter files (<kbd>Command</kbd> + <kbd>a</kbd>). Your specific files may not match the image below.  Click "Add".
 
-<img src="images/xcode100.png" width="384px" />
+<img src="images/xcode340.png" width="512px" />
+
+Select "Move files to destination" as the action. Do *not* select any targets. Click "Finish".
+
+<img src="images/xcode350.png" width="512px" />
 
 You will now see your files in the sidebar.
 
