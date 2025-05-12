@@ -122,7 +122,7 @@ You should see your new file in the sidebar.
 <img src="images/xcode119.png" width="768px" />
 
 ### Add existing files
-If you have starter files, add them to your project directory. This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files. Your URL or files might be different.
+If you have starter files, add them to your project directory.  This example is from [EECS 280 Project 1](https://eecs280staff.github.io/stats/), but this tutorial doesn't require understanding the files.  Your URL or files might be different.
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** Make sure you're in the directory containing your source code.
