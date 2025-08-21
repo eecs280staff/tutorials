@@ -28,7 +28,7 @@ Next, we recommend our [Command line interface (CLI)](cli.html) tutorial.
 ## Install
 Install Visual Studio Community edition from [Microsoft's website](https://www.visualstudio.com/vs/community/).
 
-Select "Desktop Development with C++" and make sure that the "Windows 10 SDK", "Windows 11 SDK", and "C++ AddressSanitizer" are selected.  Click "Continue".  Reboot your computer when the installer prompts you.
+Select "Desktop Development with C++" and make sure that the "Windows 11 SDK", and "C++ AddressSanitizer" are selected.  Click "Continue".  Reboot your computer when the installer prompts you.
 
 <img src="images/visualstudio010.png" width="768px" />
 
