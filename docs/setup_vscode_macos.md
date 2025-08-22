@@ -587,22 +587,6 @@ Now, running the debugger will not display the assembly file. However, it will n
 
 <img src="images/vscode_macos_038.png" width="768px" />
 
-
-### Debugging fails
-Sometimes on older Macs with an Intel chip or following an update, debugging in VS Code fails due to an incompatible bundled `debugserver` [bug report](https://github.com/vadimcn/codelldb/issues/999).
-
-First, make sure you have the Xcode command line tools installed.  (They should [already](setup_macos.html#install-compiler) be installed.)
-```console
-$ xcode-select --install
-```
-
-Delete the incompatible file that comes bundled with CodeLLDB.
-```console
-$ rm ~/.vscode/extensions/vadimcn.vscode-lldb-*/lldb/bin/debugserver
-```
-
-Restart VS Code.
-
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
