@@ -287,13 +287,17 @@ Navigate to the debugging pane and click "create a launch.json file". Or, if you
 
 | <img src="images/vscode_macos_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_macos_031.png" width="360px" /> |
 
-If you are prompted to select a debugger, select "LLDB". (Do NOT select "C++ (GDB/LLDB)".)
+If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++ (GDB/LLDB)".)
 
 <img src="images/vscode_macos_031b.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
 </div>
+
+If you are prompted to select a configuration, select "CodeLLDB: Launch". You may need to scroll down to find this option.
+
+<img src="images/vscode_macos_032.png" width="768px" />
 
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
