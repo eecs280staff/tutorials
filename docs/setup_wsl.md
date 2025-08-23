@@ -11,7 +11,7 @@ Windows Command line tools (WSL)
 The Windows Subsystem for Linux (WSL) runs an Ubuntu Linux guest virtual machine on your Windows host machine.
 
 ## Upgrade Windows
-We recommend Windows 11.  Windows 10 version 2004 build 19041 and higher will also work.  Here's how to [check your Windows version](https://support.microsoft.com/en-us/help/4027391/windows-10-see-which-version-you-have).
+We recommend Windows 11.  Here's how to [check your Windows version](https://support.microsoft.com/en-us/windows/find-information-about-your-windows-device-a66d52c8-3323-44fd-8f34-a9497bb935e1).
 
 Free Windows upgrades are available for UM students via [OnTheHub](https://its.umich.edu/computing/computers-software/software-services/onthehub). If you have an older Windows machine and are not able to upgrade, please reach out to course instructors for assistance.
 
@@ -247,10 +247,6 @@ Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.
 ### Forgot Password
 
 If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution:".
-
-### Manual Installation
-If you are running an older version of Windows 10 and unable to update to build 19041 or higher, you may be able to perform a [manual installation](https://learn.microsoft.com/en-us/windows/wsl/install-manual). Use this only as a last resort option.
-
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
