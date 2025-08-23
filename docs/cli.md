@@ -131,7 +131,7 @@ $ brew install tree      # macOS
 </table>
 
 ### `touch`
-`touch` creates an empty file.
+`touch` creates an empty file, if it does not already exist.
 
 <table>
   <tr>
@@ -351,7 +351,7 @@ Close your terminal and reopen it.  You should see colorized `ls` output.
 Verify you're using the Z shell, which is typical on macOS.
 ```console
 $ echo $0
-zsh
+-zsh
 ```
 {: data-variant="no-line-numbers" }
 
@@ -368,7 +368,7 @@ alias ls='ls -G'
 ```
 {: data-variant="no-line-numbers" data-title="~/.zshrc" }
 
-Close your terminal and reopen it.  You should see colorized `ls` output.
+Save the file (command-s). Close your terminal and reopen it.  You should see colorized `ls` output.
 
 <img src="images/cli028.png" class="invert-colors-in-dark-mode" width="512px" alt="colorized ls macOS example"/>
 
@@ -399,7 +399,7 @@ PROMPT='%F{green}[%n] %F{blue}%~%f %B%F{blue}$%f%b '
 ```
 {: data-variant="no-line-numbers" data-title="~/.zshrc" }
 
-Close your terminal and reopen it.  It should look like this.  For more, check out [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12).
+Save the file (command-s). Close your terminal and reopen it.  It should look like this.  For more, check out [this guide](https://shah22j.medium.com/how-to-customize-your-zsh-terminal-on-your-own-81f947ca2f12).
 
 <img src="images/cli030.png" class="invert-colors-in-dark-mode" width="768px" alt="customized zsh example"/>
 
