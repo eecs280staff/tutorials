@@ -287,13 +287,17 @@ Navigate to the debugging pane and click "create a launch.json file". Or, if you
 
 | <img src="images/vscode_macos_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_macos_031.png" width="360px" /> |
 
-If you are prompted to select a debugger, select "LLDB". (Do NOT select "C++ (GDB/LLDB)".)
+If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++ (GDB/LLDB)".)
 
 <img src="images/vscode_macos_031b.png" width="768px" />
 
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
 </div>
+
+If you are prompted to select a configuration, select "CodeLLDB: Launch". You may need to scroll down to find this option.
+
+<img src="images/vscode_macos_032.png" width="768px" />
 
 Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
 
@@ -582,22 +586,6 @@ Next, search for "lldb: show disassembly" and set the option to `never`.
 Now, running the debugger will not display the assembly file. However, it will not yet highlight the erroneous line. To find the erroneous line, look through the Call Stack on the debugging panel and click on your source file.
 
 <img src="images/vscode_macos_038.png" width="768px" />
-
-
-### Debugging fails
-Sometimes on older Macs with an Intel chip or following an update, debugging in VS Code fails due to an incompatible bundled `debugserver` [bug report](https://github.com/vadimcn/codelldb/issues/999).
-
-First, make sure you have the Xcode command line tools installed.  (They should [already](setup_macos.html#install-compiler) be installed.)
-```console
-$ xcode-select --install
-```
-
-Delete the incompatible file that comes bundled with CodeLLDB.
-```console
-$ rm ~/.vscode/extensions/vadimcn.vscode-lldb-*/lldb/bin/debugserver
-```
-
-Restart VS Code.
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
