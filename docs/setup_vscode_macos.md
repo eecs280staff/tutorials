@@ -283,19 +283,23 @@ The examples below assume a source file `main.cpp` compiled to `main.exe` ([Samp
 
 Running and debugging code through VS Code requires a `launch.json` configuration file.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code will not present you with the debugging option we use if you haven't opened a `.cpp` file in your project editor. If you haven't opened a `.cpp` file yet, do so.
+</div>
+
 Navigate to the debugging pane and click "create a launch.json file". Or, if you have previous debugging configurations, click the gear icon to edit `launch.json`.
 
 | <img src="images/vscode_macos_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_macos_031.png" width="360px" /> |
 
-If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++ (GDB/LLDB)".)
+If you are prompted to select a debugger, select "C++ (GDB/LLDB)". (Do NOT select "CodeLLDB".)
 
 <img src="images/vscode_macos_031b.png" width="768px" />
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
-</div>
+If you are not prompted to select a configuration, or your configuration list does not contain "CodeLLDB: Launch," click "Add configuration..." near the bottom right of the editor window. 
 
-If you are prompted to select a configuration, select "CodeLLDB: Launch". You may need to scroll down to find this option.
+<img src="images/vscode_macos_031c.png" width="768px" />
+
+Select "CodeLLDB: Launch". You may need to scroll down to find this option.
 
 <img src="images/vscode_macos_032.png" width="768px" />
 
