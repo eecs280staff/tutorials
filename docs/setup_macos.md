@@ -22,12 +22,11 @@ Install a compiler.
 $ xcode-select --install
 ```
 
-Notice that this compiler is really Apple LLVM pretending to be `g++`.  Your version might be different.
+Notice that this compiler is really Apple Clang pretending to be `g++`.  Your version might be different.
 ```console
 $ g++ --version
-Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
-Apple LLVM version 9.0.0 (clang-900.0.38)
-Target: x86_64-apple-darwin16.7.0
+Apple clang version 17.0.0 (clang-1700.0.13.5)
+Target: arm64-apple-darwin24.6.0
 Thread model: posix
 InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 ```
@@ -38,20 +37,18 @@ Install the [Homebrew package manager](https://brew.sh/).
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-<div class="primer-spec-callout warning" markdown="1">
-Apple Silicon users ("M1", "M2", etc.) only - Homebrew installs to a non-standard location, `/opt/homebrew/`. You'll need to run the following to add Homebrew to your path:
+Then run the following to add Homebrew to your path:
 
 ```console
 $ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 ```
 
 Close your terminal and reopen your terminal.
-</div>
 
 Check your install.  Your version might be different.
 ```console
 $ brew --version
-Homebrew 4.3.18
+Homebrew 4.6.4
 ```
 
 ## Install CLI tools
