@@ -283,19 +283,26 @@ The examples below assume a source file `main.cpp` compiled to `main.exe` ([Samp
 
 Running and debugging code through VS Code requires a `launch.json` configuration file.
 
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** Due to a bug in the CodeLLDB extension, you need to manually start the creation of a launch.json file in your workspace folder. You can use the following commands to do so. **Make sure your current directory is your workspace folder.**
+
+```console
+$ pwd
+/Users/awdeorio/eecs280/p1-stats
+$ mkdir -p .vscode
+$ touch .vscode/launch.json
+```
+</div>
+
 Navigate to the debugging pane and click "create a launch.json file". Or, if you have previous debugging configurations, click the gear icon to edit `launch.json`.
 
 | <img src="images/vscode_macos_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_macos_031.png" width="360px" /> |
 
-If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++ (GDB/LLDB)".)
+If you are not prompted to select a configuration, or your configuration list does not contain "CodeLLDB: Launch," click "Add configuration..." near the bottom right of the editor window. 
 
-<img src="images/vscode_macos_031b.png" width="768px" />
+<img src="images/vscode_macos_031c.png" width="768px" />
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
-</div>
-
-If you are prompted to select a configuration, select "CodeLLDB: Launch". You may need to scroll down to find this option.
+Select "CodeLLDB: Launch". You may need to scroll down to find this option.
 
 <img src="images/vscode_macos_032.png" width="768px" />
 
