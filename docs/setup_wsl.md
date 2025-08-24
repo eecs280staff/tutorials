@@ -84,7 +84,7 @@ The first time you open Ubuntu, you will be prompted to create a Linux username 
 
 <img src="images/wsl035.png" width=768px>
 
-Double check that your user has been created.
+Double check that your user has been created. (Your username will be different.)
 ```console
 $ whoami
 awdeorio  # this should NOT say root
@@ -131,7 +131,7 @@ $ sudo apt install g++ make rsync wget git ssh gdb python3 tree
 ### Home Directory
 You'll generally want to store your coding projects in the Linux filesystem, which is separate from your Windows filesystem.
 
-Open an Ubuntu bash terminal and run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
+From an Ubuntu bash terminal, run `cd ~`. This will take you to your Ubuntu home directory. Running `pwd` afterward confirms the location. (Your username will be different.)
 
 ```console
 $ cd ~
@@ -218,6 +218,8 @@ Or, try <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>c</kbd> and <kbd>ctrl</kbd> + 
 If these do not work, right click on the terminal window header. If you see option for "Settings", go to "Settings" -> "Actions" and add your desired keybindings for copy/paste. If you see an option for "Properties", go to "Properties" -> "Options" and ensure "Use Ctrl+Shift+C/V as Copy/Paste" box is checked.
 
 ## Troubleshooting
+
+This section is for common problems and solutions.
 
 ### Enable Virtualization
 

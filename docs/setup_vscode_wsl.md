@@ -52,7 +52,7 @@ Install the WSL Extension, which allows the VS Code backend to run in WSL where 
 2. Search for WSL.
 3. Click "Install".
 
-VS Code might attempt to install this one automatically - if so, you may "Installing" followed by a "Reload Window" option. Click that instead of "Install".
+VS Code might attempt to install this one automatically - if so, you may see "Installing" followed by a "Reload Window" option. Click that instead of "Install".
 
 <img src="images/vscode_wsl_008.png" width="768px" />
 
