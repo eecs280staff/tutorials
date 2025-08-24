@@ -42,6 +42,12 @@ Use the homebrew package manager to install VS Code.  You can run this command f
 $ brew install --cask visual-studio-code
 ```
 
+Install Rust, which is required to avoid a bug in the CodeLLDB extension we will install later.
+
+```console
+$ brew install rust
+```
+
 Open VS Code. You can find it in your applications (look for "Visual Studio Code") or, alternatively, you can run it using the command line.
 ```console
 $ code
@@ -295,7 +301,11 @@ If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++
 **Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
 </div>
 
-If you are prompted to select a configuration, select "CodeLLDB: Launch". You may need to scroll down to find this option.
+If you are **not** prompted to select a configuration, click "Add Configuration..." near the bottom right of the editor.
+
+<img src="images/vscode_macos_031c.png" width="768px" />
+
+Select "CodeLLDB: Launch". You may need to scroll down to find this option.
 
 <img src="images/vscode_macos_032.png" width="768px" />
 
