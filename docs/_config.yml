@@ -1,5 +1,5 @@
 # This config file renders the "primer-spec" theme from:
-# https://github.com/eecs485staff/primer-spec
+# https://eecs485staff.github.io/primer-spec/docs/USAGE_ADVANCED.html#site-configuration-options
 # This theme is built on the default GitHub Markdown theme "Primer", and
 # optionally renders a sidebar to easily navigate project specs.
 
@@ -13,6 +13,7 @@ plugins:
   - jekyll-optional-front-matter
   - jekyll-readme-index
   - jekyll-relative-links
+  - jekyll-default-layout
   - jemoji
 kramdown:
   input: GFM
