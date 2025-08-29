@@ -10,7 +10,7 @@ source 'https://rubygems.org'
 
 # On macOS you can install Ruby 3.1 like this
 #   brew install ruby@3.1
-ruby "~> 3.1"  # Ruby 3.1.x required
+ruby "<= 3.1"
 
 gem 'github-pages', '228'
 gem 'webrick'
