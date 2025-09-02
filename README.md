@@ -14,29 +14,20 @@ For local spec development, render GitHub pages locally using the [Primer Spec i
 
 One time install:
 ```console
-$ ruby --version  # Need version 2.4.0 or later
-ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18]
 $ gem install bundler
-$ pwd
-/Users/awdeorio/src/eecs280/tutorials
 $ bundle install
 ```
 
 Every day usage:
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/tutorials/docs
+$ cd docs/
 $ bundle exec jekyll serve
 ```
 
-If you run into Jekyll errors, run `bundle update`:
+Troubleshooting: Remove the lockfile and try again.  It's not committed to avoid problems with GitHub Pages deploy.
 ```console
-$ pwd
-/Users/awdeorio/src/eecs280/tutorials
-$ bundle update --all
+$ rm Gemfile.lock
 ```
-
-If `Gemfile.lock` changes, be sure to commit the changes.
 
 ### Pull request spec previews
 We generate previews of the spec website whenever a Pull Request modifies the `docs/` directory. These previews are uploaded to `https://preview.seshrs.ml/previews/eecs280staff/<repo-name>/<PR-number>/` using a marketplace GitHub Action ([`upload-to-primer-spec-preview`](https://github.com/seshrs/upload-to-primer-spec-preview)). Check out the [workflow definition](.github/workflows/spec_preview.yml) for implementation details.
