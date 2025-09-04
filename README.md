@@ -12,6 +12,12 @@ The markup source files live in `docs/`.  We're using GitHub pages to publish th
 ### Local preview
 For local spec development, render GitHub pages locally using the [Primer Spec instructions](https://github.com/eecs485staff/primer-spec/blob/develop/docs/USAGE_ADVANCED.md).  Summary:
 
+If you're on WSL or Linux, set `GEM_HOME` to install Ruby packages locally.  Do not use `sudo`!  Here are recommended settings for your `.bashrc`, you'll get packages in something like `~/.gem/ruby/3.4/`.
+```bash
+export GEM_HOME="$HOME/.gem/ruby/$(ruby -e 'print RUBY_VERSION[/\d+\.\d+/]')"
+export PATH="$GEM_HOME/bin:$PATH"
+```
+
 One time install:
 ```console
 $ gem install bundler
