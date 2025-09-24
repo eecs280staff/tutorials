@@ -226,28 +226,6 @@ Success. Logging you in...
 $
 ```
 
-Open a second terminal and run an `rsync` command, which uses the new configuration.  No authentication is required!
-```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
-building file list ... done
-
-sent 273 bytes  received 20 bytes  586.00 bytes/sec
-total size is 13015  speedup is 44.42
-```
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
-```console
-$ ls
-main.cpp
-```
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
-</div>
-
-
 ## Pro-tips
 
 ### Synchronizing deleted files
