@@ -66,6 +66,12 @@ Are you sure you want to continue connected (yes/no/[fingerprint])?
 
 Enter **yes**. This is due to CAEN's Linux Remote Login Service changing URLs.
 
+You are now logged in to a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.
+```console
+$ hostname
+caen-vnc-vm16.engin.umich.edu
+```
+
 Exit as soon as your test is successful.
 ```console
 $ exit
@@ -77,7 +83,7 @@ Connection to login-course.engin.umich.edu closed.
 </div>
 
 ## Copy code to CAEN
-Copy your code to CAEN Linux.  The best choice is Git.  If you haven't set up a Git repository, then use `rsync` as a backup.
+Copy your code to CAEN Linux.  The best choice is Git.  If you haven't set up a Git repository, then you can use `rsync`.
 
 ### Option 1: `git`
 If you have a Git repository, check out a copy of your code.
@@ -90,7 +96,7 @@ $ ssh awdeorio@login-course.engin.umich.edu
 Change to your home directory and `git clone` your repo.
 ```console
 $ cd ~  # This will move to your home directory
-$ git clone https://github.com/awdeorio/p1-stats.git
+$ git clone git@github.com:awdeorio/p1-stats.git
 $ ls
 p1-stats
 ```
@@ -144,19 +150,17 @@ total size is 8818  speedup is 0.90
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-## Login with `ssh`
-Now log in to CAEN Linux.  Your terminal is now a shell on a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.  Don't forget to change `awdeorio` to your own uniqname.
-```console
-$ ssh awdeorio@login-course.engin.umich.edu
-$ hostname
-caen-vnc-vm16.engin.umich.edu
-```
-
+## Compile and run on CAEN
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-Notice that the folder copied earlier.
+Connect to CAEN.
+```console
+$ ssh awdeorio@login-course.engin.umich.edu
+```
+
+Notice that the folder copied earlier.  If you used Git, it will be called `p1-stats`
 ```console
 $ ls
 p1-stats-copy
@@ -180,11 +184,9 @@ A good practice is to run a regression test on CAEN Linux.  In EECS 280, that's 
 $ make test
 ```
 
-Log out.  Notice that after logging out, you are back to using a shell on your laptop.
+Log out.
 ```console
 $ exit
-$ hostname
-your-laptop-name
 ```
 
 ## Avoiding repeated 2FA
