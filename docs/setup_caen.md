@@ -76,11 +76,37 @@ Connection to login-course.engin.umich.edu closed.
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-## Copy with `rsync`
-Next, we will copy our source code to CAEN Linux using the `rsync` command line program.
+## Copy code to CAEN
+Copy your code to CAEN Linux.  The best choice is Git.  If you haven't set up a Git repository, then use `rsync` as a backup.
+
+### Option 1: `git`
+If you have a Git repository, check out a copy of your code.
+
+SSH to a CAEN Linux machine.
+```console
+$ ssh awdeorio@login-course.engin.umich.edu
+```
+
+Change to your home directory and `git clone` your repo.
+```console
+$ cd ~  # This will move to your home directory
+$ git clone https://github.com/awdeorio/p1-stats.git
+$ ls
+p1-stats
+```
+
+### Option 2: `rsync`
+An alternative is to copy your source code to CAEN Linux using the `rsync` command line program.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
+**Pitfall:** Make sure you're on your laptop, not CAEN linux
+```console
+$ hostname
+caen-vnc-mi01.engin.umich.edu  # This is CAEN Linux
+$ exit                         # Exit CAEN Linux
+```
+
+Make sure you're in the directory containing your source code *on your laptop*.
 ```console
 $ ls
 main.cpp
@@ -221,31 +247,6 @@ main.cpp
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-
-## Version control on CAEN Linux
-An alternative to copying code to CAEN Linux is checking out a your code from GitHub.
-
-SSH to a CAEN Linux machine and see the copy we made earlier using `rsync`.
-```console
-$ ssh awdeorio@login-course.engin.umich.edu
-$ ls
-p1-stats-copy  # this is from our rsync'ed copy earlier
-```
-
-Notice that the copy is *not* under version control.
-```console
-$ cd p1-stats-copy
-$ git status
-fatal: Not a git repository (or any of the parent directories): .git
-```
-
-Change directory and `git clone` your repo.
-```console
-$ cd ~  # This will move to your home directory
-$ git clone https://github.com/awdeorio/p1-stats.git
-$ ls
-p1-stats p1-stats-copy
-```
 
 ## Pro-tips
 
