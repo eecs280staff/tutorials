@@ -36,7 +36,7 @@ To access CAEN Linux from off campus, you'll first need to connect to the UM VPN
 Test an SSH connection.  Be sure to change `awdeorio` to your own uniqname.
 
 ```console
-$ ssh -T awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 The authenticity of host 'login-course.engin.umich.edu (141.213.74.65)' can't be established.
 ECDSA key fingerprint is SHA256:LL0GPTtaVGa6gvv2kVpGq4ZULA1l5pw2wXC4dK3ymIk.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -53,7 +53,7 @@ Enter a passcode or select one of the following options:
 Passcode or option (1-3): 1
 Success. Logging you in...
 ...
--bash-4.2$ 
+$
 ```
 
 If you are prompted with
