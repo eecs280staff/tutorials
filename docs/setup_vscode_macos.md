@@ -47,6 +47,22 @@ Open VS Code. You can find it in your applications (look for "Visual Studio Code
 $ code
 ```
 
+### Disable AI Features
+VS Code comes with various AI features enabled by default. Using these tools to generate your code goes against our [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), so they need to be disabled.
+
+Open VS Code settings by going to `Code` > `Settings...` > `Settings`.
+
+<img src="images/vscode_macos_170.png" width="768px" />
+
+Search for "Disable AI Features" and enable the option.
+
+<img src="images/vscode_macos_180.png" width="768px" />
+
+You may get a warning about disabling other extensions. If so, you can click "Disable All".
+
+<img src="images/vscode_macos_190.png" width="768px" />
+
+
 ### Microsoft C++ Extension
 Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).  On macOS, this extension provides Intellisense.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
 

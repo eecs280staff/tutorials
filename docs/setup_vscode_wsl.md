@@ -43,6 +43,19 @@ Open VS Code. You can skip the welcome screen.
 
 <img src="images/vscode_wsl_007.png" width="768px" />
 
+### Disable AI Features
+VS Code comes with various AI features enabled by default. Using these tools to generate your code goes against our [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), so they need to be disabled.
+
+Open VS Code settings by going to `File` > `Preferences` > `Settings`.
+
+<img src="images/vscode_wsl_190.png" width="768px" />
+
+Search for "Disable AI Features" and enable the option.
+
+<img src="images/vscode_wsl_200.png" width="768px" />
+
+You may get a warning about disabling other extensions. If so, you can click "Disable All".
+
 
 ### WSL Extension
 
