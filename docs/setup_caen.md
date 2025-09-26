@@ -36,7 +36,7 @@ To access CAEN Linux from off campus, you'll first need to connect to the UM VPN
 Test an SSH connection.  Be sure to change `awdeorio` to your own uniqname.
 
 ```console
-$ ssh -T awdeorio@login-course.engin.umich.edu
+$ ssh awdeorio@login-course.engin.umich.edu
 The authenticity of host 'login-course.engin.umich.edu (141.213.74.65)' can't be established.
 ECDSA key fingerprint is SHA256:LL0GPTtaVGa6gvv2kVpGq4ZULA1l5pw2wXC4dK3ymIk.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -53,7 +53,7 @@ Enter a passcode or select one of the following options:
 Passcode or option (1-3): 1
 Success. Logging you in...
 ...
--bash-4.2$ 
+$
 ```
 
 If you are prompted with
@@ -66,6 +66,12 @@ Are you sure you want to continue connected (yes/no/[fingerprint])?
 
 Enter **yes**. This is due to CAEN's Linux Remote Login Service changing URLs.
 
+You are now logged in to a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.
+```console
+$ hostname
+caen-vnc-vm16.engin.umich.edu
+```
+
 Exit as soon as your test is successful.
 ```console
 $ exit
@@ -76,11 +82,37 @@ Connection to login-course.engin.umich.edu closed.
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-## Copy with `rsync`
-Next, we will copy our source code to CAEN Linux using the `rsync` command line program.
+## Copy code to CAEN
+Copy your code to CAEN Linux.  The best choice is Git.  If you haven't set up a Git repository, then you can use `rsync`.
+
+### Option 1: `git`
+If you have a Git repository, check out a copy of your code.
+
+SSH to a CAEN Linux machine.
+```console
+$ ssh awdeorio@login-course.engin.umich.edu
+```
+
+Change to your home directory and `git clone` your repo.
+```console
+$ cd ~  # This will move to your home directory
+$ git clone git@github.com:awdeorio/p1-stats.git
+$ ls
+p1-stats
+```
+
+### Option 2: `rsync`
+An alternative is to copy your source code to CAEN Linux using the `rsync` command line program.
 
 <div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
+**Pitfall:** Make sure you're on your laptop, not CAEN linux
+```console
+$ hostname
+caen-vnc-mi01.engin.umich.edu  # This is CAEN Linux
+$ exit                         # Exit CAEN Linux
+```
+
+Make sure you're in the directory containing your source code *on your laptop*.
 ```console
 $ ls
 main.cpp
@@ -118,19 +150,17 @@ total size is 8818  speedup is 0.90
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-## Login with `ssh`
-Now log in to CAEN Linux.  Your terminal is now a shell on a *different computer*, `caen-vnc-vm16` in this example.  Yours may be different.  Don't forget to change `awdeorio` to your own uniqname.
-```console
-$ ssh awdeorio@login-course.engin.umich.edu
-$ hostname
-caen-vnc-vm16.engin.umich.edu
-```
-
+## Compile and run on CAEN
 <div class="primer-spec-callout warning" markdown="1">
 **Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 </div>
 
-Notice that the folder copied earlier.
+Connect to CAEN.
+```console
+$ ssh awdeorio@login-course.engin.umich.edu
+```
+
+Notice that the folder copied earlier.  If you used Git, it will be called `p1-stats`
 ```console
 $ ls
 p1-stats-copy
@@ -154,11 +184,9 @@ A good practice is to run a regression test on CAEN Linux.  In EECS 280, that's 
 $ make test
 ```
 
-Log out.  Notice that after logging out, you are back to using a shell on your laptop.
+Log out.
 ```console
 $ exit
-$ hostname
-your-laptop-name
 ```
 
 ## Avoiding repeated 2FA
@@ -198,53 +226,6 @@ Passcode or option (1-3): 1
 Success. Logging you in...
 
 $
-```
-
-Open a second terminal and run an `rsync` command, which uses the new configuration.  No authentication is required!
-```console
-$ rsync -rtv --exclude '.git*' ../p1-stats/ awdeorio@login-course.engin.umich.edu:p1-stats-copy/
-building file list ... done
-
-sent 273 bytes  received 20 bytes  586.00 bytes/sec
-total size is 13015  speedup is 44.42
-```
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Make sure you're in the directory containing your source code.
-```console
-$ ls
-main.cpp
-```
-</div>
-
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** If you are off campus, make sure you have connected to the [UM VPN](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
-</div>
-
-
-## Version control on CAEN Linux
-An alternative to copying code to CAEN Linux is checking out a your code from GitHub.
-
-SSH to a CAEN Linux machine and see the copy we made earlier using `rsync`.
-```console
-$ ssh awdeorio@login-course.engin.umich.edu
-$ ls
-p1-stats-copy  # this is from our rsync'ed copy earlier
-```
-
-Notice that the copy is *not* under version control.
-```console
-$ cd p1-stats-copy
-$ git status
-fatal: Not a git repository (or any of the parent directories): .git
-```
-
-Change directory and `git clone` your repo.
-```console
-$ cd ~  # This will move to your home directory
-$ git clone https://github.com/awdeorio/p1-stats.git
-$ ls
-p1-stats p1-stats-copy
 ```
 
 ## Pro-tips
