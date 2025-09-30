@@ -44,7 +44,7 @@ Open VS Code. You can skip the welcome screen.
 <img src="images/vscode_wsl_007.png" width="768px" />
 
 ### Disable AI Features
-VS Code comes with various AI features enabled by default. Using these tools to generate your code goes against our [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), so they need to be disabled.
+VS Code includes some AI-assisted coding tools (e.g. Copilot) by default. Disable these for your work in EECS 280 - using these tools for course projects is against the EECS 280 [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), and using AI as you're learning to write code prevents you from developing your own foundational programming skills.
 
 Open VS Code settings by going to `File` > `Preferences` > `Settings`.
 
@@ -55,6 +55,8 @@ Search for "Disable AI Features" and enable the option.
 <img src="images/vscode_wsl_200.png" width="768px" />
 
 You may get a warning about disabling other extensions. If so, you can click "Disable All".
+
+<img src="images/vscode_wsl_210.png" width="768px" />
 
 
 ### WSL Extension
