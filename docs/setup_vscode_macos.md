@@ -311,13 +311,17 @@ If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++
 **Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
 </div>
 
-If you are prompted to select a configuration, select "CodeLLDB: Launch". You may need to scroll down to find this option.
+You may be prompted with an autocomplete box. It may look like this, or it might have different options.
 
-<img src="images/vscode_macos_032.png" width="768px" />
+<img src="images/vscode_macos_033.png" width="768px" />
 
-Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
+Choosing an option from this box is unnecessary, so you should make it disappear by pressing the left or right arrow key on your keyboard.
+
+Edit the `program` and `cwd` fields in `launch.json`.  Ensure that all occurences of `workspaceRoot` are replaced with `workspaceFolder`.
 
 <img src="images/vscode_macos_034b.png" width="768px" />
+
+Save the updated file.  Your `program` name might be different.
 
 
 ### Launch Debugger
