@@ -342,12 +342,12 @@ Depending on your program, its inputs, and how you want to debug it, you'll need
 
 #### Edit `launch.json` program
 
-If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceRoot}"`.
+If you already have a working `launch.json` and want to debug a different program, edit the `program` field `launch.json`.  Your `program` name might be different.  Make sure `cwd` is set to `"${workspaceFolder}"`.
 ```json
 {
-    "program": "${workspaceRoot}/main.exe",
+    "program": "${workspaceFolder}/main.exe",
     ...
-    "cwd": "${workspaceRoot}",
+    "cwd": "${workspaceFolder}",
 }
 ```
 {: data-highlight="2,4" }
@@ -392,7 +392,7 @@ To run a program with options or arguments in VS Code, edit `launch.json`.  Each
     "configurations": [
         {
             ...
-            "program": "${workspaceRoot}/main.exe",
+            "program": "${workspaceFolder}/main.exe",
             "args": ["HCMST_ver_3.04.tsv", "q24_met_online", "1", "0", "ppage"],
             ...
         }
@@ -414,7 +414,7 @@ To configure input redirection, edit `launch.json` ([docs](https://github.com/va
     "configurations": [
         {
             ...
-            "program": "${workspaceRoot}/main.exe",
+            "program": "${workspaceFolder}/main.exe",
             "stdio": ["main_test.in", null, null],
             ...
         }
