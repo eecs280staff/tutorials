@@ -47,6 +47,22 @@ Open VS Code. You can find it in your applications (look for "Visual Studio Code
 $ code
 ```
 
+### Disable AI Features
+VS Code includes some AI-assisted coding tools (e.g. Copilot) by default. Disable these for your work in EECS 280 - using these tools for course projects is against the EECS 280 [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), and using AI as you're learning to write code prevents you from developing your own foundational programming skills.
+
+Open VS Code settings by going to `Code` > `Settings...` > `Settings`.
+
+<img src="images/vscode_macos_170.png" width="768px" />
+
+Search for "Disable AI Features" and enable the option.
+
+<img src="images/vscode_macos_180.png" width="768px" />
+
+You may get a warning about disabling other extensions. If so, you can click "Disable All".
+
+<img src="images/vscode_macos_190.png" width="768px" />
+
+
 ### Microsoft C++ Extension
 Install the Microsoft [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).  On macOS, this extension provides Intellisense.  See the [C/C++ extension alternatives](#cc-extension-alternatives) section for details about our macOS extension recommendations.
 
@@ -283,32 +299,29 @@ The examples below assume a source file `main.cpp` compiled to `main.exe` ([Samp
 
 Running and debugging code through VS Code requires a `launch.json` configuration file.
 
-<div class="primer-spec-callout warning" markdown="1">
-**Pitfall:** Due to a bug in the CodeLLDB extension, you need to manually start the creation of a launch.json file in your workspace folder. You can use the following commands to do so. **Make sure your current directory is your workspace folder.**
-
-```console
-$ pwd
-/Users/awdeorio/eecs280/p1-stats
-$ mkdir -p .vscode
-$ touch .vscode/launch.json
-```
-</div>
-
 Navigate to the debugging pane and click "create a launch.json file". Or, if you have previous debugging configurations, click the gear icon to edit `launch.json`.
 
 | <img src="images/vscode_macos_030.png" width="360px" /> | <span style="font-size: 24pt;">OR</span> | <img src="images/vscode_macos_031.png" width="360px" /> |
 
-If you are not prompted to select a configuration, or your configuration list does not contain "CodeLLDB: Launch," click "Add configuration..." near the bottom right of the editor window. 
+If you are prompted to select a debugger, select "CodeLLDB". (Do NOT select "C++ (GDB/LLDB)".)
 
-<img src="images/vscode_macos_031c.png" width="768px" />
+<img src="images/vscode_macos_031b.png" width="768px" />
 
-Select "CodeLLDB: Launch". You may need to scroll down to find this option.
+<div class="primer-spec-callout warning" markdown="1">
+**Pitfall:** VS Code may not offer you debugging options for C++ if you haven't opened a `.cpp` file in your project editor. Open a `.cpp` file, then try again.
+</div>
 
-<img src="images/vscode_macos_032.png" width="768px" />
+You may be prompted with an autocomplete box. It may look like this, or it might have different options.
 
-Edit the `program` field in `launch.json`.  Save the updated file.  Your `program` name might be different.
+<img src="images/vscode_macos_033.png" width="768px" />
+
+Choosing an option from this box is unnecessary, so you should make it disappear by pressing the left or right arrow key on your keyboard.
+
+Edit the `program` and `cwd` fields in `launch.json`.  Ensure that all occurences of `workspaceRoot` are replaced with `workspaceFolder`.
 
 <img src="images/vscode_macos_034b.png" width="768px" />
+
+Save the updated file.  Your `program` name might be different.
 
 
 ### Launch Debugger
