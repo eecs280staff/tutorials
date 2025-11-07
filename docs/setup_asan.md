@@ -22,9 +22,10 @@ CXXFLAGS = --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=
 ```
 {: data-variant="no-line-numbers" }
 
-**macOS:**  Add compiler flags `-fsanitize=address` and `-fsanitize=undefined`.  For example:
+**macOS:**  Add compiler flags `-fsanitize=address`, `-fsanitize=undefined`, and  
+`-D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_DEBUG`.  For example:
 ```make
-CXXFLAGS = --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined
+CXXFLAGS = --std=c++17 -Wall -Werror -pedantic -g -fsanitize=address -fsanitize=undefined -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_DEBUG
 ```
 {: data-variant="no-line-numbers" }
 
