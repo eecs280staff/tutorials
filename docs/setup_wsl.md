@@ -253,7 +253,7 @@ Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.
 
 If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution:".
 
-### Nuclear Option
+### Delete and reinstall
 If you've tried everything and want to delete your WSL install entirely.
 
 <div class="primer-spec-callout danger" markdown="1">
