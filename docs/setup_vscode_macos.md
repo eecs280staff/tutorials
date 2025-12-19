@@ -607,6 +607,16 @@ Now, running the debugger will not display the assembly file. However, it will n
 
 <img src="images/vscode_macos_038.png" width="768px" />
 
+### Installed to Downloads
+VSCode may think the system is read only if it is installed in the Downloads folder.
+
+Check if VS Code is installed in the Downloads folder.  Remove it and try the [Install section](#install) again.
+```console
+$ ls ~/Downloads/ | grep "Visual Studio Code"
+Visual Studio Code.app
+$ rm -rf ~/Downloads/Visual\ Studio\ Code*.app  ~/Downloads/VSCode-*.zip
+```
+
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
