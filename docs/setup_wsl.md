@@ -260,7 +260,7 @@ If you've tried everything and want to delete your WSL install entirely.
 **WARNING:** This will delete all files inside WSL.
 </div>
 
-Start PowerShell an run it as administrator ([instructions](#install-wsl)).
+Start PowerShell and run it as administrator ([instructions](#install-wsl)).
 
 See what's installed.
 ```console
