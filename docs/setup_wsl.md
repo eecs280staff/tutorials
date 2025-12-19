@@ -221,6 +221,9 @@ If these do not work, right click on the terminal window header. If you see opti
 
 This section is for common problems and solutions.
 
+### `wsl --install` stuck
+Cancel, [enable virtualization](#enable-virtualization), and `wsl --install` again.
+
 ### Enable Virtualization
 
 WSL2 requires virtualization support. Follow the steps below to ensure it is enabled.
