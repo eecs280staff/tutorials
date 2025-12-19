@@ -253,6 +253,28 @@ Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.
 
 If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution:".
 
+### Nuclear Option
+If you've tried everything and want to delete your WSL install entirely.
+
+<div class="primer-spec-callout danger" markdown="1">
+**WARNING:** This will delete all files inside WSL.
+</div>
+
+Start PowerShell an run it as administrator ([instructions](#install-wsl)).
+
+See what's installed.
+```console
+C:\WINDOWS\system32> wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-24.04           Running         2
+```
+
+Delete.
+```console
+$ wsl --unregister ubuntu
+$ wsl --unregister Ubuntu-24.04  # Your version might be different
+```
+
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
