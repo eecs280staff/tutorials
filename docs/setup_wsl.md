@@ -269,10 +269,9 @@ C:\WINDOWS\system32> wsl -l -v
 * Ubuntu-24.04           Running         2
 ```
 
-Delete.
+Delete each installation.  Your version might be different and you might need to delete several.
 ```console
-$ wsl --unregister ubuntu
-$ wsl --unregister Ubuntu-24.04  # Your version might be different
+$ wsl --unregister Ubuntu-24.04
 ```
 
 ## Acknowledgments
