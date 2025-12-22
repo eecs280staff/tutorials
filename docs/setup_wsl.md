@@ -221,6 +221,9 @@ If these do not work, right click on the terminal window header. If you see opti
 
 This section is for common problems and solutions.
 
+### `wsl --install` stuck
+Cancel by closing PowerShell, [enable virtualization](#enable-virtualization), and try `wsl --install` again.
+
 ### Enable Virtualization
 
 WSL2 requires virtualization support. Follow the steps below to ensure it is enabled.
@@ -249,6 +252,27 @@ Microsoft maintains an extensive [troubleshooting page](https://learn.microsoft.
 ### Forgot Password
 
 If you forgot you WSL password, follow the steps [here](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#set-up-your-linux-username-and-password) to reset it. Scroll down to the part beginnning with "If you forgot the password for yoru Linux distribution:".
+
+### Delete and reinstall
+If you've tried everything and want to delete your WSL install entirely.
+
+<div class="primer-spec-callout danger" markdown="1">
+**WARNING:** This will delete all files inside WSL.
+</div>
+
+Start PowerShell and run it as administrator ([instructions](#install-wsl)).
+
+See what's installed.
+```console
+C:\WINDOWS\system32> wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu-24.04           Running         2
+```
+
+Delete each installation.  Your version might be different and you might need to delete several.
+```console
+$ wsl --unregister Ubuntu-24.04
+```
 
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.

@@ -607,6 +607,18 @@ Now, running the debugger will not display the assembly file. However, it will n
 
 <img src="images/vscode_macos_038.png" width="768px" />
 
+### Read-only volume
+VSCode may think the system is read only and **fail to update** if it is installed in the Downloads folder.  For example:
+
+> Cannot update while running on a read-only volume. The application is on a read-only volume. Please move the application and try again. If you're on macOS Sierra or later, you'll need to move the application out of the Downloads directory. This might mean the application was put on quarantine by macOS. See this link for more information.
+
+Check if VS Code is installed in the Downloads folder.  Remove it and try the [Install section](#install) again.
+```console
+$ ls ~/Downloads/ | grep "Visual Studio Code"
+Visual Studio Code.app
+$ rm -rf ~/Downloads/Visual\ Studio\ Code*.app  ~/Downloads/VSCode-*.zip
+```
+
 ## Acknowledgments
 Original document written by Andrew DeOrio awdeorio@umich.edu.
 
