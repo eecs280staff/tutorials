@@ -16,13 +16,15 @@ This tutorial is specific to macOS.  Looking for the [Windows version](setup_vsc
 If you already have VS Code installed with the C/C++ extensions, skip to the [Create a project](#create-a-project) section.
 </div>
 
-## [Experimental] Install VSCode Profile
+## [Experimental] Install VSCode Extension
 
-Importing the EECS 280 VS Code Profile:
+Importing the EECS 280 VS Code Extension:
 
 1. Download and install VS Code if you haven't already.
-2. Paste this URL: `https://vscode.dev/profile/github/370c961f7a6bc3905371824b7145a761`
-3. Click "Create Profile in Visual Studio Code" and confirm.
+2. Install the extension
+
+    [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/kyukibug.eecs280-setup)
+
 4. Press `Cmd+Shift+P` and type "Tasks: Run Task"
 5. Select "EECS 280: Verify Setup"
 6. Follow any prompts in the terminal.
