@@ -25,8 +25,8 @@ Importing the EECS 280 VS Code Extension:
 
     [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/kyukibug.eecs280-setup)
 
-4. Press `Cmd+Shift+P` and type "Tasks: Run Task"
-5. Select "EECS 280: Verify Setup"
+4. Press `Cmd+Shift+P` to open the command palette
+5. Type and select "EECS 280: Verify Setup"
 6. Follow any prompts in the terminal.
 
 If the script finds issues, it will explain each one and offer to fix it.
