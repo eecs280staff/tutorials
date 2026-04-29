@@ -16,22 +16,6 @@ This tutorial is specific to macOS.  Looking for the [Windows version](setup_vsc
 If you already have VS Code installed with the C/C++ extensions, skip to the [Create a project](#create-a-project) section.
 </div>
 
-## [Experimental] Install VSCode Extension
-
-Importing the EECS 280 VS Code Extension:
-
-1. Download and install VS Code if you haven't already.
-2. Install the extension
-
-    [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/kyukibug.eecs280-setup)
-
-4. Press `Cmd+Shift+P` to open the command palette
-5. Type and select "EECS 280: Verify Setup"
-6. Follow any prompts in the terminal.
-
-If the script finds issues, it will explain each one and offer to fix it.
-After fixes are applied, close your terminal and re-run the task to confirm everything passes.
-
 ## Prerequisites
 1. VS Code relies on external command line tools.  To install CLI tools, follow the [macOS command line tools tutorial](setup_macos.html).
 
@@ -62,6 +46,14 @@ Open VS Code. You can find it in your applications (look for "Visual Studio Code
 ```console
 $ code
 ```
+
+### One-Click Setup (experimental)
+
+Click to install the EECS 280 extension: [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/eecs280.setup280)
+
+Verification runs automatically and prompts you to fix any issues it finds.  The extension installs the C/C++ and CodeLLDB extensions and disables AI features for you, so if everything passes you can skip to [Create a project](#create-a-project).
+
+If you'd rather learn how VS Code works, follow the manual instructions below, which produce the same result.
 
 ### Disable AI Features
 VS Code includes some AI-assisted coding tools (e.g. Copilot) by default. Disable these for your work in EECS 280 - using these tools for course projects is against the EECS 280 [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), and using AI as you're learning to write code prevents you from developing your own foundational programming skills.

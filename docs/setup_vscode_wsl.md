@@ -17,22 +17,6 @@ This tutorial is specific to Windows.  Looking for the [macOS version](setup_vsc
 If you already have VS Code installed with the C/C++ extensions, skip to the [Create a project](#create-a-project) section.
 </div>
 
-## [Experimental] Install VSCode Extension
-
-Importing the EECS 280 VS Code Extension:
-
-1. Download and install VS Code if you haven't already.
-2. Ensure you open VSCode in WSL (this step needs to have an image I think)
-2. Install the extension
-
-    [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/kyukibug.eecs280-setup)
-
-4. Press `Ctrl+Shift+P` to open the command palette 
-5. Type and select "EECS 280: Verify Setup"
-6. Follow any prompts in the terminal.
-
-If the script finds issues, it will explain each one and offer to fix it.
-After fixes are applied, close your terminal and re-run the task to confirm everything passes.
 ## Prerequisites
 
 1. Complete the [WSL tutorial](setup_wsl.html) to ensure your Windows and WSL installations are up-to-date and you have CLI tools installed.
@@ -58,6 +42,14 @@ Select each of the options below during installation.
 Open VS Code. You can skip the welcome screen.
 
 <img src="images/vscode_wsl_007.png" width="768px" />
+
+### One-Click Setup (experimental)
+
+Click to install the EECS 280 extension: [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/eecs280.setup280)
+
+Verification runs automatically and prompts you to fix any issues it finds.  The extension installs the WSL and C/C++ extensions, connects VS Code to WSL, and disables AI features for you, so if everything passes you can skip to [Create a project](#create-a-project).
+
+If you'd rather learn how VS Code works, follow the manual instructions below, which produce the same result.
 
 ### Disable AI Features
 VS Code includes some AI-assisted coding tools (e.g. Copilot) by default. Disable these for your work in EECS 280 - using these tools for course projects is against the EECS 280 [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), and using AI as you're learning to write code prevents you from developing your own foundational programming skills.
