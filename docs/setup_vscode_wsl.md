@@ -47,9 +47,21 @@ Open VS Code. You can skip the welcome screen.
 
 Click to install the EECS 280 extension: [![Install Extension](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC)](vscode:extension/eecs280.setup280)
 
-Verification runs automatically and prompts you to fix any issues it finds.  The extension installs the WSL and C/C++ extensions, connects VS Code to WSL, and disables AI features for you, so if everything passes you can skip to [Create a project](#create-a-project).
+The extension installs the WSL and C/C++ extensions, connects VS Code to WSL, and disables AI features, and runs a few checks. 
+
+You may need to reopen in WSL and reload the setup280 extension.
+
+<img src="images/vscode_wsl_163.png" width="768px" />
+
+<img src="images/vscode_wsl_164.png" width="300" />
+
+You should see this at the end:
+
+<img src="images/vscode_wsl_165.png" width="768px" />
 
 If you'd rather learn how VS Code works, follow the manual instructions below, which produce the same result.
+
+If everything passes you can skip to [Create a project](#create-a-project).
 
 ### Disable AI Features
 VS Code includes some AI-assisted coding tools (e.g. Copilot) by default. Disable these for your work in EECS 280 - using these tools for course projects is against the EECS 280 [Generative AI Policy](https://eecs280.org/syllabus.html#generative-ai-policy), and using AI as you're learning to write code prevents you from developing your own foundational programming skills.
