@@ -57,7 +57,7 @@ You may need to reopen in WSL and reload the setup280 extension.
 
 You should see this at the end:
 
-<img src="images/vscode_macos_165.png" width="768px" />
+<img src="images/vscode_wsl_165.png" width="768px" />
 
 If you'd rather learn how VS Code works, follow the manual instructions below, which produce the same result.
 
