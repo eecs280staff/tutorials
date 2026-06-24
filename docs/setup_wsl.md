@@ -229,7 +229,7 @@ Cancel by closing PowerShell, [enable virtualization](#enable-virtualization), a
 WSL2 requires virtualization support. Follow the steps below to ensure it is enabled.
 
 **Step 1**  
-Launch the task manager by pressing <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>esc</kbd>. Click on the "Performance" tab.
+Launch the task manager by pressing <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>esc</kbd>. Click on the "Performance" tab, then ensure the "CPU" panel is displayed.
 
 <img src="images/wsl110.png" width=768px>
 
